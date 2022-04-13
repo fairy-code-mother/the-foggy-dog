@@ -216,9 +216,9 @@
             "type": "megamenu",
             "settings": {
               "label": "Gifts",
-              "caption": "Shop Gift Cards",
-              "image": "shopify:\/\/shop_images\/gift_card_flyout-10-01.jpg",
-              "link": "shopify:\/\/products\/foggy-dog-giftcard"
+              "caption": "Shop Mother's Day",
+              "image": "shopify:\/\/shop_images\/Flyout_2022_04_04_TFDSpring-6.jpg",
+              "link": "https:\/\/www.thefoggydog.com\/pages\/mother-s-day-gift-guide-2022"
             }
           }
         },
@@ -236,7 +236,6 @@
           "announcement": "",
           "logo": "shopify:\/\/shop_images\/TheFoggyDog_Logo_Primary_cropped_for_Shopify_homepage.jpg",
           "logo_max_width": 130,
-          "logo_max_height": 72,
           "main_linklist": "new-main-menu"
         }
       },
@@ -260,12 +259,12 @@
           "1562732781563": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Spring_2_HP_Mockup-01_eba44b0b-1b86-4cee-8406-e8da9e5b31f7.jpg",
-              "image-mobile": "shopify:\/\/shop_images\/Spring_2_HP_Mockup-02_a8c96c0b-036a-4b49-bd5d-53010dcffabe.jpg",
+              "image": "shopify:\/\/shop_images\/BANNERS_-05.jpg",
+              "image-mobile": "shopify:\/\/shop_images\/BANNERS_-06.jpg",
               "title": "",
               "hero_button": "",
               "hero_button_color": "",
-              "hero_link": "shopify:\/\/collections\/spring-2022-collection"
+              "hero_link": "https:\/\/www.thefoggydog.com\/pages\/mother-s-day-gift-guide-2022"
             }
           }
         },
@@ -290,39 +289,35 @@
           "1562734457795": {
             "type": "collection",
             "settings": {
-              "url": "shopify:\/\/collections\/plaid",
-              "collection_image": "shopify:\/\/shop_images\/PLAID_FD-Easter_S8-Group-PreppyPlaidSorbet_1503.jpg",
-              "collection_image_height": "335",
-              "collection_heading": "Preppy in Plaid",
-              "collection_tagline": "Shop the Collection"
+              "url": "shopify:\/\/collections\/new-arrivals",
+              "collection_image": "shopify:\/\/shop_images\/Spring_COL.jpg",
+              "collection_heading": "Fresh Picks",
+              "collection_tagline": "Shop New Arrivals"
             }
           },
           "1562734395888": {
             "type": "collection",
             "settings": {
-              "url": "shopify:\/\/pages\/bow-landing-page",
-              "collection_image": "shopify:\/\/shop_images\/BOW_V7A4004_FoggyDog-Spring-Daisies-HiRes_b87af2eb-129d-4df7-bdba-43c1615018e0.jpg",
-              "collection_image_height": "500",
-              "collection_heading": "Bows in Bloom",
-              "collection_tagline": "Shop Bows"
+              "url": "shopify:\/\/collections\/dog-collars",
+              "collection_image": "shopify:\/\/shop_images\/COLS_COL.jpg",
+              "collection_heading": "Best In Show",
+              "collection_tagline": "Shop Collars"
             }
           },
           "1562734442508": {
             "type": "collection",
             "settings": {
-              "url": "shopify:\/\/collections\/new-arrivals",
-              "collection_image": "shopify:\/\/shop_images\/COL1_BANS_fb5b6d36-4699-4040-8a95-0b5a112ddb13.jpg",
-              "collection_image_height": "335",
-              "collection_heading": "Fresh Picks",
-              "collection_tagline": "Shop New Arrivals"
+              "url": "shopify:\/\/collections\/walk-sets",
+              "collection_image": "shopify:\/\/shop_images\/Walk_Set_HP_copy.jpg",
+              "collection_heading": "New! Spring Walk Sets",
+              "collection_tagline": "Shop the Collection"
             }
           },
           "a56c5d90-4a70-4521-b781-735259699069": {
             "type": "collection",
             "settings": {
               "url": "shopify:\/\/collections\/dog-beds",
-              "collection_image": "shopify:\/\/shop_images\/BED_-_chrissymarieblog_3ab460df-ffcc-433c-9308-8ac9d91bf97d.jpg",
-              "collection_image_height": "335",
+              "collection_image": "shopify:\/\/shop_images\/BED_-_chrissymarieblog.jpg",
               "collection_heading": "Sweet Dreams",
               "collection_tagline": "Shop Beds"
             }
@@ -330,11 +325,10 @@
           "8897c80b-b818-46e6-9bc4-9e5af342dbcd": {
             "type": "collection",
             "settings": {
-              "url": "shopify:\/\/collections\/leash-waste-bag-combo",
-              "collection_image": "shopify:\/\/shop_images\/BAGS_789c365f-c8dd-4b80-956f-3f6bbd26d7a4.jpg",
-              "collection_image_height": "335",
-              "collection_heading": "Walk It Out",
-              "collection_tagline": "Shop Leashes & Bags"
+              "url": "shopify:\/\/collections\/dog-toys",
+              "collection_image": "shopify:\/\/shop_images\/Toys_COL.jpg",
+              "collection_heading": "Play Time",
+              "collection_tagline": "Shop Toys"
             }
           }
         },
@@ -539,12 +533,20 @@
               "testimonial_text": "<p>Lady Bird’s leash is made with unparalleled craftsmanship and durability. I love that their products are made right here in the USA.<\/p>",
               "title": "@lady_bird_the_berner"
             }
+          },
+          "3b2e0d07-647d-4fe9-9ea2-54cb106bc897": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial_text": "",
+              "title": ""
+            }
           }
         },
         "block_order": [
           "1563143971007",
           "1563146002783",
-          "1565816612678"
+          "1565816612678",
+          "3b2e0d07-647d-4fe9-9ea2-54cb106bc897"
         ],
         "settings": {
           "testimonials_heading": ""
@@ -2361,13 +2363,6 @@
               "question": "How do I become a Brand Ambassador?",
               "answer": "<p>Thank you for your interest in representing The Foggy Dog! Please visit our <a href=\"\/pages\/brand-ambassador-application\" title=\"Brand Ambassador Application\">Brand Ambassador<\/a> page to learn more about the program and apply.<\/p>"
             }
-          },
-          "01992719-cc6a-47eb-a275-0d047e8f1317": {
-            "type": "faq",
-            "settings": {
-              "question": "Can I opt into or out of your print catalogs?",
-              "answer": "<p>If you would like to sign up for our next catalog, please <a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdBn2Mnowgf3xklmcnNBtYfUJWNtvW8F7dZUnM3EyVPUsOcpA\/viewform\" target=\"_blank\" title=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdBn2Mnowgf3xklmcnNBtYfUJWNtvW8F7dZUnM3EyVPUsOcpA\/viewform\"><strong>fill out this form <\/strong><\/a>and we'll add you!<\/p><p><\/p><p>If you would like to <strong>stop<\/strong> receiving our catalogs, please <a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdAMs4aj0yUpAtsUbMo9d866XLXwhyRMcbvDdkwOfFL3UtzTA\/viewform\" target=\"_blank\" title=\"The Foggy Dog Catalog Opt-Out Form\"><strong>CLICK HERE<\/strong><\/a> to enter your address and we'll make sure you're taken off the list for future catalogs. Due to the lead time for our catalogs you may receive one additional catalog before the opt-out will take effect.<\/p>"
-            }
           }
         },
         "block_order": [
@@ -2382,8 +2377,7 @@
           "1572825368874",
           "1572825845357",
           "1564759595061",
-          "1565900683336",
-          "01992719-cc6a-47eb-a275-0d047e8f1317"
+          "1565900683336"
         ],
         "settings": {
           "show_featured": true,

@@ -54,6 +54,7 @@
                      alt="{{ product.featured_image.alt | escape }}"
                      {% if thumb_size contains 'x' %}
                      width="{{ thumb_size | split: 'x' | first }}"
+                     height="{{ thumb_size | split: 'x' | last }}"
                      {% endif %}
                      class="lazyload {% unless product.available %}sold-out{% endunless %}">
 			</div>
@@ -88,6 +89,7 @@
 	    	  	{{ product.title }}
 	    	  {% endif %}
 		 	</div>
+          
 		 	{% if title_split.size > 1 %}
 		 	<div class="product-color">
 		 		{{ title_split.first }}
