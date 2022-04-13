@@ -2361,13 +2361,6 @@
               "question": "How do I become a Brand Ambassador?",
               "answer": "<p>Thank you for your interest in representing The Foggy Dog! Please visit our <a href=\"\/pages\/brand-ambassador-application\" title=\"Brand Ambassador Application\">Brand Ambassador<\/a> page to learn more about the program and apply.<\/p>"
             }
-          },
-          "01992719-cc6a-47eb-a275-0d047e8f1317": {
-            "type": "faq",
-            "settings": {
-              "question": "Can I opt into or out of your print catalogs?",
-              "answer": "<p>If you would like to sign up for our next catalog, please <a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdBn2Mnowgf3xklmcnNBtYfUJWNtvW8F7dZUnM3EyVPUsOcpA\/viewform\" target=\"_blank\" title=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdBn2Mnowgf3xklmcnNBtYfUJWNtvW8F7dZUnM3EyVPUsOcpA\/viewform\"><strong>fill out this form <\/strong><\/a>and we'll add you!<\/p><p><\/p><p>If you would like to <strong>stop<\/strong> receiving our catalogs, please <a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdAMs4aj0yUpAtsUbMo9d866XLXwhyRMcbvDdkwOfFL3UtzTA\/viewform\" target=\"_blank\" title=\"The Foggy Dog Catalog Opt-Out Form\"><strong>CLICK HERE<\/strong><\/a> to enter your address and we'll make sure you're taken off the list for future catalogs. Due to the lead time for our catalogs you may receive one additional catalog before the opt-out will take effect.<\/p>"
-            }
           }
         },
         "block_order": [
@@ -2382,8 +2375,7 @@
           "1572825368874",
           "1572825845357",
           "1564759595061",
-          "1565900683336",
-          "01992719-cc6a-47eb-a275-0d047e8f1317"
+          "1565900683336"
         ],
         "settings": {
           "show_featured": true,

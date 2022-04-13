@@ -152,7 +152,13 @@
 
                 {% form 'product', product, class: form_classes, data-product-form: '', data-cart-submit: '' %}
                 <div class="price-container">
-                      {% include 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false %}
+                      <!-- {% include 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false %}-->
+						
+                  	<!-- Yotpo star rating -->
+					<div class="yotpo bottomLine"
+                   	 data-product-id="{{ product.id }}">
+                    </div> <br/>
+
                     <div class="initial-price">
                       {% if WCProductComparePrice > 0 %}
                       <s data-compare-price>{{ WCProductComparePrice | money }}</s>
@@ -622,6 +628,7 @@
               $('.btn.add-to-cart').attr('id', 'add')
               $('.estimated-date-attr').val('')
               $('.estimated-date').hide();
+          	  $('.preorder__prop').empty();
             }else{
               // pre order button - if the quantity is less than or equal to 0
               
@@ -695,6 +702,7 @@
               $('.btn.add-to-cart').attr('id', 'add-sold-out')
               $('.estimated-date-attr').val('')
               $('.estimated-date').hide();
+          	  $('.preorder__prop').empty();
             }
             
           }
@@ -819,6 +827,8 @@
     });
   }); 
 {% endjavascript %}
+
+
 <div class="yotpo yotpo-pictures-widget" data-gallery-id="615cbabe238de41a554ed376" data-product-id="{{ product.id }}"></div>
 <style>
   .yotpo-pictures-gallery-header-wrapper .yotpo-pictures-gallery-title-wrapper 
