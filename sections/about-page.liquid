@@ -1,0 +1,197 @@
+
+<div class="about-page">
+
+  <div class="page-width">
+
+    <div class="about-heading">
+
+      <div class="about-heading-image">
+        <img src="{{ section.settings.image | img_url: '625x' }}" srcset="{{ section.settings.image | img_url: '625x' }} 1x, {{ section.settings.image | img_url: '625x', scale: 2 }} 2x" alt="{{ section.settings.image.alt }}">
+      </div>
+
+      <div class="about-heading-text">
+
+        <h1>
+          {{ section.settings.about_heading }}
+        </h1>
+
+        {% if section.settings.about_large_text != blank %}
+        <div class="about-intro-text">
+          {{ section.settings.about_large_text }}
+        </div>
+        {% endif %}
+
+        {% if section.settings.about_intro_small_text != blank %}
+        <div class="about-intro-small-text">
+          {{ section.settings.about_intro_small_text }}
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+  <div class="about-intro">
+
+    <div class="page-width">
+
+      <div class="grid">
+
+        <div class="grid__item medium-up--two-thirds">
+          {% if section.settings.about_body_text_large != blank %}
+          <div class="about-body-text about-body-text-large">
+            {{ section.settings.about_body_text_large }}
+          </div>
+          {% endif %}
+
+          {% if section.settings.about_body_text != blank %}
+          <div class="about-body-text">
+            {{ section.settings.about_body_text }}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="grid__item medium-up--one-third">
+          {% if section.settings.about_image != blank %}
+          <div class="about-photo">
+            <img src="{{ section.settings.about_image | img_url: '375x' }}" srcset="{{ section.settings.about_image | img_url: '375x' }} 1x, {{ section.settings.about_image | img_url: '375x', scale: 2 }} 2x" alt="{{ section.settings.about_image.alt }}">
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="about-middle" 
+      {% if section.settings.about_middle_image != blank %}
+      style="background-image: url({{ section.settings.about_middle_image | img_url: '2048x2048' }});
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center left;
+      {% endif %}">
+      <div class="about-middle-content">
+        {% if section.settings.about_middle_heading != blank %}
+        <h2 class="h1">{{ section.settings.about_middle_heading }}</h2>
+        {% endif %}
+        {% if section.settings.about_middle_text != blank %}
+        <div class="about-middle-text">
+          {{ section.settings.about_middle_text }}
+        </div>
+        {% endif %}
+        {% if section.settings.btn_text != blank and section.settings.btn_link != blank %}
+        <div class="about-button">
+          <a href="{{ section.settings.btn_link }}" class="btn">{{ section.settings.btn_text }}</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="about-featured">
+
+    <div class="page-width">
+
+      {%- assign collection = collections[section.settings.about_collection] -%}
+      <div class="flex-grid">
+
+        <div class="grid__item large-up--one-quarter">
+          {% if section.settings.about_featured != blank %}
+            <h2>{{ section.settings.about_featured }}</h2>
+          {% endif %}
+        </div>
+
+        {% for product in collection.products limit: 3 %}
+          {% assign grid_item_width = 'medium-up--one-quarter small--one-third' %}
+          {% include 'product-grid-item' %}
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "About Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "About Page"
+      },
+      {
+        "type": "text",
+        "id": "about_heading",
+        "label": "About Heading",
+        "default": "About Us"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Header Image"
+      },
+      {
+        "type": "richtext",
+        "id": "about_large_text",
+        "label": "About Intro Large Text"
+      },
+      {
+        "type": "richtext",
+        "id": "about_intro_small_text",
+        "label": "About Intro Small Text"
+      },
+      {
+        "type": "richtext",
+        "id": "about_body_text_large",
+        "label": "About Body Text Large"
+      },
+      {
+        "type": "richtext",
+        "id": "about_body_text",
+        "label": "About Body Text Regular"
+      },
+      {
+        "type": "image_picker",
+        "id": "about_image",
+        "label": "About Image"
+      },
+      {
+        "type": "text",
+        "id": "about_middle_heading",
+        "label": "About Middle Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "about_middle_text",
+        "label": "About Middle Text"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "about_middle_image",
+        "label": "About Middle Background Image"
+      },
+      {
+        "type": "richtext",
+        "id": "about_featured",
+        "label": "Featured Products Text"
+      },
+      {
+        "type": "collection",
+        "id": "about_collection",
+        "label": "Collection"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,216 @@
+<footer>
+  <div class="site-footer">
+
+    <div class="page-width">
+
+      <div class="footer-columns">
+        <div class="footer-menus">
+          {%- assign footer_linklist_1 = section.settings.footer_linklist_1 -%}
+          {% if linklists[footer_linklist_1].links.size > 0 %}
+            <div class="footer-menu footer-menu-1">
+              <h4>{{ section.settings.footer_linklist_1_heading }}</h4>
+              <ul>
+                {% for link in linklists[footer_linklist_1].links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {%- assign footer_linklist_2 = section.settings.footer_linklist_2 -%}
+          {% if linklists[footer_linklist_2].links.size > 0 %}
+            <div class="footer-menu footer-menu-2">
+              <h4>{{ section.settings.footer_linklist_2_heading }}</h4>
+              <ul>
+                {% for link in linklists[footer_linklist_2].links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="footer-made-america">
+          <div class="map-illo">
+            <img data-src="{{ 'foggydog-global-footer-map-illo.svg' | asset_url }}" class="lazyload" height="40" width="62">
+          </div>
+          <div class="made-in-america">
+            {{ section.settings.footer_made_in_america }}
+          </div>
+          {%- assign footer_linklist_3 = section.settings.footer_linklist_3 -%}
+          {% if linklists[footer_linklist_3].links.size > 0 %}
+            <ul>
+              {% for link in linklists[footer_linklist_3].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+
+        <div class="footer-newsletter-container">
+
+          <div class="footer-newsletter">
+
+            {% if section.settings.newsletter_heading != blank %}
+            <div class="newsletter-heading h4">
+              {{ section.settings.newsletter_heading }}
+            </div>
+            {% endif %}
+
+            {% if section.settings.newsletter_text != blank %}
+            <div class="newsletter-text">
+              {{ section.settings.newsletter_text }}
+            </div>
+            {% endif %}
+
+            {% if settings.newsletter_form_action != blank %}
+              {{ settings.newsletter_form_action }}
+                <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Email address" name="EMAIL" class="input-group-field newsletter-email" aria-label="Email Address" autocorrect="off" autocapitalize="off">
+                <span class="input-group-btn">
+                  <input type="submit" class="btn" name="subscribe" id="subscribe" value="Sign Up">
+                </span>
+              </form>
+            {% elsif settings.newsletter_list_id != blank %}
+              <form id="email_signup" action="//manage.kmail-lists.com/subscriptions/subscribe" method="POST">
+                <div class="klaviyo_field_group">
+                  <input type="hidden" name="g" value="{{ settings.newsletter_list_id }}">
+                  <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Email address" name="email" id="k_id_email" class="input-group-field newsletter-email" aria-label="Email Address" autocorrect="off" autocapitalize="off">
+                  <span class="input-group-btn">
+                    <input type="submit" class="btn" name="subscribe" id="subscribe" value="Sign Up">
+                  </span>
+                </div>
+
+                <div class="klaviyo_messages">
+                  <div class="success_message" style="display:none;">
+                    <div class="thank_you">Thank you for joining!</div>
+                  </div>
+                  <div class="error_message" style="display:none;"></div>
+                </div>
+              </form>
+              <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+              <script type="text/javascript">
+                KlaviyoSubscribe.attachToForms('#email_signup', {
+                  hide_form_on_success: true,
+                  custom_success_message: true,
+                  extra_properties: {
+                    $source: '$embed',
+                    $method_type: "Klaviyo Form",
+                    $method_id: 'embed'
+                  }
+                });
+              </script>
+            {% else %}
+              {% form 'customer', class: "input-group mc-embedded-subscribe-form" %}
+                {{ form.errors | default_errors }}
+                {% if form.posted_successfully? %}
+                  <p class="note form-success">Thank you for subscribing.</p>
+                {% else %}
+                  <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Email address" name="contact[email]" class="newsletter-email" aria-label="Email Address" autocorrect="off" autocapitalize="off">
+                  <span class="input-group-btn">
+                    <input type="submit" class="btn" name="subscribe" id="subscribe" value="Sign Up">
+                  </span>
+                {% endif %}
+              {% endform %}
+            {% endif %}
+          </div>
+
+          {%- assign social_accounts = 'Instagram, Facebook, Twitter, YouTube, Pinterest, Snapchat, Tumblr, Vimeo,' | split: ', ' -%}
+          <ul class="footer-social">
+            {% for social in social_accounts %}
+              {%- assign social_handle = social | handleize -%}
+              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+              {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+              {% if settings[social_link] != blank %}
+                <li>
+                  <a onclick="ga('send', 'social', '{{ social }}', 'Visit', '{{ settings[social_link] }}');" target="_blank" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                    {% include social_icon %}
+                    <span class="icon-fallback-text">{{ social }}</span>
+                  </a>
+                </li>
+              {% endif %}
+
+            {% endfor %}
+          </ul>
+
+          <div class="footer-dog">
+            <img data-src="{{ 'foggydog-global-footer-dog-illo@2x.png' | asset_url }}" class="lazyload" height="80" width="80">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="page-width">
+        <div class="copyright-text">
+   <div class="copyright-shop">
+       &copy;{{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }} <span class="sep">|</span> <a href="/policies/privacy-policy">Privacy</a> <span class="sep">|</span> <a href="/policies/terms-of-service">Terms</a> <span class="sep">|</span> <span class="accessibility-link" data-acsb-custom-trigger="true">
+       <img width="15" height="15" class="lazyload" data-src="{{ 'disability.png' | asset_img_url: '30x' }}" style="width: 15px; margin-right: 5px;" />Accessibility</span>
+     
+     <style>
+     .accessibility-link:hover {
+       cursor: pointer;
+     }
+     </style>
+   </div>
+ 
+</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "insta_heading",
+        "label": "Instagram Heading"
+      },
+      {
+        "type": "text",
+        "id": "footer_linklist_1_heading",
+        "label": "Footer menu 1 Heading"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_1",
+        "label": "Footer menu 1",
+        "default": "main-menu"
+      },
+      {
+        "type": "text",
+        "id": "footer_linklist_2_heading",
+        "label": "Footer menu 2 Heading"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_2",
+        "label": "Footer menu 2"
+      },
+      {
+        "type": "richtext",
+        "id": "footer_made_in_america",
+        "label": "Made In America text"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_3",
+        "label": "Footer collections"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_heading",
+        "label": "Newsletter Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "newsletter_text",
+        "label": "Newsletter Text"
+      }
+    ]
+  }
+
+{% endschema %}

@@ -1,0 +1,36 @@
+{% paginate blog.articles by 12 %}
+
+  {%- assign blog_title = blog.title -%}
+
+  {% if current_tags %}
+    {% capture blog_title %}{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}{% endcapture %}
+  {% endif %}
+
+  <div class="blog-header">
+   <h1 class="page-title">{{ blog_title }}</h1>
+  </div>
+
+  <div class="grid--uniform grid-50">
+    {% for article in blog.articles %}
+    <div class="grid-article grid__item large-up--one-third medium-down--one-half">
+      <a href="{{ article.url }}">
+        {% if article.image %}
+        <div class="article-image">
+          <img src="{{ article | img_url: '360x360', crop: 'center' }}" srcset="{{ article | img_url: '360x360', crop: 'center' }} 1x, {{ article | img_url: '360x360', scale: 2, crop: 'center' }} 2x" alt="{{ article.title }}">
+        </div>
+        {% endif %}
+
+        {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+        <p class="article-title">
+          {{ article.title }}
+        </p>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}

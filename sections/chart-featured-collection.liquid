@@ -1,0 +1,45 @@
+
+<div class="featured-collection-section">
+  <div class="page-width">
+
+    {% if section.settings.title != blank %}
+      <h2>{{ section.settings.title | escape }}</h2>
+    {% endif %}
+
+    {%- assign collection = collections[section.settings.collection] -%}
+    <div class="grid--uniform">
+
+      {% for product in collection.products limit: 4 %}
+        {% include 'product-grid-item' %}
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Featured collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "id": "description",
+        "type": "richtext",
+        "label": "Description"
+      }
+    ]
+  }
+
+{% endschema %}

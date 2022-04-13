@@ -1,0 +1,57 @@
+<style>
+    #ie-banner {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.3);
+        z-index: 1000;
+        /* other styling */
+    }
+    
+    #ie-banner div {
+      width: 400px;
+        text-align: center;
+        background: white;
+        padding: 20px;
+        margin: 35vh auto;
+    }
+    
+    #close-ie-modal {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    
+  </style>
+  
+  <div id="ie-banner">
+    <div>
+      <h2>Doggon it! Internet Explorer is not supported</h2>
+      <p>For the best browsing experience, we recommend using a different web browser (like Google Chrome, Safari or Firefox). Some functionality might not be available on Internet Explorer.</p>
+      <p id="close-ie-modal">Close</p>
+    </div>
+  </div>
+
+  <script>
+      function isOldIE(userAgent) {
+        var msie = userAgent.indexOf('MSIE');
+        var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+        
+        if (msie > 0 || isIE11 == true ) {
+          // IE 11 or older, 
+          return true;
+        }
+        // other browser, or Edge
+        return false;
+      }
+      if (isOldIE(navigator.userAgent) && sessionStorage['ienotice'] != "shown") {
+        
+        $('#ie-banner').fadeIn(300);
+        sessionStorage['ienotice'] = "shown";
+        
+      }
+    
+    $('#close-ie-modal').click( function() {
+      $('#ie-banner').fadeOut(300);
+    });
+  </script>

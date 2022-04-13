@@ -1,0 +1,71 @@
+<div class="about-page">
+
+  <div class="page-width">
+
+    <div class="about-image-text">
+
+      {% for block in section.blocks %}
+      <div class="flex-grid {% cycle 'grid', 'grid--rev' %}">
+        <div class="grid__item large-up--one-half">
+          <div class="alternating-image">
+            <img src="{{ block.settings.image | img_url: '500x' }}" srcset="{{ block.settings.image | img_url: '500x' }} 1x, {{ block.settings.image | img_url: '500x', scale: 2 }} 2x" alt="{{ block.settings.image.alt | default: block.settings.title }}">
+            {% if block.settings.title contains 'America' %}
+            <div class="handmade-in-usa">
+              {{'foggydog-about-handmade-illustration-badge.svg' | asset_url | img_tag }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="grid__item large-up--one-half">
+          <div class="alternating-text">
+            <h2>{{ block.settings.title }}</h2>
+            <div class="alternating-text-description">{{ block.settings.description }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "About Image + Text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "About Image + Text"
+      },
+      {
+        "type": "paragraph",
+        "content": "Enter content below"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image_text",
+        "name": "Image + Text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,184 @@
+{% if customer.tags contains 'net15' or customer.tags contains 'net30' or customer.tags contains 'net45' or customer.tags contains 'net60' %}
+  <div class="rte clearfix" style="text-align: center ;">
+  {% include 'saw_pick_address' %}
+  {% assign net_button_attributes = ' type="button" class="purchase-benefits button btn btn--red btn-primary button--primary btn-lg solid  action-button action_button submit  cart-checkout-button cart__checkout" data-qty-pattern="updates_{variant_id}" onclick="this.disabled=true;" ' %}
+
+  {% if customer.tags contains 'net15' %}
+    <p>
+      {% comment %} terms go here {% endcomment %}
+      Checkout using Net Terms
+    </p>
+    <input {{net_button_attributes}} data-redirect="/pages/net-orders-thank-you" value="Checkout with Net15"/>
+    <br>
+  {% endif %}
+
+  {% if customer.tags contains 'net30' %}
+    <p>
+      {% comment %} terms go here {% endcomment %}
+      
+    </p>
+    <input {{net_button_attributes}} data-redirect="/pages/net-orders-thank-you" value="SUBMIT A DRAFT ORDER"/>
+    <br>
+  {% endif %}
+
+
+  {% if customer.tags contains 'net45' %}
+    <p>
+      {% comment %} terms go here {% endcomment %}
+      Checkout using Net Terms
+    </p>
+    <input {{net_button_attributes}} data-redirect="/pages/net-orders-thank-you" value="Checkout with Net45"/>
+    <br>
+  {% endif %}
+
+
+  {% if customer.tags contains 'net60' %}
+    <p>
+      {% comment %} terms go here {% endcomment %}
+      Checkout using Net Terms
+    </p>
+    <input {{net_button_attributes}} data-redirect="/pages/net-orders-thank-you" value="Checkout with Net60"/>
+    <br>
+  {% endif %}
+  </div>
+
+  <script>
+    function SAWPurchaseTerms(saw_cart, customer, options) {
+      var cart_selectors = ["#cartform", "#cart_form", "#cart-form"];
+
+      for (var i = 0, len = saw_cart.items.length; i < len; i++) {
+        delete saw_cart.items[i].image;
+        delete saw_cart.items[i].url;
+      }
+
+      var saw_shop_domain = '{{shop.permanent_domain}}';
+      var note_attributes = [];
+
+      jQuery( '[name^="attributes"]' ).each(function() {
+        var $a = jQuery(this);
+        var name = jQuery(this).attr('name');
+        name = name.replace(/^attributes\[/i, ''). replace(/\]$/i, '');
+
+        var v = {
+          name : name,
+          value: $a.val()
+        };
+
+        if (v.value == '') {
+          return;
+        }
+
+        switch($a[0].tagName.toLowerCase()) {
+          case 'input':
+            if ($a.attr('type') == 'checkbox') {
+              if ($a.is(':checked')) {
+                note_attributes.push(v);
+              }
+            } else {
+              note_attributes.push(v);
+            }
+            break;
+          default:
+            note_attributes.push(v);
+        }
+      });
+
+      var note = '';
+
+      if (jQuery("[name='note']").length) {
+        note = jQuery("[name='note']")[0].value + '\n';
+      }
+
+      note += options.choice;
+
+      jQuery.ajax({
+        cache: false,
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        type: 'POST',
+        url: 'https://sawholesale.herokuapp.com/api/v1/cart-check-discounts?checkout=termscheckout',
+        data: JSON.stringify({
+          shop_slug: saw_shop_domain.replace('.myshopify.com', ''),
+          cart: saw_cart,
+          customer: customer,
+          note: note,
+          note_attributes: note_attributes
+        }),
+        success: function(res) {
+          if (res.status == 'OK') {
+            jQuery.ajax({
+              cache: false,
+              contentType: 'application/json; charset=utf-8',
+              dataType: 'json',
+              type: 'POST',
+              url: '/cart/clear.js',
+            });
+
+            setTimeout(function() {
+              window.location.href = options.redirect;
+            }, 500);
+
+          } else {
+            alert(res.status);
+          }
+        }
+      })
+    }
+
+    jQuery('.purchase-benefits').on('click', function(ev) {
+      if (typeof BuyXSubmit == 'function' && typeof jQuery(this).data('qty-pattern') == 'string') {
+        window.buyx_cart_global = {{ cart | json }};
+
+        if (BuyXSubmit(window.buyx_cart_global, jQuery(this).data('qty-pattern')) == false) {
+          return false;
+        }
+      }
+
+      var options = {
+        redirect: jQuery(this).data("redirect"),
+        choice: jQuery(this).val(),
+      };
+
+      var ai = parseInt(jQuery('#sam-shipping-address-no').val());
+      var sam_address = null;
+
+      if (!isNaN(ai) && window.sam_addresses.length > 0) {
+        sam_address = window.sam_addresses[ai];
+        delete sam_address.id
+        delete sam_address.default
+      }
+
+      if (!sam_address) {
+        alert('Please choose shipping address');
+        $('.purchase-benefits').attr('disabled', false)
+
+        return;
+      }
+
+      var sam_billing_address = null;
+
+      if (jQuery('#sam-billing-address-no').length == 1) {
+        var ai = parseInt(jQuery('#sam-billing-address-no').val());
+
+        if (!isNaN(ai) && window.sam_addresses.length > 0) {
+          sam_billing_address = window.sam_addresses[ai];
+          delete sam_billing_address.id
+          delete sam_billing_address.default
+        }
+      }
+
+      jQuery('.purchase-benefits').val('please wait...');
+      jQuery('.purchase-benefits').css('opacity', '0.5');
+      jQuery('.purchase-benefits').prop('disabled', true);
+
+      var customer = {
+        id: {{customer.id}},
+        email: '{{customer.email}}',
+        address: sam_address,
+        billing_address: sam_billing_address
+      };
+
+      SAWPurchaseTerms(window.saw_cart, customer, options);
+    });
+  </script>
+{% endif %}

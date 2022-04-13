@@ -1,0 +1,79 @@
+<div class="about-page">
+
+  <div class="page-width">
+
+    <div class="about-press">
+
+      <h5>{{ section.settings.press_title }}</h5>
+
+      <div class="about-press-container">
+
+        <div class="slider-prev">
+          {{ 'foggydog-homepage-arrow-left.png' | asset_url | img_tag }}
+        </div>
+
+        <div class="about-press-carousel">
+          {% for block in section.blocks %}
+          <div class="about-press-image">
+            <img src="{{ block.settings.image | img_url: '150x' }}" srcset="{{ block.settings.image | img_url: '150x' }} 1x, {{ block.settings.image | img_url: '150x', scale: 2 }} 2x" alt="{{ block.settings.image.alt | default: block.settings.title }}">
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="slider-next">
+          {{ 'foggydog-homepage-arrow-right.png' | asset_url | img_tag }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "About Press",
+    "settings": [
+      {
+        "type": "header",
+        "content": "About Press"
+      },
+      {
+        "type": "text",
+        "id": "press_title",
+        "label": "Press Title",
+        "default": "As Seen On"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_images",
+        "label": "Show images",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Enter content below"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "press",
+        "name": "Press",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Press title"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Press image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

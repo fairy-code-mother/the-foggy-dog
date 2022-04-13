@@ -1,0 +1,76 @@
+{% if section.settings.show_featured %}
+    <div id="faq" class="faqs">
+        <div class="wrap">
+            <h2>{{ section.settings.title }}</h2>
+            <div class="faq">
+                {% for block in section.blocks %}
+                    <div class="item">
+                        <button class="accordion"><span>{{ block.settings.question }}</span></button>
+                        <div>{{ block.settings.answer}}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% schema %}
+{
+    "name": "FAQ",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_featured",
+            "label": "Show Section",
+            "default": false
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        }
+    
+    ],
+    "blocks": [
+    {
+      "type": "faq",
+      "name": "Question / Answers",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+{% endjavascript %}

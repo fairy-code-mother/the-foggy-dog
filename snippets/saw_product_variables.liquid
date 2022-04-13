@@ -1,0 +1,16 @@
+{% include 'saw_compute_discount' with product %}
+{% if saw_has_discount == false or saw_product_price >= saw_product_compare_at_price %}
+  {% assign WCProductPrice = product.price %}
+  {% assign WCProductComparePrice = product.compare_at_price %}
+  {% assign WCProductPriceMin = product.price_min %}
+  {% assign WCProductComparePriceMax = product.compare_at_price_max %}
+  {% assign WCProductFeaturedPrice = featured.price %}
+  {% assign WCProductFeaturedComparePrice = featured.compare_at_price %}    
+{% else %}
+  {% assign WCProductPrice = saw_product_price %}
+  {% assign WCProductComparePrice = saw_product_compare_at_price %}
+  {% assign WCProductPriceMin = saw_product_price %}
+  {% assign WCProductComparePriceMax = saw_product_compare_at_price %}
+  {% assign WCProductFeaturedPrice = saw_product_price %}
+  {% assign WCProductFeaturedComparePrice = saw_product_compare_at_price %}      
+{% endif %}

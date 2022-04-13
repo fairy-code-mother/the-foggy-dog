@@ -1,0 +1,22 @@
+{% include 'saw_compute_discount' with product %}
+{% include 'saw_variant' with variant %}
+{% include 'saw_variant' with product.selected_or_first_available_variant %}
+{% if saw_has_discount == false or saw_variant_price >= saw_variant_compare_at_price %}
+  {% assign WCVariantPrice = variant.price %}
+  {% assign WCVariantComparePrice = variant.compare_at_price %}
+  {% assign WCVariantCurrentVariantPrice = current_variant.price %}
+  {% assign WCVariantCurrentVariantComparePrice = current_variant.compare_at_price %}  
+  {% assign WCVariantProductSelectedPrice = product.selected_or_first_available_variant.price %}
+  {% assign WCVariantProductSelectedComparePrice = product.selected_or_first_available_variant.compare_at_price %}
+  {% assign WCVariantSelectedVariantPrice = selected_variant.price %}
+  {% assign WCVariantSelectedVariantComparePrice = selected_variant.compare_at_price %}    
+{% else %}   
+  {% assign WCVariantPrice = saw_variant_price %}
+  {% assign WCVariantComparePrice = saw_variant_compare_at_price %}
+  {% assign WCVariantCurrentVariantPrice = saw_variant_price %}
+  {% assign WCVariantCurrentVariantComparePrice = saw_variant_compare_at_price %}  
+  {% assign WCVariantProductSelectedPrice = saw_variant_price %}
+  {% assign WCVariantProductSelectedComparePrice = saw_variant_compare_at_price %}  
+  {% assign WCVariantSelectedVariantPrice = saw_variant_price %}
+  {% assign WCVariantSelectedVariantComparePrice = saw_variant_compare_at_price %}    
+{% endif %}

@@ -1,0 +1,122 @@
+<div class="blog-sidebar">
+
+  <div class="blog-intro">
+    {% if section.settings.image != blank %}
+      <div class="blog-sidebar-photo">
+        {{ section.settings.image | img_url: '500x' | img_tag: section.settings.image.alt }}
+      </div>
+    {% endif %}
+    {% if section.settings.blog_title != blank %}
+      <div class="h1">{{ section.settings.blog_title }}</div>
+    {% endif %}
+    {% if section.settings.description != blank %}
+    <div class="blog-description h4">
+      {{ section.settings.description }}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="blog-categories">
+    <select name="tag_filter" id="tag_filter" class="blog_filter">
+     <option {% unless current_tags %}selected="selected"{% endunless %} value="{{ blog.url }}">Select A Topic</option>
+      {% for tag in blog.all_tags %}
+        <option {% if current_tags contains tag %}selected="selected"{% endif %} value="/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}">{{ tag | capitalize }}</option>
+      {% endfor %} 
+    </select>
+  </div>
+
+  <div class="blog-social">
+    
+    {% if section.settings.social_title != blank %}
+      <h3>{{ section.settings.social_title }}</h3>
+    {% endif %}
+
+    {%- assign social_accounts = 'Facebook, Instagram, Twitter, YouTube, Pinterest, Snapchat, Tumblr, Vimeo,' | split: ', ' -%}
+    <ul class="sidebar-social">
+      {% for social in social_accounts %}
+        {%- assign social_handle = social | handleize -%}
+        {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+        {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+        {% if settings[social_link] != blank %}
+          <li>
+            <a onclick="ga('send', 'social', '{{ social }}', 'Visit', '{{ settings[social_link] }}');" target="_blank" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+              {% include social_icon %}
+              <span class="icon-fallback-text">{{ social }}</span>
+            </a>
+          </li>
+        {% endif %}
+
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="blog-favorites">
+    {% if section.settings.favorites_title != blank %}
+      <h3>{{ section.settings.favorites_title }}</h3>
+    {% endif %}
+    {% if section.settings.favorites != blank %}
+      <div class="favorites-photo">
+        {% if section.settings.favorites_link != blank %}
+        <a href="{{ section.settings.favorites_link }}">
+        {% endif %}
+          {{ section.settings.favorites | img_url: '500x' | img_tag: section.settings.favorites.alt }}
+        {% if section.settings.favorites_link != blank %}
+        </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Blog Sidebar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Blog Sidebar"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "blog_title",
+        "label": "Blog Title"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Blog Description"
+      },
+      {
+        "type": "text",
+        "id": "social_title",
+        "label": "Socials Title",
+        "default": "Follow Us"
+      },
+      {
+        "type": "text",
+        "id": "favorites_title",
+        "label": "Favorites Title",
+        "default": "Shop Our Favorites"
+      },
+      {
+        "type": "image_picker",
+        "id": "favorites",
+        "label": "Favorites Image"
+      },
+      {
+        "type": "url",
+        "id": "favorites_link",
+        "label": "Favorites Link"
+      }
+    ],
+    "presets": [
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,109 @@
+<div class="page-width">
+  {% include 'breadcrumb' %}
+</div>
+
+
+<div class="info-pag wholesale-page">
+  
+  {% section 'contact-image' %}
+  
+  <h1 class="page-title">{{ page.title }}</h1>
+
+  <div class="wholesale">
+      <div class="info">
+        {{ page.content }}
+      </div>
+      <div class="hp-contact">
+          {% form 'contact' %}
+
+          {% if form.posted_successfully? %}
+            <p class="form-success">
+              {{ 'contact.form.post_success' | t }}
+            </p>
+          {% endif %}
+      
+          {{ form.errors | default_errors }}
+      
+          <div class="contact-form-container">
+
+            <div>
+              <div>
+                <input type="text"
+                  name="contact[name]"
+                  id="ContactFormName"
+                  placeholder="Your Name*"
+                  value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+              </div>
+              <div>
+                <input type="email"
+                  name="contact[email]"
+                  id="ContactFormEmail"
+                  placeholder="Email Address*"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  spellcheck="false"
+                  autocomplete="off"
+                  autocapitalize="off">
+              </div>
+              <div>
+                <textarea rows="10"
+                  name="contact[body]"
+                  id="ContactFormMessage"
+                  placeholder="Write your message here. ">
+                  {%- if form.body -%}
+                    {{- form.body -}}
+                  {%- endif -%}
+                </textarea>
+              </div>
+                            <div class="hp-input" >
+                <input tabindex="-1" autocomplete="off" name="email" size="25" type="text" value="" />
+              </div>
+              <div>
+                <input type="submit" class="btn" value="{{ 'contact.form.send' | t }}">
+              </div>
+            </div>
+      
+          </div>
+        {% endform %}
+      </div>
+  </div>
+</div>
+{% section 'contact-cta' %}
+{% section 'faq' %}
+
+<style>
+.hp-input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
+</style>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const Form = document.querySelector('.hp-contact form');
+    const Honeypot = Form.querySelector('.hp-input input');
+
+    if (Form.addEventListener) {
+        Form.addEventListener("submit", function(evt) {
+          	if(Honeypot && Honeypot.value != '') {
+              evt.preventDefault();
+              window.history.back();
+            }
+        }, true);
+    }
+    else {
+        Form.attachEvent('onsubmit', function(evt){
+          	if(Honeypot && Honeypot.value != '') {
+              evt.preventDefault();
+              window.history.back();
+            }
+        });
+    }
+});
+  
+</script>

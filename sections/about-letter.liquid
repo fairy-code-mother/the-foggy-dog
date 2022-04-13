@@ -1,0 +1,64 @@
+<div class="about-page">
+
+  <div class="page-width">
+
+    <div class="about-letter">
+
+      <h2>
+        {{ section.settings.heading }}
+      </h2>
+
+      <div class="letter-content">
+
+        <div class="about-letter-image">
+          <img src="{{ section.settings.image | img_url: '500x' }}" srcset="{{ section.settings.image | img_url: '500x' }} 1x, {{ section.settings.image | img_url: '500x', scale: 2 }} 2x" alt="{{ section.settings.image.alt }}">
+        </div>
+
+        <div class="about-letter-text">
+
+          {% if section.settings.text != blank %}
+          <div class="letter-text">
+            {{ section.settings.text }}
+            <div class="letter-signature">
+              {{'foggydog-about-signature.svg' | file_url | img_tag }}
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+      
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "About Letter",
+    "settings": [
+      {
+        "type": "header",
+        "content": "About Letter"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "From The Founder"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Letter"
+      }
+    ]
+  }
+{% endschema %}

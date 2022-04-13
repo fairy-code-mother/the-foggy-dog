@@ -1,0 +1,181 @@
+<script>
+  rivets.formatters.eq = function (value, checkAgainst) {
+    return (value == checkAgainst);
+  }
+  
+  rivets.binders['src-strict'] = function(el, value) {
+    var img = new Image()
+
+    img.onload = function() {
+      $(el).attr('src', value)
+    }
+
+    img.src = value
+  }
+  
+  
+</script>
+
+<!-- <p class="title"><a href="/cart">Cart</a>
+  <span class="cart-close">&times;</span>
+</p> -->
+
+<div id="mini_cart" data-cart-view="data-cart-view">
+  <div class="wrap">
+    <div class="head">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close close">{% include 'icon-close' %}</button>
+    </div>
+    <div class="cart-pop-items">
+      <!-- <form action="/cart" method="post" id="mini-cart-form"> -->
+        <div class="buttons">
+          <div class="counts">
+            <div>
+              <span class="count" data-cart-render="item_count">{{ cart.item_count }}</span>
+              <span class="count item_updater" >{% if cart.item_count == 1 %} Item {% else %} Items {% endif %}</span>
+            </div>
+            <span class="total" rv-html="cart.total_price | money Currency.currentCurrency"></span>
+
+          </div>
+          <!-- <a href="/cart" class="small-btn">
+            <span>Edit Cart</span>
+          </a> -->
+          <a class="small-btn black" href="/cart">
+            <span>Checkout</span>
+          </a>
+        </div>
+		
+        <div class="cart-items" 
+              rv-class-parentproduct="item.properties._bundle_number"
+              rv-class-bundledproduct="item.properties._associated_bundle" 
+              rv-datasku="item.sku"
+              rv-associated-bundle-number="item.properties._associated_bundle"
+              rv-parent-bundle-number="item.properties._bundle_number" 
+              rv-each-item="cart.items">
+          <div class="item">
+            
+<!--             <p id='test'>{{ all_products[product.handle].selected_or_first_available_variant.image.src | img_url }}</p> -->
+<!--             	 <p id='test'>{{ variant.id }}</p> -->
+<!--             <img src="{{ all_products[product.handle].selected_or_first_available_variant.image.src | img_url: 'master' }}" id="cartimage" /> -->
+            <img rv-src-strict="item.image" id="cartimage" />
+            <img src="{{ 'ajax-loader.gif' | asset_img_url }}" id="ajaxloader" />
+            <img rv-src='data.imageSrc' onerror='this.src = "http://placehold.it/1200x628";'></img>
+            <span>
+              <div>
+                <h4>{item.product_title} - {item.variant_title}</h4>
+                <!--               <h4 rv-text="item.variant_title"></h4> -->
+              </div>
+              <div class="cart-qty-price">
+                <div style="display: flex;">
+                  <div class="cart-pop-qty">QTY: </div>
+                  <div class="cart-pop-qty" rv-text="item.quantity">
+                  </div>
+                </div>
+                <div class="cart-pop-price" rv-html="item.discounted_price | money Currency.currentCurrency">
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+
+        <p id="empty-cart-text" rv-show="cart.item_count | lt 1">Your cart is currently empty. &nbsp;</p>
+      <!-- </form> -->
+    </div>
+  </div>
+</div>
+
+<style>
+  #ajaxloader {
+  	display: none;
+  }
+  
+  .btn-mini-custom {
+    width: 100%;
+    font-size: 16px !important;
+  }
+
+  .btn-mini-custom-secondary {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .mini-cart-content ul.bundledproduct {
+    border-top: none !important;
+    margin-left: 50px;
+  }
+
+  .mini-cart-content ul.bundledproduct:before {
+    content: '';
+    position: absolute;
+    background-color: #ddd;
+    width: 2px;
+    left: -25px;
+    bottom: -66px;
+    height: 85px;
+  }
+
+  ul.bundledproduct+ul.bundledproduct:before {
+    height: 190px !important;
+  }
+
+  .mini-cart-content ul.bundledproduct:after {
+    content: '';
+    position: absolute;
+    background-color: #ddd;
+    width: 25px;
+    left: -25px;
+    bottom: -67px;
+    height: 2px;
+  }
+
+  #mini-cart-form ul.line-item {
+    /*   display: none;  */
+  }
+
+  #building-cart-overlay {
+    display: none;
+    text-align: center;
+  }
+
+  #building-cart-overlay img {
+    max-width: 120px;
+    margin: 100px auto 20px;
+  }
+
+  #building-cart-overlay p {
+    font-size: 1.3em;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 750px) {
+    .mini-cart-content ul.bundledproduct:before {
+      height: 80px;
+    }
+  }
+</style>
+
+
+<script>
+
+	console.log('this is item', $('#test'));
+    
+  //onload make sure the cart shows the products as they are now hidden by default
+//   $('.cart-form').each(function() {
+  
+//   $(this).submit(function(event){
+
+//     console.log('show');
+    
+//     $('#cartimage').hide();
+    
+// 	setTimeout(function(){
+//       $('#cartimage').show();
+//       console.log('finished 4 seconds');
+//     }, 4000);
+    
+//       });  
+//   });
+
+</script>

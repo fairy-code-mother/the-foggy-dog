@@ -1,0 +1,311 @@
+/* PageFly Element Styles */
+						.lcHmGL { word-break: break-word; }
+.lcHmGL span { font-weight: inherit; text-decoration: inherit; }
+.lcHmGL i { margin-right: 0.3em; }
+.fLDHlO { position: relative; overflow: hidden; display: inline-flex; justify-content: flex-start; align-items: flex-start; max-width: 100%; vertical-align: middle; }
+.fLDHlO img { display: inline-block; object-fit: cover; height: auto; width: 100%; }
+.dxrmGe { display: inline-flex; vertical-align: middle; }
+.dxrmGe picture { width: 100%; border-radius: inherit; }
+.jakOsZ { display: inline-block; vertical-align: middle; }
+.jakOsZ img { width: 100%; border-radius: inherit; }
+.jklmHY { padding: var(--pf-s-lg); }
+@media (max-width: 1199px) and (min-width: 992px) {
+  .jklmHY { padding: var(--pf-s-md); }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .jklmHY { padding: var(--pf-s-sm); }
+}
+@media (max-width: 767px) {
+  .jklmHY { padding: var(--pf-s-xs); }
+}
+.fTyjzF { position: relative; }
+.eYzxUD { margin: 0 calc(-1 * var(--pf-s-lg)); }
+@media (max-width: 1199px) and (min-width: 992px) {
+  .eYzxUD { margin: 0 calc(-1 * var(--pf-s-md)); }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .eYzxUD { margin: 0 calc(-1 * var(--pf-s-sm)); }
+}
+@media (max-width: 767px) {
+  .eYzxUD { margin: 0 calc(-1 * var(--pf-s-xs)); }
+}
+.bjKdkd__parallax { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; }
+.bjKdkd { padding: 15px 0px; position: relative; }
+.hHSLcU > span:last-child { line-height: inherit; display: block; }
+#editor-dnd-wrapper .hHSLcU span + span[contenteditable] { display: block; }
+#editor-dnd-wrapper .hHSLcU span + span[contenteditable]:empty::after { display: inline; }
+.hHSLcU ol, .hHSLcU ul { list-style-position: inside; }
+.hHSLcU blockquote { font-size: inherit; }
+.cbrLgP > span:last-child { line-height: inherit; display: block; margin-right: 0px !important; }
+#editor-dnd-wrapper .cbrLgP span + span[contenteditable] { display: block; }
+#editor-dnd-wrapper .cbrLgP span + span[contenteditable]:empty::after { display: inline; }
+.cbrLgP ol, .cbrLgP ul { list-style-position: inside; }
+.cbrLgP blockquote { font-size: inherit; }
+.fnmilh { display: inline-block; }
+.fnmilh[contenteditable="true"] { user-select: text; }
+.fnmilh { vertical-align: baseline; word-break: break-word; }
+.fnmilh:focus { outline: none; }
+.fnmilh::after { display: inline; }
+						/* PageFly Styles */
+						
+@media all {
+	.__pf .pf-98f87e19 {
+		background-image: url("https://cdn.shopify.com/s/files/1/1392/6117/t/28/assets/pf-bd42890b--Holiday-gift-guide-option.jpg?v=1605737169");
+		 background-size: cover;
+		 background-position: 50% 50%;
+		 padding: 260px 0px;
+	}
+	.__pf .pf-16d93b9a {
+		text-align: center;
+		 font-size: 18px;
+	}
+	.__pf .pf-299969cf {
+		margin-top: 15px;
+		 margin-bottom: 0px;
+		 font-size: 18.5px;
+	}
+	.__pf .pf-63b91143 {
+		font-size: 18px;
+	}
+	.__pf .pf-0608c348 {
+		margin-bottom: 0px;
+		 margin-top: 10px;
+		 font-size: 16px;
+		 font-style: italic;
+	}
+	.__pf .pf-73def2c4 {
+		margin-top: 15px;
+		 margin-bottom: 0px;
+		 font-size: 18.5px;
+	}
+	.__pf .pf-1489681f {
+		font-size: 18px;
+	}
+	.__pf .pf-d215c21e {
+		margin-bottom: 0px;
+		 margin-top: 10px;
+		 font-size: 16px;
+	}
+	.__pf .pf-bdf33ab9 {
+		margin-top: 15px;
+		 margin-bottom: 0px;
+		 font-size: 18.5px;
+	}
+	.__pf .pf-fa4c320e {
+		font-size: 18px;
+	}
+	.__pf .pf-85989111 {
+		margin-bottom: 0px;
+		 margin-top: 10px;
+		 font-size: 16px;
+		 font-style: italic;
+	}
+	.__pf .pf-c0f1e82a {
+		margin-top: 15px;
+		 margin-bottom: 0px;
+		 font-size: 18.5px;
+	}
+	.__pf .pf-ee8258a8 {
+		font-size: 18px;
+	}
+	.__pf .pf-1f07f87d {
+		margin-bottom: 0px;
+		 margin-top: 10px;
+		 font-size: 16px;
+	}
+	.__pf .pf-4ab2072e {
+		margin-top: 15px;
+		 margin-bottom: 0px;
+		 text-align: left;
+		 font-size: 18.5px;
+	}
+	.__pf .pf-072e8f76 {
+		font-size: 18px;
+		 text-align: left;
+	}
+	.__pf .pf-8f76c9ff {
+		margin-bottom: 0px;
+		 margin-top: 10px;
+		 font-size: 16px;
+		 font-style: italic;
+		 text-align: left;
+	}
+	.__pf .pf-c9ffd662 {
+		margin-top: 15px;
+		 margin-bottom: 0px;
+		 text-align: left;
+		 font-size: 18.5px;
+	}
+	.__pf .pf-d6626028 {
+		font-size: 18px;
+		 text-align: left;
+	}
+	.__pf .pf-60285ace {
+		margin-bottom: 0px;
+		 margin-top: 10px;
+		 font-size: 16px;
+		 text-align: left;
+		 font-style: italic;
+	}
+	.__pf .pf-710282e8 {
+		padding-top: 0px;
+		 margin: -15px;
+	}
+	.__pf .pf-eff986b8 {
+		margin-bottom: 18px;
+		 font-size: 18px;
+		 margin-top: 18px;
+		 text-align: center;
+	}
+	.__pf .pf-0a248046 {
+		text-align: left;
+	}
+	.__pf .pf-467914e6 {
+		text-align: center;
+		 padding-top: 0px;
+	}
+	.__pf .pf-f630e002 {
+		background-image: url("https://cdn.shopify.com/s/files/1/1392/6117/t/28/assets/pf-f87e1907--Gift-picks-new8.jpg?v=1605656039");
+		 background-size: cover;
+		 background-position: 50% 50%;
+		 padding-top: 250px;
+		 padding-bottom: 250px;
+	}
+	.__pf .pf-9215446d {
+		text-align: center;
+		 font-size: 16px;
+	}
+	.__pf .pf-68c3517a {
+		text-align: center;
+	}
+	.__pf .pf-22de2ea7 {
+		text-align: center;
+		 font-size: 16px;
+	}
+	.__pf .pf-f10fe3a2 {
+		text-align: center;
+	}
+	.__pf .pf-687d051f {
+		text-align: center;
+		 font-size: 16px;
+	}
+	.__pf .pf-8813a095 {
+		text-align: center;
+	}
+	.__pf .pf-2b8d8a15 {
+		text-align: center;
+		 font-size: 16px;
+	}
+	.__pf .pf-17c316d6 {
+		text-align: center;
+	}
+	.__pf .pf-401408a7 {
+		text-align: center;
+		 font-size: 16px;
+	}
+	.__pf .pf-d59823a3 {
+		text-align: center;
+	}
+	.__pf .pf-4729dde9 {
+		text-align: center;
+		 font-size: 16px;
+	}
+	.__pf .pf-f046036e {
+		text-align: center;
+	}
+	.__pf .pf-bfedec1b {
+		text-align: center;
+		 font-size: 16px;
+	}
+	.__pf .pf-799f991a {
+		text-align: center;
+	}
+	.__pf .pf-3eb97c14 {
+		text-align: center;
+		 font-size: 16px;
+	}
+	.__pf .pf-88f671bf {
+		text-align: center;
+	}
+	.__pf .pf-19077295 {
+		background-image: url("https://cdn.shopify.com/s/files/1/1392/6117/t/28/assets/pf-21827ba3--Gift-Card-art9.jpg?v=1605656691");
+		 background-position: 50% 50%;
+		 background-size: cover;
+		 padding-bottom: 300px;
+		 padding-top: 200px;
+	}
+	.__pf .pf-bf6e325b {
+		margin: -15px;
+	}
+	.__pf .pf-b1d84739 {
+		text-align: center;
+		 margin: -15px;
+	}
+	.__pf .pf-9802e417 {
+		margin: -2px;
+	}
+	.__pf .pf-de9c8e05 {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-1dd25b69 {
+		text-align: center;
+	}
+	.__pf .pf-b2c4b0a5 {
+		margin: -25px;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.__pf .pf-98f87e19 {
+		padding: 65px 65px 75px;
+	}
+	.__pf .pf-f630e002 {
+		padding-top: 0px;
+		 padding-bottom: 100px;
+	}
+	.__pf .pf-19077295 {
+		padding-top: 0px;
+		 padding-bottom: 100px;
+	}
+	.__pf .pf-443db9eb {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-af62b467 {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-b9eb9496 {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-7c08d432 {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-9496af62 {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-b467a6b8 {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-a6b85493 {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-54931a8f {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-1a8f2c95 {
+		width: 100%;
+		 height: auto;
+	}
+	.__pf .pf-de9c8e05 {
+		width: 100%;
+		 height: auto;
+	}
+}
+						

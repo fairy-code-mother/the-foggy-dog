@@ -1,0 +1,98 @@
+<div class="home-testimonials">
+
+  <div class="page-width">
+
+    {% if section.settings.testimonials_heading != blank %}
+    <h2 class="h1">{{ section.settings.testimonials_heading }}</h2>
+    {% endif %}
+
+    <div class="testimonials-container">
+
+      <div class="slider-prev">
+        <img width="20" height="14" class="lazyload" data-src="{{ 'foggydog-homepage-arrow-left.png' | asset_url }}">
+      </div>
+      
+      <div class="testimonials">
+      {% for block in section.blocks %}
+        {% if block.settings.testimonial_text != blank or block.settings.testimonial_name != blank %}
+        <div class="testimonial">
+
+          <div class="testimonial-text-image">
+            {% if block.settings.testimonial_image != blank %}
+            <div class="testimonial-image">
+              <img height="150" width="150" class="lazyload" 
+                   data-src="{{ block.settings.testimonial_image | img_url: '150x150', crop: 'center' }}" 
+                   data-srcset="{{ block.settings.testimonial_image | img_url: '150x150', crop: 'center' }} 1x, {{ block.settings.testimonial_image | img_url: '150x150', crop: 'center', scale: 2 }} 2x" 
+                   alt="{{ block.settings.testimonial_image.alt }}">
+            </div>
+            {% endif %} 
+            {% if block.settings.testimonial_text != blank %}
+            <div class="testimonial-text">
+              {{ block.settings.testimonial_text }}
+              <div class="testimonial-name">
+                {% if block.settings.title != blank %}
+                {{ block.settings.title | newline_to_br }}
+                {% endif %}
+              </div>
+            </div>
+            {% endif %} 
+          </div>
+
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+
+      <div class="slider-next">
+        <img width="20" height="14" class="lazyload" data-src="{{ 'foggydog-homepage-arrow-right.png' | asset_url }}">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "settings": [
+      {
+        "type": "text",
+        "id": "testimonials_heading",
+        "label": "Testimonials Heading"
+      },
+      {
+        "type": "header",
+        "content": "Enter your content blocks below"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "testimonial_image",
+            "label": "Image"
+          },
+          {
+            "type": "richtext",
+            "id": "testimonial_text",
+            "label": "Text"
+          },
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Name"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

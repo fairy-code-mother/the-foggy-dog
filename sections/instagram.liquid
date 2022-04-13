@@ -1,0 +1,120 @@
+<div class="home-instagram">
+
+  <div class="page-width">
+
+    <div class="flex-grid">
+
+      <div class="grid__item large-up--one-half">
+        
+        <div class="instagram-header">
+        
+          <h2>
+            <a onclick="ga('send', 'social', 'Instagram', 'FeedVisit', '{{ settings.social_instagram_link }}');" href="{{ settings.social_instagram_link }}" target="_blank">{{ section.settings.heading }}</a>
+          </h2>
+
+          {% if section.settings.instagram_description != blank %}
+          <div class="instagram-description">
+            {{ section.settings.instagram_description }}
+          </div>
+          {% endif %}
+
+          <div class="instagram-text"><a onclick="ga('send', 'social', 'Instagram', 'FeedVisit', '{{ settings.social_instagram_link }}');" target="_blank" href="{{ settings.social_instagram_link }}" class="btn">{{ section.settings.follow_us }}</a></div>
+
+        </div>
+
+      </div>
+
+      <div class="grid__item large-up--one-half">
+
+      	<div class="grid grid--uniform">
+      		{% if section.settings.instagram_1 != blank %}
+          	<div class="grid__item instagram-image-1 one-half">
+              <a onclick="ga('send', 'social', 'Instagram', 'FeedVisit', '{{ settings.social_instagram_link }}');" href="{{ settings.social_instagram_link }}" target="_blank">
+                 <img height="221" width="221" class="lazyload" data-src="{{ section.settings.instagram_1 | img_url: '221x221' }}" data-srcset="{{ section.settings.instagram_1 | img_url: '221x221' }} 1x, {{ section.settings.instagram_1 | img_url: '221x221', scale: 2 }} 2x" alt="{{ section.settings.instagram_1.alt }}">
+              </a>
+      		</div>
+          {% endif %}
+          {% if section.settings.instagram_2 != blank %}
+      		<div class="grid__item instagram-image-2 one-half">
+              <a onclick="ga('send', 'social', 'Instagram', 'FeedVisit', '{{ settings.social_instagram_link }}');" href="{{ settings.social_instagram_link }}" target="_blank">
+                <img height="221" width="221" class="lazyload" data-src="{{ section.settings.instagram_2 | img_url: '221x221' }}" data-srcset="{{ section.settings.instagram_2 | img_url: '221x221' }} 1x, {{ section.settings.instagram_2 | img_url: '221x221', scale: 2 }} 2x" alt="{{ section.settings.instagram_2.alt }}">
+              </a>
+      		</div>
+      		{% endif %}
+          {% if section.settings.instagram_3 != blank %}
+          <div class="grid__item instagram-image-3 one-half">
+            <a onclick="ga('send', 'social', 'Instagram', 'FeedVisit', '{{ settings.social_instagram_link }}');" href="{{ settings.social_instagram_link }}" target="_blank">
+              <img height="221" width="221" class="lazyload" data-src="{{ section.settings.instagram_3 | img_url: '221x221' }}" data-srcset="{{ section.settings.instagram_3 | img_url: '221x221' }} 1x, {{ section.settings.instagram_3 | img_url: '221x221', scale: 2 }} 2x" alt="{{ section.settings.instagram_3.alt }}">
+            </a>
+          </div>
+          {% endif %}
+          {% if section.settings.instagram_4 != blank %}
+          <div class="grid__item instagram-image-4 one-half">
+            <a onclick="ga('send', 'social', 'Instagram', 'FeedVisit', '{{ settings.social_instagram_link }}');" href="{{ settings.social_instagram_link }}" target="_blank">
+              <img height="221" width="221" class="lazyload" data-src="{{ section.settings.instagram_4 | img_url: '221x221' }}" data-srcset="{{ section.settings.instagram_4 | img_url: '221x221' }} 1x, {{ section.settings.instagram_4 | img_url: '221x221', scale: 2 }} 2x" alt="{{ section.settings.instagram_4.alt }}">
+            </a>
+          </div>
+          {% endif %}
+      	</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Instagram Feature",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Instagram Feature"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Behind the Scenes"
+      },
+      {
+        "type": "text",
+        "id": "follow_us",
+        "label": "Instagram Text"
+      },
+      {
+        "type": "richtext",
+        "id": "instagram_description",
+        "label": "Instagram Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "instagram_1",
+        "label": "Instagram image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "instagram_2",
+        "label": "Instagram image 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "instagram_3",
+        "label": "Instagram image 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "instagram_4",
+        "label": "Instagram image 4"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Instagram Feature",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

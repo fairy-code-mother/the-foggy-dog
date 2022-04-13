@@ -1,0 +1,78 @@
+<div class="size-heading">
+    <div class="page-width">
+        {{ section.settings.top_text }}
+        <ul class="subnav">
+            <li>{% include 'size-icon' %} Size Guides: </li>
+            {% if section.settings.bed_enable %}
+                <li><a href="#dog-beds">Dog Beds</a></li>
+             {% endif %}   
+            {% if section.settings.collar_enable %}
+                <li><a href="#dog-collars">Dog Collars</a></li>
+            {% endif %}
+            {% if section.settings.band_enable %}
+                <li><a href="#dog-bandanas">Dog Bandanas</a></li>
+            {% endif %}
+            {% if section.settings.harn_enable %}
+                <li><a href="#dog-harnesses">Dog Harnesses</a></li>
+            {% endif %}
+        </ul>
+        {{ section.settings.bottom_text }}
+    </div>
+    <hr/>
+</div>
+
+{% schema %}
+  {
+    "name": "Size Chart Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "text",
+        "id": "size_heading",
+        "label": "Heading",
+        "default": "Sizing Chart"
+      },
+      {
+        "type": "richtext",
+        "id": "top_text",
+        "label": "Top Text"
+      },
+      {
+        "type": "richtext",
+        "id": "bottom_text",
+        "label": "Bottom Text"
+      },
+        {
+            "type": "checkbox",
+            "id": "bed_enable",
+            "label": "Show Dog Bed",
+            "default": true,
+            "info": "enable is diable chart"
+        },
+        {
+            "type": "checkbox",
+            "id": "collar_enable",
+            "label": "Show Dog Collar",
+            "default": true,
+            "info": "enable is diable chart"
+        },
+        {
+            "type": "checkbox",
+            "id": "band_enable",
+            "label": "Show Dog Bandana",
+            "default": true,
+            "info": "enable is diable chart"
+        },
+        {
+            "type": "checkbox",
+            "id": "harn_enable",
+            "label": "Show Dog Harness",
+            "default": true,
+            "info": "enable is diable chart"
+        }
+    ]
+  }
+{% endschema %}

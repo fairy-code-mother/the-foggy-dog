@@ -1,0 +1,29 @@
+<div class="made-love">
+  <div class="page-width">
+    <div class="wrap">
+        <h3>{{ section.settings.made_title }}</h3>
+        <p>{{ section.settings.made_text }}</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Feel Good",
+    "settings": [
+      {
+        "type": "text",
+        "id": "made_title",
+        "label": "Made With Love"
+      },
+      {
+        "type": "textarea",
+        "id": "made_text",
+        "label": "Made With Love Content",
+        "default": "This item is sold out but we thought you might like to take a look at these similar products."
+      }
+    ],
+    "blocks": [
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,174 @@
+{% if section.settings.chart_enable %}
+<div class="sizechart Harness" id="dog-harnesses">
+    <div class="page-width">
+    <h2 class="h1">{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+    <div class="size-table">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                  {% for block in section.blocks %}
+                    <th scope="col">{{ block.settings.size }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row"><strong>Neck Circumference</strong></td>
+                  {% for block in section.blocks %}
+                    <td valign="top">{{ block.settings.bed_weight }}</td>
+                  {% endfor %} 
+                </tr>
+                <tr>
+                    <td scope="row"><strong>Collar Width</strong></td>
+                    {% for block in section.blocks %}
+                      <td>
+                          {{ block.settings.bed_size }}
+                      </td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                  <td scope="row"><strong>Example  Breed</strong></td>
+                  {% for block in section.blocks %}
+                    <td>
+                      <p>{{ block.settings.bed_example }}</p>
+                    </td>
+                  {% endfor %} 
+                </tr>
+                <tr>
+                    <td scope="row"><strong></strong></td>
+                    {% for block in section.blocks %}
+                      <td>
+                          {% if block.settings.size_image != blank %}
+                            <img src="{{ block.settings.size_image | img_url: '162x150', crop: 'bottom' }}" />
+                          {% endif %}  
+                      </td>
+                    {% endfor %} 
+                  </tr>
+              </tbody>
+        </table>
+      </div> 
+      <div class="size-chart-mobile">
+          <table>
+              <thead>
+                  <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Neck Circumference</th>
+                      <th scope="col">Collar Width</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for block in section.blocks %}
+                    <tr>
+                      <td class="scol">{{ block.settings.size }}</td>
+                      <td valign="top">{{  block.settings.bed_size }}</td>
+                      <td valign="top">{{ block.settings.bed_weight }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tr>
+                </tbody>
+          </table>
+        </div>    
+    <a href="{{ section.settings.button_url }}" class="btn">
+        {{ section.settings.button_text }}
+    </a>
+    <a class="btn-line" href="/pages/size-chart">
+      See size guidelines by dog breed
+  </a>
+    </div>
+  </div>
+  {% endif %}
+  {% schema %}
+    {
+      "name": "Dog Harness Size Chart",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Dog Size"
+        },
+        {
+          "type": "paragraph",
+          "content": "Add your content below."
+        },
+        {
+            "type": "checkbox",
+            "id": "chart_enable",
+            "label": "Show Chart",
+            "default": true,
+            "info": "enable is diable chart"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button Link"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "collar",
+          "name": "Collar Size",
+          "settings": [
+            {
+                "type":      "select",
+                "id":        "size",
+                "label":     "Select size",
+                "options": [
+                    {
+                        "value": "s",
+                        "label": "Small"
+                    },
+                    {
+                        "value": "m",
+                        "label": "Medium"
+                    },
+                    {
+                        "value": "l",
+                        "label": "Large"
+                    },
+                    {
+                        "value": "xl",
+                        "label": "xLarge"
+                    }
+                ]
+            },
+            {
+              "type": "text",
+              "id": "bed_weight",
+              "label": "Neck  Circumference"
+            },
+            {
+                "type": "text",
+                "id": "bed_size",
+                "label": "Collar Width"
+            },
+            {
+                "type": "text",
+                "id": "bed_example",
+                "label": "Example Breed"
+            },
+            {
+                "type": "image_picker",
+                "id": "size_image",
+                "label": "Size image"
+            }            
+          ]
+        }
+      ]
+    }
+  {% endschema %}

@@ -1,0 +1,50 @@
+<h3>{{ section.settings.fill_options_title }}</h3>
+<ul>
+  {% for block in section.blocks %}
+    <li>
+        {% if block.settings.insert_image != blank %}
+          <img class="lazyload" width="162" height="150" data-src="{{ block.settings.insert_image | img_url: '162x150', crop: 'bottom' }}" />
+        {% endif %} 
+        <h4>{{ block.settings.insert_title }}</h4>
+        <p>{{ block.settings.insert_desc }}</p>
+     </li>
+  {% endfor %}
+</ul>
+
+
+{% schema %}
+  {
+    "name": "Fill Options",
+    "settings": [
+      {
+        "type": "text",
+        "id": "fill_options_title",
+        "label": "Fill Options title",
+        "default": "Dog Bed Fill Options"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "bedinsert",
+      "name": "Bed Insert",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "insert_image",
+            "label": "image"
+        },
+        {
+            "type": "text",
+            "id": "insert_title",
+            "label": "Name"
+        },
+        {
+          "type": "textarea",
+          "id": "insert_desc",
+          "label": "Description"
+        }
+      ]
+    }
+    ]
+  }
+{% endschema %}

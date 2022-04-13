@@ -1,0 +1,122 @@
+<div class="page-width">
+  {% include 'breadcrumb' %}
+</div>
+
+<div class="info-page">
+
+  <h1 class="page-title">{{ page.title }}</h1>
+
+  <div class="rte">
+    {{ page.content }}
+  </div>
+
+  <div class="wholesale-form">
+
+    <p class="wholesale-note">All fields are required</p>
+
+    {% form 'contact' %}
+
+      {% if form.posted_successfully? %}
+        <p class="form-success">
+          {{ 'contact.form.post_success' | t }}
+        </p>
+      {% endif %}
+
+      {{ form.errors | default_errors }}
+
+      <div class="grid" id="form_grid">
+
+        <div class="grid__item large-up--one-half">
+          <label for="ContactFormStore">Store Name*</label>
+          <input type="text"
+            name="contact[store]"
+            id="ContactFormCompany"
+            placeholder=""
+            required="required"
+            value="{% if form[store] %}{{ form[store] }}{% endif %}">
+        </div>
+
+        <div class="grid__item large-up--one-half">
+          <label for="ContactFormName">Contact Name*</label>
+          <input type="text"
+            name="contact[name]"
+            id="ContactFormName"
+            placeholder=""
+            required="required"
+            value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+        </div>
+
+        <div class="grid__item large-up--one-half">
+          <label for="ContactFormEmail">{{ 'contact.form.email' | t }}*</label>
+          <input type="email"
+            name="contact[email]"
+            id="ContactFormEmail"
+            placeholder=""
+            required="required"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            spellcheck="false"
+            autocomplete="off"
+            autocapitalize="off">
+        </div>
+
+        <div class="grid__item large-up--one-half">
+          <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}*</label>
+          <input type="tel"
+            name="contact[phone]"
+            id="ContactFormPhone"
+            placeholder=""
+            required="required"
+            value="{% if form[phone] %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            pattern="[0-9\-]*">
+        </div>
+
+        <div class="grid__item large-up--one-half">
+          <label for="ContactFormType">Business Type*</label>
+          <select required="required" id="ContactFormType" name="contact[type]">
+            <option></option>
+            <option>Brick and Mortar</option>
+            <option>Online Retailer</option>
+            <option>Rep/Distributor</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="grid__item large-up--one-half">
+          <label for="ContactFormResale">Resale Number*</label>
+          <input type="text"
+            name="contact[resale]"
+            id="ContactFormResale"
+            placeholder=""
+            required="required"
+            value="{% if form[resale] %}{{ form[resale] }}{% endif %}">
+        </div>
+
+        <div class="grid__item">
+          <label for="ContactFormMessage">Message*</label>
+          <textarea rows="10"
+            name="contact[body]"
+            id="ContactFormMessage"
+            placeholder=""
+            required="required">
+            {%- if form.body -%}
+              {{- form.body -}}
+            {%- endif -%}
+          </textarea>
+        </div>
+
+        <div class="grid__item">
+          <input type="submit" class="btn" value="{{ 'contact.form.send' | t }}">
+        </div>
+
+      </div>
+
+      {% if form.posted_successfully? %}
+        <script>
+          document.getElementById('form_grid').style.display='none';
+        </script>
+      {% endif %}
+
+    {% endform %}
+
+  </div>
+</div>

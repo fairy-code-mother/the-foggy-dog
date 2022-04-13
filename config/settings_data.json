@@ -1,0 +1,2550 @@
+{
+  "current": {
+    "type_base_size": "16px",
+    "color_primary": "#1a1919",
+    "color_body_text": "#4a4a4a",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/thefoggydog",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/instagram.com\/thefoggydog",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "search_console": "<meta name=\"google-site-verification\" content=\"PPs1GpP3CiH-MbF1HywHED_H9iMbPUQXKQeZcxw4gyE\">\n<meta name=\"google-site-verification\" content=\"S_QO87Go5Q4DF4pmXdks6W7LqpRfvGG5ni9LmakXEC0\">\n<meta name=\"p:domain_verify\" content=\"7aa87279fde54c6ebb85221683429ed7\">",
+    "newsletter_form_action": "",
+    "newsletter_list_id": "JLyPRk",
+    "cart_notes_enable": true,
+    "favicon": "shopify:\/\/shop_images\/TheFoggyDog_Logo_Mark_square_for_favicon.png",
+    "pt_show_refine": true,
+    "pt_show_collection_group": false,
+    "pt_show_clear": false,
+    "pt_show_view_all": true,
+    "pt_show_collection_count": false,
+    "pt_show_show_single_group": true,
+    "pt_scroll_filter_group": true,
+    "pt_show_inactive_filters": false,
+    "pt_force_dropdown": false,
+    "pt_hide_headers": false,
+    "pt_float_filters": "false",
+    "pt_refine_text": "Refine By",
+    "pt_clear_text": "x",
+    "pt_view_all_text": "view all",
+    "pt_tags_text": "Tags",
+    "pt_sort_by_text": "Sort By",
+    "pt_collection_text": "Collection",
+    "pt_search_placeholder_text": "search...",
+    "pt_mobile_text": "Filter",
+    "pt_show_tags_group": false,
+    "pt_show_tags_grouped": false,
+    "pt_show_sort_by_group": false,
+    "pt_sort_position": "bottom",
+    "pt_sort_by_dropdown": false,
+    "pt_show_sort_by_checkboxes": false,
+    "pt_sort_manual_text": "Featured",
+    "pt_sort_price_asc_text": "Price: Low to High",
+    "pt_sort_price_desc_text": "Price: High to Low",
+    "pt_sort_title_asc_text": "A-Z",
+    "pt_sort_title_desc_text": "Z-A",
+    "pt_sort_created_asc_text": "Newest Last",
+    "pt_sort_created_desc_text": "Newest",
+    "pt_sort_best_selling_text": "Best Selling",
+    "color_pt_header_text": "#222222",
+    "color_pt_header_border": "rgba(0,0,0,0)",
+    "color_pt_header_top_border": "#cccccc",
+    "pt_header_size": 10,
+    "pt_header_font_override": false,
+    "pt_header_font": "work_sans_n6",
+    "pt_header_weight": "600",
+    "color_pt_links": "#222",
+    "color_pt_links_selected": "#333",
+    "color_pt_links_hover": "#444",
+    "color_pt_counts_color": "#888",
+    "pt_links_size": 13,
+    "pt_links_font_override": false,
+    "pt_links_font": "work_sans_n4",
+    "pt_links_weight": "300",
+    "pt_show_checkboxes": false,
+    "pt_checkbox_style": "0",
+    "pt_checkbox_swatch_style": "0",
+    "pt_checkbox_primary_color": "#888",
+    "pt_checkbox_secondary_color": "#444",
+    "pt_checkbox_size": 15,
+    "pt_checkbox_size_swatch": 25,
+    "pt_checkbox_checkbox_align": "middle",
+    "pt_color_swatch_type": "swatch",
+    "color_pt_clear_bg": "#eee",
+    "color_pt_clear_text": "#222",
+    "color_pt_clear_bg_hover": "#ddd",
+    "color_pt_clear_text_hover": "#222",
+    "color_pt_bg": "#ffffff",
+    "color_pt_bg_border": "rgba(0,0,0,0)",
+    "pt_bg_padding": 0,
+    "pt_bg_radius": 0,
+    "pt_mobile_enable": true,
+    "pt_accordion_enable": false,
+    "pt_accordion_mode": "all",
+    "pt_mobile_color": "#222",
+    "pt_mobile_max_width": "749px",
+    "pt_mobile_vertical": 7,
+    "pt_mobile_text_vertical": 14,
+    "pt_mobile_font_override": false,
+    "pt_mobile_font": "work_sans_n4",
+    "pt_mobile_size": "",
+    "pt_mobile_hide_selected": true,
+    "color_pt_small_box_bg": "#ffffff",
+    "color_pt_small_box_bg_hover": "#00a5fd",
+    "color_pt_small_box_text_hover": "#ffffff",
+    "pt_small_box_radius": 0,
+    "pt_small_box_border": false,
+    "pt_small_box_shadow": false,
+    "pt_view_more_enable": false,
+    "pt_view_more_count": 10,
+    "pt_view_more_text": "View More...",
+    "pt_apply_button_enable": false,
+    "pt_apply_button_text": "Apply",
+    "pt_apply_button_color": "#0084ff",
+    "pt_apply_button_hover_color": "#0670cf",
+    "pt_apply_button_disabled_color": "#cccccc",
+    "pt_sticky_enable": false,
+    "pt_sticky_mode": "basic",
+    "pt_sticky_selector": ".filter-menu",
+    "pt_sticky_offset": "25px",
+    "pt_sticky_min_width": "749px",
+    "pt_ajax_enable": false,
+    "pt_ajax_selector": "#MainContent",
+    "pt_ajax_script": ";",
+    "pt_show_only_on_collections": false,
+    "pt_clear_to_current_collection": true,
+    "pt_desktop_always_show_selected": false,
+    "pt_filter_padding": 6,
+    "pt_temporary_disable": false,
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/TheFoggyDog_Logo_Primary_c7dbf048-2260-4352-bccf-5faaabfc0ec4.jpg",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "PT Serif",
+    "checkout_body_font": "Open Sans",
+    "checkout_accent_color": "#000000",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Customer Favorites",
+          "collection": "home-page-customer-favorites",
+          "description": ""
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "1566230263261": {
+            "type": "megamenu",
+            "settings": {
+              "label": "Walk",
+              "caption": "Shop Leashes & Bags",
+              "image": "shopify:\/\/shop_images\/COL_walk_copy.jpg",
+              "link": "shopify:\/\/collections\/leash-waste-bag-combo"
+            }
+          },
+          "1566246744126": {
+            "type": "megamenu",
+            "settings": {
+              "label": "Wear",
+              "caption": "New Spring Bandanas",
+              "image": "shopify:\/\/shop_images\/FLYOUT_collections_99dfce80-adea-4f79-95bc-308b2a3fd7d6.jpg",
+              "link": "shopify:\/\/collections\/dog-bandanas"
+            }
+          },
+          "1566246769747": {
+            "type": "megamenu",
+            "settings": {
+              "label": "Sleep",
+              "caption": "SHOP BEDS",
+              "image": "shopify:\/\/shop_images\/flyout_Photo_Jan_17_11_53_05.jpg",
+              "link": "shopify:\/\/collections\/dog-beds"
+            }
+          },
+          "1566246781645": {
+            "type": "megamenu",
+            "settings": {
+              "label": "Play",
+              "caption": "Shop Squeak Toys",
+              "image": "shopify:\/\/shop_images\/FLYOUT_toys.jpg",
+              "link": "shopify:\/\/collections\/dog-toys"
+            }
+          },
+          "1570659648313": {
+            "type": "megamenu",
+            "settings": {
+              "label": "Collections",
+              "caption": "Shop Spring & Easter",
+              "image": "shopify:\/\/shop_images\/FLYOUT_collections2.jpg",
+              "link": "shopify:\/\/collections\/spring-2022-collection"
+            }
+          },
+          "1577226077028": {
+            "type": "megamenu",
+            "settings": {
+              "label": "Gift Cards",
+              "caption": "Give a Gift Card",
+              "image": "shopify:\/\/shop_images\/E-gift_card_image_for_nav_flyout.jpg",
+              "link": "https:\/\/www.thefoggydog.com\/products\/foggy-dog-giftcard"
+            }
+          },
+          "ca91ee99-5f31-4e3f-b07a-637003dabcde": {
+            "type": "megamenu",
+            "settings": {
+              "label": "New",
+              "caption": "Shop Spring 2022",
+              "image": "shopify:\/\/shop_images\/Flyout_new_95fb3105-2662-4e48-b96c-c6cb6c9430bb.jpg",
+              "link": "shopify:\/\/collections\/spring-2022-collection"
+            }
+          },
+          "e7feedb3-ffb5-4893-b35f-58658ca9444e": {
+            "type": "megamenu",
+            "settings": {
+              "label": "Gifts",
+              "caption": "Shop Gift Cards",
+              "image": "shopify:\/\/shop_images\/gift_card_flyout-10-01.jpg",
+              "link": "shopify:\/\/products\/foggy-dog-giftcard"
+            }
+          }
+        },
+        "block_order": [
+          "1566230263261",
+          "1566246744126",
+          "1566246769747",
+          "1566246781645",
+          "1570659648313",
+          "1577226077028",
+          "ca91ee99-5f31-4e3f-b07a-637003dabcde",
+          "e7feedb3-ffb5-4893-b35f-58658ca9444e"
+        ],
+        "settings": {
+          "announcement": "",
+          "logo": "shopify:\/\/shop_images\/TheFoggyDog_Logo_Primary_cropped_for_Shopify_homepage.jpg",
+          "logo_max_width": 130,
+          "logo_max_height": 72,
+          "main_linklist": "new-main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "insta_heading": "",
+          "footer_linklist_1_heading": "Learn More",
+          "footer_linklist_1": "footer",
+          "footer_linklist_2_heading": "Helpful Links",
+          "footer_linklist_2": "footer-menu-information",
+          "footer_made_in_america": "<p>Our products are proudly handcrafted in America by skilled craftspeople who are paid fair wages. Thank you for shopping local! <\/p>",
+          "footer_linklist_3": "footer-menu-collections",
+          "newsletter_heading": "join the pack to get all the best treats",
+          "newsletter_text": ""
+        }
+      },
+      "1562732773624": {
+        "type": "hero",
+        "blocks": {
+          "1562732781563": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Spring_2_HP_Mockup-01_eba44b0b-1b86-4cee-8406-e8da9e5b31f7.jpg",
+              "image-mobile": "shopify:\/\/shop_images\/Spring_2_HP_Mockup-02_a8c96c0b-036a-4b49-bd5d-53010dcffabe.jpg",
+              "title": "",
+              "hero_button": "",
+              "hero_button_color": "",
+              "hero_link": "shopify:\/\/collections\/spring-2022-collection"
+            }
+          }
+        },
+        "block_order": [
+          "1562732781563"
+        ],
+        "settings": {
+        }
+      },
+      "1562733800079": {
+        "type": "our-story",
+        "settings": {
+          "title": "Every order feeds a shelter dog.",
+          "text": "<p>With every order, we donate much-needed food to rescue shelters across America.<br\/>Thank you for helping us help them!<\/p>",
+          "button_text": "Learn More",
+          "link": "\/pages\/about-us#charity"
+        }
+      },
+      "1562734388755": {
+        "type": "collection-list",
+        "blocks": {
+          "1562734457795": {
+            "type": "collection",
+            "settings": {
+              "url": "shopify:\/\/collections\/plaid",
+              "collection_image": "shopify:\/\/shop_images\/PLAID_FD-Easter_S8-Group-PreppyPlaidSorbet_1503.jpg",
+              "collection_image_height": "335",
+              "collection_heading": "Preppy in Plaid",
+              "collection_tagline": "Shop the Collection"
+            }
+          },
+          "1562734395888": {
+            "type": "collection",
+            "settings": {
+              "url": "shopify:\/\/pages\/bow-landing-page",
+              "collection_image": "shopify:\/\/shop_images\/BOW_V7A4004_FoggyDog-Spring-Daisies-HiRes_b87af2eb-129d-4df7-bdba-43c1615018e0.jpg",
+              "collection_image_height": "500",
+              "collection_heading": "Bows in Bloom",
+              "collection_tagline": "Shop Bows"
+            }
+          },
+          "1562734442508": {
+            "type": "collection",
+            "settings": {
+              "url": "shopify:\/\/collections\/new-arrivals",
+              "collection_image": "shopify:\/\/shop_images\/COL1_BANS_fb5b6d36-4699-4040-8a95-0b5a112ddb13.jpg",
+              "collection_image_height": "335",
+              "collection_heading": "Fresh Picks",
+              "collection_tagline": "Shop New Arrivals"
+            }
+          },
+          "a56c5d90-4a70-4521-b781-735259699069": {
+            "type": "collection",
+            "settings": {
+              "url": "shopify:\/\/collections\/dog-beds",
+              "collection_image": "shopify:\/\/shop_images\/BED_-_chrissymarieblog_3ab460df-ffcc-433c-9308-8ac9d91bf97d.jpg",
+              "collection_image_height": "335",
+              "collection_heading": "Sweet Dreams",
+              "collection_tagline": "Shop Beds"
+            }
+          },
+          "8897c80b-b818-46e6-9bc4-9e5af342dbcd": {
+            "type": "collection",
+            "settings": {
+              "url": "shopify:\/\/collections\/leash-waste-bag-combo",
+              "collection_image": "shopify:\/\/shop_images\/BAGS_789c365f-c8dd-4b80-956f-3f6bbd26d7a4.jpg",
+              "collection_image_height": "335",
+              "collection_heading": "Walk It Out",
+              "collection_tagline": "Shop Leashes & Bags"
+            }
+          }
+        },
+        "block_order": [
+          "1562734457795",
+          "1562734395888",
+          "1562734442508",
+          "a56c5d90-4a70-4521-b781-735259699069",
+          "8897c80b-b818-46e6-9bc4-9e5af342dbcd"
+        ],
+        "settings": {
+          "banner": "shopify:\/\/shop_images\/Artboard_1_4x.png",
+          "banner_max_width": 100,
+          "heading": "Only the Best",
+          "text": "<p>For your best friend. Spoil your pup with made-in-America pet beds and accessories that are as beautiful as they are functional. And, every order donates much-needed food to shelter dogs.<\/p>",
+          "button_text": "Shop Best-Sellers",
+          "button_url": "shopify:\/\/collections\/best-sellers"
+        }
+      },
+      "filter-menu-settings": {
+        "type": "filter-menu-settings",
+        "settings": {
+        }
+      },
+      "1563055488256": {
+        "type": "instagram",
+        "settings": {
+          "heading": "We believe good dogs deserve good design.",
+          "follow_us": "@thefoggydog",
+          "instagram_description": "<p>That’s why we craft each product in the U.S. with the finest materials, freshest designs, and obsessive attention to detail. Love what you see? Show us how you #foggydogstyle.<\/p>",
+          "instagram_1": "shopify:\/\/shop_images\/Modern_Charcoal_Stripe_instagram.png",
+          "instagram_2": "shopify:\/\/shop_images\/Binny_in_Painted_Peonies_bandana_square.jpg",
+          "instagram_3": "shopify:\/\/shop_images\/foggydog-homepage-instagram-fpo_3_2x_88406d27-ca90-4de2-b2a8-51238d691d6b.jpg",
+          "instagram_4": "shopify:\/\/shop_images\/Zion_on_Modern_Mud_Cloth_bed_for_IG_homepage.png"
+        }
+      },
+      "about-page": {
+        "type": "about-page",
+        "settings": {
+          "about_heading": "About Us",
+          "image": "shopify:\/\/shop_images\/Screen_Shot_2019-07-13_at_4.57.42_PM.png",
+          "about_large_text": "<p>We&rsquo;re passionate about making pet products are as beautiful as they are functional, because your best friend deserves the best.&nbsp;<\/p>",
+          "about_intro_small_text": "<p>You can find our products online and at over 300 retailers including Anthropologie, White&rsquo;s Mercantile and DOG &amp; CO.<\/p>",
+          "about_body_text_large": "",
+          "about_body_text": "",
+          "about_image": "",
+          "about_middle_heading": "",
+          "about_middle_text": "",
+          "btn_text": "",
+          "btn_link": "",
+          "about_middle_image": "",
+          "about_featured": "",
+          "about_collection": ""
+        }
+      },
+      "about-header": {
+        "type": "about-header",
+        "settings": {
+          "about_heading": "About Us",
+          "image": "shopify:\/\/shop_images\/Foggy_Dog_About_Us-1.jpg",
+          "about_large_text": "<p>We&rsquo;re passionate about making pet products that are as beautiful as they are functional, because your best friend deserves the best.&nbsp;<\/p>",
+          "about_intro_small_text": "<p>You can find&nbsp;our products online and at over 500 retailers including Anthropologie, White&rsquo;s Mercantile, Nordstrom and DOG &amp; CO.<\/p>"
+        }
+      },
+      "about-press": {
+        "type": "about-press",
+        "blocks": {
+          "1569011390959": {
+            "type": "press",
+            "settings": {
+              "title": "Oprah Magazine",
+              "image": "shopify:\/\/shop_images\/oprah.png"
+            }
+          },
+          "1569011412162": {
+            "type": "press",
+            "settings": {
+              "title": "Real Simple",
+              "image": "shopify:\/\/shop_images\/REAL_SIMPLE_Logo-696x364_de98c3c0-32d5-4453-8ef4-1ee1d8ff1cf0.png"
+            }
+          },
+          "1569011537631": {
+            "type": "press",
+            "settings": {
+              "title": "Better Homes & Gardens",
+              "image": "shopify:\/\/shop_images\/better-homes-and-gardens-1_cdf0eb0a-1e98-41e7-bdfd-9b313cf9a2f9.png"
+            }
+          },
+          "1569011457900": {
+            "type": "press",
+            "settings": {
+              "title": "Southern Living",
+              "image": "shopify:\/\/shop_images\/southern-living-logo-png-transparent.png"
+            }
+          },
+          "1569011470746": {
+            "type": "press",
+            "settings": {
+              "title": "Dog Milk",
+              "image": "shopify:\/\/shop_images\/dogmilklogo_large_315e0470-36f5-4b14-987e-dfa0e36a6dae.png"
+            }
+          }
+        },
+        "block_order": [
+          "1569011390959",
+          "1569011412162",
+          "1569011537631",
+          "1569011457900",
+          "1569011470746"
+        ],
+        "settings": {
+          "press_title": "As Seen In",
+          "show_images": true
+        }
+      },
+      "about-image-text": {
+        "type": "about-image-text",
+        "blocks": {
+          "1563070075858": {
+            "type": "image_text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Foggy_Dog_About_Us-2_cropped.jpg",
+              "title": "Good Dogs Deserve Great Design",
+              "description": "<p>Our mission is to create pet products like you&rsquo;ve never seen before. We obsess over each and every detail (like searching through hundreds of zipper colors to find that one perfect hue). All of our materials are hand-picked for design, comfort, texture and durability.<\/p>"
+            }
+          },
+          "1563070147214": {
+            "type": "image_text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Jeannette_at_factory_cropped.jpg",
+              "title": "Made in America with Love",
+              "description": "<p>We proudly handcraft our products in the USA. Our manufacturing partners are family-owned businesses, where skilled craftspeople are paid fair wages. Almost everything is made right here in San Francisco and we're thrilled to help bring small-batch manufacturing back to our hometown.<\/p>"
+            }
+          },
+          "1563070173218": {
+            "type": "image_text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Foggy_Dog_About_Us-3_cropped.jpg",
+              "title": "We Love Dogs <em>and<\/em> the Earth",
+              "description": "<p>Our dog beds and toys are stuffed with 100% recycled fiber spun from plastic bottles that would otherwise be landfill. We minimize waste by using recycled materials, repurposed fabric scraps, and natural fabrics wherever possible to create products you can be proud to have in your home.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1563070075858",
+          "1563070147214",
+          "1563070173218"
+        ],
+        "settings": {
+        }
+      },
+      "about-charity": {
+        "type": "about-charity",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Screen_Shot_2019-07-13_at_8.23.20_PM.png",
+          "about_large_text": "<p>Every Order Feeds a Shelter Dog<\/p>",
+          "about_intro_small_text": "<p>Not every pet is lucky enough to have a family to call its own. Each time you purchase from The Foggy Dog, we donate&nbsp;half a pound of food&nbsp;to rescue shelters across America. Thank you for helping us help them!<\/p>",
+          "button_link": "shopify:\/\/collections\/best-sellers",
+          "button_text": "Shop Bestsellers"
+        }
+      },
+      "about-favorites": {
+        "type": "about-favorites",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Utah_in_Modern_Mudcloth.jpg",
+          "title": "Utah's Favorites",
+          "collection": "utahs-favorites",
+          "description": ""
+        }
+      },
+      "about-letter": {
+        "type": "about-letter",
+        "settings": {
+          "heading": "From The Founder",
+          "image": "shopify:\/\/shop_images\/Foggy_Dog_About_Us-4_cropped.jpg",
+          "text": "<p>Ever since I can remember, I&rsquo;ve loved dogs and design. So when I was finally ready to get a puppy of my own, it makes sense that I started obsessing a bit (okay, a lot). I wanted everything to be just right for my new baby.<\/p>\n<p>I began by searching for the perfect dog bed. But after scrolling through hundreds of options, I couldn&rsquo;t find The One. So I hired a local seamstress to create the dog bed of my dreams.<\/p>\n<p>I realized I couldn&rsquo;t be the only dog mom who wanted beautiful, modern, quality products. So I quit my day job, started buying fabric and The Foggy Dog was born. In addition to <a href=\"\/collections\/dog-beds\" title=\"Dog Beds\">pet beds<\/a> we now offer <a href=\"\/collections\/dog-collars\" title=\"Dog Collars\">collars<\/a>, <a href=\"\/collections\/dog-leashes\" title=\"Dog Leashes\">leashes<\/a>, <a href=\"\/collections\/play\" title=\"Play\">toys<\/a> and <a href=\"\/collections\/waste-bag-holders\" title=\"Waste bag holders\">accessories<\/a>.<\/p>\n<p>These days, you can find me in our San Francisco office designing our next collection with my goldendoodle Utah happily sleeping under my desk. Thank you for helping me do what I love every day.&nbsp;<\/p>\n<p>Wags,<br>Rose and Utah<\/p>"
+        }
+      },
+      "1563143942120": {
+        "type": "testimonials",
+        "blocks": {
+          "1563143971007": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial_image": "shopify:\/\/shop_images\/Renly_Golden_Circle.png",
+              "testimonial_text": "<p>Super cute and interior design-friendly. And, their toys and beds have made it through our puppy’s teething months like nothing else we’ve tried!<\/p>",
+              "title": "@renlygolden"
+            }
+          },
+          "1563146002783": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial_image": "shopify:\/\/shop_images\/Wembley_Doodle_Circle.png",
+              "testimonial_text": "<p> Our Foggy Dog bandana has quickly become a go-to accessory for our pup. We are in love with their thoughtful and beautiful designs.<\/p>",
+              "title": "@wembley.doodle"
+            }
+          },
+          "1565816612678": {
+            "type": "testimonial",
+            "settings": {
+              "testimonial_image": "shopify:\/\/shop_images\/Lady_Bird_Circle.png",
+              "testimonial_text": "<p>Lady Bird’s leash is made with unparalleled craftsmanship and durability. I love that their products are made right here in the USA.<\/p>",
+              "title": "@lady_bird_the_berner"
+            }
+          }
+        },
+        "block_order": [
+          "1563143971007",
+          "1563146002783",
+          "1565816612678"
+        ],
+        "settings": {
+          "testimonials_heading": ""
+        }
+      },
+      "size-chart-dog-bed": {
+        "type": "size-chart-dog-bed",
+        "blocks": {
+          "1564519993094": {
+            "type": "bed",
+            "settings": {
+              "size": "s",
+              "bed_weight": "Up to 15-20 lbs",
+              "bed_size": "20” x 30”",
+              "bed_insert": "Our Insert in Small or 1 Queen Pillow",
+              "bed_example": "Cat, Yorkie, Shih Tzu, Maltese, Chihuahua, Cavalier King Charles Spaniel"
+            }
+          },
+          "1564520561687": {
+            "type": "bed",
+            "settings": {
+              "size": "m",
+              "bed_weight": "Up to 30-40 lbs",
+              "bed_size": "25\" x 35\"",
+              "bed_insert": "Our Insert in Medium or 2 Standard Pillows",
+              "bed_example": "Dachshund, Corgi, Beagle, Cocker Spaniel, Shiba Inu, French Bulldog"
+            }
+          },
+          "1564520732168": {
+            "type": "bed",
+            "settings": {
+              "size": "l",
+              "bed_weight": "Up to 50-60 lbs",
+              "bed_size": "30\" x 40\"",
+              "bed_insert": "Our Insert in Large or 2 King Pillows",
+              "bed_example": "English Bulldog, Pit Bull, Border Collie, Australian Shepherd, small Labradors"
+            }
+          },
+          "1567640585046": {
+            "type": "bed",
+            "settings": {
+              "size": "xl",
+              "bed_weight": "Up to 70-80",
+              "bed_size": "35\" x 45\"",
+              "bed_insert": "Our Insert in XL or 3 King Pillows",
+              "bed_example": "Golden Retriever, Standard Poodle, Boxer, German Shepherd, Dalmatian"
+            }
+          }
+        },
+        "block_order": [
+          "1564519993094",
+          "1564520561687",
+          "1564520732168",
+          "1567640585046"
+        ],
+        "settings": {
+          "chart_enable": true,
+          "heading": "Dog Bed Size Guide",
+          "text": "<p><strong>Measuring Tips:<\/strong>&nbsp; We recommend measuring your pet in their natural sleeping position to find the perfect bed size. Add 4-6&rdquo; for cats and small dogs, or 8-12&rdquo; for medium to large dogs. When in doubt, size up - no one likes falling out of bed!<\/p>",
+          "button_text": "shop dog beds",
+          "button_url": "shopify:\/\/collections\/dog-beds"
+        }
+      },
+      "size-chart-dog-collar": {
+        "type": "size-chart-dog-collar",
+        "blocks": {
+          "1564527920436": {
+            "type": "collar",
+            "settings": {
+              "size": "xs",
+              "bed_weight": "8”-12”",
+              "bed_size": "5\/8”",
+              "bed_example": "Yorkie, Pekingese, Havanese, Shih Tzu, Chihuahua, Maltese, most toy breeds"
+            }
+          },
+          "1564527978942": {
+            "type": "collar",
+            "settings": {
+              "size": "s",
+              "bed_weight": "11”-16”",
+              "bed_size": "5\/8”",
+              "bed_example": "Cocker Spaniel, Mini Goldendoodle, Pug, Shih Tzu, Boston Terrier, Corgi"
+            }
+          },
+          "1564528052046": {
+            "type": "collar",
+            "settings": {
+              "size": "m",
+              "bed_weight": "14”-19”",
+              "bed_size": "1”",
+              "bed_example": "Shiba Inu, Pit Bull, Vizsla, Border Collie, French Bulldog"
+            }
+          },
+          "1564528064001": {
+            "type": "collar",
+            "settings": {
+              "size": "l",
+              "bed_weight": "18”-26”",
+              "bed_size": "1”",
+              "bed_example": "Labrador, Golden Retriever, German Shepherd, Australian Cattle Dog"
+            }
+          }
+        },
+        "block_order": [
+          "1564527920436",
+          "1564527978942",
+          "1564528052046",
+          "1564528064001"
+        ],
+        "settings": {
+          "chart_enable": true,
+          "heading": "Dog Collar Size Guide",
+          "text": "<p>There are no standard collar sizes. As a result, we strongly recommend measuring your dog's neck to ensure the right collar size.<\/p>\n<p><strong>Measuring Tips<\/strong>:&nbsp;Measure your pup's neck with a soft tape measure, pulling the tape snug but not tight (if you don't have a tape measure, use a piece of string and then measure the string with a ruler). Allow sufficient room to slip two fingers between the collar and your pup's neck.<\/p>",
+          "button_text": "SHOP DOG COLLARS",
+          "button_url": "shopify:\/\/collections\/dog-collars"
+        }
+      },
+      "size-chart-dog-bandana": {
+        "type": "size-chart-dog-bandana",
+        "blocks": {
+          "1564530013107": {
+            "type": "bandana",
+            "settings": {
+              "size": "s",
+              "bed_weight": "Up to 13”",
+              "bed_example": "Chihuahua, Yorkie, Pomeranian, Havanese, Maltese, Shih Tzu, most toy breeds"
+            }
+          },
+          "1564530059419": {
+            "type": "bandana",
+            "settings": {
+              "size": "m",
+              "bed_weight": "Up to 18”",
+              "bed_example": "Cocker Spaniel, Shiba Inu, Beagle, French Bulldog, Pug, Mini Goldendoodle, Corgi"
+            }
+          },
+          "1564530123692": {
+            "type": "bandana",
+            "settings": {
+              "size": "l",
+              "bed_weight": "Up to 22”",
+              "bed_example": "Labrador, Golden Retriever, Australian Shepherd, Boxer, Siberian Husky, Vizsla, Wheaten Terrier"
+            }
+          }
+        },
+        "block_order": [
+          "1564530013107",
+          "1564530059419",
+          "1564530123692"
+        ],
+        "settings": {
+          "chart_enable": true,
+          "heading": "Dog Bandana Size Guide",
+          "text": "<p>To ensure the perfect fit, please measure around your dog's neck and consult the bandana size chart below. When in doubt, size up!<\/p><p><br\/><\/p><p><strong>Measuring Tips<\/strong>: Measure your pup's neck with a soft tape measure, pulling the tape snug but not tight (if you don't have a tape measure, use a piece of string and then measure the string with a ruler). Allow sufficient room to slip two fingers between the bandana and your pup's neck.<\/p>",
+          "button_text": "Shop Dog Bandanas",
+          "button_url": "shopify:\/\/collections\/dog-bandanas"
+        }
+      },
+      "chart-featured-collection": {
+        "type": "chart-featured-collection",
+        "settings": {
+          "title": "Customer Favorites",
+          "collection": "home-page-customer-favorites",
+          "description": ""
+        }
+      },
+      "size-chart-header": {
+        "type": "size-chart-header",
+        "settings": {
+          "size_heading": "Size Guide",
+          "top_text": "<p>Turns out, size does matter. To get the perfect fit for your pup, please consult our helpful size guides by product. <br>Need more help? Give us a ring at 415-993-1130.<\/p>",
+          "bottom_text": "<p><strong>Not sure of the exact measurements?<\/strong> <br>Check our <a href=\"#breed\" title=\"#breed\">Size by Breed chart<\/a> for general size guidelines by breed.<\/p>",
+          "bed_enable": true,
+          "collar_enable": true,
+          "band_enable": true,
+          "harn_enable": false
+        }
+      },
+      "size-chart-dog-breed": {
+        "type": "size-chart-dog-breed",
+        "blocks": {
+          "1564603377035": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Afghan",
+              "breed_neck": "16-22\"",
+              "bed_weight": "50-60",
+              "bed_size": "L \/ XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1564603474159": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "American Staffordshire Terrier",
+              "breed_neck": "18-24\"",
+              "bed_weight": "60-90",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1564603505793": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Alaskan Malamute",
+              "breed_neck": "18-24\"",
+              "bed_weight": "65-100",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1564605848161": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "American Bulldog",
+              "breed_neck": "18-24\"",
+              "bed_weight": "60-120",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1564603439901": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "American Eskimo",
+              "breed_neck": "16-20\"",
+              "bed_weight": "18-35",
+              "bed_size": "M",
+              "collar_size": "M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1564605908480": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "American Eskimo, Mini",
+              "breed_neck": "13-16\"",
+              "bed_weight": "15-25",
+              "bed_size": "M",
+              "collar_size": "S",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569370252403": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "American Staffordshire Terrier",
+              "breed_neck": "14-20\"",
+              "bed_weight": "40-70",
+              "bed_size": "L \/ XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569370397789": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Australian Cattle Dog",
+              "breed_neck": "22-28\"",
+              "bed_weight": "31-35",
+              "bed_size": "M \/ L",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569370474198": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Australian Kelpie",
+              "breed_neck": "15-21\"",
+              "bed_weight": "25-45",
+              "bed_size": "L",
+              "collar_size": "M \/ L",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569967597378": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Australian Shepherd",
+              "breed_neck": "16-22\"",
+              "bed_weight": "35-70",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569967735460": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Australian Shepherd, Mini",
+              "breed_neck": "10-14”",
+              "bed_weight": "20-35",
+              "bed_size": "M",
+              "collar_size": "S",
+              "bandana_size": "S \/ M",
+              "harness_size": ""
+            }
+          },
+          "1569967778489": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Basenji",
+              "breed_neck": "10-14\"",
+              "bed_weight": "20-26",
+              "bed_size": "M",
+              "collar_size": "S",
+              "bandana_size": "S \/ M",
+              "harness_size": ""
+            }
+          },
+          "1569967827426": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Basset Hound",
+              "breed_neck": "16-22″",
+              "bed_weight": "40-65",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569967858199": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Beagle",
+              "breed_neck": "12-18\"",
+              "bed_weight": "18-30",
+              "bed_size": "M",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569967884836": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Bedlington Terrier",
+              "breed_neck": "14-18″",
+              "bed_weight": "17-23",
+              "bed_size": "M",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569967933699": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Belgian Malinois",
+              "breed_neck": "16-20″",
+              "bed_weight": "55-75",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569967971350": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Bernese Mountain Dog",
+              "breed_neck": "20-26″",
+              "bed_weight": "75-100",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968023866": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Bichon Frise",
+              "breed_neck": "10-16″",
+              "bed_weight": "10-14",
+              "bed_size": "S",
+              "collar_size": "S \/ M",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569968106403": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Black And Tan Coonhound",
+              "breed_neck": "19-23″",
+              "bed_weight": "70-85",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968136900": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Bloodhound",
+              "breed_neck": "22-28″",
+              "bed_weight": "88-105",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968238814": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Blue Heeler",
+              "breed_neck": "22-28″",
+              "bed_weight": "30-35",
+              "bed_size": "M \/ L",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968269383": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Border Collie",
+              "breed_neck": "14-18″",
+              "bed_weight": "30-45",
+              "bed_size": "M \/ L",
+              "collar_size": "M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569968298179": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Border Terrier",
+              "breed_neck": "11-14″",
+              "bed_weight": "11-16",
+              "bed_size": "S",
+              "collar_size": "S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569968333053": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Boston Terrier",
+              "breed_neck": "12-18″",
+              "bed_weight": "10-25",
+              "bed_size": "M",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569968368541": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Bouvier Des Flandres",
+              "breed_neck": "22-26″",
+              "bed_weight": "60-77",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968534864": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Boxer",
+              "breed_neck": "16-22″",
+              "bed_weight": "55-75",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968567298": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Brittany",
+              "breed_neck": "14-16″",
+              "bed_weight": "30-40",
+              "bed_size": "M",
+              "collar_size": "S",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569968635559": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Bull Terrier",
+              "breed_neck": "12-18\"",
+              "bed_weight": "50-60",
+              "bed_size": "L \/ XL",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569968677248": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Bull Terrier, Mini",
+              "breed_neck": "14-18″",
+              "bed_weight": "18-28",
+              "bed_size": "M \/ L",
+              "collar_size": "M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569968700085": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Bullmastiff",
+              "breed_neck": "26-28″",
+              "bed_weight": "100-130",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968727289": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Cairn Terrier",
+              "breed_neck": "10-16″",
+              "bed_weight": "12-16",
+              "bed_size": "S",
+              "collar_size": "S \/ M",
+              "bandana_size": "S \/ M",
+              "harness_size": ""
+            }
+          },
+          "1569968758143": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Cane Corso",
+              "breed_neck": "22-30″",
+              "bed_weight": "90-110",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968896708": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Caucasian Shepherd",
+              "breed_neck": "22-26″",
+              "bed_weight": "100-200",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569968938066": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Cavalier King Charles Spaniel",
+              "breed_neck": "10-14″",
+              "bed_weight": "13-18",
+              "bed_size": "S",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569968971608": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Chihuahua",
+              "breed_neck": "8-14″",
+              "bed_weight": "3-7",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569969000996": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Chinese Crested",
+              "breed_neck": "8-11″",
+              "bed_weight": "5-10",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569969034951": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Chow",
+              "breed_neck": "18-24″",
+              "bed_weight": "45-65",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969059696": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Cocker Spaniel",
+              "breed_neck": "12-18″",
+              "bed_weight": "25-40",
+              "bed_size": "M",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569969087977": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Collie",
+              "breed_neck": "18-22″",
+              "bed_weight": "50-75",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969121172": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Corgi",
+              "breed_neck": "14-16″",
+              "bed_weight": "25-38",
+              "bed_size": "M \/ L",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569969153283": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Dachshund, Mini",
+              "breed_neck": "8-14″",
+              "bed_weight": "9-15",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569969175546": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Dachshund, Standard",
+              "breed_neck": "16-20″",
+              "bed_weight": "16-32",
+              "bed_size": "M",
+              "collar_size": "M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569969231791": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Dalmatian",
+              "breed_neck": "14-20″",
+              "bed_weight": "45-65",
+              "bed_size": "L",
+              "collar_size": "M",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569969257946": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Doberman",
+              "breed_neck": "16-22″",
+              "bed_weight": "65-100",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969287023": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Dogo Argentino",
+              "breed_neck": "20-26″",
+              "bed_weight": "80-100",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969329179": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Dogue De Bordeaux",
+              "breed_neck": "20-26\"",
+              "bed_weight": "120-140",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969359685": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "English Bulldog",
+              "breed_neck": "18-24″",
+              "bed_weight": "40-55",
+              "bed_size": "L \/ XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969402139": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "English Mastiff",
+              "breed_neck": "28-38″",
+              "bed_weight": "120-250",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969429058": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "English Setter",
+              "breed_neck": "18-24″",
+              "bed_weight": "65-80",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969464855": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Fox Terrier",
+              "breed_neck": "10-16″",
+              "bed_weight": "14-18",
+              "bed_size": "S",
+              "collar_size": "S \/ M",
+              "bandana_size": "S \/ M",
+              "harness_size": ""
+            }
+          },
+          "1569969531027": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "French Bulldog",
+              "breed_neck": "12-18″",
+              "bed_weight": "18-28",
+              "bed_size": "M",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569969554816": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "German Shepherd",
+              "breed_neck": "18-24″",
+              "bed_weight": "65-95",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969581098": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "German Shorthair Pointer",
+              "breed_neck": "20-26″",
+              "bed_weight": "45-70",
+              "bed_size": "L \/ XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969608322": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Golden Retriever",
+              "breed_neck": "16-24″",
+              "bed_weight": "55-75",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969640182": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Goldendoodle, Mini",
+              "breed_neck": "12-16″",
+              "bed_weight": "30-45",
+              "bed_size": "M \/ L",
+              "collar_size": "S",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569969691360": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Goldendoodle, Standard",
+              "breed_neck": "16-22\"",
+              "bed_weight": "40-50",
+              "bed_size": "L \/ XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969809075": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Great Dane",
+              "breed_neck": "20-26″",
+              "bed_weight": "125-135",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969830413": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Great Pyrenees",
+              "breed_neck": "24-30″",
+              "bed_weight": "90-125",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969855486": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Greyhound",
+              "breed_neck": "14-18″",
+              "bed_weight": "55-80",
+              "bed_size": "XL",
+              "collar_size": "M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569969898101": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Havanese",
+              "breed_neck": "8-14″",
+              "bed_weight": "7-13",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569969961928": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Irish Setter",
+              "breed_neck": "16-22″",
+              "bed_weight": "53-70",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569969991122": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Irish Terrier",
+              "breed_neck": "16-20″",
+              "bed_weight": "25-27",
+              "bed_size": "M",
+              "collar_size": "M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569970023669": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Irish Wolfhound",
+              "breed_neck": "20-27″",
+              "bed_weight": "115-120",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569970141553": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Italian Greyhound",
+              "breed_neck": "8-11″",
+              "bed_weight": "7-12",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569970168409": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Jack Russell Terrier",
+              "breed_neck": "10-14″",
+              "bed_weight": "9-15",
+              "bed_size": "S",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569970204402": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Keeshond",
+              "breed_neck": "18-24\"",
+              "bed_weight": "30-40",
+              "bed_size": "L",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569970302891": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "King Charles Cavalier",
+              "breed_neck": "10-14″",
+              "bed_weight": "13-18",
+              "bed_size": "S",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569970346335": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Labradoodle, Miniature",
+              "breed_neck": "12-16″",
+              "bed_weight": "15-25",
+              "bed_size": "M",
+              "collar_size": "S",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569970384330": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Labradoodle, Standard",
+              "breed_neck": "14-20″",
+              "bed_weight": "50-65",
+              "bed_size": "L \/ XL",
+              "collar_size": "M",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569970426455": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Labrador",
+              "breed_neck": "18-24″",
+              "bed_weight": "55-75",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569970458162": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Lhasa Apso",
+              "breed_neck": "12-16″",
+              "bed_weight": "13-18",
+              "bed_size": "S \/ M",
+              "collar_size": "S \/ M",
+              "bandana_size": "S \/ M",
+              "harness_size": ""
+            }
+          },
+          "1569970509666": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Louisiana Catahoula Leopard",
+              "breed_neck": "16-21\"",
+              "bed_weight": "50-95",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569970593695": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Lurcher",
+              "breed_neck": "13-20″",
+              "bed_weight": "60-70",
+              "bed_size": "L \/ XL",
+              "collar_size": "S \/ M",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569970670734": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Maltese",
+              "breed_neck": "10-14″",
+              "bed_weight": "6-9",
+              "bed_size": "S",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569970693841": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Maltipoo",
+              "breed_neck": "8-14\"",
+              "bed_weight": "5-20",
+              "bed_size": "S \/ M",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569970750185": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Newfoundland",
+              "breed_neck": "26-32″",
+              "bed_weight": "110-150",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569970776468": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Norwegian Elkhound",
+              "breed_neck": "18-22\"",
+              "bed_weight": "50-60",
+              "bed_size": "L \/ XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569970809788": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Old English Sheepdog",
+              "breed_neck": "18-24″",
+              "bed_weight": "60-65",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569970838236": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Papillon",
+              "breed_neck": "8-12″",
+              "bed_weight": "8-11",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569970860734": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Pekingese",
+              "breed_neck": "12-16″",
+              "bed_weight": "8-10",
+              "bed_size": "S",
+              "collar_size": "S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569970889749": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Pinscher, Mini",
+              "breed_neck": "8-11″",
+              "bed_weight": "8-12",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569970921137": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Pit Bull",
+              "breed_neck": "14-20\"",
+              "bed_weight": "40-70",
+              "bed_size": "L \/ XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569970951024": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Pomeranian",
+              "breed_neck": "10-14″",
+              "bed_weight": "9-13",
+              "bed_size": "S",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569971002976": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Poodle, Mini",
+              "breed_neck": "10-16″",
+              "bed_weight": "12-20",
+              "bed_size": "S \/ M",
+              "collar_size": "S \/ M",
+              "bandana_size": "S \/ M",
+              "harness_size": ""
+            }
+          },
+          "1569971087298": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Poodle, Standard",
+              "breed_neck": "12-18″",
+              "bed_weight": "45-70",
+              "bed_size": "L \/ XL",
+              "collar_size": "M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569971215369": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Poodle, Toy",
+              "breed_neck": "8-14″",
+              "bed_weight": "12-17",
+              "bed_size": "S",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569971281549": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Portuguese Water Dog",
+              "breed_neck": "15-20″",
+              "bed_weight": "35-60",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569971315920": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Pug",
+              "breed_neck": "12-16″",
+              "bed_weight": "14-18",
+              "bed_size": "S \/ M",
+              "collar_size": "S \/ M",
+              "bandana_size": "S \/ M",
+              "harness_size": ""
+            }
+          },
+          "1569971363834": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Puggle",
+              "breed_neck": "12-18″",
+              "bed_weight": "15-30",
+              "bed_size": "S \/ M",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569971392131": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Rat Terrier",
+              "breed_neck": "13-16″",
+              "bed_weight": "11-14",
+              "bed_size": "M",
+              "collar_size": "S",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569971416749": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Rhodesian Ridgeback",
+              "breed_neck": "20-23″",
+              "bed_weight": "60-90",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569971463507": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Rottweiler",
+              "breed_neck": "24-30″",
+              "bed_weight": "100-120",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569971485802": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Saluki",
+              "breed_neck": "13-18″",
+              "bed_weight": "40-60",
+              "bed_size": "M \/ L",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569971516461": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Schipperke",
+              "breed_neck": "10-14″",
+              "bed_weight": "11-18",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569971536943": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Schnauzer, Giant",
+              "breed_neck": "20-26″",
+              "bed_weight": "70-80",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569971575409": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Schnauzer, Mini",
+              "breed_neck": "10-16″",
+              "bed_weight": "13-15",
+              "bed_size": "S",
+              "collar_size": "S \/ M",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569971603907": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Schnauzer, Standard",
+              "breed_neck": "14-20″",
+              "bed_weight": "30-35",
+              "bed_size": "M",
+              "collar_size": "M",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569971639517": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Scottish Terrier",
+              "breed_neck": "16-20″",
+              "bed_weight": "19-23",
+              "bed_size": "M",
+              "collar_size": "M",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569971662892": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Shar Pei",
+              "breed_neck": "16-20″",
+              "bed_weight": "35-55",
+              "bed_size": "L \/ XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569971689734": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Shetland Sheep Dog (Sheltie)",
+              "breed_neck": "11-18″",
+              "bed_weight": "15-27",
+              "bed_size": "M",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569971716739": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Shiba Inu",
+              "breed_neck": "14-17″",
+              "bed_weight": "17-23",
+              "bed_size": "M",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569971792641": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Shichon",
+              "breed_neck": "10-16″",
+              "bed_weight": "10-15",
+              "bed_size": "S",
+              "collar_size": "S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569971819039": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Shih Tzu",
+              "breed_neck": "10-14″",
+              "bed_weight": "12-16",
+              "bed_size": "S",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569971872706": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Siberian Husky",
+              "breed_neck": "16-22″",
+              "bed_weight": "40-60",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569971900529": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Silky Terrier",
+              "breed_neck": "10-14″",
+              "bed_weight": "8-10",
+              "bed_size": "S",
+              "collar_size": "XS \/ S",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          },
+          "1569971925907": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Springer Spaniel",
+              "breed_neck": "14-18″",
+              "bed_weight": "49-55",
+              "bed_size": "L",
+              "collar_size": "M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569971949766": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "St. Bernard",
+              "breed_neck": "26-32″",
+              "bed_weight": "130-230",
+              "bed_size": "N \/ A",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569971978225": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Swiss Shepherd",
+              "breed_neck": "18-24\"",
+              "bed_weight": "77-85",
+              "bed_size": "XL",
+              "collar_size": "L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569972003173": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Vizsla ",
+              "breed_neck": "15-22″",
+              "bed_weight": "40-65",
+              "bed_size": "L \/ XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "M \/ L",
+              "harness_size": ""
+            }
+          },
+          "1569972038030": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Weimaraner",
+              "breed_neck": "16-22″",
+              "bed_weight": "55-85",
+              "bed_size": "XL",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569972062868": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "West Highland Terrier (Westie)",
+              "breed_neck": "14-16″",
+              "bed_weight": "15-22",
+              "bed_size": "M",
+              "collar_size": "S",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569972085893": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Wheaten Terrier",
+              "breed_neck": "18-22″",
+              "bed_weight": "30-40",
+              "bed_size": "M \/ L",
+              "collar_size": "M \/ L",
+              "bandana_size": "L",
+              "harness_size": ""
+            }
+          },
+          "1569972111641": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Whippet",
+              "breed_neck": "13-15″",
+              "bed_weight": "30-35",
+              "bed_size": "L",
+              "collar_size": "S \/ M",
+              "bandana_size": "M",
+              "harness_size": ""
+            }
+          },
+          "1569972238552": {
+            "type": "breed",
+            "settings": {
+              "breed_name": "Yorkshire Terrier (Yorkie)",
+              "breed_neck": "6-12″",
+              "bed_weight": "6-9",
+              "bed_size": "S",
+              "collar_size": "XS",
+              "bandana_size": "S",
+              "harness_size": ""
+            }
+          }
+        },
+        "block_order": [
+          "1564603377035",
+          "1564603474159",
+          "1564603505793",
+          "1564605848161",
+          "1564603439901",
+          "1564605908480",
+          "1569370252403",
+          "1569370397789",
+          "1569370474198",
+          "1569967597378",
+          "1569967735460",
+          "1569967778489",
+          "1569967827426",
+          "1569967858199",
+          "1569967884836",
+          "1569967933699",
+          "1569967971350",
+          "1569968023866",
+          "1569968106403",
+          "1569968136900",
+          "1569968238814",
+          "1569968269383",
+          "1569968298179",
+          "1569968333053",
+          "1569968368541",
+          "1569968534864",
+          "1569968567298",
+          "1569968635559",
+          "1569968677248",
+          "1569968700085",
+          "1569968727289",
+          "1569968758143",
+          "1569968896708",
+          "1569968938066",
+          "1569968971608",
+          "1569969000996",
+          "1569969034951",
+          "1569969059696",
+          "1569969087977",
+          "1569969121172",
+          "1569969153283",
+          "1569969175546",
+          "1569969231791",
+          "1569969257946",
+          "1569969287023",
+          "1569969329179",
+          "1569969359685",
+          "1569969402139",
+          "1569969429058",
+          "1569969464855",
+          "1569969531027",
+          "1569969554816",
+          "1569969581098",
+          "1569969608322",
+          "1569969640182",
+          "1569969691360",
+          "1569969809075",
+          "1569969830413",
+          "1569969855486",
+          "1569969898101",
+          "1569969961928",
+          "1569969991122",
+          "1569970023669",
+          "1569970141553",
+          "1569970168409",
+          "1569970204402",
+          "1569970302891",
+          "1569970346335",
+          "1569970384330",
+          "1569970426455",
+          "1569970458162",
+          "1569970509666",
+          "1569970593695",
+          "1569970670734",
+          "1569970693841",
+          "1569970750185",
+          "1569970776468",
+          "1569970809788",
+          "1569970838236",
+          "1569970860734",
+          "1569970889749",
+          "1569970921137",
+          "1569970951024",
+          "1569971002976",
+          "1569971087298",
+          "1569971215369",
+          "1569971281549",
+          "1569971315920",
+          "1569971363834",
+          "1569971392131",
+          "1569971416749",
+          "1569971463507",
+          "1569971485802",
+          "1569971516461",
+          "1569971536943",
+          "1569971575409",
+          "1569971603907",
+          "1569971639517",
+          "1569971662892",
+          "1569971689734",
+          "1569971716739",
+          "1569971792641",
+          "1569971819039",
+          "1569971872706",
+          "1569971900529",
+          "1569971925907",
+          "1569971949766",
+          "1569971978225",
+          "1569972003173",
+          "1569972038030",
+          "1569972062868",
+          "1569972085893",
+          "1569972111641",
+          "1569972238552"
+        ],
+        "settings": {
+          "chart_enable": true,
+          "heading": "Size Guide by Breed",
+          "text": "<p>While we strongly recommend measuring your pup to get the most accurate fit, we understand that it&rsquo;s not always possible if you're giving a gift or buying for a puppy. We&rsquo;ve created&nbsp;this&nbsp;size chart&nbsp;by breed&nbsp;to suggest&nbsp;the Foggy Dog size that <em>usually<\/em> fits each breed.<\/p>"
+        }
+      },
+      "size-chart-dog-harness": {
+        "type": "size-chart-dog-harness",
+        "blocks": {
+          "1564612430823": {
+            "type": "collar",
+            "settings": {
+              "size": "s",
+              "bed_weight": "Up to 13”",
+              "bed_size": "5\/8”",
+              "bed_example": "Cat, yorkie, pomeranian, Havanese, maltese, shih tzu, most toy breeds.",
+              "size_image": "shopify:\/\/shop_images\/foggydog-bed-fpo-1.jpg"
+            }
+          },
+          "1564612538842": {
+            "type": "collar",
+            "settings": {
+              "size": "m",
+              "bed_weight": "Up to 17”",
+              "bed_size": "5\/8”",
+              "bed_example": "Dachshund, corgi, beagle, cocker spaniehl, shiba inu, french bulldog",
+              "size_image": "shopify:\/\/shop_images\/foggydog-bed-fpo-1.jpg"
+            }
+          },
+          "1564612620040": {
+            "type": "collar",
+            "settings": {
+              "size": "l",
+              "bed_weight": "Up to 22”",
+              "bed_size": "1\"",
+              "bed_example": "Labrador, bulldog, golden retriever, pit bull, border collie, french bulldog",
+              "size_image": "shopify:\/\/shop_images\/foggydog-bed-fpo-1.jpg"
+            }
+          },
+          "1564612622909": {
+            "type": "collar",
+            "settings": {
+              "size": "xl",
+              "bed_weight": "Up to 22”",
+              "bed_size": "1”",
+              "bed_example": "Boxer, german shepherd, dalmatian, standard poodle, weimaraner",
+              "size_image": "shopify:\/\/shop_images\/foggydog-bed-fpo-1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1564612430823",
+          "1564612538842",
+          "1564612620040",
+          "1564612622909"
+        ],
+        "settings": {
+          "chart_enable": false,
+          "heading": "Dog Harness Size Guide",
+          "text": "<p>To ensure the perfect fit for your bandana, please measure around your dog's neck and consult the size chart below. When in doubt, size up!<\/p>",
+          "button_text": "Shop Harness",
+          "button_url": ""
+        }
+      },
+      "faq": {
+        "type": "faq",
+        "blocks": {
+          "252240a7-d261-4f3d-84b2-556f4717f9ad": {
+            "type": "faq",
+            "settings": {
+              "question": "When will I receive my order?",
+              "answer": "<p>Our in-house fulfillment team ships all orders from our headquarters in San Francisco. The team ships Mondays through Fridays, excluding holidays. <strong>Please note:<\/strong> <strong>due to increased volumes and staffing shortages, our processing time is longer than usual<\/strong>. Orders with Standard  shipping will ship in around 2-4 business days. Orders with Priority or Express shipping will ship within 1 business day. <\/p><p>Right now, shipping carriers are experiencing widespread delays due to unprecedented shipping volumes. Our best guidance for total order processing and shipping times are:<\/p><p>- Standard: 7-10 business days<br\/>- Priority: 3-5 business days<br\/>- Express: 2-4 business days<\/p><p>We use both the US Postal Service  (USPS) and UPS to ship packages. For all packages under 2 lbs, we always ship USPS. If you are unable to receive USPS packages or would prefer to us UPS, please email woof@thefoggydog.com. Please note: additional shipping charges may apply.<\/p>"
+            }
+          },
+          "ede247aa-2575-4e27-860b-da78e3784e47": {
+            "type": "faq",
+            "settings": {
+              "question": "What if my package is delayed during shipping?",
+              "answer": "<p>Sometimes packages are shipped promptly, but experience carrier delays. We use the US Postal Service to ship the vast majority of our packages and they are currently experiencing delays due to a high volume of ecommerce packages. While we have tried to provide a buffer for any USPS delays with our shipping deadlines, occasionally packages are delayed outside of our control. For packages that appear lost in transit, our policy is that if a package has not been delivered or shown movement within 10 days of the last USPS scan activity, we will issue a replacement or store credit. We have found that almost all delayed packages are delivered or show movement within that time frame.<\/p>"
+            }
+          },
+          "c5868bf9-17b5-47c5-8eab-52c6bf8763a3": {
+            "type": "faq",
+            "settings": {
+              "question": "What if my package is labeled as delivered, but I haven't received it?",
+              "answer": "<p>When packages appear to be missing, it is almost always one of the following situations:<\/p><p>- The package may have been delivered to a neighbor's home<\/p><p>- The package has been delivered to a different spot than normal on your property<\/p><p>- The shipping carrier marked the package as delivered before it actually has been<\/p><p>- Your package may be awaiting pickup at the local Post Office but the postal carrier forgot to leave the slip, the slip was lost, or was retrieved by another person in the household<\/p><p>We find that 9 times out of 10, a lost package shows up in a few days. Our policy is that if a package still hasn't shown up 10 days after the labeled delivery date, we will issue a replacement or store credit.<\/p>"
+            }
+          },
+          "1564758061121": {
+            "type": "faq",
+            "settings": {
+              "question": "What is your return policy?",
+              "answer": "<p>We stand behind every product that we sell. If you aren't 100% satisfied, we're here to help!<\/p><p><\/p><p>We accept returns of items that are unused, unwashed, and in new condition.<br\/>- Returns received within 30 days of original ship date will be refunded in full, minus shipping charges<br\/>- Returns received within 31-60 days of original ship date will receive store credit<br\/>- We cannot accept returns after 60 days<\/p><p>Please note that shipping costs are non-refundable. Customers are responsible for paying return and exchange shipping costs, unless we sent an incorrect or damaged item, in which case we will provide a complimentary return label.<\/p><p>Please visit our <a href=\"https:\/\/thefoggydog.returnly.com\/\" title=\"https:\/\/thefoggydog.returnly.com\/\">Returns Center<\/a> to initiate a return.<\/p>"
+            }
+          },
+          "1564759555998": {
+            "type": "faq",
+            "settings": {
+              "question": "How do I exchange an item?",
+              "answer": "<p>While we don't offer direct exchanges, you can return any new, unused item for a refund and place an order for the new item that you would like instead. We will provide a coupon for free standard domestic shipping on exchange orders (up to $6.95 in value). Please visit our <a href=\"https:\/\/thefoggydog.returnly.com\/\" title=\"https:\/\/thefoggydog.returnly.com\/\">Returns Center<\/a> for instructions.<\/p>"
+            }
+          },
+          "5e9e27ac-88a8-4c31-8579-e37b6e3fbb11": {
+            "type": "faq",
+            "settings": {
+              "question": "How does Afterpay work?",
+              "answer": "<p>Afterpay is a service that allows us to offer our customers the ability to make purchases now and pay for them in four payments made every 2 weeks without any interest.<\/p><p>Simply shop online and add items to your shopping bag and checkout as normal. At the checkout choose Afterpay as your payment method. First-time customers will need to register with Afterpay and provide payment details, as usual, returning customers simply log in to make their purchase. <\/p><p>For additional questions, please see our Afterpay FAQs <a href=\"https:\/\/www.thefoggydog.com\/a\/pf_preview?id=d57b9399-0e12-4afc-8a83-d46630b0e426\" title=\"https:\/\/www.thefoggydog.com\/a\/pf_preview?id=d57b9399-0e12-4afc-8a83-d46630b0e426\">here<\/a>.<\/p>"
+            }
+          },
+          "1572825392700": {
+            "type": "faq",
+            "settings": {
+              "question": "How do I care for my Foggy Dog product?",
+              "answer": "<p><strong>Dog beds:<\/strong> All upholstery-grade fabrics used in our dog bed covers are selected with durability and washability in mind. We recommend machine washing in cold water and air drying. <em>Please note that the inserts are not machine washable, and we recommend spot cleaning those.<\/em><\/p><p><strong>Dog bandanas:<\/strong> All bandanas are machine washable. We recommend machine washing on the gentle cycle in cold water and air drying.<\/p><p><strong>Dog leashes:<\/strong> The nylon used in our rope leashes is naturally dirt and stain resistant. If your leash gets dirty, we recommend hand-washing with warm soapy water and laying out to dry.<\/p><p><strong>Dog collars:<\/strong> We recommend hand washing your collar to increase its longevity. Collars can also be washed in the dishwasher or machine washed in a laundry bag to prevent the buckle from scratching.<\/p><p><strong>Dog and cat toys:<\/strong> We recommend spot cleaning.<\/p>"
+            }
+          },
+          "1572825654785": {
+            "type": "faq",
+            "settings": {
+              "question": "Where are your products made?",
+              "answer": "<p>We proudly handcraft our products in the USA. Our manufacturing partners are family-owned businesses, where skilled craftspeople are paid fair wages. Almost everything is made right here in San Francisco and we're thrilled to help bring small-batch manufacturing back to our hometown.<\/p><p>The one exception is our felt cat toys, which are made in Nepal by a Fair Trade group that provides employment for Nepali women and sustains the ancient technique of felting<\/p>"
+            }
+          },
+          "1572825368874": {
+            "type": "faq",
+            "settings": {
+              "question": "Where do you ship?",
+              "answer": "<p>We currently ship to the U.S. and Canada only. Due to their size, dog beds with inserts can only ship to the continental U.S.<\/p>"
+            }
+          },
+          "1572825845357": {
+            "type": "faq",
+            "settings": {
+              "question": "Where can I shop Foggy Dog products in person?",
+              "answer": "<p>In addition to our website, you can find our products at select brick and mortar retailers including Anthropologie, Saks, Room and Board, Healthy Spot and over 500 independent pet and gift boutiques. Please email woof@thefoggydog.com for help finding a retailer near you.<\/p>"
+            }
+          },
+          "1564759595061": {
+            "type": "faq",
+            "settings": {
+              "question": "Do you sell wholesale?",
+              "answer": "<p>Yes! To be considered for wholesale, please fill out our <a href=\"\/pages\/wholesale\" title=\"WHOLESALE\">Wholesale Application<\/a> and we will be in touch. <\/p>"
+            }
+          },
+          "1565900683336": {
+            "type": "faq",
+            "settings": {
+              "question": "How do I become a Brand Ambassador?",
+              "answer": "<p>Thank you for your interest in representing The Foggy Dog! Please visit our <a href=\"\/pages\/brand-ambassador-application\" title=\"Brand Ambassador Application\">Brand Ambassador<\/a> page to learn more about the program and apply.<\/p>"
+            }
+          },
+          "01992719-cc6a-47eb-a275-0d047e8f1317": {
+            "type": "faq",
+            "settings": {
+              "question": "Can I opt into or out of your print catalogs?",
+              "answer": "<p>If you would like to sign up for our next catalog, please <a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdBn2Mnowgf3xklmcnNBtYfUJWNtvW8F7dZUnM3EyVPUsOcpA\/viewform\" target=\"_blank\" title=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdBn2Mnowgf3xklmcnNBtYfUJWNtvW8F7dZUnM3EyVPUsOcpA\/viewform\"><strong>fill out this form <\/strong><\/a>and we'll add you!<\/p><p><\/p><p>If you would like to <strong>stop<\/strong> receiving our catalogs, please <a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSdAMs4aj0yUpAtsUbMo9d866XLXwhyRMcbvDdkwOfFL3UtzTA\/viewform\" target=\"_blank\" title=\"The Foggy Dog Catalog Opt-Out Form\"><strong>CLICK HERE<\/strong><\/a> to enter your address and we'll make sure you're taken off the list for future catalogs. Due to the lead time for our catalogs you may receive one additional catalog before the opt-out will take effect.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "252240a7-d261-4f3d-84b2-556f4717f9ad",
+          "ede247aa-2575-4e27-860b-da78e3784e47",
+          "c5868bf9-17b5-47c5-8eab-52c6bf8763a3",
+          "1564758061121",
+          "1564759555998",
+          "5e9e27ac-88a8-4c31-8579-e37b6e3fbb11",
+          "1572825392700",
+          "1572825654785",
+          "1572825368874",
+          "1572825845357",
+          "1564759595061",
+          "1565900683336",
+          "01992719-cc6a-47eb-a275-0d047e8f1317"
+        ],
+        "settings": {
+          "show_featured": true,
+          "title": "FAQ"
+        }
+      },
+      "contact-cta": {
+        "type": "contact-cta",
+        "settings": {
+          "title": "Curbside Pickup",
+          "text": "<p><strong>&nbsp;<a href=\"mailto:woof@thefoggydog.com\" title=\"mailto:woof@thefoggydog.com\">Make an appointment<\/a><\/strong>&nbsp;for curbside pickup at&nbsp;our San Francisco studio.&nbsp;While we are no longer allowing in-studio shopping due to COVID, you are welcome to pick up your online order in person and we'll refund shipping costs.<\/p>"
+        }
+      },
+      "product-pre-order-template": {
+        "type": "product-pre-order-template",
+        "settings": {
+          "show_share_buttons": true,
+          "bundle_text": ""
+        }
+      },
+      "product": {
+        "type": "product",
+        "settings": {
+          "show_share_buttons": true,
+          "bundle_text": "Or save 12% by getting the Bow Tie Collar set - the essentials for a stylish walk around town."
+        }
+      },
+      "contact-image": {
+        "type": "contact-image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/foggydog-contact-fpo.jpg"
+        }
+      },
+      "dog-bed-fill-options": {
+        "type": "dog-bed-fill-options",
+        "blocks": {
+          "1570139723984": {
+            "type": "bedinsert",
+            "settings": {
+              "insert_image": "shopify:\/\/shop_images\/Cover_only_162x150_crop_bottom_879e4b99-0356-4af1-a23c-5bb4d5832298.jpg",
+              "insert_title": "No Insert (Cover Only)",
+              "insert_desc": "Buy just the cover and fill it with old pillows, towels, sheets or clothes. An easy and eco-friendly way to upcycle old linens that's especially popular for pets with anxiety issues because they find your scent calming."
+            }
+          },
+          "1570139765914": {
+            "type": "bedinsert",
+            "settings": {
+              "insert_image": "shopify:\/\/shop_images\/Green_fill_162x150_crop_bottom_6fdba711-36bb-4560-884d-7373b74c0b7c.jpg",
+              "insert_title": "Eco-friendly Recycled Fill",
+              "insert_desc": "Eco-friendly fiberfill is spun from plastic bottles destined for landfill. Made with extra loft to stay comfy for years, and channeled to prevent fill from clumping. Water resistant liner helps guard against accidents."
+            }
+          },
+          "1570139790135": {
+            "type": "bedinsert",
+            "settings": {
+              "insert_image": "shopify:\/\/shop_images\/Shredded_memory_foam_fill_162x150_crop_bottom_c9977c64-a0ec-4cb2-9e2a-8c8de660883d.jpg",
+              "insert_title": "Shredded Memory Foam",
+              "insert_desc": "Our most luxe fill for the pup who likes to relax in ultimate comfort. Shredded memory foam fill eliminates pressure points for cloud-like support. Water resistant liner helps guard against accidents."
+            }
+          }
+        },
+        "block_order": [
+          "1570139723984",
+          "1570139765914",
+          "1570139790135"
+        ],
+        "settings": {
+          "fill_options_title": "Dog Bed Fill Options"
+        }
+      },
+      "feel-good": {
+        "type": "feel-good",
+        "settings": {
+          "made_title": "Products you can feel good about.",
+          "made_text": "The Foggy Dog proudly handcrafts our products in the USA, working with skilled craftspeople who are paid fair wages. Wherever possible we use recycled materials, low-waste manufacturing, and natural fabrics to create products you can be proud to have in your home. And of course, every order helps a shelter pup in need."
+        }
+      },
+      "every-order": {
+        "type": "every-order",
+        "settings": {
+          "shelter_title": "Every Order Feeds a Shelter Dog",
+          "shelter_text": "Not every pet is lucky enough to have a family to call its own. Every purchase from The Foggy Dog donates half a pound of food to rescue shelters across America. Thank you for helping us help them!",
+          "continue_shopping": "Continue Shopping"
+        }
+      },
+      "collection-feature": {
+        "type": "collection-feature",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Cat_page_promo_block_-_charity_message_v2.jpg",
+          "link": "https:\/\/www.thefoggydog.com\/pages\/about-us#charity"
+        }
+      },
+      "blog-sidebar": {
+        "type": "blog-sidebar",
+        "settings": {
+          "image": "",
+          "blog_title": "",
+          "description": "",
+          "social_title": "Join the Pack",
+          "favorites_title": "Shop Our Favorites",
+          "favorites": "",
+          "favorites_link": "shopify:\/\/collections\/best-sellers"
+        }
+      },
+      "163700353670632147": {
+        "type": "hero",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "1562732773624",
+      "1562734388755",
+      "163700353670632147",
+      "1563143942120",
+      "featured-collection",
+      "1562733800079",
+      "1563055488256"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-list-0": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "collection-list-1": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "collection-list-2": {
+              "type": "collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "collection-list-0",
+            "collection-list-1",
+            "collection-list-2"
+          ],
+          "settings": {
+          }
+        },
+        "featured-collection": {
+          "type": "featured-collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        }
+      },
+      "content_for_index": [
+        "collection-list",
+        "featured-collection"
+      ]
+    }
+  }
+}

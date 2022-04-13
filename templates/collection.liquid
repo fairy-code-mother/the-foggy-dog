@@ -1,0 +1,80 @@
+<div class="collection-wrapper">
+  {% assign paginatenum = 23 %}
+  {% paginate collection.products by paginatenum %}
+    <header class="collection-header" role="banner">
+      {% include 'breadcrumb' %}
+      <h1>{% include 'pt-collection-title' %}</h1>
+      <div class="count-sortby">
+        <div class="collection-count">
+          {{ collection.products_count }} {{ collection.products_count | capitalize | pluralize: 'item', 'items' }}
+        </div>
+        <label for="sort-by" class="visually-hidden">Sort by</label> 
+        <select id="sort-by">
+          <option value="manual">Sort By</option>
+          <option value="price-ascending">Price: Low to High</option>
+          <option value="price-descending">Price: High to Low</option>
+          <option value="title-ascending">A-Z</option>
+          <option value="title-descending">Z-A</option>
+          <option value="created-ascending">Oldest to Newest</option>
+          <option value="created-descending">Newest to Oldest</option>
+          <option value="best-selling">Best Selling</option>
+        </select>
+      </div>
+    </header>
+    <div class="grid--rev collection-grid">
+      <div class="grid__item large-up--four-fifths medium--three-quarters">
+        <div class="grid--uniform">
+          {% for product in collection.products %}
+{%- comment -%} Wholesale Gorilla: do not delete unless app is uninstalled{%- endcomment -%}
+{%- assign wsgTempProd = product -%}{%- assign wsgExclude = false -%}{%- if forloop.first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
+{%- include 'wsg-status' wsgStatusAction: 'init' | strip -%}{%- endif -%}{%- if wsgActive -%}{%- include 'wsg-status' wsgStatusAction: 'col-item' | strip -%}{%- endif -%}{%- if wsgExclude -%} {%- continue -%} {%- endif -%}
+{%- comment -%} end WSG {%- endcomment -%}
+            {% if forloop.index == 9 %}
+            <div class="grid-product collection-feature grid__item medium-up--one-third small--one-half">
+              {% section 'collection-feature' %}
+            </div>
+            {% endif %}
+            {% assign grid_item_width = 'medium-up--one-third small--one-half' %}
+            {% include 'product-grid-item' %}
+          {% else %}
+            <div class="grid__item">
+              <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+            </div>
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+
+        {% if collection.description != blank %}
+          <div class="collection-description rte">
+            {{ collection.description }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="grid-sidebar grid__item large-up--one-fifth medium--one-quarter">
+        <div class="collection-sidebar">
+          {% include 'filter-menu' %}
+        </div>
+      </div>
+    </div>
+  {% endpaginate %}
+</div>
+<script>
+var acc = document.querySelectorAll(".filter-group h4");
+//let i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+      this.classList.add("active");
+    } else {
+      panel.style.display = "block";
+      this.classList.remove("active");
+    }
+  });
+}
+</script>

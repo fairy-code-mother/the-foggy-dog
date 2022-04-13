@@ -1,0 +1,29 @@
+<h3>{{ section.settings.shelter_title }}</h3>
+<p>{{ section.settings.shelter_text }}</p>
+<a @click.prevent="hideShelter" href="">{{ section.settings.continue_shopping }}</a>
+
+{% schema %}
+  {
+    "name": "Every Order",
+    "settings": [
+      {
+        "type": "text",
+        "id": "shelter_title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "shelter_text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "continue_shopping",
+        "label": "Continue Shopping text",
+        "default": "Continue Shopping"
+      }
+    ],
+    "blocks": [
+    ]
+  }
+{% endschema %}

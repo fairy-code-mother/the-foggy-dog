@@ -1,0 +1,27 @@
+<div class="page-width">
+  {% include 'breadcrumb' %}
+</div>
+
+<div class="info-page">
+
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% section 'size-chart-header' %}
+    {% section 'size-chart-dog-bed' %}
+    {% section 'size-chart-dog-collar' %}
+    {% section 'size-chart-dog-bandana' %}
+    {% section 'size-chart-dog-harness' %}
+    {% section 'size-chart-dog-breed' %}
+    {% section 'chart-featured-collection' %}
+</div>
+<script>
+  let elementsArray = document.querySelectorAll(".subnav li a");
+
+  elementsArray.forEach(function(elem) {
+      elem.addEventListener("click", function(e) {
+        e.preventDefault();
+        console.log(e.target.attributes.href.value);
+        document.querySelector(e.target.attributes.href.value).scrollIntoView({block: 'start', behavior: 'smooth'});
+      });
+  });
+
+</script>

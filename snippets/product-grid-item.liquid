@@ -1,0 +1,131 @@
+{% include 'saw_product_variables' %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'medium-up--one-quarter small--one-half' %}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% if WCProductComparePrice > WCProductPrice %}
+{% assign on_sale = true %}
+{% endif %}
+
+{% assign new_product = false %}
+{% if product.tags contains 'New' or product.tags contains 'new' %}
+{% assign new_product = 'New Arrival' %}
+{% endif %}
+
+{% assign best_seller = false %}
+{% if product.tags contains 'best-seller' or product.tags contains 'Best Seller' %}
+{% assign best_seller = 'Best Seller' %}
+{% endif %}
+
+{% assign limited_edition = false %}
+{% if product.tags contains 'limited-edition' or product.tags contains 'Limited Edition' %}
+{% assign limited_edition = 'Limited Edition' %}
+{% endif %}
+
+{% assign oprah = false %}
+{% if product.tags contains 'oprah' or product.tags contains 'Oprah' %}
+{% assign oprah = 'As Seen In Oprah' %}
+{% endif %}
+
+{% assign waitlist = false %}
+{% if product.tags contains 'waitlist' or product.tags contains 'Waitlist' %}
+{% assign waitlist = 'Waitlist' %}
+{% endif %}
+
+{% assign sold_out = 'Waitlist' %}
+
+{% assign title_split = product.title | split: "-" %}
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+{% unless thumb_size %}
+  {% assign thumb_size = '250x250' %}
+{% endunless %}
+
+<div class="grid-product grid__item {{ grid_item_width }}{% unless product.available %} product-sold-out{% endunless %}">
+	<div class="grid-product-inner">
+		<a href="{{ product.url | within: collection }}">
+		  	<div class="product-grid-image">
+				<img data-product-image 
+                     data-src="{{ product.featured_image.src | img_url: thumb_size }}" 
+                     data-srcset="{{ product.featured_image.src | img_url: thumb_size }} 1x, {{ product.featured_image.src | img_url: thumb_size, scale: 2 }} 2x" 
+                     alt="{{ product.featured_image.alt | escape }}"
+                     {% if thumb_size contains 'x' %}
+                     width="{{ thumb_size | split: 'x' | first }}"
+                     {% endif %}
+                     class="lazyload {% unless product.available %}sold-out{% endunless %}">
+			</div>
+
+			<div class="product-badges">
+				{% unless product.available %}
+	                {% if waitlist %}
+	                  <span class="product-badge sold-out-badge">{{ waitlist }}</span>
+	                {% else %}
+	                  <span class="product-badge sold-out-badge">{{ sold_out }}</span>
+	                {% endif %}
+	            {% else %}
+	            	{% if new_product %}
+					  <span class="product-badge">{{ new_product }}</span>
+					{% endif %}
+					{% if best_seller %}
+					<div class="product-badge">{{ best_seller }}</div>
+				  	{% endif %}
+		            {% if oprah %}
+		            <span class="product-badge">{{ oprah }}</span>
+		            {% endif %}
+		            {% if limited_edition %}
+		            <span class="product-badge">{{ limited_edition }}</span>
+		            {% endif %}
+              	{% endunless %}
+			</div>
+
+		  	<div class="product-title">
+	    	  {% if title_split.size > 1 %}
+	    	  	{{ title_split.last }}
+	    	  {% else %}
+	    	  	{{ product.title }}
+	    	  {% endif %}
+		 	</div>
+		 	{% if title_split.size > 1 %}
+		 	<div class="product-color">
+		 		{{ title_split.first }}
+		 	</div>
+		 	{% endif %}
+		  	<div class="product-prices">
+				 {% if WCProductComparePrice > WCProductPrice %}
+					<span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+					<s>{{ WCProductComparePrice | money }}</s>
+				  {% endif %}
+  
+				  {% if WCProductComparePrice > WCProductPrice %}
+						<span class="sale-price">
+						  {% if product.price_varies %}
+							  {%- assign sale_price = WCProductPrice | money -%}
+							  {{ 'products.product.from_text_html' | t: price: sale_price }}
+						</span>
+						  {% else %}
+							  {{ WCProductPrice | money }}</span>
+						  {% endif %}
+					   <span>
+				  {% else %}
+  
+					{% if product.price_varies %}
+					  {%- assign price = WCProductPrice | money -%}
+					  {{ 'products.product.from_text_html' | t: price: price }}
+					{% else %}
+					  {{ WCProductPrice | money }}
+					{% endif %}
+  
+				  {% endif %}
+			</div> 
+
+			{% if product.title contains 'Personalized' %}
+			<div class="personalize-it">
+				Personalize It!
+			</div>
+			{% endif %}
+		</a>
+	</div>
+</div>

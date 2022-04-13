@@ -1,0 +1,126 @@
+<div class="collection-list">
+  <div class="page-width">
+    <div class="featured-collections">
+      <div class="featured-collection featured-collection-intro">
+        <div class="this-just-in">
+          <img class="lazyload" height="36" width="100" data-src="{{ section.settings.banner | img_url: '100x' }}" data-srcset="{{ section.settings.banner | img_url: '100x' }} 1x, {{ section.settings.banner | img_url: '100x', scale: 2 }} 2x" alt="{{ block.settings.collection_image.alt }}" style="max-width: {{ section.settings.banner_max_width }}px">
+        </div>
+        <h2 class="h1">{{ section.settings.heading }}</h2>
+        <div class="featured-collection-text">{{ section.settings.text }}</div>
+        <p>
+          <a href="{{ section.settings.button_url }}" class="text-btn">
+            {{ section.settings.button_text }}
+          </a>
+        </p>
+      </div>
+      {% for block in section.blocks %}
+      <div class="featured-collection{% unless forloop.first %} {% cycle 'even', 'odd' %}{% endunless %}">
+        <a href="{{ block.settings.url }}">
+          <div class="collection-image">
+            {% assign imageDimensions = 'x500' %}
+            {% if block.settings.collection_image_height != blank %}
+            	{% assign imageDimensions = 'x' | append: block.settings.collection_image_height %}
+            {% endif %}
+            <img width="470" {% if block.settings.collection_image_height != blank %}class="lazyload" height="{{ block.settings.collection_image_height }}" data-{% endif %}src="{{ block.settings.collection_image | img_url: imageDimensions }}" 
+                 {% if block.settings.collection_image_height != blank %}data-{% endif %}srcset="{{ block.settings.collection_image | img_url: imageDimensions }} 1x, {{ block.settings.collection_image | img_url: imageDimensions, scale: 2 }} 2x" alt="{{ block.settings.collection_image.alt }}">
+          </div>
+          <div class="collection-title">
+            <h3>{{ block.settings.collection_heading }}</h3>
+            <p class="text-btn">{{ block.settings.collection_tagline }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}    
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection List",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Collection List Feature"
+      },
+      {
+        "type": "paragraph",
+        "content": "Add your content below."
+      },
+      {
+        "type": "image_picker",
+        "id": "banner",
+        "label": "Banner"
+      },
+      {
+        "type": "range",
+        "id": "banner_max_width",
+        "label": "Banner width",
+        "min": 50,
+        "max": 500,
+        "step": 5,
+        "default": 100
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "url",
+            "id": "url",
+            "label": "URL"
+          },
+          {
+            "type": "image_picker",
+            "id": "collection_image",
+            "label": "Collection image"
+          },
+		  {
+            "type": "text",
+            "id": "collection_image_height",
+            "label": "Image height",
+			"info": "Helps improve performance if populated"
+          },
+          {
+            "type": "text",
+            "id": "collection_heading",
+            "label": "Collection Heading text"
+          },
+          {
+            "type": "text",
+            "id": "collection_tagline",
+            "label": "Collection Tagline text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection List",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

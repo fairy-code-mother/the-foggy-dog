@@ -1,0 +1,9 @@
+<div class="pagination">
+	{% if paginate.previous.is_link %}
+    	<a class="prev-link" href="{{ paginate.previous.url }}"><img width="30" height="21" class="lazyload" data-src="{{ 'foggydog-homepage-arrow-left.png' | asset_img_url }}" /></a>
+	{% endif %}
+	<span class="pagination-page-text">Page</span> {{ paginate.current_page }}/{{ paginate.pages }}
+	{% if paginate.next.is_link %}
+		<a class="next-link" href="{{ paginate.next.url }}"><img width="30" height="21" class="lazyload" data-src="{{ 'foggydog-homepage-arrow-right.png' | asset_img_url }}" /></a>
+	{% endif %}
+</div>

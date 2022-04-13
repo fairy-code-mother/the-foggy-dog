@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/the-foggy-dog.myshopify.com/products/configure/146454/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["bundled_variant_id"] != blank %}
+  <div class="custom-field custom-field__bundled-variant-id custom-field__type--number">
+    <h3 class="custom-field--title">Bundled Variant ID 1</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["bundled_variant_id"] }}
+    </div>
+  </div>
+{% endif %}

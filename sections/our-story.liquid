@@ -1,0 +1,64 @@
+<div class="page-width">
+
+  <div class="our-story">
+
+    <h2 class="our-story-title h1">
+      {{ section.settings.title }}
+    </h2>
+    
+  	<div class="our-story-text">
+      {{ section.settings.text }}
+    </div>
+
+    {% if section.settings.button_text != blank and section.settings.link != blank %}
+    <div class="our-story-button">
+      <a href="{{ section.settings.link }}" class="text-btn">{{ section.settings.button_text }}</a>
+    </div>
+    {% endif %}
+
+    <div class="dog-illo-1"><img data-src="{{ 'foggydog-homepage-shelter-dog-illo-1.svg' | asset_url }}" class="lazyload"></div>
+    <div class="dog-illo-2"><img data-src="{{ 'foggydog-homepage-shelter-dog-illo-2.svg' | asset_url }}" class="lazyload"></div>
+    <div class="dog-illo-3"><img data-src="{{ 'foggydog-homepage-shelter-dog-illo-3-simplified.svg' | asset_url }}" class="lazyload"></div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Introduction",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Introduction"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Read Our Story"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Our Story",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

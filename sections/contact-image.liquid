@@ -1,0 +1,24 @@
+{% if section.settings.image != blank %}
+<div class="contact-image">
+	<img src="{{ section.settings.image | img_url: '629x' }}" srcset="{{ section.settings.image | img_url: '629x' }} 1x, {{ section.settings.image | img_url: '629x', scale: 2 }} 2x" alt="{{ section.settings.image.alt | default: 'Bark at us image' }}"/>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Contact Image",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Contact Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+    ]
+  }
+{% endschema %}

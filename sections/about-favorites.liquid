@@ -1,0 +1,62 @@
+
+<div class="about-page">
+
+  <div class="page-width">
+
+    <div class="about-favorites">
+
+      {%- assign collection = collections[section.settings.collection] -%}
+      <div class="flex-grid">
+
+        <div class="grid-product favorites-first">
+          {% if section.settings.image != blank %}
+          <div class="favorites-image">
+            <img src="{{ section.settings.image | img_url: '500x' }}" srcset="{{ section.settings.image | img_url: '500x' }} 1x, {{ section.settings.image | img_url: '500x', scale: 2 }} 2x" alt="{{ section.settings.image.alt | default: section.settings.title }}">
+          </div>
+          {% endif %}
+          {% if section.settings.title != blank %}
+            <h2>{{ section.settings.title | escape }}</h2>
+          {% endif %}
+        </div>
+        {% for product in collection.products limit: 3 %}
+          {% assign grid_item_width = 'medium-up--one-quarter' %}
+          {% include 'product-grid-item' %}
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "About Favorites",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "id": "description",
+        "type": "richtext",
+        "label": "Description"
+      }
+    ]
+  }
+
+{% endschema %}

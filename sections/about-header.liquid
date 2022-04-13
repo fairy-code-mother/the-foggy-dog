@@ -1,0 +1,68 @@
+<div class="about-page">
+
+  <div class="page-width">
+
+    <div class="about-heading">
+
+      <div class="about-heading-image">
+        <img src="{{ section.settings.image | img_url: '625x' }}" srcset="{{ section.settings.image | img_url: '625x' }} 1x, {{ section.settings.image | img_url: '625x', scale: 2 }} 2x" alt="{{ section.settings.image.alt }}">
+      </div>
+
+      <div class="about-heading-text">
+
+        <h1>
+          {{ section.settings.about_heading }}
+        </h1>
+
+        {% if section.settings.about_large_text != blank %}
+        <div class="about-intro-text">
+          {{ section.settings.about_large_text }}
+        </div>
+        {% endif %}
+
+        {% if section.settings.about_intro_small_text != blank %}
+        <div class="about-intro-small-text">
+          {{ section.settings.about_intro_small_text }}
+        </div>
+        {% endif %}
+
+      </div>
+      
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "About Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "About Header"
+      },
+      {
+        "type": "text",
+        "id": "about_heading",
+        "label": "About Heading",
+        "default": "About Us"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Header Image"
+      },
+      {
+        "type": "richtext",
+        "id": "about_large_text",
+        "label": "About Intro Large Text"
+      },
+      {
+        "type": "richtext",
+        "id": "about_intro_small_text",
+        "label": "About Intro Small Text"
+      }
+    ]
+  }
+{% endschema %}

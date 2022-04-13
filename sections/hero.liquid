@@ -1,0 +1,111 @@
+<div class="page-width home">
+  <div class="slick-prev">
+  </div>
+  <div class="hero">
+    {% for block in section.blocks %}
+    <div class="hero-slide">
+    	<a href="{{ block.settings.hero_link }}">
+    		<div class="hero-image">
+        		<img class="hero-image--desktop lazyload" data-src="{{ block.settings.image | img_url: "1100x" }}" width="1100" height="637" />
+              {% if block.settings.image-mobile != blank %}
+              	<img class="hero-image--mobile lazyload" data-src="{{ block.settings.image-mobile | img_url: "768x" }}" width="768" height="550" />
+              {% endif %}
+    		</div>
+    	
+    		<div class="hero-text">
+    			<div class="h1">{{ block.settings.title }}</div>
+    			{%- if block.settings.hero_button != blank -%}
+            <div class="btn-secondary"{% if block.settings.hero_button_color != blank %} style="color: {{ block.settings.hero_button_color }};"{% endif %}>{{ block.settings.hero_button }}</div>
+          {%- endif -%}
+    		</div>
+    	</a>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="slick-next">
+  </div>
+</div>
+
+<style>
+  .hero-image--mobile {
+  	display: none !important;
+  }
+  
+  @media screen and (max-width: 751px) {
+    .hero-image--desktop {
+    	display: none !important;
+    }
+    
+    .hero-image--mobile {
+      display: block !important;
+    }
+  }
+</style>
+
+{% javascript %}
+$('.hero').slick({
+  infinite: true,
+  prevArrow: ".slick-prev",
+  nextArrow: ".slick-next"
+});
+{% endjavascript %}
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Home Page Hero Image"
+      },
+      {
+        "type": "paragraph",
+        "content": "Add your images below."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Hero Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Hero Image"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image-mobile",
+            "label": "Hero Mobile Image"
+          },
+          {
+            "type": "richtext",
+            "id": "title",
+            "label": "Hero Heading"
+          },
+          {
+            "type": "text",
+            "id": "hero_button",
+            "label": "Hero Button Text"
+          },
+          {
+            "type": "color",
+            "id": "hero_button_color",
+            "label": "Hero Button Text Color"
+          },
+          {
+            "type": "url",
+            "id": "hero_link",
+            "label": "Hero Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,48 @@
+<!-- Solution brought to you by Caroline Schnapp -->
+<!-- See this: http://wiki.shopify.com/Related_Products -->
+
+<div class="related-products-container">
+  <div class="page-width">
+  {% assign number_of_related_products_to_show = 4 %}
+  {% assign image_size = '1024x1024' %}
+  {% assign heading = "You Might Also Like" %}
+   
+  {% assign number_of_related_products_to_fetch = number_of_related_products_to_show | plus: 1 %}
+   
+  {% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+  {% assign found_a_collection = false %}
+  {% for c in product.collections %}
+  {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+  {% assign found_a_collection = true %}
+  {% assign collection = c %}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+   
+    {% if collection and collection.products_count > 1 %}
+    <div class="related-products">
+      <h2 class="related-products-title pp">{{ heading }}</h2>
+      <div class="grid--uniform grid related-products-grid">
+        {% assign current_product = product %}
+        {% assign current_product_found = false %}
+        {% for product in collection.products limit: number_of_related_products_to_fetch %}
+{%- comment -%} Wholesale Gorilla: do not delete unless app is uninstalled{%- endcomment -%}
+{%- assign wsgTempProd = product -%}{%- assign wsgExclude = false -%}{%- if forloop.first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
+{%- include 'wsg-status' wsgStatusAction: 'init' | strip -%}{%- endif -%}{%- if wsgActive -%}{%- include 'wsg-status' wsgStatusAction: 'col-item' | strip -%}{%- endif -%}{%- if wsgExclude -%} {%- continue -%} {%- endif -%}
+{%- comment -%} end WSG {%- endcomment -%}
+          {% if product.handle == current_product.handle %}
+            {% assign current_product_found = true %}
+          {% else %}
+            {% unless current_product_found == false and forloop.last %}
+            {% assign grid_item_width = 'medium-up--one-quarter small--one-half' %}
+            
+            {% include 'product-grid-item' thumb_size: '190x190' %}
+            {% endunless %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>

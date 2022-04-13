@@ -1,0 +1,109 @@
+{% if section.settings.chart_enable %}
+<div class="sizechart breed" id="breed">
+    <div class="page-width">
+    <h2 class="h1">{{ section.settings.heading }}</h2>
+    {{ section.settings.text }}
+    <div class="size-table responsive">
+        <table class="breeds">
+            <thead>
+                <tr>
+                    <th scope="col" class="left">Breed</th>
+                    <th scope="col">Weight (lbs)</th>
+                    <th scope="col">Neck Size</th>
+                    <th scope="col">Bed Size</th>
+                    <th scope="col">Collar Size</th>
+                    <th scope="col">Bandana Size</th>
+                    <!--th scope="col">Harness Size</th-->
+                </tr>
+                </thead>
+                <tbody>
+                    {% for block in section.blocks %}
+                        <tr>
+                            <td scope="row">
+                                <strong>{{ block.settings.breed_name }}</strong>
+                            </td>
+                            <td class="center" valign="top">{{ block.settings.bed_weight }}</td> 
+                            <td class="center" valign="top">{{ block.settings.breed_neck }}</td> 
+                            <td class="center" valign="top">{{ block.settings.bed_size }}</td> 
+                            <td class="center" valign="top">{{ block.settings.collar_size }}</td> 
+                            <td class="center" valign="top">{{ block.settings.bandana_size }}</td> 
+                            <!--td class="center" valign="top">{{ block.settings.harness_size }}</td--> 
+                        </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div> 
+  </div>
+  </div>
+  {% endif %}
+  {% schema %}
+    {
+      "name": "Dog Breed Size Chart",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Breed Size"
+        },
+        {
+            "type": "checkbox",
+            "id": "chart_enable",
+            "label": "Show Chart",
+            "default": true,
+            "info": "enable is diable chart"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "breed",
+          "name": "Breed Size",
+          "settings": [
+            {
+                "type": "text",
+                "id": "breed_name",
+                "label": "Breed Name"
+            },
+            {
+                "type": "text",
+                "id": "breed_neck",
+                "label": "Breed Neck Size"
+            },
+            {
+              "type": "text",
+              "id": "bed_weight",
+              "label": "Breed Weight"
+            },
+            {
+                "type": "text",
+                "id": "bed_size",
+                "label": "Bed Size"
+            },
+            {
+              "type": "text",
+              "id": "collar_size",
+              "label": "Collar Size"
+            },
+            {
+                "type": "text",
+                "id": "bandana_size",
+                "label": "Bandana Size"
+            },
+            {
+                "type": "text",
+                "id": "harness_size",
+                "label": "Harness Size"
+            }             
+          ]
+        }
+      ]
+    }
+  {% endschema %}

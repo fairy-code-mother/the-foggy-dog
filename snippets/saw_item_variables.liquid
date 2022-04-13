@@ -1,0 +1,53 @@
+{% include 'saw_compute_discount' with item %}
+{% include 'saw_variant' with item.variants %}
+{% if saw_has_discount == false or saw_variant_price >= saw_variant_compare_at_price %}
+  {% assign WCItems_ItemPrice = item.price %}
+  {% assign WCItems_ItemPriceMin = item.price_min %}
+  {% assign WCItems_ItemPriceMax = item.price_max %}
+  {% assign WCItems_ItemCompareAtPrice = item.compare_at_price %}
+  {% assign WCItems_ItemCompareAtPriceMin = item.compare_at_price_min %}
+  {% assign WCItems_ItemCompareAtPriceMax = item.compare_at_price_max %}
+{% else %}
+  {% assign WCItems_ItemPrice = saw_variant_price %}
+  {% assign WCItems_ItemPriceMin = saw_variant_price %}
+  {% assign WCItems_ItemPriceMax = saw_variant_price %}
+  {% assign WCItems_ItemCompareAtPrice = saw_variant_compare_at_price %}
+  {% assign WCItems_ItemCompareAtPriceMin = saw_variant_compare_at_price %}
+  {% assign WCItems_ItemCompareAtPriceMax = saw_variant_compare_at_price %}
+{% endif %}
+
+{% include 'saw_compute_discount' with line_item %}
+{% include 'saw_variant' with line_item.variants %}
+{% if saw_has_discount == false or saw_variant_price >= saw_variant_compare_at_price %}
+  {% assign WCItems_LineItemPrice = line_item.price %}
+  {% assign WCItems_LineItemPriceMin = line_item.price_min %}
+  {% assign WCItems_LineItemPriceMax = line_item.price_max %}
+  {% assign WCItems_LineItemCompareAtPrice = line_item.compare_at_price %}
+  {% assign WCItems_LineItemCompareAtPriceMin = line_item.compare_at_price_min %}
+  {% assign WCItems_LineItemCompareAtPriceMax = line_item.compare_at_price_max %}
+{% else %}
+  {% assign WCItems_LineItemPrice = saw_variant_price %}
+  {% assign WCItems_LineItemPriceMin = saw_variant_price %}
+  {% assign WCItems_LineItemPriceMax = saw_variant_price %}
+  {% assign WCItems_LineItemCompareAtPrice = saw_variant_compare_at_price %}
+  {% assign WCItems_LineItemCompareAtPriceMin = saw_variant_compare_at_price %}
+  {% assign WCItems_LineItemCompareAtPriceMax = saw_variant_compare_at_price %}
+{% endif %}
+
+{% include 'saw_compute_discount' with itemType %}
+{% include 'saw_variant' with itemType.variants %}
+{% if saw_has_discount == false or saw_variant_price >= saw_variant_compare_at_price %}
+  {% assign WCItems_ItemTypePrice = itemType.price %}
+  {% assign WCItems_ItemTypePriceMin = itemType.price_min %}
+  {% assign WCItems_ItemTypePriceMax = itemType.price_max %}
+  {% assign WCItems_ItemTypeCompareAtPrice = itemType.compare_at_price %}
+  {% assign WCItems_ItemTypeCompareAtPriceMin = itemType.compare_at_price_min %}
+  {% assign WCItems_ItemTypeCompareAtPriceMax = itemType.compare_at_price_max %}
+{% else %}
+  {% assign WCItems_ItemTypePrice = saw_variant_price %}
+  {% assign WCItems_ItemTypePriceMin = saw_variant_price %}
+  {% assign WCItems_ItemTypePriceMax = saw_variant_price %}
+  {% assign WCItems_ItemTypeCompareAtPrice = saw_variant_compare_at_price %}
+  {% assign WCItems_ItemTypeCompareAtPriceMin = saw_variant_compare_at_price %}
+  {% assign WCItems_ItemTypeCompareAtPriceMax = saw_variant_compare_at_price %}
+{% endif %}
