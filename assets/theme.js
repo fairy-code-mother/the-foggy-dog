@@ -1153,7 +1153,7 @@ theme.Product = (function() {
           if( variant.inventory_policy == 'continue' ){
             if( quantityAvailableData[variant.id] > 0 ){
               // add to cart button - if the quantity is more than 0
-              $(selectors.addToCartText, this.$container).text('Add to cart')
+              $(selectors.addToCartText, this.$container).text(theme.strings.addToCart)
               $(selectors.addToCart, this.$container).removeAttr('disabled')
               $(selectors.addToCart, this.$container).attr('id', 'add')
               $(selectors.estimatedDateAttr, this.$container).val('')
@@ -1175,7 +1175,7 @@ theme.Product = (function() {
                   $(selectors.estimatedDateAttr, this.$container).val('')
                   $(selectors.preorderProp, this.$container).hide();
                 }else{
-                  $(selectors.addToCartText, this.$container).html('Pre-Order')
+                  $(selectors.addToCartText, this.$container).html(theme.strings.preorder)
                   $(selectors.addToCart, this.$container).removeAttr('disabled')
                   $(selectors.addToCart, this.$container).attr('id', 'add')
 
@@ -1193,7 +1193,7 @@ theme.Product = (function() {
                   }
                 }
               }else{
-                $(selectors.addToCartText, this.$container).html('Pre-Order')
+                $(selectors.addToCartText, this.$container).html(theme.strings.preorder)
                 $(selectors.addToCart, this.$container).removeAttr('disabled')
                 $(selectors.addToCart, this.$container).attr('id', 'add')
 
@@ -1231,11 +1231,17 @@ theme.Product = (function() {
           	  $(selectors.preorderProp, this.$container).empty();
             }
           }
-        }else{
-          // always available
-          $(selectors.addToCartText, this.$container).html(theme.strings.addToCart)
-          $(selectors.addToCart, this.$container).removeAttr('disabled')
-          $(selectors.addToCart, this.$container).attr('id', 'add')
+        } else {
+          if (variant.available) {
+            $(selectors.addToCart, this.$container).prop('disabled', false);
+            $(selectors.addToCartText, this.$container).html(theme.strings.addToCart);
+            $(selectors.addToCart, this.$container).attr('id', 'add');
+          } else {
+            $(selectors.addToCart, this.$container).prop('disabled', true);
+            $(selectors.addToCartText, this.$container).html(theme.strings.soldOut);
+            $(selectors.addToCart, this.$container).attr('id', 'add-sold-out');
+          }
+
           $(selectors.estimatedDateAttr, this.$container).val('')
           $(selectors.estimatedDate, this.$container).hide();
           $(selectors.preorderProp, this.$container).empty();
@@ -1669,9 +1675,6 @@ $(document).ready(function() {
 
     });
 
-  } else {
-    //console.log($("[data-add-to-cart]"));
-    $("[data-add-to-cart]").prop('disabled', false).text('Add to Cart');
   }
 
   $('.new-variant-swatch').on('click', function(evt) {

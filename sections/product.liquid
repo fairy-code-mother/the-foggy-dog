@@ -152,10 +152,8 @@
 
                 {% form 'product', product, class: form_classes, data-product-form: '', data-cart-submit: '' %}
                 <div class="price-container">
-                      <!-- {% include 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false %}-->
-						
-                  	<!-- Yotpo star rating -->
-					<div class="yotpo bottomLine"
+                    <!-- Yotpo star rating -->
+					          <div class="yotpo bottomLine"
                    	 data-product-id="{{ product.id }}">
                     </div> <br/>
 
@@ -313,7 +311,6 @@
                   </select>
                   
                   <div class="quantity-wrapper">
-                    {% if product.available %}
                     <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
                     <div class="quantity-fields">
                       <div class="quantity-selector">
@@ -357,7 +354,7 @@
                     </button> {% endcomment %}
 
                       {% if product.variants.size > 1 %}
-                        <button class="Rise-add-to-cart-button btn add-to-carts" type="submit" name="add" id="adds" data-add-to-cart>
+                        <button class="Rise-add-to-cart-button btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                           <span data-add-to-cart-text>
                             Select An Option
                           </span>
@@ -381,7 +378,7 @@
 
                               {% if product.metafields.preorder.preorder_limit != blank %}
                                 {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
-                                  <button class="btn add-to-carts" type="submit" name="add" id="adds" data-add-to-cart>
+                                  <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                     <span data-add-to-cart-text>
                                       Add to cart
                                     </span>
@@ -392,7 +389,7 @@
 
 
                                   {% if availableValue < limit %}
-                                    <button class="btn add-to-cart" type="submit" name="add" id="add" >
+                                    <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                       <span >
                                         Pre Order
                                       </span>
@@ -412,15 +409,15 @@
                                 {% endif %}
                               {% else %}
                                 {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
-                                  <button class="btn add-to-carts" type="submit" name="add" id="adds" data-add-to-cart>
+                                  <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                     <span data-add-to-cart-text>
                                       Add to cart
                                     </span>
                                   </button>
                                 {% else %}
                                   
-                                    <button class="btn add-to-cart" type="submit" name="add" id="add" >
-                                      <span >
+                                    <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
+                                      <span data-add-to-cart-text>
                                         Pre Order
                                       </span>
                                     </button>
@@ -434,7 +431,7 @@
 
                             {% else %}
                               {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
-                                <button class="btn add-to-carts" type="submit" name="add" id="adds" data-add-to-cart>
+                                <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                   <span data-add-to-cart-text>
                                     Add to cart
                                   </span>
@@ -449,7 +446,7 @@
 
                             {% endif %}
                           {% else %}
-                            <button class="btn add-to-carts" type="submit" name="add" id="adds" data-add-to-cart>
+                            <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                               <span data-add-to-cart-text>
                                 Add to cart
                               </span>
@@ -464,7 +461,6 @@
                           </button>
                         {% endif %}
                       {% endif %}
-                    {% endif %}
 
                   </div>
                   <div style="display:none" class="btn gwbutton">Send as a Gift</div>  
@@ -578,16 +574,6 @@
     </div>
   </div>
 </div>
-
-<script>
-  window.addEventListener('load', function(){
-    $(document).on('click', '.btn.add-to-cart', function(){
-      setTimeout(function(){
-        window.location.href = '/cart';
-      },500)
-    })
-  });
-</script>
 
 {% schema %}
   {
