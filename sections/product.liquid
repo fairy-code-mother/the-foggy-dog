@@ -549,182 +549,38 @@
             {%- include 'saw_product_json' with product -%}{{- saw_json -}}
           </script>
         {% endunless %}
+
+        {% assign trackQuantity = '' %}
+        {% assign quantityAvailable = '' %}
+        {% assign preOrder = '' %}
+        {% assign estimatedDate = '' %}
+        {% assign quantityCaps = '' %}
+
+        {% for variant in product.variants %}
+          {% capture quantity %},"{{ variant.id }}":"{{ variant.inventory_quantity }}"{% endcapture %}
+          {% assign quantityAvailable = quantityAvailable | append: quantity %}
+
+          {% capture estimatedDateFlag %},"{{ variant.id }}":"{{ variant.metafields.preorder.message }}"{% endcapture %}
+          {% assign estimatedDate = estimatedDate | append: estimatedDateFlag %}
+
+          {% capture quantityCapsFlag %},"{{ variant.id }}":"{{ variant.metafields.preorder.limit }}"{% endcapture %}
+          {% assign quantityCaps = quantityCaps | append: quantityCapsFlag %}
+        {% endfor %}
+
+        <script type="application/json" data-preorder-json>
+          {
+            "quantityAvailableData": { {{ quantityAvailable | remove_first: ',' }} },
+            "estimatedDateData": { {{ estimatedDate | remove_first: ',' }} },
+            "quantityCapsData": { {{ quantityCaps | remove_first: ',' }} }
+          }
+        </script>
       </div>
     </div>
   </div>
 </div>
 
-{% assign trackQuantity = '' %}
-{% assign quantityAvailable = '' %}
-{% assign preOrder = '' %}
-{% assign estimatedDate = '' %}
-{% assign quantityCaps = '' %}
-
-{% for variant in product.variants %}
-  {% capture track %}"{{ variant.id }}":"{{ variant.inventory_management }}",{% endcapture %}
-  {% assign trackQuantity = trackQuantity | append: track %}
-
-  {% capture quantity %}"{{ variant.id }}":"{{ variant.inventory_quantity }}",{% endcapture %}
-  {% assign quantityAvailable = quantityAvailable | append: quantity %}
-
-  {% capture preOrderFlag %}"{{ variant.id }}":"{{ variant.inventory_policy }}",{% endcapture %}
-  {% assign preOrder = preOrder | append: preOrderFlag %}
-
-  {% capture estimatedDateFlag %}"{{ variant.id }}":"{{ variant.metafields.preorder.message }}",{% endcapture %}
-  {% assign estimatedDate = estimatedDate | append: estimatedDateFlag %}
-
-  {% capture quantityCapsFlag %}"{{ variant.id }}":"{{ variant.metafields.preorder.limit }}",{% endcapture %}
-  {% assign quantityCaps = quantityCaps | append: quantityCapsFlag %}
-
-{% endfor %}
-
 <script>
   window.addEventListener('load', function(){
-    var variantTracking =  '{{ trackQuantity }}';
-    variantTracking = variantTracking.substring(0, variantTracking.length - 1);
-    variantTracking = "{"+ variantTracking +"}";
-    var variantTrackingData = JSON.parse(variantTracking);
-
-    var quantityAvailable =  '{{ quantityAvailable }}';
-    quantityAvailable = quantityAvailable.substring(0, quantityAvailable.length - 1);
-    quantityAvailable = "{"+ quantityAvailable +"}";
-    var quantityAvailableData = JSON.parse(quantityAvailable);
-
-    var preOrder =  '{{ preOrder }}';
-    preOrder = preOrder.substring(0, preOrder.length - 1);
-    preOrder = "{"+ preOrder +"}";
-    var preOrderData = JSON.parse(preOrder);
-
-    var estimatedDate =  '{{ estimatedDate }}';
-    estimatedDate = estimatedDate.substring(0, estimatedDate.length - 1);
-    estimatedDate = "{"+ estimatedDate +"}";
-    var estimatedDateData = JSON.parse(estimatedDate);
-
-    var quantityCaps =  '{{ quantityCaps }}';
-    quantityCaps = quantityCaps.substring(0, quantityCaps.length - 1);
-    quantityCaps = "{"+ quantityCaps +"}";
-    var quantityCapsData = JSON.parse(quantityCaps);
-
-    var defaultVariantId = {{ product.selected_or_first_available_variant.id }};
-
-    function checkPreOrder(){
-      var defaultVariantIdInside = defaultVariantId;
-      setTimeout(function(){
-        var url_string = window.location.href;
-        var url = new URL(url_string);
-        var variantId = url.searchParams.get("variant");
-
-        if( variantId != undefined ){
-          defaultVariantIdInside = variantId
-        }
-  
-        if( variantTrackingData[defaultVariantIdInside] == 'shopify' ) {
-          if( preOrderData[defaultVariantIdInside] == 'continue' ){
-            
-            if( quantityAvailableData[defaultVariantIdInside] > 0 ){
-              // add to cart button - if the quantity is more than 0
-              $('.btn.add-to-cart span').text('Add to cart')
-              $('.btn.add-to-cart').removeAttr('disabled')
-              $('.btn.add-to-cart').attr('id', 'add')
-              $('.estimated-date-attr').val('')
-              $('.estimated-date').hide();
-          	  $('.preorder__prop').empty();
-            }else{
-              // pre order button - if the quantity is less than or equal to 0
-              
-              console.log(quantityAvailableData[defaultVariantIdInside], quantityCapsData[defaultVariantIdInside]);
-
-              if( quantityCapsData[defaultVariantIdInside] != "" ){
-                
-                var inventoryValue = quantityAvailableData[defaultVariantIdInside];
-                if ( inventoryValue < 0 ){
-                  inventoryValue = quantityAvailableData[defaultVariantIdInside] * -1;
-                }
-                
-                if(inventoryValue >= parseInt(quantityCapsData[defaultVariantIdInside])){
-                  $('.btn.add-to-cart span').text('Sold Out')
-                  $('.btn.add-to-cart').attr('disabled', 'disabled')
-              	  $('.btn.add-to-cart').attr('id', 'add-sold-out')
-                  $('.estimated-date-attr').val('')
-                  $('.estimated-date').hide();
-                }else{
-                  $('.btn.add-to-cart span').text('Pre-Order')
-                  $('.btn.add-to-cart').removeAttr('disabled')
-                  $('.btn.add-to-cart').attr('id', 'add')
-
-                  $('.estimated-date').text(estimatedDateData[defaultVariantIdInside])
-                  if( $('.preorder__prop > input').length == 0 ){
-                    $('.preorder__prop').append('<input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value="'+ estimatedDateData[defaultVariantIdInside] +'" >');
-                  }else{
-                    $('.estimated-date-attr').val(estimatedDateData[defaultVariantIdInside])
-                  }
-
-                  if( estimatedDateData[defaultVariantIdInside].trim() != '' ){
-                    $('.estimated-date').show();
-                  }else{
-                    $('.estimated-date').hide();
-                  }
-                  
-                }
-              }else{
-                $('.btn.add-to-cart span').text('Pre-Order')
-                $('.btn.add-to-cart').removeAttr('disabled')
-                $('.btn.add-to-cart').attr('id', 'add')
-
-                $('.estimated-date').text(estimatedDateData[defaultVariantIdInside])
-                if( $('.preorder__prop > input').length == 0 ){
-                  $('.preorder__prop').append('<input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value="'+ estimatedDateData[defaultVariantIdInside] +'" >');
-                }else{
-                  $('.estimated-date-attr').val(estimatedDateData[defaultVariantIdInside])
-                }
-
-                if( estimatedDateData[defaultVariantIdInside].trim() != '' ){
-                  $('.estimated-date').show();
-                }else{
-                  $('.estimated-date').hide();
-                }
-              }
-            }
-          }else{
-            if( quantityAvailableData[defaultVariantIdInside] > 0 ){
-              // add to cart button - if the quantity is more than 0
-              $('.btn.add-to-cart span').text('Add to cart')
-              $('.btn.add-to-cart').removeAttr('disabled')
-              $('.btn.add-to-cart').attr('id', 'add')
-              $('.estimated-date-attr').val('')
-              $('.estimated-date').hide();
-              $('.preorder__prop').empty()
-
-            }else{
-              //sold out
-              $('.btn.add-to-cart span').text('Sold Out')
-              $('.btn.add-to-cart').attr('disabled', 'disabled')
-              $('.btn.add-to-cart').attr('id', 'add-sold-out')
-              $('.estimated-date-attr').val('')
-              $('.estimated-date').hide();
-          	  $('.preorder__prop').empty();
-            }
-            
-          }
-        }else{
-          // always available
-          $('.btn.add-to-cart span').text('Add to cart')
-          $('.btn.add-to-cart').removeAttr('disabled')
-          $('.estimated-date-attr').val('')
-          $('.btn.add-to-cart').attr('id', 'add')
-          $('.estimated-date').hide();
-          $('.preorder__prop').empty();
-        }
-
-        
-      });
-    }
-    //checkPreOrder()
-
-    $(document).on('click', '.new-variant-swatches .new-variant-swatch', function(){
-      checkPreOrder()
-    })
-
     $(document).on('click', '.btn.add-to-cart', function(){
       setTimeout(function(){
         window.location.href = '/cart';
