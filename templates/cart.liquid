@@ -47,12 +47,8 @@
 
               {% if propertySize > 0 %}
               <div class="alert">
-                <script> console.log("testssssssssss",{{ item.properties | json }}) </script>
-                
                   {% for p in item.properties %}
-                
                       {% assign first_character_in_key = p.first | truncate: 1, '' %}
-                      
                           <p{% if p.first contains 'ship' %} class="alert"{% endif %}>
                             {{ p.first }}:
                             {% if p.last contains '/uploads/' %}
@@ -65,17 +61,8 @@
                           {% if p.first == "Pre Order" %}
                             <input type="hidden" name="attributes[pre order]" value="" >
                           {% endif %}
-                
                   {% endfor %}
-                
               </div>
-              {% endif %}
-              {% if item.product.type == 'Dog bed insert' or item.product.type == 'Dog bed' %}
-                {% if item.title contains 'Insert' or item.variant.title contains 'Insert' %}
-                  <div class="alert">
-                    <p>{{ insert_alert }}</p>
-                  </div>
-                {% endif %}
               {% endif %}
               <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
                 <small>{{ 'cart.general.remove' | t }}</small>
