@@ -76,37 +76,67 @@
                     {% comment %}
                     <div class="zoom">{% include 'icon-search' %}</div>
                     {% endcomment %}
-                    {% for image in product.images %}
-                    {% if image.alt contains 'swatch' %}
-                    {% continue %}
-                    {% endif %}
-                    <div class="item slick-slide" data-image-variant="{% for variant in image.variants %}{{ variant.title }} {% endfor %}">
-                      <a href="{{ image.src | img_url: '875x875' }}" data-fancybox="gallery" data-product-featured-pop>
-                        <img height="550" width="550" data-product-featured-image 
-                             src="{{ image.src | img_url: '550x550' }}" 
-                             srcset="{{ image.src | img_url: '550x550' }} 1x, {{ image.src | img_url: '550x550', scale: 2 }}, 2x" alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}" style="height: auto">
-                      </a>
-                    </div>
+                    {% for media in product.media %}
+                      {% case media.media_type %}
+                        {% when 'image' %}
+                          {% if media.alt contains 'swatch' %}
+                            {% continue %}
+                          {% endif %}
+                          <div class="item slick-slide" data-image-variant="{% for variant in media.variants %}{{ variant.title }} {% endfor %}">
+                            <a href="{{ media.src | img_url: '875x875' }}" data-fancybox="gallery" data-product-featured-pop>
+                              <img height="550" width="550" data-product-featured-image 
+                                  src="{{ media.src | img_url: '550x550' }}" 
+                                  srcset="{{ media.src | img_url: '550x550' }} 1x, {{ media.src | img_url: '550x550', scale: 2 }}, 2x" alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}" style="height: auto">
+                            </a>
+                          </div>
+                        {% when 'external_video' %}
+                          {% liquid
+                            if media.host == "youtube"
+                              assign url = "https://www.youtube.com/embed/" | append: media.external_id | append: "?controls=1&amp;enablejsapi=1&amp;modestbranding=1&amp;playsinline=1&amp;rel=0"
+                            elsif media.host == "vimeo"
+                              assign url = "https://player.vimeo.com/video/" | append: media.external_id | append: "?byline=0&amp;controls=1&amp;playsinline=1&amp;title=0"
+                            endif
+                          %}
+                          <div class="item slick-slide" data-image-variant="{% for variant in media.variants %}{{ variant.title }} {% endfor %}">
+                            <a href="{{ url }}"  data-fancybox="gallery" data-fancybox-type="iframe" data-product-featured-pop class="external-video">
+                              <img height="550" width="550" data-product-featured-image 
+                                  src="{{ media.preview_image | image_url: width: 550, height: 550, pad_color: '000' }}" 
+                                  alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}" style="height: auto">
+                              {% include 'icon-play' %}
+                            </a>
+                          </div>
+                        {% else %}
+                          {% continue %}
+                      {% endcase %}
                     {% endfor %}
                   </div>
                 </div>
                <div class="grid__item medium-up--one-sixth small--hide">
                   <div class="thumbs">
                       <div class="product-thumbs thumbs-slider grid--uniform">
-                        {% for image in product.images %}
-                        {% if image.alt contains 'swatch' %}
-                        {% continue %}
-                        {% endif %}
-                          <div class="item slick-slide">
-                            <a href="{{ image.src | img_url: '875x875' }}" data-product-single-thumbnail>
-                              <img class="lazyload" data-src="{{ image.src | img_url: '100x100', crop: 'center' }}" alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}">
-                            </a>
-                          </div>
+                        {% for media in product.media %}
+                          {% case media.media_type %}
+                            {% when 'image' %}
+                              {% if media.alt contains 'swatch' %}
+                                {% continue %}
+                              {% endif %}
+                              <div class="item slick-slide">
+                                <a href="{{ media.src | img_url: '875x875' }}" data-product-single-thumbnail>
+                                  <img class="lazyload" data-src="{{ media.src | img_url: '100x100', crop: 'center' }}" alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}">
+                                </a>
+                              </div>
+                            {% when 'external_video' %}
+                              <div class="item slick-slide">
+                                <a href="{{ media.preview_image | img_url: '875x875' }}" data-product-single-thumbnail>
+                                  <img class="lazyload" data-src="{{ media.preview_image | img_url: '100x100', crop: 'center' }}" alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}">
+                                </a>
+                              </div>
+                            {% else %}
+                              {% continue %}
+                          {% endcase %}
                         {% endfor %}
                       </div>
-                   
                   </div>
-                  
                 </div>
               </div> 
               {% include 'cross-sell' %}
