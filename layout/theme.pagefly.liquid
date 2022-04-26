@@ -67,7 +67,8 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
         strings: {
           addToCart: {{ 'Pre-order' | json }},
           soldOut: {{ 'products.product.sold_out' | t | json }},
-          unavailable: {{ 'products.product.unavailable' | t | json }}
+          unavailable: {{ 'products.product.unavailable' | t | json }},
+          preorder: {{ 'products.product.preorder' | t | json }}
         },
         moneyFormat: {{ shop.money_format | json }}
       };
@@ -76,7 +77,8 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
         strings: {
           addToCart: {{ 'products.product.add_to_cart' | t | json }},
           soldOut: {{ 'products.product.sold_out' | t | json }},
-          unavailable: {{ 'products.product.unavailable' | t | json }}
+          unavailable: {{ 'products.product.unavailable' | t | json }},
+          preorder: {{ 'products.product.preorder' | t | json }}
         },
         moneyFormat: {{ shop.money_format | json }}
       };
@@ -139,6 +141,12 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/w6RYdbKD3lpNY9D2y8cJ9A" async></script>
+
+<!-- Yotpo script -->
+<script type="text/javascript">
+(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/234VSm4hjMnOGnvXyeLCKdMYZ95TqKsMzVX8oMyF/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+</script>
+
 </head> 
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}"><div class="pagefly-container">{{ content_for_layout }}</div></body>

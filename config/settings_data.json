@@ -153,9 +153,9 @@
             "type": "megamenu",
             "settings": {
               "label": "Walk",
-              "caption": "Shop Leashes & Bags",
-              "image": "shopify:\/\/shop_images\/COL_walk_copy.jpg",
-              "link": "shopify:\/\/collections\/leash-waste-bag-combo"
+              "caption": "New! Spring Walk Sets",
+              "image": "shopify:\/\/shop_images\/COL_WS_harper.jpg",
+              "link": "shopify:\/\/collections\/walk-sets"
             }
           },
           "1566246744126": {
@@ -218,7 +218,7 @@
               "label": "Gifts",
               "caption": "Shop Mother's Day",
               "image": "shopify:\/\/shop_images\/Flyout_2022_04_04_TFDSpring-6.jpg",
-              "link": "https:\/\/www.thefoggydog.com\/pages\/mother-s-day-gift-guide-2022"
+              "link": "https:\/\/www.thefoggydog.com\/a\/pf_preview?id=d429311a-e737-40e8-a373-53cf66a80855"
             }
           }
         },
@@ -236,6 +236,7 @@
           "announcement": "",
           "logo": "shopify:\/\/shop_images\/TheFoggyDog_Logo_Primary_cropped_for_Shopify_homepage.jpg",
           "logo_max_width": 130,
+          "logo_max_height": 72,
           "main_linklist": "new-main-menu"
         }
       },
@@ -259,12 +260,12 @@
           "1562732781563": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/BANNERS_-05.jpg",
-              "image-mobile": "shopify:\/\/shop_images\/BANNERS_-06.jpg",
+              "image": "shopify:\/\/shop_images\/MD_V2_BANS-09.jpg",
+              "image-mobile": "shopify:\/\/shop_images\/MD_V2_BANS-08.jpg",
               "title": "",
               "hero_button": "",
               "hero_button_color": "",
-              "hero_link": "https:\/\/www.thefoggydog.com\/pages\/mother-s-day-gift-guide-2022"
+              "hero_link": "https:\/\/www.thefoggydog.com\/a\/pf_preview?id=d429311a-e737-40e8-a373-53cf66a80855"
             }
           }
         },
@@ -291,6 +292,7 @@
             "settings": {
               "url": "shopify:\/\/collections\/new-arrivals",
               "collection_image": "shopify:\/\/shop_images\/Spring_COL.jpg",
+              "collection_image_height": "",
               "collection_heading": "Fresh Picks",
               "collection_tagline": "Shop New Arrivals"
             }
@@ -300,6 +302,7 @@
             "settings": {
               "url": "shopify:\/\/collections\/dog-collars",
               "collection_image": "shopify:\/\/shop_images\/COLS_COL.jpg",
+              "collection_image_height": "",
               "collection_heading": "Best In Show",
               "collection_tagline": "Shop Collars"
             }
@@ -309,6 +312,7 @@
             "settings": {
               "url": "shopify:\/\/collections\/walk-sets",
               "collection_image": "shopify:\/\/shop_images\/Walk_Set_HP_copy.jpg",
+              "collection_image_height": "",
               "collection_heading": "New! Spring Walk Sets",
               "collection_tagline": "Shop the Collection"
             }
@@ -318,6 +322,7 @@
             "settings": {
               "url": "shopify:\/\/collections\/dog-beds",
               "collection_image": "shopify:\/\/shop_images\/BED_-_chrissymarieblog.jpg",
+              "collection_image_height": "",
               "collection_heading": "Sweet Dreams",
               "collection_tagline": "Shop Beds"
             }
@@ -327,6 +332,7 @@
             "settings": {
               "url": "shopify:\/\/collections\/dog-toys",
               "collection_image": "shopify:\/\/shop_images\/Toys_COL.jpg",
+              "collection_image_height": "",
               "collection_heading": "Play Time",
               "collection_tagline": "Shop Toys"
             }
