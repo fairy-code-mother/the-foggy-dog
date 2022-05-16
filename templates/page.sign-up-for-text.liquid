@@ -1,13 +1,14 @@
-<div class="page-width">
-  {% include 'breadcrumb' %}
-</div>
+<style type="text/css">
+    .yotpo-custom-div > div{
+     max-width: 100% !important;
+     padding: 0px 0px !important;
+}
+  .page-width {
+    max-width: 1920px!important;
+    padding: 0 0!important;
+}
+</style>
 
-<div class="info-page">
-
-	<h1 class="page-title">{{ page.title }}</h1>
-
-	<div class="rte">
-	  {{ page.content }}
-	</div>
-
+<div class="yotpo-custom-div">
+{% include 'smsbump_subscription_form_embed_99418' %}
 </div>
