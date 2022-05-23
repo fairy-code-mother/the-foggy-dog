@@ -182,10 +182,10 @@
 
                 {% form 'product', product, class: form_classes, data-product-form: '', data-cart-submit: '' %}
                 <div class="price-container">
-                    <!-- Yotpo star rating -->
-					          <div class="yotpo bottomLine"
-                   	 data-product-id="{{ product.id }}">
-                    </div> <br/>
+                    {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
+					            {% render 'okendo-reviews-product-rating-summary', product: product %}
+                      <br />
+                    {% endif %}
 
                     <div class="initial-price">
                       {% if WCProductComparePrice > 0 %}
@@ -697,29 +697,3 @@
     });
   }); 
 {% endjavascript %}
-
-
-<div class="yotpo yotpo-pictures-widget" data-gallery-id="615cbabe238de41a554ed376" data-product-id="{{ product.id }}"></div>
-<style>
-  .yotpo-pictures-gallery-header-wrapper .yotpo-pictures-gallery-title-wrapper 
-  {
-  text-align: center !important;
-  }
-  
-  .yotpo-pictures-gallery-header-wrapper .yotpo-pictures-gallery-title-wrapper > .yotpo-pictures-gallery-title
-  {
-	font-family: "FreightDisplay", Georgia, Times, "Times New Roman", serif !important;
-    font-weight: 400 !important;  
-    font-size: 1.5em !important;
-    color: #1a1919 !important;
-  }
-  .yotpo-lightbox-product-button
-  {
-  background-color: #000000 !important;
-  }
-  .yotpo .yotpo-default-button, .yotpo input[type="button"].yotpo-default-button {
-  background: white;
-  color: #1a1919 !important;
-  border: solid 1px #1a1919 !important;
-  }
-</style>
