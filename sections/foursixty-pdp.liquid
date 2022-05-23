@@ -1,0 +1,99 @@
+<div id="foursixty-hideable-container" style="display:none">
+<div class="foursixty-section">
+
+<h3>{{ section.settings.title | escape }}</h3>
+
+<script src="//foursixty.com/media/scripts/fs.slider.v2.5.js" 
+        data-has-posts-selector="#foursixty-hideable-container"
+        data-feed-id="the-foggy-dog" 
+        data-connector-filter="51502,51513"
+        data-show-okendo-stars="true" 
+        data-defer-image-loading="false"
+        data-theme="slider_v2_5" 
+		data-override-columns="1"
+     {% if template contains 'product' %}
+        data-for-url="true"
+     {% endif %}
+     {% if template contains 'collection' %}
+        data-product-ids="{{ collection.products | map: "id" | join: ","  }}"
+     {% endif %}
+     {% if template contains 'cart' %}
+        data-product-ids="{{ cart.items | map: "product" | map: "id" | join: ","  }}"
+     {% endif %}
+        ></script>
+ 
+<style>
+.fs-has-links { display:none; } .fs-wrapper { height:auto; } .fs-slider_v2_5  .fs-entry-container { height:0 !important;width:20%!important;padding-top:20%!important; } .fs-wrapper div.fs-text-container .fs-entry-title, div.fs-detail-title { font-family:BrandonGrotesque,HelveticaNeue,Helvetica Neue,Helvetica,Arial,sans-serif;font-style:normal;font-weight:normal;font-size:14px; } div.fs-text-container .fs-entry-date, div.fs-detail-container .fs-post-info, div.fs-wrapper div.fs-has-links::after, .fs-text-product, .fs-overlink-text { font-family:BrandonGrotesque,HelveticaNeue,Helvetica Neue,Helvetica,Arial,sans-serif;font-style:normal;font-weight:bold;font-size:18px; } .fs-wrapper div.fs-text-container * { color:#000000; } .fs-wrapper div.fs-text-container { background-color:rgba(255, 255, 255, 0.8);margin:0px; } div.fs-entry-date { display:none; } div.fs-entry-title { display:none; } .fs-slider_v2_5 .fs-wrapper div.fs-timeline-entry { margin:3px; } 
+.fs-post-info { font-size: 12px !important;  font-family: BrandonGrotesque; }
+.fs-post-info a, .fs-service-username, .fs-slashes, .fs-detail-date {  text-transform: lowercase; color: #000 !important; font-weight: 600; } 
+.foursixty-section { padding-top: 20px; padding-bottom: 10px; text-align: center; } 
+.fs-add-to-cart-enabled .fs-view a, .fs-add-to-cart-enabled .fs-view a:link { font-family: BrandonGrotesque; font-size: 14px;  font-weight: bold;}
+.fs-shopify-add-cart.fs-shopify-add-cart-container { font-family: BrandonGrotesque; max-width: 130px; font-size: 13px; padding: 1.25em 1.75em 1em 1.75em; color: #fff }
+.fs-button-bar .fs-buy-button, .fs-option-label { font-family: BrandonGrotesque; font-size: 13px; color: #fff }
+.fs-slider-next-button .fs-arrow, .fs-slider-prev-button .fs-arrow { stroke: #000; stroke-width: 3px; }  
+div.fs-service-icon{ font-size: 2.25em; } 
+.fs-okendo-review .okeReviews .okeReviews-starRating-indicator{ fill: #FEC600;}
+.fs-okendo-review .okeReviews.okeReviews--theme .okeReviews-starRating-indicator-layer--foreground {
+background-image: url("data:image/svg+xml;charset=UTF-8, %3Csvg%20width%3D%2280%22%20height%3D%2214%22%20viewBox%3D%220%200%2080%2014%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22%23FEC600%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M71.996%2011.368l-3.94%202.42c-.474.292-.756.096-.628-.443l1.074-4.53-3.507-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.78%204.3%204.602.37c.552.046.666.37.237.74l-3.507%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM55.996%2011.368l-3.94%202.42c-.474.292-.756.096-.628-.443l1.074-4.53-3.507-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.78%204.3%204.602.37c.552.046.666.37.237.74l-3.507%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM40.123%2011.368l-3.94%202.42c-.475.292-.756.096-.63-.443l1.076-4.53-3.508-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.778%204.3%204.603.37c.554.046.667.37.24.74l-3.508%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM24.076%2011.368l-3.94%202.42c-.475.292-.757.096-.63-.443l1.076-4.53-3.507-3.022c-.422-.363-.324-.693.238-.74l4.603-.37%201.78-4.3c.21-.51.55-.512.76%200l1.78%204.3%204.602.37c.554.046.667.37.24.74l-3.508%203.02%201.074%204.532c.127.536-.146.74-.628.444l-3.94-2.422zM8.123%2011.368l-3.94%202.42c-.475.292-.756.096-.63-.443l1.076-4.53L1.12%205.792c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.778%204.3%204.603.37c.554.046.667.37.24.74l-3.508%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")
+}
+a.fs-shop-link.fs-link-list {
+  max-width: 25%;
+  clear: both;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+ .fs-shopify-options + .fs-shop-link,
+ .fs-shop-link + .fs-shopify-options {
+   margin-top: 1em;
+ }
+ .fs-product-column > *:nth-child(2){
+    margin-top: 0;
+  }
+.fs-add-to-cart-enabled .fs-shopify-options {
+  display: inline-block;
+  max-width: calc(75% - 20px);
+}
+.fs-okendo-review {
+  text-align: left !important;
+}
+.fs-add-to-cart-enabled .fs-shopify-options div {
+  text-align: left;
+}
+.fs-detail-product-image {
+  margin: 0;
+}
+@media only screen and (max-width: 768px) {
+        .fs-slider-next-button, .fs-slider-prev-button {
+          opacity: 1 !important;
+          min-width: 30px;
+          display: flex !important;
+        }
+        .fs-wrapper div.fs-entry-container {
+          height: 0;
+          width: 50% !important;
+          padding-top: 50% !important;
+        }
+      }
+  
+</style>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Foursixty",
+    "settings": [
+        { "type": "text", "id": "title", "default": "See how other pups wore it:", "label": "Title" }
+    ],
+    "presets": [{
+        "name": "Foursixty Product Page Gallery",
+        "category": "Foursixty"
+    }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
