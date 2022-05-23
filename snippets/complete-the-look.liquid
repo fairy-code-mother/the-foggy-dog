@@ -1,0 +1,55 @@
+{% comment %}
+  Complete the look using metafields
+{% endcomment %}
+{% assign heading = "Complete the Look:" %}
+
+{% if product.metafields.crosssell.products %}
+<div class="complete-the-look-container">
+  <div class="page-width">
+    <h3 class="complete-the-look-title">{{ heading }}</h3>
+    <div class="complete-the-look-slider">
+    	{% for product_related in product.metafields.crosssell.products.value %}
+        {%- comment -%} Wholesale Gorilla: do not delete unless app is uninstalled{%- endcomment -%}
+        {%- assign wsgTempProd = product_related -%}{%- assign wsgExclude = false -%}{%- if forloop.first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
+        {%- include 'wsg-status' wsgStatusAction: 'init' | strip -%}{%- endif -%}{%- if wsgActive -%}{%- include 'wsg-status' wsgStatusAction: 'col-item' | strip -%}{%- endif -%}{%- if wsgExclude -%} {%- continue -%} {%- endif -%}
+        {%- comment -%} end WSG {%- endcomment -%}
+
+		    {% unless product_related == blank or product_related.available == false %}
+          <div class="grid-product">
+            <a href="{{ product_related.url | within: collection }}">
+              <img src="{{ product_related.featured_image.src | img_url: '190x190', crop: 'center' }}" srcset="{{ product_related.featured_image.src | img_url: '190x190', crop: 'center' }} 1x, {{ product_related.featured_image.src | img_url: '190x190', crop: 'center', scale: 2 }} 2x" alt="{{ product_related.featured_image.alt | escape }}"{% unless product_related.available %} class="sold-out"{% endunless %} />
+
+              <div class="product-title">
+                {{ product_related.title }}
+              </div>
+
+              <div class="product-prices">
+                {% if product_related.compare_at_price > product_related.price %}
+                  <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                  <s>{{ product_related.compare_at_price | money }}</s>
+                {% endif %}
+
+                {% if product_related.compare_at_price > product_related.price %}
+                  {% if product_related.price_varies %}
+                    {%- assign sale_price = product_related.price | money -%}
+                    <span class="sale-price">from {{ sale_price }}</span>
+                  {% else %}
+                    <span class="sale-price">{{ product_related.price | money }}</span>
+                  {% endif %}
+                {% else %}
+                  {% if product_related.price_varies %}
+                    {%- assign price = product_related.price | money -%}
+                    {{ 'products.product.from_text_html' | t: price: price }}
+                  {% else %}
+                    {{ product_related.price | money }}
+                  {% endif %}
+                {% endif %}
+              </div>
+            </a>
+          </div>
+	      {% endunless %}
+	    {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
