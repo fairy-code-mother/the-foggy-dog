@@ -20,26 +20,17 @@
     }
   });*/
   </script>
+{% section 'foursixty-pdp' %} 
 {% section 'feel-good' %}
 {% include 'related-products' %}
+{% if product.metafields.okendo.summaryData.reviewCount > 0 %}
 <div class="reviews">
   <div class="page-width">
     <h2>Reviews</h2>
-    
-    <!-- Yotpo Widget --> 
-    <div class="yotpo yotpo-main-widget"
-    data-product-id="{{ product.id }}"
-    data-name="{{ product.title | escape }}"
-    data-url="{{ shop.url }}{{ product.url }}"
-    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
-    data-price="{{ variant.price | money_without_currency }}"
-    data-currency="{{ shop.currency }}"
-    data-description="{{ product.description | escape }}">
-    </div>
-    
+    {% render 'okendo-reviews-widget', product: product %}
   </div>
 </div>
-  
+{% endif %}
 <div id="chart-pop" class="product-pop">
 {% for collection in product.collections %} 
   {% if collection.handle == 'dog-bandanas' %}
@@ -198,6 +189,21 @@
           }{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ]
+    {% endif %}
+    {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
+    ,"aggregateRating": {
+      "@type": "AggregateRating",
+      "description": "Okendo Reviews",
+      "ratingValue": "{{ product.metafields.okendo.summaryData.reviewAverageValue }}",
+      "ratingCount": "{{ product.metafields.okendo.summaryData.reviewCount }}"
+    }
+    {% elsif product.metafields.okendo.ReviewCount > 0 %}
+    ,"aggregateRating": {
+      "@type": "AggregateRating",
+      "description": "Okendo Reviews",
+      "ratingValue": "{{ product.metafields.okendo.ReviewAverageValue }}",
+      "ratingCount": "{{ product.metafields.okendo.ReviewCount }}"
+    }
     {% endif %}
   }
   </script>
