@@ -1,32 +1,48 @@
-<div id="foursixty-hideable-container" style="display:none">
-<div class="foursixty-section">
-
-<h3>{{ section.settings.title | escape }}</h3>
-
-<script src="//foursixty.com/media/scripts/fs.slider.v2.5.js" 
-        data-has-posts-selector="#foursixty-hideable-container"
-        data-feed-id="the-foggy-dog" 
-        data-connector-filter="51502,51513"
-        data-show-okendo-stars="true" 
-        data-defer-image-loading="false"
-        data-theme="slider_v2_5" 
-		data-override-columns="1"
-     {% if template contains 'product' %}
-        data-for-url="true"
-     {% endif %}
-     {% if template contains 'collection' %}
-        data-product-ids="{{ collection.products | map: "id" | join: ","  }}"
-     {% endif %}
-     {% if template contains 'cart' %}
-        data-product-ids="{{ cart.items | map: "product" | map: "id" | join: ","  }}"
-     {% endif %}
-        ></script>
+<div class="page-width-fs">  
+  <div id="fsTitle" style="display:none"><h3>See how other pups wore it:</h3></div>
+  <div id="fsContainer" style="display:none"></div>   
+  <script>
+    var fsMinPosts = 3;
+    var fsSettings = {
+      "data-theme": "slider_v2_5",
+      "data-feed-id": "the-foggy-dog",
+      "data-connector-filter": "51502,51513",
+      "data-defer-image-loading": "false",
+      "data-for-url": "true",
+      "data-cell-size": "20%",
+      "data-override-columns": "1"
+    }
+    function foursixtyInitWithCallback(type, attrs, callback) {
+      var elem = document.getElementById("fsContainer");
+      var fsScript = document.createElement("script");
+      elem.innerHTML = "";
+      fsScript.src = "//foursixty.com/media/scripts/fs." + type + ".v2.5.js";
+      // console.log(fsScript.src, attrs);
+      for (var k in attrs) {
+        fsScript.setAttribute(k, attrs[k]);
+      }
+      fsScript.addEventListener("foursixtyPageRendered", callback);
+      elem.appendChild(fsScript);
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      foursixtyInitWithCallback(
+        "slider",
+        fsSettings,
+        function(event) {
+          if (event.detail.length >= fsMinPosts) {
+            document.getElementById("fsContainer").style.display = "block";
+            document.getElementById("fsTitle").style.display = "block";
+          };
+      })
+    })
+  </script> 
+</div>
  
 <style>
 .fs-has-links { display:none; } .fs-wrapper { height:auto; } .fs-slider_v2_5  .fs-entry-container { height:0 !important;width:20%!important;padding-top:20%!important; } .fs-wrapper div.fs-text-container .fs-entry-title, div.fs-detail-title { font-family:BrandonGrotesque,HelveticaNeue,Helvetica Neue,Helvetica,Arial,sans-serif;font-style:normal;font-weight:normal;font-size:14px; } div.fs-text-container .fs-entry-date, div.fs-detail-container .fs-post-info, div.fs-wrapper div.fs-has-links::after, .fs-text-product, .fs-overlink-text { font-family:BrandonGrotesque,HelveticaNeue,Helvetica Neue,Helvetica,Arial,sans-serif;font-style:normal;font-weight:bold;font-size:18px; } .fs-wrapper div.fs-text-container * { color:#000000; } .fs-wrapper div.fs-text-container { background-color:rgba(255, 255, 255, 0.8);margin:0px; } div.fs-entry-date { display:none; } div.fs-entry-title { display:none; } .fs-slider_v2_5 .fs-wrapper div.fs-timeline-entry { margin:3px; } 
 .fs-post-info { font-size: 12px !important;  font-family: BrandonGrotesque; }
 .fs-post-info a, .fs-service-username, .fs-slashes, .fs-detail-date {  text-transform: lowercase; color: #000 !important; font-weight: 600; } 
-.foursixty-section { padding-top: 20px; padding-bottom: 10px; text-align: center; } 
+.page-width-fs { padding-top: 20px; padding-bottom: 10px; text-align: center; } 
 .fs-add-to-cart-enabled .fs-view a, .fs-add-to-cart-enabled .fs-view a:link { font-family: BrandonGrotesque; font-size: 14px;  font-weight: bold;}
 .fs-shopify-add-cart.fs-shopify-add-cart-container { font-family: BrandonGrotesque; max-width: 130px; font-size: 13px; padding: 1.25em 1.75em 1em 1.75em; color: #fff }
 .fs-button-bar .fs-buy-button, .fs-option-label { font-family: BrandonGrotesque; font-size: 13px; color: #fff }
@@ -76,8 +92,7 @@ a.fs-shop-link.fs-link-list {
       }
   
 </style>
-  </div>
-</div>
+
 
 {% schema %}
   {
