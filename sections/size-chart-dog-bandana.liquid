@@ -1,8 +1,25 @@
 {% if section.settings.chart_enable %}
 <div class="sizechart" id="dog-bandanas">
-    <div class="page-width">
-    <h2 class="h1">{{ section.settings.heading }}</h2>
-    {{ section.settings.text }}
+  <div class="page-width">
+
+    {% if section.settings.image != blank %}
+      <div class="flex-grid flex-grid--rev">
+        <div class="grid__item medium-up--two-thirds">
+          <h2 class="h1">{{ section.settings.heading }}</h2>
+          <p>{{ section.settings.text }}</p>
+        </div>
+
+        <div class="grid__item medium-up--one-third">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: '300x' }}" alt="{{ section.settings.image.alt }}" />
+          {% endif %}
+        </div>
+      </div>
+    {% else %}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+    {% endif %}
+
     <div class="size-table">
       <table>
           <thead>
@@ -99,6 +116,11 @@
           "label": "Description"
         },
         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
           "type": "text",
           "id": "button_text",
           "label": "Button Text"
@@ -140,7 +162,7 @@
             {
               "type": "text",
               "id": "bed_weight",
-              "label": "Neck  Circumference"
+              "label": "Neck Circumference"
             },
             {
                 "type": "text",
