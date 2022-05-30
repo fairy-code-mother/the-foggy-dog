@@ -1286,17 +1286,29 @@ theme.Product = (function() {
      * @param {string} productPrice - The current price of the product
      * @param {string} comparePrice - The original price of the product
      */
-    updateProductPrices: function(evt) { console.log('call');
+    updateProductPrices: function (evt) {
       var variant = evt.variant;
       var $comparePrice = $(selectors.comparePrice, this.$container);
       var $compareEls = $comparePrice.add(selectors.comparePriceText, this.$container);
       var $productStock = $(selectors.productStock, this.$container);
-             
-                                
-                                        
 
       $(selectors.productPrice, this.$container)
         .html(slate.Currency.formatMoney(variant.price, theme.moneyFormat));
+      
+      if ($(selectors.preorderJson, this.$container).html() && variant) {
+        this.productPreorderObject = JSON.parse($(selectors.preorderJson, this.$container).html());
+        var finalSaleData = this.productPreorderObject.finalSaleData;
+
+        if (finalSaleData[variant.id] == true) {
+          $productStock.html('Final Sale');
+        } else {
+          if (variant.inventory_quantity < 4 && variant.inventory_quantity > 0) {
+            $productStock.html('Only ' + variant.inventory_quantity + " left!");
+          } else {
+            $productStock.html('');
+          }
+        }
+      }
 
       if (variant.compare_at_price > variant.price) {
         $comparePrice.html(slate.Currency.formatMoney(variant.compare_at_price, theme.moneyFormat));
@@ -1307,19 +1319,13 @@ theme.Product = (function() {
         $compareEls.addClass('hide').removeClass('sale-price');
         $(selectors.productPrice, this.$container).removeClass('sale-price');
       }
-                                        
-      if (variant.inventory_quantity < 4 && variant.inventory_quantity > 0) {
-        $productStock.html('Only ' + variant.inventory_quantity + " left!");
-      } else {
-        $productStock.html(''); 
-      }
-                                        
-	  setTimeout(function(){
+
+	    setTimeout(function(){
         if($('.spurit-po-wrapper').length > 0){
         $('.spurit-po-wrapper').show();
         $('.spo-container').addClass('spurit-hidden');
-            } 
-      },300)  
+            }
+      },300)
     },
 
     /**

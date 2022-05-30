@@ -45,23 +45,26 @@
               {% endunless %}
               {% assign propertySize = item.properties | size %}
 
-              {% if propertySize > 0 %}
+              {% if propertySize > 0 or item.product.metafields.sale.final_sale or item.variant.metafields.sale.final_sale %}
               <div class="alert">
                   {% for p in item.properties %}
-                      {% assign first_character_in_key = p.first | truncate: 1, '' %}
-                          <p{% if p.first contains 'ship' %} class="alert"{% endif %}>
-                            {{ p.first }}:
-                            {% if p.last contains '/uploads/' %}
-                               <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-                            {% else %}
-                                {{ p.last }}
-                            {% endif %}
-                          </p>
+                    {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                      <p{% if p.first contains 'ship' %} class="alert"{% endif %}>
+                        {{ p.first }}:
+                        {% if p.last contains '/uploads/' %}
+                            <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                        {% else %}
+                            {{ p.last }}
+                        {% endif %}
+                      </p>
 
-                          {% if p.first == "Pre Order" %}
-                            <input type="hidden" name="attributes[pre order]" value="" >
-                          {% endif %}
+                      {% if p.first == "Pre Order" %}
+                        <input type="hidden" name="attributes[pre order]" value="" >
+                      {% endif %}
                   {% endfor %}
+                  {% if item.product.metafields.sale.final_sale or item.variant.metafields.sale.final_sale %}
+                    <p>Final Sale</p>
+                  {% endif %}
               </div>
               {% endif %}
               <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
