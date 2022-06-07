@@ -6528,8 +6528,69 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 	a {
 		&:hover {
-			color: $grey;
+			color: $dark-grey;
 		}
+	}
+}
+
+.complete-the-look-container {
+	margin: 25px 0;
+
+	.complete-the-look-title, .product-title {
+		text-align: center;
+	}
+
+	.product-title {
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 1.4;
+	}
+
+	.product-prices {
+    font-size: .9em;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+	}
+
+	a {
+		&:hover {
+			color: $dark-grey;
+		}
+	}
+
+	.slick-prev {
+		left: -35px;
+		width: 50px;
+		height: 50px;
+		text-align: center;
+		padding: 10px;
+		&::before {
+			content: "";
+			background: url("{{ 'outline arrow left.svg' | asset_url }}") no-repeat center center;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.slick-next {
+		right: -35px;
+		width: 50px;
+		height: 50px;
+		text-align: center;
+		padding: 10px;
+		&::before {
+			content: "";
+			background: url("{{ 'outline arrow right.svg' | asset_url }}") no-repeat center center;
+			display: block;
+			width: 100%;
+			height:100%;
+		}
+	}
+
+	.complete-the-look-slider .grid-product {
+		margin: 0 10px;
 	}
 }
 
