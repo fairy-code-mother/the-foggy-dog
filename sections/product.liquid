@@ -212,9 +212,11 @@
                       {% endif %}
                     </div>
 
-                    <div class="product-stock" data-product-stock>
-                      {% if current_variant.inventory_quantity < 4 and current_variant.inventory_quantity > 0 %}
-                      Only {{ current_variant.inventory_quantity }} Left!
+                    <div class="product-stock" data-product-stock{% if product.metafields.sale.final_sale %}-final-sale{% endif %}>
+                      {% if product.metafields.sale.final_sale or current_variant.metafields.sale.final_sale %}
+                        Final Sale
+                      {% elsif current_variant.inventory_quantity < 4 and current_variant.inventory_quantity > 0 %}
+                        Only {{ current_variant.inventory_quantity }} Left!
                       {% endif %}
                     </div>
 
@@ -586,13 +588,17 @@
 
           {% capture quantityCapsFlag %},"{{ variant.id }}":"{{ variant.metafields.preorder.limit }}"{% endcapture %}
           {% assign quantityCaps = quantityCaps | append: quantityCapsFlag %}
+
+          {% capture finalSale %},"{{ variant.id }}":{{ variant.metafields.sale.final_sale.value | json }}{% endcapture %}
+          {% assign finalSaleData = finalSaleData | append: finalSale %}
         {% endfor %}
 
         <script type="application/json" data-preorder-json>
           {
             "quantityAvailableData": { {{ quantityAvailable | remove_first: ',' }} },
             "estimatedDateData": { {{ estimatedDate | remove_first: ',' }} },
-            "quantityCapsData": { {{ quantityCaps | remove_first: ',' }} }
+            "quantityCapsData": { {{ quantityCaps | remove_first: ',' }} },
+            "finalSaleData": { {{ finalSaleData | remove_first: ',' }} }
           }
         </script>
       </div>

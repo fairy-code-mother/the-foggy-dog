@@ -1689,6 +1689,10 @@ textarea {
   -webkit-justify-content: center;
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
+
+	&.flex-grid--rev {
+		flex-direction: row-reverse;
+	}
 }
 
 .grid-product {
@@ -3563,6 +3567,9 @@ span.topbadge {
 			@media only screen and (max-width: 767px) {
 				display: block;
 				background-color: white;
+				width: fit-content;
+  			max-width: 100%;
+				overflow-x: scroll;
 			}
 		}
 		@media only screen and (max-width: 767px) {
@@ -3609,6 +3616,9 @@ span.topbadge {
 			}
 			&.center {
 				text-align: center;
+				@media only screen and (max-width: 767px) {
+					white-space: nowrap;
+				}
 			}
 		}
 		tr {
@@ -3649,7 +3659,6 @@ span.topbadge {
 		
 	}
 	&.breed {
-		max-width: 800px;
 		margin: 0 auto;
 		th.left {
 			text-align: left;
@@ -3709,8 +3718,8 @@ div.size-heading {
 	}
 }
 @media only screen and (max-width: 685px) {
-	body#dog-bed-size-chart {
-		div.info-page {
+	body#size-chart {
+		.info-page {
 			padding: 0;
 		}
 	}
@@ -7644,13 +7653,15 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
       }
 
       .alert {
-		p {
-			color: $color-error;
-			padding: 5px;
-			font-weight: $font-weight-bold;
-		    font-size: 10px;
-    		text-transform: uppercase;
-		}
+				margin-bottom: 10px;
+				p {
+					color: $color-error;
+					padding: 5px;
+					font-weight: $font-weight-bold;
+					font-size: 10px;
+					text-transform: uppercase;
+					margin: 0;
+				}
 	  }
 
       input[type="number"] {

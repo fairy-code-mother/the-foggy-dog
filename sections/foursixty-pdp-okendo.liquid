@@ -1,41 +1,9 @@
 <div class="page-width-fs">  
-  <div id="fsTitle" style="display:none"><h3>See how other pups wore it:</h3></div>
-  <div id="fsContainer" style="display:none"></div>   
-  <script>
-    var fsMinPosts = 3;
-    var fsSettings = {
-      "data-theme": "slider_v2_5",
-      "data-feed-id": "the-foggy-dog",
-      "data-defer-image-loading": "false",
-      "data-show-okendo-stars": "true",
-      "data-for-url": "true",
-      "data-cell-size": "20%",
-      "data-override-columns": "1"
-    }
-    function foursixtyInitWithCallback(type, attrs, callback) {
-      var elem = document.getElementById("fsContainer");
-      var fsScript = document.createElement("script");
-      elem.innerHTML = "";
-      fsScript.src = "//foursixty.com/media/scripts/fs." + type + ".v2.5.js";
-      // console.log(fsScript.src, attrs);
-      for (var k in attrs) {
-        fsScript.setAttribute(k, attrs[k]);
-      }
-      fsScript.addEventListener("foursixtyPageRendered", callback);
-      elem.appendChild(fsScript);
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-      foursixtyInitWithCallback(
-        "slider",
-        fsSettings,
-        function(event) {
-          if (event.detail.length >= fsMinPosts) {
-            document.getElementById("fsContainer").style.display = "block";
-            document.getElementById("fsTitle").style.display = "block";
-          };
-      })
-    })
-  </script> 
+  <div id="fsTitle"><h3>See how other pups wore it:</h3></div>
+  <div id="fsContainer">
+  	<script src="//foursixty.com/media/scripts/fs.slider.v2.5.js" data-feed-id="the-foggy-dog" data-theme="slider_v2_5" data-open-links-in-same-page="true" data-show-okendo-stars="true" data-cell-size="20%"></script>
+  </div>   
+  
 </div>
  
 <style>
@@ -99,12 +67,12 @@ a.fs-shop-link.fs-link-list {
 
 {% schema %}
   {
-    "name": "Foursixty",
+    "name": "Foursixty-Okendo",
     "settings": [
         { "type": "text", "id": "title", "default": "See how other pups wore it:", "label": "Title" }
     ],
     "presets": [{
-        "name": "Foursixty Product Page Gallery",
+        "name": "Foursixty-Okendo Product Page Gallery",
         "category": "Foursixty"
     }]
   }

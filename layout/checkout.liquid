@@ -50,6 +50,19 @@
     </div>
 
     {{ tracking_code }}
+
+    <script type="text/javascript">
+      (function($) {
+        $(document).on("page:load", function() {
+          {% for item in checkout.line_items %}
+            {% if item.product.metafields.sale.final_sale or item.variant.metafields.sale.final_sale %}
+              $(document).find('[data-product-id="'+{{ item.product.id }}+'"] .product__description').append('<span class="product__description__property order-summary__small-text">Final Sale</span>');
+            {% endif %}
+          {% endfor %}
+        });
+      })(Checkout.$);
+    </script>
+
     {% include 'smsbump_checkout_marketing_subscription' %}
 
     <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/w6RYdbKD3lpNY9D2y8cJ9A" async></script>
