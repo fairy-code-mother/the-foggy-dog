@@ -48,6 +48,7 @@
               {% if propertySize > 0 or item.product.metafields.sale.final_sale or item.variant.metafields.sale.final_sale %}
               <div class="alert">
                   {% for p in item.properties %}
+                    {% if p.first.first == "_" %}{% continue %}{% endif %}
                     {% assign first_character_in_key = p.first | truncate: 1, '' %}
                       <p{% if p.first contains 'ship' %} class="alert"{% endif %}>
                         {{ p.first }}:
