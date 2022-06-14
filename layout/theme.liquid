@@ -1,7 +1,12 @@
+{%- comment %}<locksmith:a700>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:a700>{% endcomment -%}
+
 <!doctype html>
 <!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
-<head>{% render 'pagefly-head' %}
+<head>{{ locksmith_initializations }}
+{% render 'pagefly-head' %}
  
 <!-- EASYGIFT SCRIPT -->
 {% if customer %}
@@ -36,7 +41,10 @@
   <title>{{ seo_title }}</title>
 
   {% if page_description %}
-    <meta name="description" content="{{ page_description | escape }}">
+    {%- comment %}<locksmith:12ef>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+    {%- comment %}</locksmith:12ef>{% endcomment -%}
   {% endif %}
 
   {% include 'social-meta-tags' %}
