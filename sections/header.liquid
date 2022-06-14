@@ -65,8 +65,7 @@
         </div>
       {% endif %}
       </div>
-      
-      
+
       <div id="cartApp" class="cart-account">
         {% if shop.customer_accounts_enabled %}
         <div class="small--hide">
@@ -77,94 +76,29 @@
           {% endif %}
         </div>
         {% endif %}
-        
-        {% comment %}
 
-        <a v-on:click.stop.prevent="openCart" href="/cart">
-          <span class="small--hide">
+        <a href="/cart">
+          <span class="small--hide cart-update cart-text-popup">
             {{ 'layout.cart.title' | t }}
           </span>
-<!--           <span id="cart-count" class="cart-count">{{ cart.item_count }}</span> -->
-          <span id="cart-count" class="mini-cart-item-count cart-update cart-count" data-cart-render="item_count">{{ cart.item_count }}</span>
-          {% include 'icon-bag' %}
-        </a>
-        {% endcomment %}
+          <span id="cart-count" class="cart-count cart-update cart-count-popup" data-cart-render="item_count">{{ cart.item_count }}</span>
 
-        <cart-pop-up @close="close" v-bind:open="isOpen" @open="openCart" v-cloak inline-template>
-          <div v-if="open" class="cart-pop-up" v-bind:class="{ sticky: sticky}">
-            <div class="wrap">
-              <div class="head">
-                <h3>Shopping Cart</h3>
-                <button @click.prevent="close" class="close">{% include 'icon-close' %}</button>
-              </div>
-              <div class="cart-pop-items">
-                <div class="buttons">
-                    <div class="counts">
-                      <span class="count">${count} items</span>
-                      <span class="total">${slate.Currency.formatMoney(subtotal)}</span>
-                    </div>
-                    <!-- <a href="/cart" class="small-btn">
-                      <span>Edit Cart</span>
-                    </a> -->
-                    <a class="small-btn black" href="/cart">
-                      <span>Checkout</span>
-                    </a>
-                </div>
-                <div v-for="item in product" class="item">
-                    <img :src="slate.Image.getSizedImageUrl(item.image, '140x140')" style="width: 70px; height: 70px;" alt=""/>
-                    <span>
-                      <h4>${item.title}</h4>
-                      <div class="cart-qty-price">
-                        <div class="cart-pop-qty">
-                          qty: ${item.quantity}
-                        </div>
-                        <div class="cart-pop-price">
-                          ${slate.Currency.formatMoney(item.price)}
-                        </div>
-                      </div>
-                    </span>
-                </div>
-                <span class="cart-pop-empty" v-if="!product.length">Your cart is currently empty.</span>
-              </div>
-            </div>
-          </div>
-        </cart-pop-up>
-        
-        
-<!--         <div class="mini-cart small--hide"> -->
-        <a href="/cart">
-            <span class="small--hide cart-update cart-text-popup">
-              {{ 'layout.cart.title' | t }}
-            </span>
-            <span id="cart-count" class="cart-count cart-update cart-count-popup" data-cart-render="item_count">{{ cart.item_count }}</span>
-<!--         </a>
-        <a class="mini-cart-btn">
- -->
           {% include 'icon-bag' %}
         </a>
-<!--         </div> -->
         <div class="cart-pop-up">
           {% include 'mini-cart' %}
         </div>
-        
       </div>
-      
+
       <style>
         .cart-pop-up {
         	display: none;
         }
-        
+
         .cart-pop-up.active {
         	display: block;
         }
       </style>
-      
-      
-      {% comment %}
-      <div class="text-right mobilecart medium-up--hide">
-        <a href="/cart">{{'foggydog-global-cart-icon.svg' | asset_url | img_tag: '', 'cart-icon' }}<span class="mobile-cart-count">{{ cart.item_count }}</span></a>
-      </div>
-      {% endcomment %}
     </div>
   </header>
   <nav role="navigation" class="top-nav">
