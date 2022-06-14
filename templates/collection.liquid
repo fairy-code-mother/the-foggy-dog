@@ -24,12 +24,18 @@
     <div class="grid--rev collection-grid">
       <div class="grid__item large-up--four-fifths medium--three-quarters">
         <div class="grid--uniform">
+          {%- comment %}<locksmith:c618>{% endcomment -%}
+            {%- assign locksmith_28a3_forloop__size = 0 %}{% for product in collection.products %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_28a3_forloop__size = locksmith_28a3_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_28a3_forloop__index = nil -%}
+          {%- comment %}</locksmith:c618>{% endcomment -%}
           {% for product in collection.products %}
+{%- comment %}<locksmith:e367>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_28a3_forloop__index == nil %}{% assign locksmith_28a3_forloop__index = 1 %}{% assign locksmith_28a3_forloop__index0 = 0 %}{% else %}{% assign locksmith_28a3_forloop__index = locksmith_28a3_forloop__index | plus: 1 %}{% assign locksmith_28a3_forloop__index0 = locksmith_28a3_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_28a3_forloop__index == 1 %}{% assign locksmith_28a3_forloop__first = true %}{% else %}{% assign locksmith_28a3_forloop__first = false %}{% endif %}{% if locksmith_28a3_forloop__index == locksmith_28a3_forloop__size %}{% assign locksmith_28a3_forloop__last = true %}{% else %}{% assign locksmith_28a3_forloop__last = false %}{% endif %}{% assign locksmith_28a3_forloop__rindex = locksmith_28a3_forloop__size | minus: locksmith_28a3_forloop__index | minus: 1 %}{% assign locksmith_28a3_forloop__rindex0 = locksmith_28a3_forloop__size | minus: locksmith_28a3_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:e367>{% endcomment -%}
 {%- comment -%} Wholesale Gorilla: do not delete unless app is uninstalled{%- endcomment -%}
-{%- assign wsgTempProd = product -%}{%- assign wsgExclude = false -%}{%- if forloop.first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
+{%- assign wsgTempProd = product -%}{%- assign wsgExclude = false -%}{%- if locksmith_28a3_forloop__first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
 {%- include 'wsg-status' wsgStatusAction: 'init' | strip -%}{%- endif -%}{%- if wsgActive -%}{%- include 'wsg-status' wsgStatusAction: 'col-item' | strip -%}{%- endif -%}{%- if wsgExclude -%} {%- continue -%} {%- endif -%}
 {%- comment -%} end WSG {%- endcomment -%}
-            {% if forloop.index == 9 %}
+            {% if locksmith_28a3_forloop__index == 9 %}
             <div class="grid-product collection-feature grid__item medium-up--one-third small--one-half">
               {% section 'collection-feature' %}
             </div>
