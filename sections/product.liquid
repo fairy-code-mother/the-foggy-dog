@@ -42,6 +42,9 @@
 {% assign title_split = product.title | split: "-" %}
 
 {% for collection in product.collections %} 
+  {%- comment %}<locksmith:6ca7>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+  {%- comment %}</locksmith:6ca7>{% endcomment -%} 
   {% if collection.handle == 'dog-bandanas' or collection.handle == 'dog-collars' or collection.handle == 'dog-bow-tie-collars' or collection.handle == 'dog-beds' or collection.handle == 'face-mask-and-bandana-sets' or collection.handle == 'dog-harness' or collection.handle == 'walk-sets' or collection.handle == 'wear-sets' or collection.handle == 'scrunchie-and-bandana-set' or collection.handle == 'lady-bow-collar' %}
     {% assign show_size_guide = true %}
   {% endif %}
@@ -237,16 +240,28 @@
                     {% assign colored_products = colored_products | append: ',' | append: product.handle %}
                     {% assign colored_products = colored_products | remove_first: ',' | split: ',' %}
 
-                    {% if colored_products.size > 1 %}
-                      <div class="color-recommend">
-                          <p style="flex: 0 0 100%">Color: {{ product.title }}</p>
-                          {% assign colored_products = colored_products | sort %}
-                          {% for product_handle in colored_products %}
-                          {% assign product_rel = all_products[product_handle] %}
-                          {% assign product_swatch = '' %}
-                          {% for image in product_rel.images %}
-                            {% if image.alt contains 'swatch' %}
-                              {% assign product_swatch = image %}
+                  {% if colored_products.size > 1 %}
+                    <div class="color-recommend">
+                        <p style="flex: 0 0 100%">Color: {{ product.title }}</p>
+                        {% assign colored_products = colored_products | sort %}
+                        {% for product_handle in colored_products %}
+                        {%- comment %}<locksmith:6ee8>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product_handle, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:6ee8>{% endcomment -%}
+                        {% assign product_rel = all_products[product_handle] %}
+                        {% assign product_swatch = '' %}
+                        {% for image in product_rel.images %}
+                          {% if image.alt contains 'swatch' %}
+                            {% assign product_swatch = image %}
+                          {% endif %}
+                        {% endfor %}
+
+                        <div{% if product_rel.handle == product.handle %} class="current-color"{% endif %}>
+                          <a href="{{product_rel.url}}"{% if product_swatch != blank %} class="custom-swatch"{% endif %}>
+                            {% if product_swatch != blank %}
+                            <img src="{{ product_swatch | img_url: '120x120', scale: 2 }}" alt="{{ product_swatch.alt | escape }}">
+                            {% else %}
+                            <img src="{{ product_rel.featured_image | img_url: '120x120', scale: 2 }}" alt="{{ product_rel.featured_image.alt | escape }}">
                             {% endif %}
                           {% endfor %}
 
@@ -313,17 +328,36 @@
                             {% endfor %}
                           </select>
 
-                          {% if size_guide != blank %}
-                            <div class="size-guide-link">
-                              <a data-fancybox data-touch="false" data-src="#{{ size_guide }}" href="javascript:;">
-                                {{ section.settings.size_guide_label }}
-                              </a>
-                            </div>
-                            {% assign page = pages[size_guide] %}
-                            <div class="size-chart" id="{{size_guide}}">
-                              <h2>{{ page.title }}</h2>
-                              {{ page.content }}
-                            </div>
+                    <div class="product-prices product-prices-mobile" data-price-wrapper>
+                      {% if WCProductComparePriceMax > WCProductPrice %}
+                        <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+                        <s data-compare-price>
+                          {% if WCVariantCurrentVariantComparePrice > WCVariantCurrentVariantPrice %}
+                            {{ WCVariantCurrentVariantComparePrice | money }}
+                          {% endif %}
+                        </s>&nbsp;
+                        <span class="sale-price" data-product-price>
+                          {{ WCVariantCurrentVariantPrice | money }}
+                        </span>
+                      {% else %}
+                        <span data-product-price>
+                          {{ WCVariantCurrentVariantPrice | money }}
+                        </span>
+                      {% endif %}
+                    </div>
+
+                      {% if product.variants.size > 1 %}
+                        <button class="Rise-add-to-cart-button btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
+                          <span data-add-to-cart-text>
+                            Select An Option
+                          </span>
+                        </button>
+   
+                        <p class="estimated-date" style="display:none">{{ variant.metafields.preorder.message }}</p>
+                        
+                    	<div class="preorder__prop">
+                          {% if variant.metafields.preorder.message != blank %}
+                            <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ variant.metafields.preorder.message }} {{ variant.metafields.preorder.date | date: "%B %d, %Y" }}' />
                           {% endif %}
                         </div>
                       {% endfor %}

@@ -2,7 +2,7 @@
   rivets.formatters.eq = function (value, checkAgainst) {
     return (value == checkAgainst);
   }
-  
+
   rivets.binders['src-strict'] = function(el, value) {
     var img = new Image()
 
@@ -12,13 +12,7 @@
 
     img.src = value
   }
-  
-  
 </script>
-
-<!-- <p class="title"><a href="/cart">Cart</a>
-  <span class="cart-close">&times;</span>
-</p> -->
 
 <div id="mini_cart" data-cart-view="data-cart-view">
   <div class="wrap">
@@ -44,8 +38,8 @@
             <span>Checkout</span>
           </a>
         </div>
-		
-        <div class="cart-items" 
+
+        <div class="cart-items"
               rv-class-parentproduct="item.properties._bundle_number"
               rv-class-bundledproduct="item.properties._associated_bundle" 
               rv-datasku="item.sku"
@@ -53,7 +47,6 @@
               rv-parent-bundle-number="item.properties._bundle_number" 
               rv-each-item="cart.items">
           <div class="item">
-            
 <!--             <p id='test'>{{ all_products[product.handle].selected_or_first_available_variant.image.src | img_url }}</p> -->
 <!--             	 <p id='test'>{{ variant.id }}</p> -->
 <!--             <img src="{{ all_products[product.handle].selected_or_first_available_variant.image.src | img_url: 'master' }}" id="cartimage" /> -->
@@ -88,7 +81,7 @@
   #ajaxloader {
   	display: none;
   }
-  
+
   .btn-mini-custom {
     width: 100%;
     font-size: 16px !important;
@@ -155,27 +148,3 @@
     }
   }
 </style>
-
-
-<script>
-
-	console.log('this is item', $('#test'));
-    
-  //onload make sure the cart shows the products as they are now hidden by default
-//   $('.cart-form').each(function() {
-  
-//   $(this).submit(function(event){
-
-//     console.log('show');
-    
-//     $('#cartimage').hide();
-    
-// 	setTimeout(function(){
-//       $('#cartimage').show();
-//       console.log('finished 4 seconds');
-//     }, 4000);
-    
-//       });  
-//   });
-
-</script>

@@ -1747,66 +1747,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-const EventBus = new Vue();
-
-Vue.component('cart-pop-up', {
-  props: ['open'],
-  data() {
-    return { 
-      subtotal: 0,
-      count: 0,
-      product: [],
-      sticky: false
-    }
-  },
-  mounted: function () {
-    EventBus.$on('CART_UPDATE', (payload) => {
-      this.updateCart();
-      this.$emit('open');
-      this.sticky = true;
-    });
-
-    this.updateCart();
-  },
-  methods: {
-    close: function() {
-      this.$emit('close');
-    },
-    updateCart: function() {
-      axios.get('/cart.js')
-        .then((response) => {
-          this.subtotal = response.data.total_price;
-          this.count = response.data.item_count;
-          this.product = response.data.items;
-          document.querySelector("#cart-count").innerText = ''+ response.data.item_count +'';
-        })
-        .catch((error) => {
-          // handle error
-          console.log(error);
-        });
-      console.log('cart update');
-    }
-  }
-});
-
-const cartApp = new Vue({
-  delimiters: ['${', '}'],
-  el: '#cartApp',
-  data: {
-    isOpen: false,
-  },
-  methods: {
-    close: function() {
-      this.isOpen = !this.isOpen;
-    },
-    openCart: function() {
-      this.isOpen = true;
-    }
-  }
-});
-
-
-
 //——btn-mini-cart
 //   $('.mini-cart-btn, .mini-cart-item-count, #bc-quickview-cart-btn').click(function(){
 //     $('.cart-pop-up, .totals').toggleClass('active');
