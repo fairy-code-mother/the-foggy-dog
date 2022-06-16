@@ -83,12 +83,17 @@
               {% endif %}
             </td>
             <td data-label="{{ 'cart.label.quantity' | t }}">
+              {% if item.properties._Gifted and item.product.id == 6770996510806 %}
+                {{ item.quantity }}
+                <input type="hidden" name="updates[]" value="{{ item.quantity }}">
+              {% else %}
               <input type="number"
                      name="updates[]"
                      id="updates_{{ item.key }}"
                      value="{{ item.quantity }}"
                      min="0"
                      aria-label="{{ 'cart.general.item_quantity' | t }}">
+              {% endif %}
             </td>
             <td data-label="{{ 'cart.label.total' | t }}">
                 {{ WCItems_ItemLinePrice | money | remove: " " }}
@@ -100,7 +105,6 @@
     </table>
 
     <div class="cart-footer">
-
       <div class="grid">
         <div class="grid__item large-up--one-half">
             <label for="gift-wrap" style="    font-size: 1.1em;    font-weight: 600;">
@@ -124,7 +128,6 @@
           <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
           <input type="submit" name="update" class="update-btn" value="{{ 'cart.general.update' | t }}">
           <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
-          
         </div>
       </div>
 
