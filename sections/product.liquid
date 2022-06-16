@@ -371,23 +371,6 @@
                       {% endif %}
                     </div>
 
-                    {% comment %} <button
-                      @click.prevent="addCart" 
-                      class="btn add-to-cart"
-                      type="submit"
-                      name="add"
-                      id="add"
-                      data-add-to-cart
-                      {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-                        <span data-add-to-cart-text>
-                          {% if current_variant.available %}
-                            {{ 'products.product.add_to_cart' | t }}
-                          {% else %}
-                            Select An Option
-                          {% endif %}
-                        </span>
-                    </button> {% endcomment %}
-
                       {% if product.variants.size > 1 %}
                         <button class="Rise-add-to-cart-button btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                           <span data-add-to-cart-text>

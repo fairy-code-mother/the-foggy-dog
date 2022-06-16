@@ -51,7 +51,6 @@
   
   {{ '39A6E7_0_0.woff2' | asset_url | preload_tag: as: 'font' }}
   {{ '39A6E7_1_0.woff2' | asset_url | preload_tag: as: 'font' }}
-  {{ '39A6E7_2_0.woff2' | asset_url | preload_tag: as: 'font' }}
 
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
@@ -93,11 +92,6 @@
 
   <script type="text/javascript" src="{{ 'option_selection.js' | asset_url }}"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!--  Yotpo module will not show if this script is enabled  -->
-  <!--  workaround is to not render this script on the refer and rewards page  -->
-  {% if template != 'page.rewards' and template != 'page.refer' %}
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  {% endif %}
 
 
   {% if template.directory == 'customers' %}

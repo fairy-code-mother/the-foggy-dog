@@ -97,11 +97,6 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 
   <script type="text/javascript" src="{{ 'option_selection.js' | asset_url }}"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!--  Yotpo module will not show if this script is enabled  -->
-  <!--  workaround is to not render this script on the refer and rewards page  -->
-  {% if template != 'page.rewards' and template != 'page.refer' %}
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  {% endif %}
 
 
   {% if template.directory == 'customers' %}
