@@ -7,14 +7,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
 <head>{{ locksmith_initializations }}
 {% render 'pagefly-head' %}
- 
-<!-- EASYGIFT SCRIPT -->
-{% if customer %}
-  <script type="text/javascript" src="https://cdn.506.io/eg/script.js?shop=the-foggy-dog.myshopify.com&id={{ customer.id }}&order_count={{ customer.orders_count }}&total_spent={{ customer.total_spent }}&tags={{ customer.tags | join: "," }}"></script>
-{% else %}
-  <script type="text/javascript" src="https://cdn.506.io/eg/script.js?shop=the-foggy-dog.myshopify.com"></script>
-{% endif %}
-<!-- END EASYGIFT SCRIPT -->
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">

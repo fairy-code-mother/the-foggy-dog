@@ -83,7 +83,6 @@ $('.cart-form').each(function() {
     });  
   
     $(this).submit(function(event){
-	console.log('clicked form button');
       // Add an event handler that will trigger when all items are added.
       $(document).on('cart.requestComplete', function(event, cart) {
 //         window.location.href = '/cart/';
