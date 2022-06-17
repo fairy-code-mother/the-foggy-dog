@@ -71,8 +71,9 @@
               <thead>
                   <tr>
                       <th scope="col"></th>
-                      <th scope="col">Neck Circumference</th>
-                      <th scope="col">Collar Width</th>
+                      <th scope="col">Neck (in)</th>
+                      <th scope="col">Collar (in)</th>
+                      <th scope="col">Dog Weight</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -81,6 +82,7 @@
                       <td class="scol">{{ block.settings.size }}</td>
                       <td valign="top">{{  block.settings.bed_size }}</td>
                       <td valign="top">{{ block.settings.bed_weight }}</td>
+                      <td valign="top">{{ block.settings.bed_example }}</td>
                     </tr>
                     {% endfor %}
                   </tr>
