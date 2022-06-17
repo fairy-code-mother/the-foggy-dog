@@ -32,13 +32,13 @@
               </thead>
               <tbody>
                 <tr>
-                  <td scope="row"><strong>Neck Circumference</strong></td>
+                  <td scope="row"><strong>Neck (in)</strong></td>
                   {% for block in section.blocks %}
                     <td valign="top">{{ block.settings.bed_weight }}</td>
                   {% endfor %} 
                 </tr>
                 <tr>
-                    <td scope="row"><strong>Collar Width</strong></td>
+                    <td scope="row"><strong>Collar (in)</strong></td>
                     {% for block in section.blocks %}
                       <td>
                           {{ block.settings.bed_size }}
@@ -46,7 +46,7 @@
                     {% endfor %}
                 </tr>
                 <tr>
-                  <td scope="row"><strong>Example  Breed</strong></td>
+                  <td scope="row"><strong>Dog Weight</strong></td>
                   {% for block in section.blocks %}
                     <td>
                       <p>{{ block.settings.bed_example }}</p>
@@ -144,13 +144,17 @@
       "blocks": [
         {
           "type": "collar",
-          "name": "Collar Size",
+          "name": "Harness Size",
           "settings": [
             {
                 "type":      "select",
                 "id":        "size",
                 "label":     "Select size",
                 "options": [
+                    {
+                        "value": "xs",
+                        "label": "xSmall"
+                    },
                     {
                         "value": "s",
                         "label": "Small"
@@ -182,7 +186,7 @@
             {
                 "type": "text",
                 "id": "bed_example",
-                "label": "Example Breed"
+                "label": "Weight"
             },
             {
                 "type": "image_picker",
