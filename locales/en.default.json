@@ -82,7 +82,8 @@
       "cookies_required": "Enable cookies to use the shopping cart",
       "continue_browsing_html": "Shop best-sellers <a href=\"\/collections\/best-sellers\">here<\/a>.",
       "item_quantity": "Item quantity",
-      "savings": "You're saving"
+      "savings": "You're saving",
+      "free_gift_message": "With orders $25+"
     },
     "label": {
       "product": "Product",

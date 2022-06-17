@@ -42,7 +42,10 @@
 
               {% unless item.product.has_only_default_variant %}
                 <p>{{ item.variant.title }}</p>
+              {% elsif item.properties._Gifted and item.product.id == 6770996510806 %}
+                <p>{{ 'cart.general.free_gift_message' | t }}</p>
               {% endunless %}
+
               {% assign propertySize = item.properties | size %}
 
               {% if propertySize > 0 or item.product.metafields.sale.final_sale or item.variant.metafields.sale.final_sale %}
