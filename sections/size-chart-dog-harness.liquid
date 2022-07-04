@@ -32,13 +32,13 @@
               </thead>
               <tbody>
                 <tr>
-                  <td scope="row"><strong>Neck (in)</strong></td>
+                  <td scope="row"><strong>Base of Neck</strong></td>
                   {% for block in section.blocks %}
                     <td valign="top">{{ block.settings.bed_weight }}</td>
                   {% endfor %} 
                 </tr>
                 <tr>
-                    <td scope="row"><strong>Collar (in)</strong></td>
+                    <td scope="row"><strong>Chest</strong></td>
                     {% for block in section.blocks %}
                       <td>
                           {{ block.settings.bed_size }}
@@ -46,7 +46,15 @@
                     {% endfor %}
                 </tr>
                 <tr>
-                  <td scope="row"><strong>Dog Weight</strong></td>
+                  <td scope="row"><strong>Strap Width</strong></td>
+                  {% for block in section.blocks %}
+                    <td>
+                      <p>{{ block.settings.harness_strap_width }}</p>
+                    </td>
+                  {% endfor %} 
+                </tr>
+                <tr>
+                  <td scope="row"><strong>Example Breed</strong></td>
                   {% for block in section.blocks %}
                     <td>
                       <p>{{ block.settings.bed_example }}</p>
@@ -71,24 +79,26 @@
               <thead>
                   <tr>
                       <th scope="col"></th>
-                      <th scope="col">Neck (in)</th>
-                      <th scope="col">Collar (in)</th>
-                      <th scope="col">Dog Weight</th>
+                      <th scope="col">Base of Neck</th>
+                      <th scope="col">Chest</th>
+                      <th scope="col">Strap Width</th>
+                      <th scope="col">Example Breed</th>
                   </tr>
                 </thead>
                 <tbody>
                     {% for block in section.blocks %}
                     <tr>
                       <td class="scol">{{ block.settings.size }}</td>
-                      <td valign="top">{{  block.settings.bed_size }}</td>
+                      <td valign="top">{{ block.settings.bed_size }}</td>
                       <td valign="top">{{ block.settings.bed_weight }}</td>
+                      <td valign="top">{{ block.settings.harness_strap_width }}</td>
                       <td valign="top">{{ block.settings.bed_example }}</td>
                     </tr>
                     {% endfor %}
                   </tr>
                 </tbody>
           </table>
-        </div>    
+        </div>
     <a href="{{ section.settings.button_url }}" class="btn">
         {{ section.settings.button_text }}
     </a>
@@ -187,14 +197,19 @@
             },
             {
                 "type": "text",
+                "id": "harness_strap_width",
+                "label": "Strap Width"
+            },
+            {
+                "type": "text",
                 "id": "bed_example",
-                "label": "Weight"
+                "label": "Example Breed"
             },
             {
                 "type": "image_picker",
                 "id": "size_image",
                 "label": "Size image"
-            }            
+            }
           ]
         }
       ]

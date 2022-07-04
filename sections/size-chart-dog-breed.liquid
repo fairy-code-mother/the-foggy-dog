@@ -20,6 +20,15 @@
       <p>{{ section.settings.text }}</p>
     {% endif %}
 
+    {% liquid
+      assign hasHarness = false
+      for block in section.blocks
+        if block.settings.harness_size != ""
+          assign hasHarness = true
+        endif
+      endfor
+    %}
+
     <div class="size-table responsive">
         <table class="breeds">
             <thead>
@@ -30,7 +39,7 @@
                     <th scope="col">Bed Size</th>
                     <th scope="col">Collar Size</th>
                     <th scope="col">Bandana Size</th>
-                    <!--th scope="col">Harness Size</th-->
+                    {% if hasHarness %} <th scope="col">Harness Size</th> {% endif %}
                 </tr>
                 </thead>
                 <tbody>
@@ -39,12 +48,12 @@
                             <td scope="row">
                                 <strong>{{ block.settings.breed_name }}</strong>
                             </td>
-                            <td class="center" valign="top">{{ block.settings.bed_weight }}</td> 
-                            <td class="center" valign="top">{{ block.settings.breed_neck }}</td> 
-                            <td class="center" valign="top">{{ block.settings.bed_size }}</td> 
-                            <td class="center" valign="top">{{ block.settings.collar_size }}</td> 
-                            <td class="center" valign="top">{{ block.settings.bandana_size }}</td> 
-                            <!--td class="center" valign="top">{{ block.settings.harness_size }}</td--> 
+                            <td class="center" valign="top">{{ block.settings.bed_weight }}</td>
+                            <td class="center" valign="top">{{ block.settings.breed_neck }}</td>
+                            <td class="center" valign="top">{{ block.settings.bed_size }}</td>
+                            <td class="center" valign="top">{{ block.settings.collar_size }}</td>
+                            <td class="center" valign="top">{{ block.settings.bandana_size }}</td>
+                            {% if hasHarness %} <td class="center" valign="top">{{ block.settings.harness_size }}</td> {% endif %}
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -123,7 +132,7 @@
                 "type": "text",
                 "id": "harness_size",
                 "label": "Harness Size"
-            }             
+            }
           ]
         }
       ]
