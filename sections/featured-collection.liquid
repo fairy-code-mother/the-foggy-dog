@@ -8,15 +8,15 @@
     {%- assign collection = collections[section.settings.collection] -%}
     <div class="grid--uniform">
 
-      {%- comment %}<locksmith:996b>{% endcomment -%}
-        {%- assign locksmith_5bd5_forloop__size = 0 %}{% for product in collection.products limit: 4 %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_5bd5_forloop__size = locksmith_5bd5_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_5bd5_forloop__index = nil -%}
-      {%- comment %}</locksmith:996b>{% endcomment -%}
+      {%- comment %}<locksmith:d395>{% endcomment -%}
+        {%- assign locksmith_ef85_forloop__size = 0 %}{% for product in collection.products limit: 4 %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_ef85_forloop__size = locksmith_ef85_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_ef85_forloop__index = nil -%}
+      {%- comment %}</locksmith:d395>{% endcomment -%}
       {% for product in collection.products limit: 4 %}
-{%- comment %}<locksmith:0e1a>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_5bd5_forloop__index == nil %}{% assign locksmith_5bd5_forloop__index = 1 %}{% assign locksmith_5bd5_forloop__index0 = 0 %}{% else %}{% assign locksmith_5bd5_forloop__index = locksmith_5bd5_forloop__index | plus: 1 %}{% assign locksmith_5bd5_forloop__index0 = locksmith_5bd5_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_5bd5_forloop__index == 1 %}{% assign locksmith_5bd5_forloop__first = true %}{% else %}{% assign locksmith_5bd5_forloop__first = false %}{% endif %}{% if locksmith_5bd5_forloop__index == locksmith_5bd5_forloop__size %}{% assign locksmith_5bd5_forloop__last = true %}{% else %}{% assign locksmith_5bd5_forloop__last = false %}{% endif %}{% assign locksmith_5bd5_forloop__rindex = locksmith_5bd5_forloop__size | minus: locksmith_5bd5_forloop__index | minus: 1 %}{% assign locksmith_5bd5_forloop__rindex0 = locksmith_5bd5_forloop__size | minus: locksmith_5bd5_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-{%- comment %}</locksmith:0e1a>{% endcomment -%}
+{%- comment %}<locksmith:eafa>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_ef85_forloop__index == nil %}{% assign locksmith_ef85_forloop__index = 1 %}{% assign locksmith_ef85_forloop__index0 = 0 %}{% else %}{% assign locksmith_ef85_forloop__index = locksmith_ef85_forloop__index | plus: 1 %}{% assign locksmith_ef85_forloop__index0 = locksmith_ef85_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_ef85_forloop__index == 1 %}{% assign locksmith_ef85_forloop__first = true %}{% else %}{% assign locksmith_ef85_forloop__first = false %}{% endif %}{% if locksmith_ef85_forloop__index == locksmith_ef85_forloop__size %}{% assign locksmith_ef85_forloop__last = true %}{% else %}{% assign locksmith_ef85_forloop__last = false %}{% endif %}{% assign locksmith_ef85_forloop__rindex = locksmith_ef85_forloop__size | minus: locksmith_ef85_forloop__index | minus: 1 %}{% assign locksmith_ef85_forloop__rindex0 = locksmith_ef85_forloop__size | minus: locksmith_ef85_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:eafa>{% endcomment -%}
 {%- comment -%} Wholesale Gorilla: do not delete unless app is uninstalled{%- endcomment -%}
-{%- assign wsgTempProd = product -%}{%- assign wsgExclude = false -%}{%- if locksmith_5bd5_forloop__first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
+{%- assign wsgTempProd = product -%}{%- assign wsgExclude = false -%}{%- if locksmith_ef85_forloop__first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
 {%- include 'wsg-status' wsgStatusAction: 'init' | strip -%}{%- endif -%}{%- if wsgActive -%}{%- include 'wsg-status' wsgStatusAction: 'col-item' | strip -%}{%- endif -%}{%- if wsgExclude -%} {%- continue -%} {%- endif -%}
 {%- comment -%} end WSG {%- endcomment -%}
         {% include 'product-grid-item' thumb_size: '200x200' %}
