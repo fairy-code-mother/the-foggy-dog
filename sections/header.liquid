@@ -105,9 +105,6 @@
     <div class="page-width">
       <ul class="small--hide">
         {% for link in linklists[section.settings.main_linklist].links %}
-          {%- comment %}<locksmith:c5cf>{% endcomment -%}
-            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[section.settings.main_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-          {%- comment %}</locksmith:c5cf>{% endcomment -%}
           {% if link.links != blank %}
             {% assign mega_menu = false %}
             <li class="has-dropdown">
@@ -121,17 +118,11 @@
                         <h3>{{ link.title }}</h3>
                         <ul>
                             {% for childlink in link.links %}
-                            {%- comment %}<locksmith:a6cc>{% endcomment -%}
-                              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                            {%- comment %}</locksmith:a6cc>{% endcomment -%}
                             {% if childlink.links != blank %}
                               <li class="mega-menu-links">
                                 <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
                                 <ul>
                                   {% for grandchildlink in childlink.links %}
-                                    {%- comment %}<locksmith:2718>{% endcomment -%}
-                                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                                    {%- comment %}</locksmith:2718>{% endcomment -%}
                                     <li>
                                       <a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
                                     </li>
@@ -198,9 +189,6 @@
     </form>
     <ul class="nav-menu">
       {% for link in menus[section.settings.main_linklist].links %}
-        {%- comment %}<locksmith:fcc1>{% endcomment -%}
-          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: menus[section.settings.main_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-        {%- comment %}</locksmith:fcc1>{% endcomment -%}
         {% assign childlink_handle = link.title | handle %}
         {% if menus[childlink_handle].links != blank %}
           <li>
@@ -209,17 +197,11 @@
             <ul class="secondary-links">
               <li class="back"><a href="#" class="close-secondary">< Back</a></li>
               {% for childlink in linklists[childlink_handle].links %}
-                {%- comment %}<locksmith:a316>{% endcomment -%}
-                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: linklists[childlink_handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:a316>{% endcomment -%}
                 <li class="tu">{{ childlink.title | link_to: childlink.url }}</li>
                 {% if childlink.links != blank %}
                 <li>
                   <ul>
                     {% for grandchildlink in childlink.links %}
-                      {%- comment %}<locksmith:4a76>{% endcomment -%}
-                        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                      {%- comment %}</locksmith:4a76>{% endcomment -%}
                       <li>
                         <a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
                       </li>
@@ -235,9 +217,6 @@
         {% endif %}
       {% endfor %}
       {% for link in menus[section.settings.secondary_linklist].links %}
-        {%- comment %}<locksmith:bf1b>{% endcomment -%}
-          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: menus[section.settings.secondary_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-        {%- comment %}</locksmith:bf1b>{% endcomment -%}
         {% assign childlink_handle = link.title | handle %}
         {% if menus[childlink_handle].links != blank %}
           <li>
@@ -246,9 +225,6 @@
             <ul class="secondary-links">
               <li class="back"><a href="#" class="close-secondary"><i class="fa fa-chevron-left"></i> Back to {{link.title}}</a></li>
               {% for childlink in linklists[childlink_handle].links %}
-                {%- comment %}<locksmith:6da2>{% endcomment -%}
-                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: linklists[childlink_handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:6da2>{% endcomment -%}
                 <li>{{ childlink.title | link_to: childlink.url }}</li>
               {% endfor %}
             </ul>

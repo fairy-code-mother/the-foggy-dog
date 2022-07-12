@@ -33,9 +33,6 @@
 {% endif %}
 <div id="chart-pop" class="product-pop">
 {% for collection in product.collections %} 
-  {%- comment %}<locksmith:3d5f>{% endcomment -%}
-    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-  {%- comment %}</locksmith:3d5f>{% endcomment -%} 
   {% if collection.handle == 'dog-bandanas' %}
   {% section 'size-chart-dog-bandana' %}
   {% endif %}

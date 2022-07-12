@@ -42,9 +42,6 @@
 {% assign title_split = product.title | split: "-" %}
 
 {% for collection in product.collections %} 
-  {%- comment %}<locksmith:bdfb>{% endcomment -%}
-    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-  {%- comment %}</locksmith:bdfb>{% endcomment -%} 
   {% if collection.handle == 'dog-bandanas' or collection.handle == 'dog-collars' or collection.handle == 'dog-bow-tie-collars' or collection.handle == 'dog-beds' or collection.handle == 'face-mask-and-bandana-sets' or collection.handle == 'dog-harness' or collection.handle == 'walk-sets' or collection.handle == 'wear-sets' or collection.handle == 'scrunchie-and-bandana-set' or collection.handle == 'lady-bow-collar' %}
     {% assign show_size_guide = true %}
   {% endif %}
@@ -246,9 +243,6 @@
                           <p style="flex: 0 0 100%">Color: {{ product.title }}</p>
                           {% assign colored_products = colored_products | sort %}
                           {% for product_handle in colored_products %}
-                          {%- comment %}<locksmith:787b>{% endcomment -%}
-                            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product_handle, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                          {%- comment %}</locksmith:787b>{% endcomment -%}
                           {% assign product_rel = all_products[product_handle] %}
                           {% assign product_swatch = '' %}
                           {% for image in product_rel.images %}
