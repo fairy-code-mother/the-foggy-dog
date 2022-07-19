@@ -48,7 +48,7 @@
 
               {% assign propertySize = item.properties | size %}
 
-              {% if propertySize > 0 or item.product.metafields.sale.final_sale or item.variant.metafields.sale.final_sale %}
+              {% if propertySize > 0 or item.product.metafields.sale.final_sale or item.variant.metafields.sale.final_sale or item.total_discount %}
               <div class="alert">
                   {% for p in item.properties %}
                     {% if p.first.first == "_" %}{% continue %}{% endif %}
@@ -69,6 +69,9 @@
                   {% if item.product.metafields.sale.final_sale or item.variant.metafields.sale.final_sale %}
                     <p>Final Sale</p>
                   {% endif %}
+                  {% if item.total_discount > 0 and item.message %}
+                    <p>{{ item.message }}</p>
+                  {% endif %}
               </div>
               {% endif %}
               <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
@@ -76,13 +79,18 @@
               </a>
             </td>
             <td data-label="{{ 'cart.label.price' | t }}">
-              {% if WCItems_ItemCompareAtPrice != WCItems_ItemLinePrice %}
-                <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                <s>{{ WCItems_ItemCompareAtPrice | money }}</s>
-                <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                {{ WCItems_ItemPrice | money | remove: " " }}
-              {% else %}
-                {{ WCItems_ItemPrice | money | remove: " " }}
+              <p>
+                {% if WCItems_ItemCompareAtPrice != WCItems_ItemLinePrice %}
+                  <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
+                  <s>{{ WCItems_ItemCompareAtPrice | money }}</s>
+                  <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
+                  {{ WCItems_ItemPrice | money | remove: " " }}
+                {% else %}
+                  {{ WCItems_ItemPrice | money | remove: " " }}
+                {% endif %}
+              </p>
+              {% if item.total_discount > 0 %}
+              <p><s>{{ WCItems_ItemOriginalLinePrice | money | remove: " " }}</s></p>
               {% endif %}
             </td>
             <td data-label="{{ 'cart.label.quantity' | t }}">

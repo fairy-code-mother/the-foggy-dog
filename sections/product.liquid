@@ -30,6 +30,11 @@
 {% assign oprah = 'As Seen In Oprah' %}
 {% endif %}
 
+{% assign bandana = false %}
+{% if product.type == 'Bandana' %}
+{% assign bandana = 'Buy 3 or more bandanas and save 15%' %}
+{% endif %}
+
 {% assign pre_order = false %}
 {% for tag in product.tags %}
   {% if tag contains "pre-ship" %}
@@ -340,7 +345,11 @@
                         </option>
                       {% endfor %}
                     </select>
-                    
+
+                    {% if bandana %}
+                      <p class="bundle-discount">{{ bandana }}</p>
+                    {% endif %}
+
                     <div class="quantity-wrapper">
                       <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
                       <div class="quantity-fields">
