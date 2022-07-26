@@ -305,7 +305,7 @@
                                 {% assign option_available = false %}
                               {% endif %}
                               {% for cv in product.variants %}
-                                {% if cv.title contains value and cv.available %}
+                                {% if cv.title == value and cv.available %}
                                   {% assign option_available = true %}
                                 {% endif %}
                               {% endfor %}
