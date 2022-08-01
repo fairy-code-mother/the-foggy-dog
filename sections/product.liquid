@@ -271,7 +271,7 @@
 
                     {% unless product.variants.size == 1 %}
                       {% for option in product.options_with_values %}
-                      {% assign option_name = option.name | replace: "Title", "Options" %}
+                        {% assign option_name = option.name | replace: "Title", "Options" %}
                         <div class="selector-wrapper js">
                           <div class="size-grid">
                             <label class="product-label"
@@ -285,13 +285,15 @@
                                   <span>Size Guide</span>
                                 </button>
                               {% endif %}
-                            {% endif %} 
-                            {% if  option_name contains 'Fill' %}
+                            {% endif %}
+                            {% if option_name contains 'Fill' %}
                               <button data-fancybox data-touch="false" data-src="#insert-pop" style="justify-content: flex-end;" id="size-chart-btn">
                                   <span>Learn More</span>
-                              </button> 
+                              </button>
                             {% endif %}
                           </div>
+
+                          {% assign optionNo = 'option' | append: forloop.index %}
 
                           <select
                             id="SingleOptionSelector-{{ forloop.index0 }}"
@@ -305,7 +307,7 @@
                                 {% assign option_available = false %}
                               {% endif %}
                               {% for cv in product.variants %}
-                                {% if cv.title == value and cv.available %}
+                                {% if cv[optionNo] == value and cv.available %}
                                   {% assign option_available = true %}
                                 {% endif %}
                               {% endfor %}
