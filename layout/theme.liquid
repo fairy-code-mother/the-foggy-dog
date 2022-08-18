@@ -1,7 +1,12 @@
+{%- comment %}<locksmith:cb40>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:cb40>{% endcomment -%}
+
 <!doctype html>
 <!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
-<head>{% render 'pagefly-head' %}
+<head>{{ locksmith_initializations }}
+{% render 'pagefly-head' %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +34,10 @@
   <title>{{ seo_title }}</title>
 
   {% if page_description %}
-    <meta name="description" content="{{ page_description | escape }}">
+    {%- comment %}<locksmith:f410>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+    {%- comment %}</locksmith:f410>{% endcomment -%}
   {% endif %}
 
   {% include 'social-meta-tags' %}
@@ -98,7 +106,7 @@
   {% section 'filter-menu-settings' %}
   {% endif %}
 
-  {% include 'wsg-header' %}
+  {% render 'wsg-custom' %}
   
   {{ 'jquery-3.4.1.js' | asset_url | script_tag }}
   {{ 'rivets-cart.js' | asset_url | script_tag }}
@@ -131,6 +139,7 @@
 
 <!--<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/w6RYdbKD3lpNY9D2y8cJ9A" async></script>-->
 
+{% render 'wsg-custom' %}
 </head> 
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">

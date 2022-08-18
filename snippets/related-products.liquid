@@ -20,10 +20,16 @@
     <h2 class="related-products-title">{{ heading }}</h2>
     <div class="grid--uniform grid related-products-grid">
     	<h2 class="related-products-title">{{ heading }}</h2>
+    	{%- comment %}<locksmith:4d62>{% endcomment -%}
+    	  {%- assign locksmith_4727_forloop__size = 0 %}{% for product_handle in related_products limit: 4 %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product_handle, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_4727_forloop__size = locksmith_4727_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_4727_forloop__index = nil -%}
+    	{%- comment %}</locksmith:4d62>{% endcomment -%}
     	{% for product_handle in related_products limit: 4 %}
+		    {%- comment %}<locksmith:4c3f>{% endcomment -%}
+		      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product_handle, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_4727_forloop__index == nil %}{% assign locksmith_4727_forloop__index = 1 %}{% assign locksmith_4727_forloop__index0 = 0 %}{% else %}{% assign locksmith_4727_forloop__index = locksmith_4727_forloop__index | plus: 1 %}{% assign locksmith_4727_forloop__index0 = locksmith_4727_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_4727_forloop__index == 1 %}{% assign locksmith_4727_forloop__first = true %}{% else %}{% assign locksmith_4727_forloop__first = false %}{% endif %}{% if locksmith_4727_forloop__index == locksmith_4727_forloop__size %}{% assign locksmith_4727_forloop__last = true %}{% else %}{% assign locksmith_4727_forloop__last = false %}{% endif %}{% assign locksmith_4727_forloop__rindex = locksmith_4727_forloop__size | minus: locksmith_4727_forloop__index | minus: 1 %}{% assign locksmith_4727_forloop__rindex0 = locksmith_4727_forloop__size | minus: locksmith_4727_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+		    {%- comment %}</locksmith:4c3f>{% endcomment -%}
 		    {% assign product_related = all_products[product_handle] %}
 {%- comment -%} Wholesale Gorilla: do not delete unless app is uninstalled{%- endcomment -%}
-{%- assign wsgTempProd = product_related -%}{%- assign wsgExclude = false -%}{%- if forloop.first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
+{%- assign wsgTempProd = product_related -%}{%- assign wsgExclude = false -%}{%- if locksmith_4727_forloop__first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
 {%- include 'wsg-status' wsgStatusAction: 'init' | strip -%}{%- endif -%}{%- if wsgActive -%}{%- include 'wsg-status' wsgStatusAction: 'col-item' | strip -%}{%- endif -%}{%- if wsgExclude -%} {%- continue -%} {%- endif -%}
 {%- comment -%} end WSG {%- endcomment -%}
 		    

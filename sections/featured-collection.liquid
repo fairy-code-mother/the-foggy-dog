@@ -9,11 +9,10 @@
     <div class="grid--uniform">
 
       {% for product in collection.products limit: 4 %}
-{%- comment -%} Wholesale Gorilla: do not delete unless app is uninstalled{%- endcomment -%}
-{%- assign wsgTempProd = product -%}{%- assign wsgExclude = false -%}{%- if forloop.first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
-{%- include 'wsg-status' wsgStatusAction: 'init' | strip -%}{%- endif -%}{%- if wsgActive -%}{%- include 'wsg-status' wsgStatusAction: 'col-item' | strip -%}{%- endif -%}{%- if wsgExclude -%} {%- continue -%} {%- endif -%}
-{%- comment -%} end WSG {%- endcomment -%}
-        {% include 'product-grid-item' thumb_size: '200x200' %}
+{%- comment %}<locksmith:9458>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:9458>{% endcomment -%}
+{% include 'product-grid-item' thumb_size: '200x200' %}
       {% endfor %}
 
     </div>

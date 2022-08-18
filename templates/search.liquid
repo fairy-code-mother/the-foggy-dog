@@ -34,11 +34,10 @@
 {% if search.performed %}
     <div class="grid--uniform search-grid">
       {% for item in search.results %}
-{%- comment -%} Wholesale Gorilla: do not delete unless app is uninstalled{%- endcomment -%}
-{%- assign wsgTempProd = item -%}{%- assign wsgExclude = false -%}{%- if forloop.first == true -%}{%- assign wsgActive = false -%}{%- assign wsgActiveCustomer = false -%}
-{%- include 'wsg-status' wsgStatusAction: 'init' | strip -%}{%- endif -%}{%- if wsgActive -%}{%- if wsgTempProd.object_type == 'product' -%}{%- include 'wsg-status' wsgStatusAction: 'col-item' | strip -%}{%- endif -%}{%- endif -%}{%- if wsgExclude -%} {%- continue -%} {%- endif -%}
-{%- comment -%} end WSG {%- endcomment -%}
-        <div class="grid__item grid-product medium-up--one-quarter small--one-half">
+{%- comment %}<locksmith:e6a4>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:e6a4>{% endcomment -%}
+<div class="grid__item grid-product medium-up--one-quarter small--one-half">
           <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">    
           {% assign featured_image = item.image | default: item.featured_image %}
           {% if featured_image != blank %}

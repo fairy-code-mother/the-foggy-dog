@@ -11,6 +11,9 @@
               <h4>{{ section.settings.footer_linklist_1_heading }}</h4>
               <ul>
                 {% for link in linklists[footer_linklist_1].links %}
+                  {%- comment %}<locksmith:a315>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[footer_linklist_1], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:a315>{% endcomment -%}
                   <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>
@@ -23,6 +26,9 @@
               <h4>{{ section.settings.footer_linklist_2_heading }}</h4>
               <ul>
                 {% for link in linklists[footer_linklist_2].links %}
+                  {%- comment %}<locksmith:b432>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[footer_linklist_2], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:b432>{% endcomment -%}
                   <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>
@@ -41,6 +47,9 @@
           {% if linklists[footer_linklist_3].links.size > 0 %}
             <ul>
               {% for link in linklists[footer_linklist_3].links %}
+                {%- comment %}<locksmith:c46a>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[footer_linklist_3], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:c46a>{% endcomment -%}
                 <li><a href="{{ link.url }}">{{ link.title }}</a></li>
               {% endfor %}
             </ul>
