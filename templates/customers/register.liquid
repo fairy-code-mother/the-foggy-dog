@@ -1,5 +1,5 @@
 <div class="account-pages">
-  {% form 'create_customer' %}
+  {% form 'create_customer', class: 'create-customer' %}
     <h1>{{ 'customer.register.title' | t }}</h1>
     
     {{ form.errors | default_errors }}
