@@ -33,11 +33,15 @@
 
 {% if search.performed %}
     <div class="grid--uniform search-grid">
+      {%- comment %}<locksmith:a7ba>{% endcomment -%}
+        {%- assign locksmith_988a_forloop__size = 0 %}{% for item in search.results %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_988a_forloop__size = locksmith_988a_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_988a_forloop__index = nil -%}
+      {%- comment %}</locksmith:a7ba>{% endcomment -%}
       {% for item in search.results %}
-{%- comment %}<locksmith:e6a4>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-{%- comment %}</locksmith:e6a4>{% endcomment -%}
-<div class="grid__item grid-product medium-up--one-quarter small--one-half">
+{%- comment %}<locksmith:e7ff>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_988a_forloop__index == nil %}{% assign locksmith_988a_forloop__index = 1 %}{% assign locksmith_988a_forloop__index0 = 0 %}{% else %}{% assign locksmith_988a_forloop__index = locksmith_988a_forloop__index | plus: 1 %}{% assign locksmith_988a_forloop__index0 = locksmith_988a_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_988a_forloop__index == 1 %}{% assign locksmith_988a_forloop__first = true %}{% else %}{% assign locksmith_988a_forloop__first = false %}{% endif %}{% if locksmith_988a_forloop__index == locksmith_988a_forloop__size %}{% assign locksmith_988a_forloop__last = true %}{% else %}{% assign locksmith_988a_forloop__last = false %}{% endif %}{% assign locksmith_988a_forloop__rindex = locksmith_988a_forloop__size | minus: locksmith_988a_forloop__index | minus: 1 %}{% assign locksmith_988a_forloop__rindex0 = locksmith_988a_forloop__size | minus: locksmith_988a_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:e7ff>{% endcomment -%}
+
+        <div class="grid__item grid-product medium-up--one-quarter small--one-half">
           <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">    
           {% assign featured_image = item.image | default: item.featured_image %}
           {% if featured_image != blank %}

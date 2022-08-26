@@ -4360,7 +4360,7 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
-.contact-form, #customer_login, #create_customer, #RecoverPasswordForm {
+.contact-form, #customer_login, .create-customer, #RecoverPasswordForm {
   max-width: 500px;
   margin: auto;
   text-align: left;
@@ -4401,7 +4401,7 @@ input[type=number] {
   }
 }
 
-#customer_login, #create_customer {
+#customer_login, .create-customer {
 
   margin: 0 auto 50px;
   padding-top: 45px;
@@ -7286,32 +7286,22 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .wholesale-form {
-	max-width: 700px;
+	max-width: 400px;
 	margin: auto;
 
-	@include media-query($medium-down) {
-		
+	input, textarea, select {
+		padding: 6px;
 	}
 
-	.contact-form {
-		width: 100%;
-
-		input, textarea, select {
-			border: 1px solid $color-border;
-			width: 100%;
-		}
-	}
-
-	h3 {
-		padding: 0;
-		text-align: center;
-		margin-bottom: 40px;
+	.cf-enum-field__choice {
+		margin-bottom: 0;
 	}
 
 	.btn {
 		width: initial;
-    	margin: auto;
-    	border: 0;
+    margin: auto;
+  	border: 0;
+		padding: 12px 12px 6px;
 	}
 }
 
@@ -8231,7 +8221,7 @@ div.accordion {
 		font-weight: $font-weight-bold;
 	}
 }
-div.wholesale-page {
+div.contact-page {
 	h1 {
 		text-transform: capitalize;
 	}
@@ -8240,7 +8230,7 @@ div.wholesale-page {
 		display: block;
 	}
 }
-div.wholesale {
+div.contact {
 	display: flex;
 	font-weight: 300;
 	max-width: 900px;
@@ -8263,13 +8253,12 @@ div.wholesale {
 			}
 		}
 	}
-	div {
+	&.bark-at-us div {
 		flex: 1 1 50%;
 		padding: 0 2.5%;
 		label {
 			display: block;
 			font-size: 0.875em !important;
-			
 		}
 		input[type=radio] {
 			width: auto;
@@ -8295,6 +8284,9 @@ div.wholesale {
 				margin: 4.5px 10px 4.5px 0;
 			}
 		}
+	}
+	&.wholesale > div {
+		padding: 0 2.5%;
 	}
 	@media only screen and (max-width: 600px) {
 		flex-wrap: wrap;

@@ -8,10 +8,6 @@ If you need to modify this file please contact us first: support@wholesalegorill
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
-  setTimeout(function(){
-   $(".wsg-button-fix").addClass('btn add-to-cart')
-   console.log('running custom')
-  }, 2500)
     const style = document.getElementById('wsg-custom-style');
     if (typeof window.isWsgCustomer != "undefined" && isWsgCustomer) {
       style.innerHTML = `
@@ -61,7 +57,7 @@ If you need to modify this file please contact us first: support@wholesalegorill
   function wsgCustomJs() {
     //update button classes
     const button = document.querySelectorAll(".wsg-button-fix");
-    let buttonClass = "btn add-to-cart";
+    let buttonClass = "xxButtonClassesHerexx";
     buttonClass = buttonClass.split(" ");
     for (let i = 0; i < button.length; i++) {
       button[i].classList.add(...buttonClass);
@@ -197,8 +193,5 @@ If you need to modify this file please contact us first: support@wholesalegorill
     }
     .wsg-ws-only .button {
       margin: 0;
-    }
-    .spof-btn {
-      display: inline-block;
     }
   </style>

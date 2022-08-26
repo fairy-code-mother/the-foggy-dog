@@ -110,7 +110,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
   {% section 'filter-menu-settings' %}
   {% endif %}
 
-  {% render 'wsg-custom' %}
+  {% include 'wsg-header' %}
   
   {{ 'jquery-3.4.1.js' | asset_url | script_tag }}
   {{ 'rivets-cart.js' | asset_url | script_tag }}
@@ -143,7 +143,6 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 
 <!--<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/w6RYdbKD3lpNY9D2y8cJ9A" async></script>-->
 
-{% render 'wsg-custom' %}
 </head> 
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}"><div class="pagefly-container">{{ content_for_layout }}</div></body>
