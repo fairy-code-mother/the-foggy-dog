@@ -3,133 +3,22 @@
 </div>
 
 
-<div class="info-pag wholesale-page">
+<div class="info-pag contact-page">
   
   {% section 'contact-image' %}
   
   <h1 class="page-title">{{ page.title | capitalize }}</h1>
 
-  <div class="wholesale">
-      <div class="info">
-        {{ page.content }}
-        <p class="chat">We're here to chat Monday-Friday 9am-5pm PT at 1-415-993-1130. </p>
+  <div class="contact wholesale">
+    <div class="info">
+      {{ page.content }}
+      <p class="chat">We're here to help! Reach out to our team at <a href="mailto:wholesale@thefoggydog.com">wholesale@thefoggydog.com</a> with any questions.</p>
+    </div>
+    <div class="hp-contact">
+      <div class="wholesale-form">
+        {% render "customer-fields", form_id: "2qt7aq" %}
       </div>
-      <div class="hp-contact">
-          {% form 'contact' %}
-
-          {% if form.posted_successfully? %}
-            <p class="form-success">
-              {{ 'contact.form.post_success' | t }}
-            </p>
-          {% endif %}
-      
-          {{ form.errors | default_errors }}
-      
-          <div class="contact-form-container">
-
-            <div>
-              <div>
-                <input type="text"
-                  name="contact[storename]"
-                  id="ContactFormStoreName"
-                  placeholder="Store Name*"
-                  value="">
-              </div>
-              <div>
-                <input type="text"
-                  name="contact[name]"
-                  id="ContactFormName"
-                  placeholder="Your Name*"
-                  value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
-              </div>
-              <div>
-                <input type="email"
-                  name="contact[email]"
-                  id="ContactFormEmail"
-                  placeholder="Email Address*"
-                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                  spellcheck="false"
-                  autocomplete="off"
-                  autocapitalize="off">
-              </div>
-              <div>
-                  <input type="tel"
-                    name="contact[Phone Number]"
-                    id="ContactFormPhone"
-                    placeholder="Phone Number*"
-                    value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                    spellcheck="false"
-                    autocomplete="off"
-                    autocapitalize="off">
-              </div>
-              <div>
-                  <input type="text"
-                    name="contact[Federal Tax ID]"
-                    id="ContactFormPhone"
-                    placeholder="Federal Tax ID*"
-                    value=""
-                    spellcheck="false"
-                    autocomplete="off"
-                    autocapitalize="off">
-              </div>
-              <div class="radios">
-                <span>Type of Store:</span>
-                <label><input type="radio" name="contact[store_type]" value="Online Only<" /> Online Only</label>
-                <label><input type="radio" name="contact[store_type]" value="Brick & Mortar Only" /> Brick & Mortar Only</label>
-                <label><input type="radio" name="contact[store_type]" value="Both" /> Both</label>
-              </div>
-              <div>
-                <textarea rows="5"
-                    name="contact[Store Location]"
-                    id="ContactFormMessage"
-                    placeholder="Store Location (please enter Address, City, State, and Zip on separate lines) ">
-                    {%- if form.body -%}
-                      {{- form.body -}}
-                    {%- endif -%}
-                </textarea>
-              </div>
-              <div>
-                  <input type="text"
-                    name="contact[Business Website URL]"
-                    id="ContactFormMessage"
-                    placeholder="Business Website URL"
-                    value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                    spellcheck="false"
-                    autocomplete="off"
-                    autocapitalize="off">
-              </div>
-              <div>
-                  <input type="text"
-                    name="contact[Business Instagram or Facebook Handle]"
-                    id="ContactFormPhone"
-                    placeholder="Business Instagram or Facebook Handle"
-                    value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                    spellcheck="false"
-                    autocomplete="off"
-                    autocapitalize="off">
-              </div>
-              <div>
-                <textarea rows="10"
-                  name="contact[body]"
-                  id="ContactFormMessage"
-                  placeholder="Please tell us about your store and why you think The Foggy Dog would be a fit.* ">
-                  {%- if form.body -%}
-                    {{- form.body -}}
-                  {%- endif -%}
-                </textarea>
-              </div>
-              <div class="hp-input" >
-                <input tabindex="-1" autocomplete="off" name="email" size="25" type="text" value="" />
-              </div>
-              <div>
-                <input type="submit" class="btn" value="{{ 'contact.form.send' | t }}">
-              </div>
-            </div>
-      
-          </div>
-      
-        {% endform %}
-      </div>
+    </div>
   </div>
 </div>
 

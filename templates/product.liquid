@@ -23,12 +23,14 @@
 {% section 'foursixty-pdp' %} 
 {% section 'feel-good' %}
 {% include 'related-products' %}
+{% if product.metafields.okendo.summaryData.reviewCount > 0 %}
 <div class="reviews">
   <div class="page-width">
     <h2>Reviews</h2>
     {% render 'okendo-reviews-widget', product: product %}
   </div>
 </div>
+{% endif %}
 <div id="chart-pop" class="product-pop">
 {% for collection in product.collections %} 
   {%- comment %}<locksmith:900d>{% endcomment -%}
