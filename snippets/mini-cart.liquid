@@ -40,12 +40,14 @@
         </div>
 
         <div class="cart-items"
-              rv-class-parentproduct="item.properties._bundle_number"
-              rv-class-bundledproduct="item.properties._associated_bundle" 
-              rv-datasku="item.sku"
-              rv-associated-bundle-number="item.properties._associated_bundle"
-              rv-parent-bundle-number="item.properties._bundle_number" 
-              rv-each-item="cart.items">
+          rv-class-parentproduct="item.properties._bundle_number"
+          rv-class-bundledproduct="item.properties._associated_bundle"
+          rv-datasku="item.sku"
+          rv-associated-bundle-number="item.properties._associated_bundle"
+          rv-parent-bundle-number="item.properties._bundle_number"
+          rv-each-item="cart.items"
+          rv-hide="item.product_type | eq 'Monogram Fee'"
+        >
           <div class="item">
 <!--             <p id='test'>{{ all_products[product.handle].selected_or_first_available_variant.image.src | img_url }}</p> -->
 <!--             	 <p id='test'>{{ variant.id }}</p> -->
@@ -64,7 +66,11 @@
                   <div class="cart-pop-qty" rv-text="item.quantity">
                   </div>
                 </div>
-                <div class="cart-pop-price" rv-html="item.discounted_price | money Currency.currentCurrency">
+                <div rv-show="item.properties._monogram_fee | eq blank">
+                  <div class="cart-pop-price" rv-html="item.discounted_price | money Currency.currentCurrency"></div>
+                </div>
+                <div rv-show="item.properties._monogram_fee">
+                  <div class="cart-pop-price" rv-html="item.properties._monogram_fee | times 100 | plus item.discounted_price | money Currency.currentCurrency"></div>
                 </div>
               </div>
             </span>

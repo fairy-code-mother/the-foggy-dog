@@ -1,12 +1,7 @@
-{%- comment %}<locksmith:cb40>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:cb40>{% endcomment -%}
-
 <!doctype html>
 <!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
-<head>{{ locksmith_initializations }}
-{% render 'pagefly-head' %}
+<head>{% render 'pagefly-head' %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,14 +29,11 @@
   <title>{{ seo_title }}</title>
 
   {% if page_description %}
-    {%- comment %}<locksmith:f410>{% endcomment -%}
-      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-    {%- comment %}</locksmith:f410>{% endcomment -%}
+    <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
 
   {% include 'social-meta-tags' %}
-  
+
   {{ '39A6E7_0_0.woff2' | asset_url | preload_tag: as: 'font' }}
   {{ '39A6E7_1_0.woff2' | asset_url | preload_tag: as: 'font' }}
 
@@ -102,15 +94,14 @@
 
   {% include 'judgeme_core' %}
 
-  {% if template == 'collection' %}
-  {% section 'filter-menu-settings' %}
-  {% endif %}
-  
   {{ 'jquery-3.4.1.js' | asset_url | script_tag }}
   {{ 'rivets-cart.js' | asset_url | script_tag }}
- 
-{% render 'pagefly-header' %}
-  
+
+  {% render 'pagefly-header' %}
+  {% if template.name == "product" %}
+    <link rel="stylesheet" href="{{ 'main.min.css' | asset_url }}">
+  {% endif %}
+
  <!-- Global site tag (gtag.js) - Google Ads: 852770528 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-852770528"></script>
 <script>
@@ -120,8 +111,8 @@
 
   gtag('config', 'AW-852770528');
 </script>
-  
-  
+
+
   <script src="https://www.dwin1.com/19038.js" type="text/javascript" defer="defer"></script>
   <!-- Hotjar Tracking Code for www.thefoggydog.com -->
 <script>
@@ -137,11 +128,25 @@
 
 <!--<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/w6RYdbKD3lpNY9D2y8cJ9A" async></script>-->
 
+{% include 'boost-pfs-style' %}
+
 {% render 'wsg-custom' %}
-</head> 
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T95KQLJ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Mutesix GA4 Data layer -->
+{% render 'dataLayer-allPages' %}
+<!-- Mutesix GA4 Data layer -->  
+</head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
-  
+
   <script type="text/javascript">
     $( function () {
       console.log('loaded cart');
@@ -154,7 +159,7 @@
                   });
     });
   </script>
-  
+
   {% include 'ie-modal' %}
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
@@ -188,7 +193,7 @@
   {% endif %}
 
   <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=N7JGtQ"></script>
-  
+
 
 <style>
   .spurit-po-wrapper{
@@ -224,14 +229,14 @@
     }
   }
 </style>
-
+  {% section 'monogram-properties' %}
 <script type="text/javascript" src="https://s3.amazonaws.com/lastsecondcoupon/js/quickannouncementbar.js?shop=the-foggy-dog.myshopify.com"></script>
 
 
 <!-- **BEGIN** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
     {% render 'hextom_qab_main', product: product, customer: customer %}
     <!-- **END** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
-  
+
   <script>
     (function(){
     var s = document.createElement('script'),
@@ -268,20 +273,37 @@
     e.appendChild(s);
     }());
   </script>
-  
+
   {% if template contains 'product' %}
-    <script type="text/javascript">                                                               
+    <script type="text/javascript">
     document.addEventListener('click', function (event) {
       if (!event.target.matches('.add-to-cart, .add-to-cart *')) return;
      gtag('event', 'conversion', {'send_to': 'AW-852770528/pBCLCP2atJEDEOD90JYD', 'value': {{ product.selected_or_first_available_variant.price | money_without_currency }}, 'currency': 'USD'});
-    }, false);                                                                 
+    }, false);
     </script>
+
+    <script>
+      const __GLOBAL__ = {
+        cdn: "{{ 'test.jpg' | asset_url }}".replace(/test.jpg\?\d*/,''),
+        invalidSymbolMessage: "{{ settings.invalid_symbol_error }}",
+        swearWordMessage: "{{ settings.swear_word_error }}"
+      }
+
+      window.__GLOBAL__ = {
+        cdn: "{{ 'test.jpg' | asset_url }}".replace(/test.jpg\?\d*/,''),
+        invalidSymbolMessage: "{{ settings.invalid_symbol_error }}",
+        swearWordMessage: "{{ settings.swear_word_error }}"
+      }
+    </script>
+    <script src="{{ 'main.js' | asset_url }}" defer></script>
   {% endif %}
 
 
 <!-- Back in Stock helper snippet -->
 {% render 'back-in-stock-helper' %}
 <!-- End Back in Stock helper snippet -->
+
+{% include 'boost-pfs' %}
 </body>
 </html>
 <!-- Begin Shopify-Afterpay JavaScript Snippet (v1.0.1) -->

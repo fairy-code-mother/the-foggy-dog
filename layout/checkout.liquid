@@ -21,9 +21,23 @@
       gtag('js', new Date());
     
       gtag('config', 'AW-852770528');
+      gtag('config', 'G-X9FSLWK53F');
     </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T95KQLJ');</script>
+    <!-- End Google Tag Manager -->
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T95KQLJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     {{ skip_to_content_link }}
 
     <header class="banner" data-header role="banner">
@@ -72,6 +86,32 @@
         });
       })(Checkout.$);
     </script>
+    <script>
+      const __GLOBAL__ = {
+        finalSaleText: "{{ settings.final_sale_text }}",
+        lineItems: [
+          {% for item in checkout.line_items %}
+          {
+            "key": "{{ item.key }}",
+            "product_type": "{{ item.product.type }}",
+            "tags": {{ item.product.tags | json }},
+            "line_price_money": "{{ item.line_price | money }}",
+            "line_price": {{ item.line_price }},
+            "properties": [
+              {% for property in item.properties %}
+                {
+                  "{{ property.first }}": "{{ property.last }}"
+                }{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            ]
+          }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }
+      console.log(__GLOBAL__)
+    </script>
+
+    {{ 'checkout.js' | asset_url | script_tag }}
 
     {% include 'smsbump_checkout_marketing_subscription' %}
 

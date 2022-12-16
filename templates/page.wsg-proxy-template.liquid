@@ -74,7 +74,9 @@
 
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
-        if (`{{ page.content }}`.indexOf('wsg-hide') === -1) {
+
+        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
           document.getElementById('wsg-account-create-message').innerHTML = `{{ page.content }}`;
         }
       }
@@ -96,7 +98,9 @@
       
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
-        if (`{{ page.content }}`.indexOf('wsg-hide') === -1) {
+
+        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
           document.getElementById('wsg-login-desc').innerHTML = `{{ page.content }}`;
         }
       }
@@ -128,28 +132,29 @@
       var wsgDataSPTemp;
       var wsgCartItems = {{ cart.items | json}}
 
-      const urlSearchParams = new URLSearchParams(window.location.search);
-      const params = Object.fromEntries(urlSearchParams.entries());
-      const qs = new URLSearchParams(params).toString();
-      let reqUrl = '/a/wsg/proxy/ws-quick-order-form';
-      if(qs) reqUrl += '?' + qs;
+      const wsgUrlSearchParams = new URLSearchParams(window.location.search);
+      const wsgUrlParams = Object.fromEntries(wsgUrlSearchParams.entries());
+      const wsgQs = new URLSearchParams(wsgUrlParams).toString();
+      let wsgReqUrl = '/a/wsg/proxy/ws-quick-order-form';
+      if(wsgQs) wsgReqUrl += '?' + wsgQs;
 
-      var wsgCollectionId = params.id || 0 //current collection id
-      var wsgPage = params.page || 1; //index of current page in product loop pagination
+      var wsgCollectionId = wsgUrlParams.id || 0 //current collection id
+      var wsgPage = wsgUrlParams.page || 1; //index of current page in product loop pagination
 
       document.addEventListener('DOMContentLoaded', async function () {
-        await appendContent('GET', reqUrl, 'wsg-quick-order-form');
+        await appendContent('GET', wsgReqUrl, 'wsg-quick-order-form');
         setTexts();
       })
 
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
-        if (`{{ page.content }}`.indexOf('wsg-hide') === -1) {
+
+        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
           document.getElementById('wsg-quick-order-message').innerHTML = `{{ page.content }}`;
         }
       }
     </script>
-
   {% when 'ws-cart' %}
     <!-- WSG CUSTOM create json of stock data -->
     {% capture wsgStockData %}{% for item in cart.items %}"{{item.id}}":{"stock":{{item.variant.inventory_quantity}},"policy":"{{item.variant.inventory_policy}}", "shipDate":"{{ item.variant.next_incoming_date | date: "%m/%d" }}" },{% endfor %}{% endcapture %}
@@ -169,13 +174,56 @@
       var wsgStockData = {{wsgStockData | json}};
       var wsgShopLang = "{{request.locale.iso_code }}";
 
+      const wsgUrlSearchParams = new URLSearchParams(window.location.search);
+      const wsgUrlParams = Object.fromEntries(wsgUrlSearchParams.entries());
+      let wsgCartPage = wsgUrlParams.page || 1;
+      const wsgCartPaginationLimit = 20;
+      let wsgCartTotalPages = Math.ceil(wsgCart.items.length / wsgCartPaginationLimit);
+
       document.addEventListener('DOMContentLoaded', async function () {
-        await appendContent('GET', '/a/wsg/proxy/cart', 'wsg-cart');
+        await appendContent('GET', `/a/wsg/proxy/cart?pages=${wsgCartTotalPages}&page=${wsgCartPage}`, 'wsg-cart');
         setTexts();
       })
       function setTexts() {
         document.getElementById('wsg-cart-title').innerHTML = `{{ page.title }}`;
-        if (`{{ page.content }}`.indexOf('wsg-hide') === -1) {
+
+        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
+          document.getElementById('wsg-cart-message').innerHTML = `{{ page.content }}`;
+        }
+      }
+    </script>
+  {% when 'ws-cart-test' %}
+    <!-- WSG CUSTOM create json of stock data -->
+    {% capture wsgStockData %}{% for item in cart.items %}"{{item.id}}":{"stock":{{item.variant.inventory_quantity}},"policy":"{{item.variant.inventory_policy}}", "shipDate":"{{ item.variant.next_incoming_date | date: "%m/%d" }}" },{% endfor %}{% endcapture %}
+    <!-- END WSG CUSTOM -->
+
+    <div id="wsg-cart" class='wsg-proxy-container'></div>
+    <script>
+      var wsgCurrency = "{{ shop.currency }}";
+      //declare cart specific liquid variables
+      var wsgCustomerId = {{customer.id | json}};
+      var wsgCustomerAddresses = {{customer.addresses | json}};
+      var wsgCart = {{cart | json}};
+      var wsgShopCountry = {{shop.address.country | json}};
+      wsgRunCartTest = true;
+      wsgRunProxy = true;
+      var wsgStockData = {{wsgStockData | json}};
+      var wsgShopLang = "{{request.locale.iso_code }}";
+      const wsgUrlSearchParams = new URLSearchParams(window.location.search);
+      const wsgUrlParams = Object.fromEntries(wsgUrlSearchParams.entries());
+      let wsgCartPage = wsgUrlParams.page || 1;
+      const wsgCartPaginationLimit = 20;
+      let wsgCartTotalPages = Math.ceil(wsgCart.items.length / wsgCartPaginationLimit);
+      document.addEventListener('DOMContentLoaded', async function () {
+        await appendContent('GET', `/a/wsg/proxy/cart-test?pages=${wsgCartTotalPages}&page=${wsgCartPage}`, 'wsg-cart');
+        setTexts();
+      })
+      function setTexts() {
+        document.getElementById('wsg-cart-title').innerHTML = `{{ page.title }}`;
+
+        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
           document.getElementById('wsg-cart-message').innerHTML = `{{ page.content }}`;
         }
       }
@@ -184,17 +232,17 @@
     <div id='wsg-proxy-content' class='wsg-proxy-container'></div>
     <script>
       document.addEventListener('DOMContentLoaded', async function () {
-        const urlParams = new URLSearchParams(window.location.search);
+        const wsgUrlSearchParams = new URLSearchParams(window.location.search);
 
-        let proxyUrl = urlParams.get('proxyUrl');
-        if(!proxyUrl) return;
+        let wsgProxyUrl = wsgUrlSearchParams.get('proxyUrl');
+        if(!wsgProxyUrl) return;
 
-        const params = Object.fromEntries(urlParams.entries());
-        const qs = new URLSearchParams(params).toString();
-        if(qs) proxyUrl += '?' + qs; 
+        const wsgUrlParams = Object.fromEntries(wsgUrlSearchParams.entries());
+        const wsgQs = new URLSearchParams(wsgUrlParams).toString();
+        if(wsgQs) wsgProxyUrl += '?' + wsgQs;
 
         // await code here
-        await appendContent('GET', proxyUrl, 'wsg-proxy-content');
+        await appendContent('GET', wsgProxyUrl, 'wsg-proxy-content');
       });
     </script>
 {% endcase %}

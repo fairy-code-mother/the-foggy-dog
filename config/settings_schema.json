@@ -1146,5 +1146,30 @@
         "default": false
       }
     ]
+  },
+  {
+    "name": "Monogram settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "final_sale_text",
+        "label": "Final sale text",
+        "default": "Please note: personalized items are final sale"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "invalid_symbol_error",
+        "label": "Invalid symbol error",
+        "default": "The symbol or character you have entered is not allowed in this font.",
+        "info": "Error message that will be displayed when there's not allowed symbol."
+      },
+      {
+        "type": "inline_richtext",
+        "id": "swear_word_error",
+        "label": "Swear word error",
+        "default": "Our customizer does not allow profanity. If you feel that this is in error, please contact woof@thefoggydog.com.",
+        "info": "Error message that will be displayed when there's a swear word."
+      }
+    ]
   }
 ]

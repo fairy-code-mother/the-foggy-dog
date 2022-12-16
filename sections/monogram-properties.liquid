@@ -1,0 +1,106 @@
+<script>
+  window.monogramProperties = {
+    {% for block in section.blocks %}
+      "{{ block.settings.heading }}": {
+        "include_color": {{ block.settings.include_color_name }},
+        "include_font": {{ block.settings.include_font_name }},
+        {% for i in (1..4) %}
+          {% assign front_text_key = "front_line_" | append: i %}
+          {% assign back_text_key = "back_line_" | append: i %}
+          "{{ front_text_key }}": "{{ block.settings[front_text_key] }}",
+          "{{ back_text_key }}": "{{ block.settings[back_text_key] }}",
+        {% endfor %}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  }
+
+  console.log(window.monogramProperties)
+</script>
+{% schema %}
+{
+  "name": "Monogram properties",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "line-property",
+      "name": "Line properties",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Product group name",
+          "id": "heading"
+        },
+        {
+          "type": "checkbox",
+          "label": "Include color name",
+          "id": "include_color_name",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "label": "Include font name",
+          "id": "include_font_name",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Front lines"
+        },
+        {
+          "type": "text",
+          "label": "Line 1",
+          "id": "front_line_1",
+          "default": "Line 1"
+        },
+        {
+          "type": "text",
+          "label": "Line 2",
+          "id": "front_line_2",
+          "default": "Line 2"
+        },
+        {
+          "type": "text",
+          "label": "Line 3",
+          "id": "front_line_3",
+          "default": "Line 4"
+        },
+        {
+          "type": "text",
+          "label": "Line 4",
+          "id": "front_line_4",
+          "default": "Line 4"
+        },
+        {
+          "type": "header",
+          "content": "Back lines"
+        },
+        {
+          "type": "text",
+          "label": "Line 1",
+          "id": "back_line_1",
+          "default": "Line 1"
+        },
+        {
+          "type": "text",
+          "label": "Line 2",
+          "id": "back_line_2",
+          "default": "Line 2"
+        },
+        {
+          "type": "text",
+          "label": "Line 3",
+          "id": "back_line_3",
+          "default": "Line 4"
+        },
+        {
+          "type": "text",
+          "label": "Line 4",
+          "id": "back_line_4",
+          "default": "Line 4"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

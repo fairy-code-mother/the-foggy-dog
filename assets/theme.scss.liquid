@@ -2314,6 +2314,19 @@ span#qab_message, a#qab_button {
 		font-weight: $font-weight-bold;
 	}
 
+  input[type="search"] {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    font-family: $font-stack-body;
+    width: 100%;
+    padding: 6px 6px 3px 0;
+    text-align: left;
+    border: 0;
+    margin: 0;
+    background-color: transparent;
+    font-weight: $font-weight-bold;
+  }
+
 	.btn {
 		background-color: transparent;
 		padding: 0;
@@ -4360,7 +4373,7 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
-.contact-form, #customer_login, .create-customer, #RecoverPasswordForm {
+.contact-form, #customer_login, #create_customer, #RecoverPasswordForm {
   max-width: 500px;
   margin: auto;
   text-align: left;
@@ -4401,7 +4414,7 @@ input[type=number] {
   }
 }
 
-#customer_login, .create-customer {
+#customer_login, #create_customer {
 
   margin: 0 auto 50px;
   padding-top: 45px;
@@ -5653,73 +5666,74 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .filter-group {
-	
-	font-size: 10px;
-	margin-bottom: 20px;
-	@media only screen and (max-width: 749px) {
-		margin-bottom: 0;
-	}
 
-	&+.filter-group .filter-clear {
-		top: 16px !important;
-	}
+  font-size: 10px;
+  margin-bottom: 20px;
+  @media only screen and (max-width: 749px) {
+    margin-bottom: 0;
+  }
 
-	&+.filter-group h4::after, &+.filter-group h4.active::after {
-		position: absolute;
-	    right: 0;
-	    top: 12px;
-	}
+  &+.filter-group .filter-clear {
+    top: 16px !important;
+  }
 
-	&+.filter-group h4.active::after {
-		position: absolute;
-	    right: 0;
-	    top: 15px;
-	}
+  &+.filter-group h4::after, &+.filter-group h4.active::after {
+    position: absolute;
+      right: 0;
+      top: 12px;
+  }
 
-	h4 {
-		font-family: $font-stack-body;
-		letter-spacing: 1.75px;
-		text-transform: uppercase;
-		font-weight: $font-weight-bold;
-		padding-top: 20px !important;
-		padding-bottom: 20px !important;
-		margin-bottom: 0 !important;
-	}
+  &+.filter-group h4.active::after {
+    position: absolute;
+      right: 0;
+      top: 15px;
+  }
 
-	&.refine-header {
+  h4 {
+    font-family: $font-stack-body;
+    letter-spacing: 1.75px;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 0 !important;
+  }
 
-		margin-bottom: 0;
+  &.refine-header {
 
-		h4 {
-			font-family: $font-stack-header;
-			font-size: 24px;
-			text-transform: none;
-			font-weight: $font-weight-normal;
-			letter-spacing: 0;
-			padding-bottom: 0 !important;
-			color: $color-primary;
-		}
-	}
+    margin-bottom: 0;
 
-	li {
+    h4 {
+      font-family: $font-stack-header;
+      font-size: 24px;
+      text-transform: none;
+      font-weight: $font-weight-normal;
+      letter-spacing: 0;
+      padding-bottom: 0 !important;
+      color: $color-primary;
+    }
+  }
 
-		a {
-			line-height: 2.08;
-			margin-left: 0 !important;
-		}
-	}
+  li {
 
-	li.selected a {
+    a {
+      line-height: 2.08;
+      margin-left: 0 !important;
+    }
+  }
 
-		&::before {
-			content: "x";
-			position: absolute;
-			right: -30px;
-			top: 0;
-			color: $color-body-text;
-		}
-	}
+  li.selected a {
+
+    &::before {
+      content: "x";
+      position: absolute;
+      right: -30px;
+      top: 0;
+      color: $color-body-text;
+    }
+  }
 }
+
 
 .parent-collection.link-active {
 
@@ -7286,22 +7300,32 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .wholesale-form {
-	max-width: 400px;
+	max-width: 700px;
 	margin: auto;
 
-	input, textarea, select {
-		padding: 6px;
+	@include media-query($medium-down) {
+		
 	}
 
-	.cf-enum-field__choice {
-		margin-bottom: 0;
+	.contact-form {
+		width: 100%;
+
+		input, textarea, select {
+			border: 1px solid $color-border;
+			width: 100%;
+		}
+	}
+
+	h3 {
+		padding: 0;
+		text-align: center;
+		margin-bottom: 40px;
 	}
 
 	.btn {
 		width: initial;
-    margin: auto;
-  	border: 0;
-		padding: 12px 12px 6px;
+    	margin: auto;
+    	border: 0;
 	}
 }
 
@@ -7645,12 +7669,15 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
       .alert {
 				margin-bottom: 10px;
 				p {
-					color: $color-error;
 					padding: 5px;
 					font-weight: $font-weight-bold;
 					font-size: 10px;
 					text-transform: uppercase;
 					margin: 0;
+
+          &.final-sale {
+            color: $color-error;
+          }
 				}
 	  }
 
@@ -8221,7 +8248,7 @@ div.accordion {
 		font-weight: $font-weight-bold;
 	}
 }
-div.contact-page {
+div.wholesale-page {
 	h1 {
 		text-transform: capitalize;
 	}
@@ -8230,7 +8257,7 @@ div.contact-page {
 		display: block;
 	}
 }
-div.contact {
+div.wholesale {
 	display: flex;
 	font-weight: 300;
 	max-width: 900px;
@@ -8253,12 +8280,13 @@ div.contact {
 			}
 		}
 	}
-	&.bark-at-us div {
+	div {
 		flex: 1 1 50%;
 		padding: 0 2.5%;
 		label {
 			display: block;
 			font-size: 0.875em !important;
+			
 		}
 		input[type=radio] {
 			width: auto;
@@ -8284,9 +8312,6 @@ div.contact {
 				margin: 4.5px 10px 4.5px 0;
 			}
 		}
-	}
-	&.wholesale > div {
-		padding: 0 2.5%;
 	}
 	@media only screen and (max-width: 600px) {
 		flex-wrap: wrap;
@@ -9205,4 +9230,21 @@ span.inline-spacer {
 .yotpo-widget-campaign-widget.yotpo-widget-override-css.yotpo-widget-clear .yotpo-description-text{
 	font-family: $font-stack-body !important;
   	font-weight:500 !important;
+}
+
+.cart-item__monogram__fee {
+  margin-top: -10px;
+  font-style: italic;
+}
+
+.cart-monogram-fee {
+  font-style: italic;
+}
+
+.cart-properties {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

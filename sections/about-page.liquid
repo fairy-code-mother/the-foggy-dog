@@ -101,9 +101,6 @@
         </div>
 
         {% for product in collection.products limit: 3 %}
-          {%- comment %}<locksmith:cfc1>{% endcomment -%}
-            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-          {%- comment %}</locksmith:cfc1>{% endcomment -%}
           {% assign grid_item_width = 'medium-up--one-quarter small--one-third' %}
           {% include 'product-grid-item' %}
         {% endfor %}

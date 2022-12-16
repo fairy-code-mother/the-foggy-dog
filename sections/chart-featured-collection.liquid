@@ -9,9 +9,6 @@
     <div class="grid--uniform">
 
       {% for product in collection.products limit: 4 %}
-        {%- comment %}<locksmith:93cc>{% endcomment -%}
-          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-        {%- comment %}</locksmith:93cc>{% endcomment -%}
         {% include 'product-grid-item' %}
       {% endfor %}
 

@@ -3,7 +3,7 @@
     "id": "2qt7aq",
     "name": "Wholesale Registration",
     "handle": "wholesale-registration-181",
-    "theme_id": "121296322646",
+    "theme_id": "121998540886",
     "settings": {
       "locales": {
         "back": "Back",
@@ -45,21 +45,31 @@
       "manual"
     ],
     "created_at": "2022-07-26T09:44:19Z",
-    "updated_at": "2022-07-26T10:00:53Z",
+    "updated_at": "2022-10-28T16:27:25Z",
     "revision_ids": [
-      "1wTRo3v",
       "B5TvO4k",
+      "boTp32R",
+      "evTe6a3",
+      "K0TRpAz",
+      "qYTYbwa",
+      "VNTzynG",
+      "boTpY0r",
+      "ErTaB0v",
+      "akT2wV3",
+      "B5TvEVL",
+      "9pTG7kO",
+      "xMTL91d",
+      "1wTRo3v",
       "MDTAZwY",
-      "DRTYan2",
-      "boTpY0r"
+      "DRTYan2"
     ]
   },
   "revision": {
-    "id": "1wTRo3v",
-    "created_at": "2022-07-26T10:13:58Z",
-    "updated_at": "2022-07-26T10:22:55Z",
-    "embed_version": "4.10.6",
-    "published_at": "2022-07-26T10:22:55Z",
+    "id": "K0TRpAz",
+    "created_at": "2022-10-28T16:27:19Z",
+    "updated_at": "2022-11-07T16:54:53Z",
+    "embed_version": "4.11.4",
+    "published_at": "2022-11-07T16:54:53Z",
     "fields": [
       {
         "id": 102092,
@@ -194,7 +204,7 @@
       {
         "id": 117774,
         "dataColumn": {
-          "key": "tax_id",
+          "key": "resale_id",
           "label": "VAT\/Tax ID",
           "dataType": "text"
         },
@@ -203,7 +213,7 @@
         "type": "text",
         "stepId": 228625,
         "default": "",
-        "label": "Federal ID",
+        "label": "Resale ID",
         "placeholder": "",
         "description": "",
         "enum": [
@@ -215,40 +225,17 @@
         "settings": {
         },
         "validations": [
-
+          {
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank"
+          }
         ],
         "sensitive": null,
         "preset": null,
-        "autotag": null
-      },
-      {
-        "id": 102771,
-        "dataColumn": {
-          "key": "default_address.address2",
-          "label": "Address line 2",
-          "dataType": "text"
-        },
-        "parentId": null,
-        "position": 10,
-        "type": "text",
-        "stepId": 228625,
-        "default": "",
-        "label": "Apartment, suite, etc.",
-        "placeholder": "",
-        "description": "",
-        "enum": [
-
-        ],
-        "appearance": {
-          "width": 12
-        },
-        "settings": {
-        },
-        "validations": [
-
-        ],
-        "sensitive": null,
-        "preset": "address2",
         "autotag": null
       },
       {
@@ -259,7 +246,7 @@
           "dataType": "text"
         },
         "parentId": null,
-        "position": 11,
+        "position": 10,
         "type": "text",
         "stepId": 228625,
         "default": "",
@@ -296,7 +283,7 @@
           "dataType": "text"
         },
         "parentId": null,
-        "position": 12,
+        "position": 11,
         "type": "dropdown",
         "stepId": 228625,
         "default": "",
@@ -313,7 +300,8 @@
           "width": 12
         },
         "settings": {
-          "isCountryField": true
+          "isCountryField": true,
+          "useAllCountries": true
         },
         "validations": [
           {
@@ -337,7 +325,7 @@
           "dataType": "text"
         },
         "parentId": null,
-        "position": 13,
+        "position": 12,
         "type": "dropdown",
         "stepId": 228625,
         "default": "",
@@ -376,7 +364,7 @@
           "dataType": "text"
         },
         "parentId": null,
-        "position": 14,
+        "position": 13,
         "type": "text",
         "stepId": 228625,
         "default": "",
@@ -408,7 +396,7 @@
       {
         "id": 134858,
         "dataColumn": {
-          "key": "tax_status",
+          "key": "proof_of_resale_cert",
           "label": "Proof of tax status",
           "dataType": "file"
         },
@@ -417,7 +405,7 @@
         "type": "file",
         "stepId": 228625,
         "default": "",
-        "label": "Proof of tax status",
+        "label": "Proof of resale certificate",
         "placeholder": null,
         "description": "",
         "enum": [
@@ -452,14 +440,6 @@
             "operator": "file_extension_not_equals",
             "comparand": ".exe,.dmg,.pkg,.sh,.bat,.cmd,.dll,.vbs,.vbe,.vb,.js,.jse,.jar,.py,.hta,.html,.htm,.tmp,.msi,.msp,.com,.ps1,.ps1xml,.ps2,.ps2xml,.psc1,.psc2,.lnk,.inf,.scf",
             "errorMessage": "Please upload a non-executable file"
-          },
-          {
-            "metadata": {
-              "hiddenInApp": true
-            },
-            "operator": "not_blank",
-            "comparand": "",
-            "errorMessage": "Must not be blank"
           }
         ],
         "sensitive": null,
@@ -478,21 +458,25 @@
         "type": "radio",
         "stepId": 228625,
         "default": "",
-        "label": "Type of Store",
+        "label": "Account Type",
         "placeholder": "",
         "description": "",
         "enum": [
           {
-            "label": "Online Only",
-            "value": "Online Only"
+            "label": "Brick & Mortar Retailer",
+            "value": "Brick & Mortar Retailer"
           },
           {
-            "label": "Brick & Mortar Only",
-            "value": "Brick & Mortar Only"
+            "label": "Online-only Retailer",
+            "value": "Online-only Retailer"
           },
           {
-            "label": "Both",
-            "value": "Both"
+            "label": "Rep\/Distributer",
+            "value": "Rep\/Distributer"
+          },
+          {
+            "label": "Other",
+            "value": "Other"
           }
         ],
         "appearance": {
@@ -504,6 +488,43 @@
           "enumType": "list",
           "direction": "column",
           "separateValues": false
+        },
+        "validations": [
+          {
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank"
+          }
+        ],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 844935,
+        "dataColumn": {
+          "key": "account_type_other",
+          "label": "If other, please specify",
+          "dataType": "single_line_text"
+        },
+        "parentId": null,
+        "position": 4,
+        "type": "text",
+        "stepId": 228625,
+        "default": "",
+        "label": "If other, please specify",
+        "placeholder": "",
+        "description": "",
+        "enum": [
+
+        ],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
         },
         "validations": [
 
@@ -520,7 +541,7 @@
           "dataType": "single_line_text"
         },
         "parentId": null,
-        "position": 4,
+        "position": 5,
         "type": "text",
         "stepId": 228625,
         "default": "",
@@ -550,7 +571,7 @@
           "dataType": "single_line_text"
         },
         "parentId": null,
-        "position": 5,
+        "position": 6,
         "type": "text",
         "stepId": 228625,
         "default": "",
@@ -580,7 +601,7 @@
           "dataType": "text"
         },
         "parentId": null,
-        "position": 6,
+        "position": 7,
         "type": "textarea",
         "stepId": 228625,
         "default": "",
@@ -611,65 +632,6 @@
         "autotag": null
       },
       {
-        "id": 880171,
-        "dataColumn": null,
-        "parentId": null,
-        "position": 7,
-        "type": "divider",
-        "stepId": 228625,
-        "default": "",
-        "label": "New divider field",
-        "placeholder": "",
-        "description": "",
-        "enum": [
-
-        ],
-        "appearance": {
-          "width": 12
-        },
-        "settings": {
-          "hideLabel": true,
-          "verticalMargin": 20
-        },
-        "validations": [
-
-        ],
-        "sensitive": null,
-        "preset": null,
-        "autotag": null
-      },
-      {
-        "id": 498705,
-        "dataColumn": null,
-        "parentId": null,
-        "position": 8,
-        "type": "heading",
-        "stepId": 228625,
-        "default": "",
-        "label": "Store location heading",
-        "placeholder": "",
-        "description": "",
-        "enum": [
-
-        ],
-        "appearance": {
-          "width": 12,
-          "alignment": "left"
-        },
-        "settings": {
-          "size": "3",
-          "content": "Store Location",
-          "hideLabel": true,
-          "fontWeight": "bold"
-        },
-        "validations": [
-
-        ],
-        "sensitive": null,
-        "preset": null,
-        "autotag": null
-      },
-      {
         "id": 549449,
         "dataColumn": {
           "key": "default_address.address1",
@@ -677,7 +639,7 @@
           "dataType": "text"
         },
         "parentId": null,
-        "position": 9,
+        "position": 8,
         "type": "text",
         "stepId": 228625,
         "default": "",
@@ -704,6 +666,36 @@
         ],
         "sensitive": null,
         "preset": "address1",
+        "autotag": null
+      },
+      {
+        "id": 102771,
+        "dataColumn": {
+          "key": "default_address.address2",
+          "label": "Address line 2",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 9,
+        "type": "text",
+        "stepId": 228625,
+        "default": "",
+        "label": "Apartment, suite, etc.",
+        "placeholder": "",
+        "description": "",
+        "enum": [
+
+        ],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+        },
+        "validations": [
+
+        ],
+        "sensitive": null,
+        "preset": "address2",
         "autotag": null
       },
       {
@@ -869,9 +861,12 @@
         },
         "validations": [
           {
-            "operator": "is_valid",
-            "comparand": null,
-            "errorMessage": "Please provide a valid phone number"
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank"
           }
         ],
         "sensitive": null,
@@ -882,7 +877,7 @@
     "steps": [
       {
         "id": 529971,
-        "title": "Your Details",
+        "title": "Contact Details",
         "description": ""
       },
       {
@@ -905,6 +900,7 @@
         "title": "Auto-tag customer with \"wholesale\"",
         "actions": [
           {
+            "id": 173416,
             "effect": "tag_customer",
             "metadata": {
               "value": "wholesale"
@@ -913,6 +909,41 @@
         ],
         "conditions": [
 
+        ],
+        "conditionChaining": "all"
+      },
+      {
+        "id": 168649,
+        "title": "\"Account type other\" toggle",
+        "actions": [
+          {
+            "id": 144899,
+            "effect": "hide_field",
+            "metadata": {
+              "fieldId": 844935
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "operand": null,
+            "metadata": {
+              "column": {
+                "id": "ryFmymM",
+                "key": "type_of_store",
+                "label": "Type of Store",
+                "dataType": "single_line_text",
+                "favorite": false,
+                "readOnly": false,
+                "createdAt": "2022-07-26T09:58:53.335Z",
+                "dedicated": false,
+                "archivedAt": null,
+                "expandedLabel": "Type of Store"
+              },
+              "comparand": "Other"
+            },
+            "operator": "not_equals"
+          }
         ],
         "conditionChaining": "all"
       }

@@ -1857,6 +1857,7 @@
         error: CartJS.Utils.ensureArray(options.error),
         complete: CartJS.Utils.ensureArray(options.complete)
       };
+
       if (options.updateCart) {
         request.success.push(CartJS.cart.update);
       }
@@ -1905,6 +1906,11 @@
       data.id = id;
       data.quantity = quantity;
       CartJS.Queue.add('/cart/add.js', data, options);
+
+      return CartJS.Core.getCart();
+    },
+    addItems: function (data) {
+      CartJS.Queue.add('/cart/add.js', data, {});
       return CartJS.Core.getCart();
     },
     updateItem: function(line, quantity, properties, options) {
@@ -2119,8 +2125,12 @@
     },
     render: function(e, cart) {
       var context;
+      const itemCounts = cart.items.filter(item => item.product_type !== 'Monogram Fee')
+        .map(item => item.quantity)
+        .reduce((a, b) => a + b, 0)
+
       context = {
-        'item_count': cart.item_count,
+        'item_count': itemCounts,
         'total_price': cart.total_price,
         'total_price_money': CartJS.Utils.formatMoney(cart.total_price, CartJS.settings.moneyFormat, 'money_format', (typeof Currency !== "undefined" && Currency !== null ? Currency.currentCurrency : void 0) != null ? Currency.currentCurrency : void 0),
         'total_price_money_with_currency': CartJS.Utils.formatMoney(cart.total_price, CartJS.settings.moneyWithCurrencyFormat, 'money_with_currency_format', (typeof Currency !== "undefined" && Currency !== null ? Currency.currentCurrency : void 0) != null ? Currency.currentCurrency : void 0)
@@ -2281,6 +2291,7 @@
     exports.settings = CartJS.settings;
     exports.getCart = CartJS.Core.getCart;
     exports.addItem = CartJS.Core.addItem;
+    exports.addItems = CartJS.Core.addItems;
     exports.updateItem = CartJS.Core.updateItem;
     exports.updateItemById = CartJS.Core.updateItemById;
     exports.updateItemQuantitiesById = CartJS.Core.updateItemQuantitiesById;

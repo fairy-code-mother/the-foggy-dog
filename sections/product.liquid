@@ -1,5 +1,32 @@
 {% include 'saw_variant_variables' %}
 {% include 'saw_product_variables' %}
+
+<script>
+  window.shopifyProduct = {
+    "id": {{ product.id }},
+    "is_loop_final_sale": {{ settings.loop_final_sale | default: false }},
+    "variants": [
+      {%- for variant in product.variants -%}
+        {
+          "id": {{ variant.id }},
+          "max_chars": {{ variant.metafields.personalization.max_char_set.value | json }}
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+{% capture product_customizer %}
+  <div
+    class="js-app"
+    data-product-id="{{ product.id }}"
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+    data-product-title="{{ product.title }}"
+  >
+    <div is="ProductCustomizer"></div>
+  </div>
+{% endcapture %}
+
 {% assign on_sale = false %}
 {% if WCProductComparePrice > WCProductPrice %}
   {% assign on_sale = true %}
@@ -46,10 +73,7 @@
 
 {% assign title_split = product.title | split: "-" %}
 
-{% for collection in product.collections %} 
-  {%- comment %}<locksmith:9d67>{% endcomment -%}
-    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-  {%- comment %}</locksmith:9d67>{% endcomment -%} 
+{% for collection in product.collections %}
   {% if collection.handle == 'dog-bandanas' or collection.handle == 'dog-collars' or collection.handle == 'dog-bow-tie-collars' or collection.handle == 'dog-beds' or collection.handle == 'face-mask-and-bandana-sets' or collection.handle == 'dog-harness' or collection.handle == 'walk-sets' or collection.handle == 'wear-sets' or collection.handle == 'scrunchie-and-bandana-set' or collection.handle == 'lady-bow-collar' %}
     {% assign show_size_guide = true %}
   {% endif %}
@@ -57,7 +81,6 @@
 {% assign my_description = product.description | split: '<!-- split -->' %}
 
 <div class="product-wrapper">
-
   <div class="page-width">
     {% include 'breadcrumb' %}
   </div>
@@ -85,6 +108,10 @@
                     <div class="zoom">{% include 'icon-search' %}</div>
                     {% endcomment %}
                     {% for media in product.media %}
+                      {% if media.alt == "Hidden" %}
+                        {% continue %}
+                      {% endif %}
+
                       {% case media.media_type %}
                         {% when 'image' %}
                           {% if media.alt contains 'swatch' %}
@@ -92,9 +119,11 @@
                           {% endif %}
                           <div class="item slick-slide" data-image-variant="{% for variant in media.variants %}{{ variant.title }} {% endfor %}">
                             <a href="{{ media.src | img_url: '875x875' }}" data-fancybox="gallery" data-product-featured-pop>
-                              <img height="550" width="550" data-product-featured-image 
-                                  src="{{ media.src | img_url: '550x550' }}" 
+
+                              <img height="550" width="550" data-product-featured-image
+                                  src="{{ media.src | img_url: '550x550' }}"
                                   srcset="{{ media.src | img_url: '550x550' }} 1x, {{ media.src | img_url: '550x550', scale: 2 }}, 2x" alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}" style="height: auto">
+
                             </a>
                           </div>
                         {% when 'external_video' %}
@@ -107,8 +136,8 @@
                           %}
                           <div class="item slick-slide" data-image-variant="{% for variant in media.variants %}{{ variant.title }} {% endfor %}">
                             <a href="{{ url }}"  data-fancybox="gallery" data-fancybox-type="iframe" data-product-featured-pop class="external-video">
-                              <img height="550" width="550" data-product-featured-image 
-                                  src="{{ media.preview_image | image_url: width: 450, height: 450, crop: 'top', format: 'pjpg', pad_color: 'ffffff'  }}" 
+                              <img height="550" width="550" data-product-featured-image
+                                  src="{{ media.preview_image | image_url: width: 450, height: 450, crop: 'top', format: 'pjpg', pad_color: 'ffffff'  }}"
 
                                   alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}" style="height: auto">
                               {% include 'icon-play' %}
@@ -124,6 +153,10 @@
                   <div class="thumbs">
                       <div class="product-thumbs thumbs-slider grid--uniform">
                         {% for media in product.media %}
+                          {% if media.alt == "Hidden" %}
+                            {% continue %}
+                          {% endif %}
+
                           {% case media.media_type %}
                             {% when 'image' %}
                               {% if media.alt contains 'swatch' %}
@@ -190,7 +223,7 @@
                 {% form 'product', product, class: form_classes, data-product-form: '', data-cart-submit: '' %}
                 <div class="price-container">
                     {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
-					            {% render 'okendo-reviews-product-rating-summary', product: product %}
+                      {% render 'okendo-reviews-product-rating-summary', product: product %}
                       <br />
                     {% endif %}
 
@@ -251,9 +284,6 @@
                           <p style="flex: 0 0 100%">Color: {{ product.title }}</p>
                           {% assign colored_products = colored_products | sort %}
                           {% for product_handle in colored_products %}
-                          {%- comment %}<locksmith:041a>{% endcomment -%}
-                            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product_handle, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                          {%- comment %}</locksmith:041a>{% endcomment -%}
                           {% assign product_rel = all_products[product_handle] %}
                           {% assign product_swatch = '' %}
                           {% for image in product_rel.images %}
@@ -271,7 +301,7 @@
                               {% endif %}
                             </a>
                           </div>
-                          {% endfor %}  
+                          {% endfor %}
                       </div>
                     {% endif %}
 
@@ -354,9 +384,11 @@
                       {% endfor %}
                     </select>
 
+                    {% comment %}
                     {% if bandana %}
                       <p class="bundle-discount">{{ bandana }}</p>
                     {% endif %}
+                    {% endcomment %}
 
                     <div class="quantity-wrapper">
                       <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
@@ -383,6 +415,9 @@
                           </span>
                         {% endif %}
                       </div>
+                        {% unless customer.tags contains "wholesale" %}
+                          {{ product_customizer }}
+                        {% endunless %}
 
                         {% if product.variants.size > 1 %}
                           <button class="Rise-add-to-cart-button btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
@@ -390,17 +425,15 @@
                               Select An Option
                             </span>
                           </button>
-    
+
                           <p class="estimated-date" style="display:none">{{ variant.metafields.preorder.message }}</p>
-                          
-                        <div class="preorder__prop">
+
+                          <div class="preorder__prop">
                             {% if variant.metafields.preorder.message != blank %}
                               <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ variant.metafields.preorder.message }} {{ variant.metafields.preorder.date | date: "%B %d, %Y" }}' />
                             {% endif %}
                           </div>
-                      
                         {% else %}
-
                           {% if product.available %}
                             {% if product.selected_or_first_available_variant.inventory_management == 'shopify' %}
                               {% if product.selected_or_first_available_variant.inventory_policy ==  'continue' %}
@@ -415,17 +448,14 @@
                                       </span>
                                     </button>
                                   {% else %}
-                      
-                              {% assign availableValue = product.selected_or_first_available_variant.inventory_quantity | times: -1 %}
 
-
+                                    {% assign availableValue = product.selected_or_first_available_variant.inventory_quantity | times: -1 %}
                                     {% if availableValue < limit %}
                                       <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                         <span >
                                           Pre Order
                                         </span>
                                       </button>
-                                  
                                       <p class="estimated-date">{{ product.metafields.preorder.preorder_message }}</p>
                                       {% if product.metafields.preorder.preorder_message != blank %}
                                         <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ product.metafields.preorder.preorder_message }} {{ product.metafields.preorder.preorder_date | date: "%B %d, %Y" }}' />
@@ -446,20 +476,17 @@
                                       </span>
                                     </button>
                                   {% else %}
-                                    
                                       <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                         <span data-add-to-cart-text>
                                           Pre Order
                                         </span>
                                       </button>
-                                  
                                       <p class="estimated-date">{{ product.metafields.preorder.preorder_message }}</p>
                                       {% if product.metafields.preorder.preorder_message != blank %}
                                         <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ product.metafields.preorder.preorder_message }} {{ product.metafields.preorder.preorder_date | date: "%B %d, %Y" }}' />
                                       {% endif %}
                                   {% endif %}
                                 {% endif %}
-
                               {% else %}
                                 {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
                                   <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
@@ -474,7 +501,6 @@
                                     </span>
                                   </button>
                                 {% endif %}
-
                               {% endif %}
                             {% else %}
                               <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
@@ -483,7 +509,6 @@
                                 </span>
                               </button>
                             {% endif %}
-
                           {% else %}
                             <button class="btn add-to-cart" type="submit" name="add" id="add" data-add-to-cart disabled>
                               <span data-add-to-cart-text>
@@ -495,7 +520,7 @@
 
                     </div>
                   {% endunless %}
-                  <div style="display:none" class="btn gwbutton">Send as a Gift</div>  
+                  <div style="display:none" class="btn gwbutton">Send as a Gift</div>
                 <style> .gwbutton {margin-right: 15px;
     margin-bottom: 15px;border: 0; flex-grow: 1; font-size: 12px;
     letter-spacing: 2.1px;
@@ -506,23 +531,23 @@
     background: #1a1919;
     color: #fff;
                   height: 100%;</style>
-					
+
                   <div class="bis-button"{% if product.available %} style="display: none;"{% endif %}>
                       <a class="btn" id="BIS_trigger">notify me when back in stock</a>
                   </div>
- 
+
                   {% assign bundle_product = '' %}
-                	{% if product.metafields.upsell.product != blank %}
-                		{% assign bundle_product = product.metafields.upsell.product %}
-                		{% assign bundle_text = product.metafields.upsell.text %}
-                	{% else %}
+                  {% if product.metafields.upsell.product != blank %}
+                    {% assign bundle_product = product.metafields.upsell.product %}
+                    {% assign bundle_text = product.metafields.upsell.text %}
+                  {% else %}
                       {% for tag in product.tags %}
                         {% if tag contains 'bundled-' %}
                           {% assign bundle_product = tag | remove: 'bundled-' %}
-                		  {% assign bundle_text = section.settings.bundle_text %}
+                      {% assign bundle_text = section.settings.bundle_text %}
                         {% endif %}
                       {% endfor %}
-                	{% endif %}
+                  {% endif %}
                   {% if bundle_product != blank %}
                   <div class="bundled">
                       <a href="{{ all_products[bundle_product].url }}">

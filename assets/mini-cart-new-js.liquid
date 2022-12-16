@@ -1,0 +1,154 @@
+<style>
+  .show-overlay:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+</style>
+<script>
+  
+$(document).ready(function(){
+//——btn-mini-cart
+  $('.mini-cart-btn, .mini-cart-item-count, #bc-quickview-cart-btn, cart-count-popup, cart-text-popup').click(function(){
+    $('.cart-pop-up, .totals').toggleClass('active');
+    $('.cart-pop-up, .totals').addClass('sticky');
+    $('.main-site-navigation').removeClass('mobile-nav-active');
+    $('.btn-mobile').removeClass('open');
+    $('body').toggleClass('no-scroll');
+    $("body").addClass("show-overlay");
+  });
+  $('.cart-close, .show-overlay').click(function() {
+    $('.cart-pop-up, .totals').removeClass('active');
+    $('.cart-pop-up, .totals').removeClass('sticky');
+    $('body').removeClass('no-scroll');
+    $("body").removeClass("show-overlay");
+  });
+
+$( ".swatch-element" ).on("click",function(event){
+  $(this).siblings().removeAttr( "selected" );
+  var target = $( event.target );
+    if ( target.is(this) ) {
+      target.attr( "selected", "selected" );
+    } 
+
+  });
+
+$( "select" ).on("change", function( event ) {
+  $(".variant-item").removeAttr( "selected" );
+  var target = $( event.target );
+    if ( target.is(this) ) {
+      target.attr( "selected", "selected" );
+    } 
+
+  });
+
+$('.cart-form').each(function() {
+  
+  $(this).submit(function(event){
+
+      // Add an event handler that will trigger when all items are added.
+      $(document).on('cart.requestComplete', function() {
+        //window.location.href = '/cart/';
+      });
+
+      $(this).closest('div').find('input').each(function(){
+        var selected = $(this).attr('selected');
+        var upsellSelected = $(this).attr('data-upsell-selected');
+        var id = $(this).attr('value');
+
+        if(selected == "selected" || upsellSelected == "selected"){
+            CartJS.addItem(id, 1, {}, {
+
+              // Define a success callback to display a success message.
+            "success": function(data, textStatus, jqXHR) {
+                $('#message').addClass('message-success');
+                $('#message').html('Successfully added to cart.');
+            },
+
+            // Define an error callback to display an error message.
+            "error": function(jqXHR, textStatus, errorThrown) {
+                $('#message').addClass('message-error');
+                $('#message').html('There was a problem adding to the cart!');
+            }
+
+            });
+        };
+      });
+      event.preventDefault();
+    });  
+  
+    $(this).submit(function(event){
+      // Add an event handler that will trigger when all items are added.
+      $(document).on('cart.requestComplete', function(event, cart) {
+//         window.location.href = '/cart/';
+//         $('.mini-cart-item-count').html(cart.item_count);
+        
+      });
+
+      $(this).closest('select').find('option').each(function(){
+        var selected = $(this).attr('selected');
+        var id = $(this).attr('value');
+
+        if(selected == "selected"){
+            CartJS.addItem(id, 1, {}, {
+
+              // Define a success callback to display a success message.
+            "success": function(data, textStatus, jqXHR) {
+                $('#message').addClass('message-success');
+                $('#message').html('Successfully added to cart.');
+              $('#cartimage').hide();
+    
+              setTimeout(function(){
+                $('#cartimage').show();
+                console.log('finished 4 seconds');
+              }, 4000);
+              	
+            },
+
+            // Define an error callback to display an error message.
+            "error": function(jqXHR, textStatus, errorThrown) {
+                $('#message').addClass('message-error');
+                $('#message').html('There was a problem adding to the cart!');
+            }
+            });
+        };
+      });
+      event.preventDefault();
+    });  
+});
+  
+  var modal = $('body').attr('id');
+  window.onclick = function (event) {
+    if (event.target.id == modal) {
+      $('.cart-pop-up, .totals').removeClass('active');
+      $('.cart-pop-up, .totals').removeClass('sticky');
+      $('body').removeClass('no-scroll');
+      $("body").removeClass("show-overlay");
+    }
+  }
+  
+
+});
+
+
+$( document ).ready(function() {
+ 
+//-- mini-cart controls
+   
+  // --mini-cart-flyout submit 
+  $('#adds').click(function(e){
+    setTimeout(function() {
+      $('.cart-pop-up').delay(1500).addClass('active').addClass('sticky');
+      $("body").addClass("show-overlay");
+//       console.log('cart button clicked');
+      //     $('body').addClass('no-scroll');
+    }, 1000);
+  });
+});
+
+</script>
