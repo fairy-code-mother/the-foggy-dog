@@ -83,7 +83,7 @@
       "continue_browsing_html": "Shop best-sellers <a href=\"\/collections\/best-sellers\">here<\/a>.",
       "item_quantity": "Item quantity",
       "savings": "You're saving",
-      "free_gift_message": "With orders $25+"
+      "free_gift_message": "With orders $50+"
     },
     "label": {
       "product": "Product",
@@ -326,7 +326,7 @@
         "no_rates_for_cart_or_destination_notice": "Doggone it! There are no shipping methods available for your address. We currently ship to the U.S. and Canada. Please note that due to their size, dog bed inserts can only ship within the continental United States.",
         "no_rates_for_country_notice": "Doggone it! There are no shipping methods available for your address. We currently ship to the U.S. and Canada. Please note that due to their size, dog bed inserts can only ship within the continental United States.",
         "title": "Shipping",
-        "shipping_method_notice": "Please note: personalized items are made just \"fur\" you and require extra production time on top of the ship times shown below. Our current processing time is 5 days for embroidery and 10-12 days for engraving. At this time we cannot accommodate split shipments, so your full order will ship when everything is ready. We hope you love everything!"
+        "shipping_method_notice": "Please note: personalized items are made just \"fur\" you and require an extra 3-5 days of production time on top of the ship times shown below. We cannot accommodate split shipments at this time, so your full order will ship when everything is ready. We hope you love everything!"
       },
       "processing": {
         "your_order_has_been_received_title": "Thank you for your order!",

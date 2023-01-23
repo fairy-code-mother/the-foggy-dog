@@ -13,7 +13,13 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
   //redirect if customer is already logged in
   var wsgCustomerData = {{customer | json}}
   if (wsgCustomerData) {
-    window.location.href = '/account'
+    // Checks if the customer is on a different market sub-folder doamin and then changes the redirect to that sub-folder domain
+    const splitUrlPathNames = window.location.pathname.split('/')
+    if(splitUrlPathNames[1] !== 'pages'){
+      window.location.href = "/" + splitUrlPathNames[1] + "/account";
+    } else {
+      window.location.href = '/account'
+    }
   }
 </script>
 
@@ -27,7 +33,7 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
   {% section 'wsg-registration-settings' %}
   <!-- LOGIN -->
   <p class='wsg-signup-link wsg-center'>
-    <a href="/a/wsg/proxy/login" data-translation-selector="loginLinkA">Already have an account? Login here.</a>
+    <a id="loginLinkA" href="/a/wsg/proxy/login" data-translation-selector="loginLinkA">Already have an account? Login here.</a>
   </p>
   <div class='wsg-one-half'>
     <form id="wsg-signup">
@@ -315,3 +321,12 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
     }
   }
 </style>
+
+<script>
+  // Updates the login link href to match market domain
+  const splitUrlPathNames = window.location.pathname.split('/')
+  if(splitUrlPathNames[1] !== 'pages'){
+      const wsgLoginUrl = document.getElementById('loginLinkA') 
+      wsgLoginUrl.href = '/' + splitUrlPathNames[1] +  '/pages/ws-account-login'    
+  }
+</script>
