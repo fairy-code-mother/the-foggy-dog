@@ -569,8 +569,16 @@
         {% assign preOrder = '' %}
         {% assign estimatedDate = '' %}
         {% assign quantityCaps = '' %}
+        {% assign preorderActive = false %}
 
         {% for variant in product.variants %}
+          {%- if variant.metafields.preorder.date != blank -%}
+            {% capture now %}{{ 'now' | date: '%s' }}{% endcapture %}
+            {% capture preorderdate %}{{ variant.metafields.preorder.date | date: '%s' }}{% endcapture %}
+            {%- if preorderdate > now -%}
+              {% assign preorderActive = true %}
+            {%- endif -%}
+          {%- endif -%}
           {% capture quantity %},"{{ variant.id }}":"{{ variant.inventory_quantity }}"{% endcapture %}
           {% assign quantityAvailable = quantityAvailable | append: quantity %}
 
@@ -586,6 +594,7 @@
 
         <script type="application/json" data-preorder-json>
           {
+            "isPreorderProduct": {{ preorderActive | json }},
             "quantityAvailableData": { {{ quantityAvailable | remove_first: ',' }} },
             "estimatedDateData": { {{ estimatedDate | remove_first: ',' }} },
             "quantityCapsData": { {{ quantityCaps | remove_first: ',' }} },

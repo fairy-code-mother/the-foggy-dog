@@ -1145,53 +1145,29 @@ theme.Product = (function() {
       // First, if we have preorder info
       if ($(selectors.preorderJson, this.$container).html() && variant) {
         this.productPreorderObject = JSON.parse($(selectors.preorderJson, this.$container).html());
+      }
+
+      if (this.productPreorderObject && this.productPreorderObject.isPreorderProduct == true) {
         var quantityAvailableData = this.productPreorderObject.quantityAvailableData;
         var estimatedDateData = this.productPreorderObject.estimatedDateData;
         var quantityCapsData = this.productPreorderObject.quantityCapsData;
 
         if( variant.inventory_management == 'shopify' ) {
           if( variant.inventory_policy == 'continue' ){
-            if( quantityAvailableData[variant.id] > 0 ){
-              // add to cart button - if the quantity is more than 0
-              $(selectors.addToCartText, this.$container).text(theme.strings.addToCart)
-              $(selectors.addToCart, this.$container).removeAttr('disabled')
-              $(selectors.addToCart, this.$container).attr('id', 'add')
-              $(selectors.estimatedDateAttr, this.$container).val('')
-              $(selectors.estimatedDate, this.$container).hide();
-          	  $(selectors.preorderProp, this.$container).empty();
-            }else{
-              // pre order button - if the quantity is less than or equal to 0
-              if( quantityCapsData[variant.id] != "" ){
+            // pre order button - if the quantity is less than or equal to 0
+            if( quantityCapsData[variant.id] != "" ){
 
-                var inventoryValue = quantityAvailableData[variant.id];
-                if ( inventoryValue < 0 ){
-                  inventoryValue = quantityAvailableData[variant.id] * -1;
-                }
+              var inventoryValue = quantityAvailableData[variant.id];
+              if ( inventoryValue < 0 ){
+                inventoryValue = quantityAvailableData[variant.id] * -1;
+              }
 
-                if(inventoryValue >= parseInt(quantityCapsData[variant.id])){
-                  $(selectors.addToCartText, this.$container).html(theme.strings.soldOut)
-                  $(selectors.addToCart, this.$container).attr('disabled', 'disabled')
-              	  $(selectors.addToCart, this.$container).attr('id', 'add-sold-out')
-                  $(selectors.estimatedDateAttr, this.$container).val('')
-                  $(selectors.preorderProp, this.$container).hide();
-                }else{
-                  $(selectors.addToCartText, this.$container).html(theme.strings.preorder)
-                  $(selectors.addToCart, this.$container).removeAttr('disabled')
-                  $(selectors.addToCart, this.$container).attr('id', 'add')
-
-                  $(selectors.estimatedDate, this.$container).text(estimatedDateData[variant.id])
-                  if( $('.preorder__prop > input').length == 0 ){
-                    $(selectors.preorderProp, this.$container).append('<input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value="'+ estimatedDateData[variant.id] +'" >');
-                  }else{
-                    $(selectors.estimatedDateAttr, this.$container).val(estimatedDateData[variant.id])
-                  }
-
-                  if( estimatedDateData[variant.id].trim() != '' ){
-                    $(selectors.estimatedDate, this.$container).show();
-                  }else{
-                    $(selectors.estimatedDate, this.$container).hide();
-                  }
-                }
+              if(inventoryValue >= parseInt(quantityCapsData[variant.id])){
+                $(selectors.addToCartText, this.$container).html(theme.strings.soldOut)
+                $(selectors.addToCart, this.$container).attr('disabled', 'disabled')
+                $(selectors.addToCart, this.$container).attr('id', 'add-sold-out')
+                $(selectors.estimatedDateAttr, this.$container).val('')
+                $(selectors.preorderProp, this.$container).hide();
               }else{
                 $(selectors.addToCartText, this.$container).html(theme.strings.preorder)
                 $(selectors.addToCart, this.$container).removeAttr('disabled')
@@ -1210,25 +1186,23 @@ theme.Product = (function() {
                   $(selectors.estimatedDate, this.$container).hide();
                 }
               }
-            }
-          }else{
-            if( quantityAvailableData[variant.id] > 0 ){
-              // add to cart button - if the quantity is more than 0
-              $(selectors.addToCartText, this.$container).html(theme.strings.addToCart)
+            }else{
+              $(selectors.addToCartText, this.$container).html(theme.strings.preorder)
               $(selectors.addToCart, this.$container).removeAttr('disabled')
               $(selectors.addToCart, this.$container).attr('id', 'add')
-              $(selectors.estimatedDateAttr, this.$container).val('')
-              $(selectors.estimatedDate, this.$container).hide();
-              $(selectors.preorderProp, this.$container).empty()
 
-            }else{
-              //sold out
-              $(selectors.addToCartText, this.$container).html(theme.strings.soldOut)
-              $(selectors.addToCart, this.$container).attr('disabled', 'disabled')
-              $(selectors.addToCart, this.$container).attr('id', 'add-sold-out')
-              $(selectors.estimatedDateAttr, this.$container).val('')
-              $(selectors.estimatedDate, this.$container).hide();
-          	  $(selectors.preorderProp, this.$container).empty();
+              $(selectors.estimatedDate, this.$container).text(estimatedDateData[variant.id])
+              if( $('.preorder__prop > input').length == 0 ){
+                $(selectors.preorderProp, this.$container).append('<input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value="'+ estimatedDateData[variant.id] +'" >');
+              }else{
+                $(selectors.estimatedDateAttr, this.$container).val(estimatedDateData[variant.id])
+              }
+
+              if( estimatedDateData[variant.id].trim() != '' ){
+                $(selectors.estimatedDate, this.$container).show();
+              }else{
+                $(selectors.estimatedDate, this.$container).hide();
+              }
             }
           }
         } else {
