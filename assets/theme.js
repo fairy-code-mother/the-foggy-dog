@@ -1153,7 +1153,7 @@ theme.Product = (function() {
         var quantityCapsData = this.productPreorderObject.quantityCapsData;
 
         if( variant.inventory_management == 'shopify' ) {
-          if( variant.inventory_policy == 'continue' ){
+          if( variant.inventory_policy == 'continue' || variant.inventory_policy == 'deny' ){
             // pre order button - if the quantity is less than or equal to 0
             if( quantityCapsData[variant.id] != "" ){
 
