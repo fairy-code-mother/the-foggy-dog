@@ -454,14 +454,12 @@
                             {% if product.selected_or_first_available_variant.inventory_management == 'shopify' %}
                               {% if product.selected_or_first_available_variant.inventory_policy == 'continue' or product.selected_or_first_available_variant.inventory_policy == 'deny' %}
                                   {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
-                                    <h1> HELLO </h1>
                                     <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                       <span data-add-to-cart-text>
                                         Add to cart
                                       </span>
                                     </button>
                                   {% else %}
-                                  <h1> HELLO 2</h1>
                                       <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                         <span data-add-to-cart-text>
                                           Pre Order
@@ -474,14 +472,12 @@
                                   {% endif %}
                               {% else %}
                                 {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
-                                  <h1> HELLO 3</h1>
                                   <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                     <span data-add-to-cart-text>
                                       Add to cart
                                     </span>
                                   </button>
                                 {% else %}
-                                <h1> HELLO 4 </h1>
                                   <button class="btn add-to-cart" type="submit" name="add" id="add" disabled>
                                     <span >
                                       Out of Stock
@@ -490,7 +486,6 @@
                                 {% endif %}
                               {% endif %}
                             {% else %}
-                            <h1> HELLO 5 </h1>
                               <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                 <span data-add-to-cart-text>
                                   Add to cart
