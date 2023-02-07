@@ -80,6 +80,22 @@
 {% endfor %}
 {% assign my_description = product.description | split: '<!-- split -->' %}
 
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign message = ''
+  assign date = ''
+
+  if current_variant.metafields.preorder.message != blank 
+    assign message = current_variant.metafields.preorder.message
+    assign date = current_variant.metafields.preorder.date | date: "%B %d, %Y" 
+  elsif product.metafields.preorder.preorder_message != blank
+    assign message = product.metafields.preorder.preorder_message
+    assign date = product.metafields.preorder.preorder_date | date: "%B %d, %Y" 
+  endif 
+
+-%}
+
 <div class="product-wrapper">
   <div class="page-width">
     {% include 'breadcrumb' %}
@@ -89,7 +105,7 @@
 
     <div class="page-width">
 
-      {% if product.variants.size == 1 %}
+      {% if product.variants.size == 1 %} -%}
       {%- assign current_variant = product.selected_or_first_available_variant -%}
       {% else %}
       {%- assign current_variant = product.selected_variant -%}
@@ -426,49 +442,17 @@
                             </span>
                           </button>
 
-                          <p class="estimated-date" style="display:none">{{ variant.metafields.preorder.message }}</p>
-
+                          <p class="estimated-date" style="display:none">{{ message }} {{ date }}</p>
+     
                           <div class="preorder__prop">
-                            {% if variant.metafields.preorder.message != blank %}
-                              <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ variant.metafields.preorder.message }} {{ variant.metafields.preorder.date | date: "%B %d, %Y" }}' />
-                            {% endif %}
+                            {% unless message == '' %}
+                              <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ message }} {{ date }}' />
+                            {% endunless %}
                           </div>
                         {% else %}
                           {% if product.available %}
                             {% if product.selected_or_first_available_variant.inventory_management == 'shopify' %}
-                              {% if product.selected_or_first_available_variant.inventory_policy ==  'continue' %}
-
-                                {% assign limit = product.metafields.preorder.preorder_limit %}
-
-                                {% if product.metafields.preorder.preorder_limit != blank %}
-                                  {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
-                                    <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
-                                      <span data-add-to-cart-text>
-                                        Add to cart
-                                      </span>
-                                    </button>
-                                  {% else %}
-
-                                    {% assign availableValue = product.selected_or_first_available_variant.inventory_quantity | times: -1 %}
-                                    {% if availableValue < limit %}
-                                      <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
-                                        <span >
-                                          Pre Order
-                                        </span>
-                                      </button>
-                                      <p class="estimated-date">{{ product.metafields.preorder.preorder_message }}</p>
-                                      {% if product.metafields.preorder.preorder_message != blank %}
-                                        <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ product.metafields.preorder.preorder_message }} {{ product.metafields.preorder.preorder_date | date: "%B %d, %Y" }}' />
-                                      {% endif %}
-                                    {% else %}
-                                      <button class="btn add-to-cart" type="submit" name="add" id="add" disabled>
-                                        <span >
-                                          Out of Stock
-                                        </span>
-                                      </button>
-                                    {% endif %}
-                                  {% endif %}
-                                {% else %}
+                              {% if product.selected_or_first_available_variant.inventory_policy == 'continue' or product.selected_or_first_available_variant.inventory_policy == 'deny' %}
                                   {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
                                     <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                       <span data-add-to-cart-text>
@@ -481,12 +465,11 @@
                                           Pre Order
                                         </span>
                                       </button>
-                                      <p class="estimated-date">{{ product.metafields.preorder.preorder_message }}</p>
-                                      {% if product.metafields.preorder.preorder_message != blank %}
-                                        <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ product.metafields.preorder.preorder_message }} {{ product.metafields.preorder.preorder_date | date: "%B %d, %Y" }}' />
+                                      <p class="estimated-date">{{ message }} {{ date }}</p>
+                                      {% if message != blank %}
+                                        <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ message }} {{ date }}' />
                                       {% endif %}
                                   {% endif %}
-                                {% endif %}
                               {% else %}
                                 {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
                                   <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
@@ -602,15 +585,32 @@
         {% assign preOrder = '' %}
         {% assign estimatedDate = '' %}
         {% assign quantityCaps = '' %}
+        {% assign preorderActive = false %}
 
         {% for variant in product.variants %}
+          {%- if variant.metafields.preorder.date != blank -%}
+            {% capture now %}{{ 'now' | date: '%s' }}{% endcapture %}
+            {% capture preorderdate %}{{ variant.metafields.preorder.date | date: '%s' }}{% endcapture %}
+            {%- if preorderdate > now -%}
+              {% assign preorderActive = true %}
+            {%- endif -%}
+
+            {% capture estimatedDateFlag %},"{{ variant.id }}":"{{ variant.metafields.preorder.message }} {{ variant.metafields.preorder.date | date: "%B %d, %Y" }}"{% endcapture %}
+            {% assign estimatedDate = estimatedDate | append: estimatedDateFlag %}
+          {%- elsif product.metafields.preorder.preorder_date != blank -%}
+            {% capture now %}{{ 'now' | date: '%s' }}{% endcapture %}
+              {% capture preorderdate %}{{ product.metafields.preorder.preorder_date | date: '%s' }}{% endcapture %}
+              {%- if preorderdate > now -%}
+                {% assign preorderActive = true %}
+              {%- endif -%}
+              {% capture estimatedDateFlag %},"{{ variant.id }}":"{{ product.metafields.preorder.preorder_message }} {{ product.metafields.preorder.preorder_date | date: "%B %d, %Y" }}"{% endcapture %}
+            {% assign estimatedDate = estimatedDate | append: estimatedDateFlag %}
+          {%- endif -%}
+
           {% capture quantity %},"{{ variant.id }}":"{{ variant.inventory_quantity }}"{% endcapture %}
           {% assign quantityAvailable = quantityAvailable | append: quantity %}
 
-          {% capture estimatedDateFlag %},"{{ variant.id }}":"{{ variant.metafields.preorder.message }}"{% endcapture %}
-          {% assign estimatedDate = estimatedDate | append: estimatedDateFlag %}
-
-          {% capture quantityCapsFlag %},"{{ variant.id }}":"{{ variant.metafields.preorder.limit }}"{% endcapture %}
+          {% capture quantityCapsFlag %},"{{ variant.id }}":"4000"{% endcapture %}
           {% assign quantityCaps = quantityCaps | append: quantityCapsFlag %}
 
           {% capture finalSale %},"{{ variant.id }}":{{ variant.metafields.sale.final_sale.value | json }}{% endcapture %}
@@ -619,6 +619,7 @@
 
         <script type="application/json" data-preorder-json>
           {
+            "isPreorderProduct": {{ preorderActive | json }},
             "quantityAvailableData": { {{ quantityAvailable | remove_first: ',' }} },
             "estimatedDateData": { {{ estimatedDate | remove_first: ',' }} },
             "quantityCapsData": { {{ quantityCaps | remove_first: ',' }} },
