@@ -146,7 +146,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Mutesix GA4 Data layer -->
 {% render 'dataLayer-allPages' %}
-<!-- Mutesix GA4 Data layer -->  
+<!-- Mutesix GA4 Data layer -->
+<!-- POSTIE PIXEL -->
+<script>
+  (function(z,i,p,c,o,d,e){z[c]||(z[c]=function(){(z[c].q=z[c].q||[]).
+  push(arguments)},z[c].q=z[c].q||[],d=i.createElement(p),d.async=1,d.
+  src=o,e=i.getElementsByTagName(p)[0],e.parentNode.insertBefore(d,e))
+  })(window,document,"script","letterpress","//scripts.postie.com/dssjatno/lp.1.js");
+  
+  window.letterpress('trackPageView');
+  </script>
+<!-- POSTIE PIXEL -->
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}"><div class="pagefly-container">{{ content_for_layout }}</div></body>
