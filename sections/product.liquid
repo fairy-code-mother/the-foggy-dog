@@ -105,7 +105,7 @@
 
     <div class="page-width">
 
-      {% if product.variants.size == 1 %} -%}
+      {% if product.variants.size == 1 %}
       {%- assign current_variant = product.selected_or_first_available_variant -%}
       {% else %}
       {%- assign current_variant = product.selected_variant -%}
