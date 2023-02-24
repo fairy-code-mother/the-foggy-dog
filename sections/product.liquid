@@ -453,7 +453,7 @@
                           {% if product.available %}
                             {% if product.selected_or_first_available_variant.inventory_management == 'shopify' %}
                               {% if product.selected_or_first_available_variant.inventory_policy == 'continue' or product.selected_or_first_available_variant.inventory_policy == 'deny' %}
-                                  {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
+                                  {% if message == blank or date == blank %}
                                     <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
                                       <span data-add-to-cart-text>
                                         Add to cart
