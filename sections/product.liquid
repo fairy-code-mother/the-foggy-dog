@@ -96,6 +96,18 @@
 
 -%}
 
+<script>
+  window.preorder = {
+    "variantSize": {{ product.variants.size }},
+    {%- for variant in product.variants -%}
+      "{{ variant.id }}" : {
+        "message": "{{ variant.metafields.preorder.message }}",
+        "date": "{{ variant.metafields.preorder.date | date: "%B %d, %Y"  }}"
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  }
+</script>
+
 <div class="product-wrapper">
   <div class="page-width">
     {% include 'breadcrumb' %}
