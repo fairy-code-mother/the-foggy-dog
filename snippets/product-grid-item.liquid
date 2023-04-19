@@ -18,6 +18,11 @@
 {% assign best_seller = 'Best Seller' %}
 {% endif %}
 
+{% assign last_chance = false %}
+{% if product.tags contains 'last-chance' or product.tags contains 'Last Chance' %}
+{% assign last_chance = 'Last Chance' %}
+{% endif %}
+
 {% assign limited_edition = false %}
 {% if product.tags contains 'limited-edition' or product.tags contains 'Limited Edition' %}
 {% assign limited_edition = 'Limited Edition' %}
@@ -47,86 +52,100 @@
 <div class="grid-product grid__item {{ grid_item_width }}{% unless product.available %} product-sold-out{% endunless %}">
 	<div class="grid-product-inner">
 		<a href="{{ product.url | within: collection }}">
-		  	<div class="product-grid-image">
+			<div class="product-grid-image">
 				<img data-product-image 
-                     data-src="{{ product.featured_image.src | img_url: thumb_size }}" 
-                     data-srcset="{{ product.featured_image.src | img_url: thumb_size }} 1x, {{ product.featured_image.src | img_url: thumb_size, scale: 2 }} 2x" 
-                     alt="{{ product.featured_image.alt | escape }}"
-                     {% if thumb_size contains 'x' %}
-                     width="{{ thumb_size | split: 'x' | first }}"
-                     height="{{ thumb_size | split: 'x' | last }}"
-                     {% endif %}
-                     class="lazyload {% unless product.available %}sold-out{% endunless %}">
+										data-src="{{ product.featured_image.src | img_url: thumb_size }}" 
+										data-srcset="{{ product.featured_image.src | img_url: thumb_size }} 1x, {{ product.featured_image.src | img_url: thumb_size, scale: 2 }} 2x" 
+										alt="{{ product.featured_image.alt | escape }}"
+										{% if thumb_size contains 'x' %}
+										width="{{ thumb_size | split: 'x' | first }}"
+										height="{{ thumb_size | split: 'x' | last }}"
+										{% endif %}
+										class="lazyload {% unless product.available %}sold-out{% endunless %}">
 			</div>
 
 			<div class="product-badges">
-				{% unless product.available %}
-	                {% if waitlist %}
-	                  <span class="product-badge sold-out-badge">{{ waitlist }}</span>
-	                {% else %}
-	                  <span class="product-badge sold-out-badge">{{ sold_out }}</span>
-	                {% endif %}
-	            {% else %}
-	            	{% if new_product %}
-					  <span class="product-badge">{{ new_product }}</span>
+				{% if product.available %}
+	      	{% if new_product %}
+					  <span class="product-badge">
+							{{ new_product }}
+						</span>
 					{% endif %}
 					{% if best_seller %}
-					<div class="product-badge">{{ best_seller }}</div>
-				  	{% endif %}
-		            {% if oprah %}
-		            <span class="product-badge">{{ oprah }}</span>
-		            {% endif %}
-		            {% if limited_edition %}
-		            <span class="product-badge">{{ limited_edition }}</span>
-		            {% endif %}
-              	{% endunless %}
+						<div class="product-badge">
+							{{ best_seller }}
+						</div>
+					{% endif %}
+					{% if last_chance %}
+						<div class="product-badge">
+							{{ last_chance }}
+						</div>
+					{% endif %}
+		      {% if oprah %}
+		       <span class="product-badge">
+						{{ oprah }}
+						</span>
+		      {% endif %}
+		      {% if limited_edition %}
+						<span class="product-badge">
+							{{ limited_edition }}
+						</span>
+		      {% endif %}
+				{% else %}
+					{% if waitlist %}
+						<span class="product-badge sold-out-badge">
+							{{ waitlist }}
+						</span>
+					{% else %}
+						<span class="product-badge sold-out-badge">
+							{{ sold_out }}
+						</span>
+					{% endif %}
+        {% endif %}
 			</div>
 
-		  	<div class="product-title">
-	    	  {% if title_split.size > 1 %}
-	    	  	{{ title_split.last }}
-	    	  {% else %}
-	    	  	{{ product.title }}
-	    	  {% endif %}
+		  <div class="product-title">
+				{% if title_split.size > 1 %}
+					{{ title_split.last }}
+				{% else %}
+					{{ product.title }}
+				{% endif %}
 		 	</div>
           
 		 	{% if title_split.size > 1 %}
-		 	<div class="product-color">
-		 		{{ title_split.first }}
-		 	</div>
+				<div class="product-color">
+					{{ title_split.first }}
+				</div>
 		 	{% endif %}
-		  	<div class="product-prices">
-				 {% if WCProductComparePrice > WCProductPrice %}
-					<span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-					<s>{{ WCProductComparePrice | money }}</s>
-				  {% endif %}
-  
-				  {% if WCProductComparePrice > WCProductPrice %}
-						<span class="sale-price">
-						  {% if product.price_varies %}
-							  {%- assign sale_price = WCProductPrice | money -%}
-							  {{ 'products.product.from_text_html' | t: price: sale_price }}
-						</span>
-						  {% else %}
-							  {{ WCProductPrice | money }}</span>
-						  {% endif %}
-					   <span>
-				  {% else %}
-  
+			<div class="product-prices">
+			{% if WCProductComparePrice > WCProductPrice %}
+			<span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+			<s>{{ WCProductComparePrice | money }}</s>
+			{% endif %}
+
+			{% if WCProductComparePrice > WCProductPrice %}
+				<span class="sale-price">
 					{% if product.price_varies %}
-					  {%- assign price = WCProductPrice | money -%}
-					  {{ 'products.product.from_text_html' | t: price: price }}
-					{% else %}
-					  {{ WCProductPrice | money }}
-					{% endif %}
-  
-				  {% endif %}
+						{%- assign sale_price = WCProductPrice | money -%}
+						{{ 'products.product.from_text_html' | t: price: sale_price }}
+				</span>
+				{% else %}
+				<span>{{ WCProductPrice | money }}</span>
+				{% endif %}
+			{% else %}
+				{% if product.price_varies %}
+					{%- assign price = WCProductPrice | money -%}
+					{{ 'products.product.from_text_html' | t: price: price }}
+				{% else %}
+					{{ WCProductPrice | money }}
+				{% endif %}
+			{% endif %}
 			</div> 
 
 			{% if product.title contains 'Personalized' %}
-			<div class="personalize-it">
-				Personalize It!
-			</div>
+				<div class="personalize-it">
+					Personalize It!
+				</div>
 			{% endif %}
 		</a>
 	</div>

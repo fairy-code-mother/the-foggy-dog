@@ -47,6 +47,11 @@
 {% assign best_seller = 'Best Seller' %}
 {% endif %}
 
+{% assign last_chance = false %}
+{% if product.tags contains 'last-chance' or product.tags contains 'Last Chance' %}
+{% assign last_chance = 'Last Chance' %}
+{% endif %}
+
 {% assign limited_edition = false %}
 {% if product.tags contains 'limited-edition' or product.tags contains 'Limited Edition' %}
 {% assign limited_edition = 'Limited Edition' %}
@@ -230,6 +235,9 @@
                   {% if best_seller %}
                     <span class="product-badge">{{ best_seller }}</span>
                   {% endif %}
+                  {% if last_chance %}
+                    <div class="product-badge">{{ last_chance }}</div>
+                      {% endif %}
                   {% if oprah %}
                     <span class="product-badge">{{ oprah }}</span>
                   {% endif %}
