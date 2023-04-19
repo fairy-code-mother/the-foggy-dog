@@ -374,6 +374,10 @@ function buildTagLabels(data, showall) {
             var preTagLabel = boostPFSTemplate.tagLabelHtml.replace(/{{labelTag}}/g, "Best Seller");
             tagLabel += preTagLabel;
             break;
+          } else if (tag.indexOf("last-chance") !== -1 || tag.indexOf("Last Chance") !== -1) {
+              var preTagLabel = boostPFSTemplate.tagLabelHtml.replace(/{{labelTag}}/g, "Last Chance");
+              tagLabel += preTagLabel;
+              break;
           } else if (tag.indexOf("limited-edition") !== -1 || tag.indexOf("Limited Edition") !== -1) {
             var preTagLabel = boostPFSTemplate.tagLabelHtml.replace(/{{labelTag}}/g, "Limited Edition");
             tagLabel += preTagLabel;
