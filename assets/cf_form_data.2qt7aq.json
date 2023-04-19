@@ -3,7 +3,7 @@
     "id": "2qt7aq",
     "name": "Wholesale Registration",
     "handle": "wholesale-registration-181",
-    "theme_id": "121998540886",
+    "theme_id": "122091667542",
     "settings": {
       "locales": {
         "back": "Back",
@@ -45,18 +45,24 @@
       "manual"
     ],
     "created_at": "2022-07-26T09:44:19Z",
-    "updated_at": "2022-10-28T16:27:25Z",
+    "updated_at": "2023-03-14T16:52:01Z",
     "revision_ids": [
-      "B5TvO4k",
-      "boTp32R",
-      "evTe6a3",
-      "K0TRpAz",
-      "qYTYbwa",
+      "yzTBnzn",
+      "akT2wV3",
       "VNTzynG",
+      "qYTYbwa",
+      "K0TRpAz",
+      "boTp32R",
+      "B5TvO4k",
+      "xMTL7qe",
+      "p4Tbl8y",
+      "GYTrADm",
+      "B5TvEVL",
+      "7kTb4Yo",
+      "akT2mBK",
+      "evTe6a3",
       "boTpY0r",
       "ErTaB0v",
-      "akT2wV3",
-      "B5TvEVL",
       "9pTG7kO",
       "xMTL91d",
       "1wTRo3v",
@@ -65,11 +71,11 @@
     ]
   },
   "revision": {
-    "id": "K0TRpAz",
-    "created_at": "2022-10-28T16:27:19Z",
-    "updated_at": "2022-11-07T16:54:53Z",
-    "embed_version": "4.11.4",
-    "published_at": "2022-11-07T16:54:53Z",
+    "id": "yzTBnzn",
+    "created_at": "2023-03-14T16:53:04Z",
+    "updated_at": "2023-03-14T16:53:06Z",
+    "embed_version": "4.14.0",
+    "published_at": "2023-03-14T16:53:06Z",
     "fields": [
       {
         "id": 102092,
