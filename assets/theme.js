@@ -1625,7 +1625,7 @@ $(document).ready(function() {
         var $optionText = $this.text();
         var $optionVal = $this.val();
         var $soldOut = this.classList.contains("disabled");
-
+    
         $newOptions += '<li class="new-variant-swatch js-new-variant-swatch' +
           ($currentOption == $optionVal ? ' is-active' : '') +
           ($soldOut ? ' is-soldout' : '') + '" data-yui="' + $soldOut +'" data-val="' + $optionVal + '" data-select="' + $newClass + '">' +
@@ -1679,13 +1679,25 @@ $(document).ready(function() {
         $('[data-single-option-selector]').eq(1).trigger("change");
       //}
 
-      if($('.product-main-image').find("[data-image-variant='" + $val + "']").length) { 
+      const $variantId = getwsgCurrentVariant();
+      const productData = JSON.parse(document.querySelector('[data-prod-json]').innerHTML)
+      const variantData = productData.variants;
+      var mediaId;
+      variantData.forEach((variant) => {
+        if (variant.id == $variantId) {
+          mediaId = variant.featured_media.id;
+        }
+      })
+      if (mediaId) {
+       if($('.product-main-image').find("[data-image-variant='" + mediaId + "']").length) { 
         // Find the slide that corresponds with the selected variant
-        $slide = $('.product-main-image').find("[data-image-variant='" + $val + "']");
+        $slide = $('.product-main-image').find("[data-image-variant='" + mediaId + "']");
+
         // Get the index of that slide
         $slideNum = $slide.attr("data-slick-index");
         // Go to that slide
         $('.product-main-image').slick('slickGoTo', $slideNum ); 
+      } 
       }
 
     });
@@ -1755,9 +1767,31 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
 });
 
-$( document ).ready(function() {
-jQuery( ".new-variant-swatch" ).click(function() {
-window.esc_now_back_in_stock.triggerRefresh();
-console.log('clicked');
-});
-});
+
+function getwsgCurrentVariant() {
+  //extract current from url querystring
+  var url = window.location.href;
+  var begQuery = url.indexOf("?variant=");
+  //if there is no querystring return the originally selected variant
+  if (begQuery > 0) {
+    //set variant id to querystring
+    let variantId = url.substr(begQuery + 9);
+    //check to see if there are any other querystrings and remove them
+    let checkId = variantId.indexOf("?");
+    if (checkId > 0) {
+      //********** NEED TO CHECK IF THIS WORKS ********
+      variantId = variantId.substring(0, checkId);
+    }
+    console.log('variantId' + variantId)
+    return variantId;
+  }
+  console.log('wsgCurrentVariant' + wsgCurrentVariant)
+  return wsgCurrentVariant;
+}
+
+// $( document ).ready(function() {
+// jQuery( ".new-variant-swatch" ).click(function() {
+// window.esc_now_back_in_stock.triggerRefresh();
+// console.log('clicked');
+// });
+// });

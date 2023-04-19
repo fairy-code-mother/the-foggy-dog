@@ -145,7 +145,7 @@
                           {% if media.alt contains 'swatch' %}
                             {% continue %}
                           {% endif %}
-                          <div class="item slick-slide" data-image-variant="{% for variant in media.variants %}{{ variant.title }} {% endfor %}">
+                          <div class="item slick-slide" data-image-variant="{{ media.id }}">
                             <a href="{{ media.src | img_url: '875x875' }}" data-fancybox="gallery" data-product-featured-pop>
 
                               <img height="550" width="550" data-product-featured-image
@@ -162,7 +162,7 @@
                               assign url = "https://player.vimeo.com/video/" | append: media.external_id | append: "?byline=0&amp;controls=1&amp;playsinline=1&amp;title=0"
                             endif
                           %}
-                          <div class="item slick-slide" data-image-variant="{% for variant in media.variants %}{{ variant.title }} {% endfor %}">
+                          <div class="item slick-slide" data-image-variant="{{ media.id }}">
                             <a href="{{ url }}"  data-fancybox="gallery" data-fancybox-type="iframe" data-product-featured-pop class="external-video">
                               <img height="550" width="550" data-product-featured-image
                                   src="{{ media.preview_image | image_url: width: 450, height: 450, crop: 'top', format: 'pjpg', pad_color: 'ffffff'  }}"
@@ -768,3 +768,6 @@
     });
   }); 
 {% endjavascript %}
+<script type="application/json" data-prod-json>
+    {{ product | json }}
+  </script>
