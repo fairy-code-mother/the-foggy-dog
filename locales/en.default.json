@@ -339,6 +339,12 @@
       },
       "contact": {
         "address1_label": "Address (please note dog bed inserts cannot ship to PO Boxes)"
+      },
+      "customer_account": {
+        "have_an_account_label": "Log in to earn or redeem rewards"
+      },
+      "stock": {
+        "items_unavailable_notice": "Doggone it! Some items are no longer available. Your cart has been updated."
       }
     }
   }
