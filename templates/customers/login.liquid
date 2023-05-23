@@ -48,6 +48,22 @@
 
   </div>
 
+  {%- if settings.login_info != blank -%}
+    <div class="wholesale-login-info">
+      <div class="inner-wrapper">
+        {%- if settings.login_header != blank -%}
+          <h3>{{ settings.login_header }}</h3>
+        {%- endif -%}
+        
+        {{ settings.login_info }}
+  
+        {%- if settings.login_url != blank -%}
+          <a class="text-btn" href="{{ settings.login_url }}">{{ 'customer.login.title' | t }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
   <div id="RecoverPasswordForm" class="hide">
     <h2 class="h1">{{ 'customer.recover_password.title' | t }}</h2>
     <p>{{ 'customer.recover_password.subtext' | t }}</p>
@@ -81,10 +97,50 @@
 
   {% if shop.checkout.guest_login %}
     <h2>{{ 'customer.login.guest_title' | t }}</h2>
-
     {% form 'guest_login' %}
       <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
     {% endform %}
   {% endif %}
-
+{%- style -%}
+  .wholesale-login-info {
+    text-align: center;
+    background-color: #f3f7f9;
+    padding: 50px 30px;
+    position: relative;
+  }
+  .wholesale-login-info .inner-wrapper {
+    width: 660px;
+    max-width: 100%;
+    margin: 20px auto 30px auto;
+    text-align: center;
+  }
+  .wholesale-login-info p {
+    font-size: 16px;
+    text-align: center;
+    line-height: 33px;
+    font-family: "BrandonGrotesque", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  @media (min-width: 750px) {
+    .account-pages {
+      display: flex;
+      column-gap: 60px;
+      align-items: center;
+    }
+    #CustomerLoginForm {
+      width: 50%;
+      order: 1;
+    }
+    .wholesale-login-info {
+      width: 50%;
+      order: 2;
+    }
+    #RecoverPasswordForm {
+      width: 40%;
+      order: 1;
+    }
+    .wholesale-login-info p {
+      font-size: 19px;
+    }
+  }
+{%- endstyle -%}
 </div>

@@ -60,6 +60,27 @@
     ]
   },
   {
+    "name": "Wholesale",
+    "settings": [
+      {
+        "type": "text",
+        "id": "login_header",
+        "label": "Login header",
+        "default": "Are you a wholesale customer?"
+      },
+      {
+        "type": "richtext",
+        "id": "login_info",
+        "label": "Login text"
+      },
+      {
+        "type": "url",
+        "id": "login_url",
+        "label": "Login url"
+      }
+    ]
+  },
+  {
     "name": "Social media",
     "settings": [
       {
