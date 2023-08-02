@@ -1,3 +1,13 @@
+<!-- Google Captcha -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LfYKhkmAAAAALg-SgjqzckBYf4Xi5Aub9ylodNM"></script>
+<script>
+grecaptcha.ready(function() {
+    grecaptcha.execute('6LfYKhkmAAAAALg-SgjqzckBYf4Xi5Aub9ylodNM', {action: 'homepage'}).then(function(token) {
+       console.log("token", token)
+    });
+});
+</script>
+<!-- Google Captcha -->
 <div class="account-pages">
   {% form 'create_customer', class: 'create-customer' %}
     <h1>{{ 'customer.register.title' | t }}</h1>

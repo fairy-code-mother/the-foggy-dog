@@ -1,4 +1,3 @@
-
   {% if shop.metafields.pagefly.acceptTracking %}
   {% if shop.metafields.pagefly.measurementId %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -70,13 +69,14 @@
   </script>
   {% endif %}
   <script>
-  // fallback for gtag on undefined
-  if(!window.gtag) {
-    window.gtag = (str1, str2, obj) => {
-
-    }
-  }
-</script>
+    window.addEventListener('load', () => {
+      // fallback for gtag when not initialized
+      if(typeof window.gtag !== 'function') {
+        window.gtag = (str1, str2, obj) => {
+        }
+      }
+    }) 
+  </script>
   
 {% if shop.metafields.pagefly.globalSetting %}{{ shop.metafields.pagefly.globalSetting }}{% endif %}
 {{ 'pagefly-main.css' | asset_url | stylesheet_tag: preload: true }}
