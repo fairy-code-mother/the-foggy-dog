@@ -13,7 +13,7 @@ var boostPFSFilterConfig = {
 general: {
   limit: boostPFSThemeConfig.custom.products_per_page,
   /* Optional */
-  loadProductFirst: true,
+  loadProductFirst: false,
   // Placeholder  
   showPlaceholderProductList: true,
   placeholderProductPerRow: 3,
