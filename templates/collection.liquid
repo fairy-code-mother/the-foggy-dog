@@ -32,6 +32,8 @@
       <div class="grid__item large-up--four-fifths medium--three-quarters">
         <div class="grid--uniform boost-pfs-filter-products">
           {% for product in collection.products %}
+{% if product.handle contains "docapp-free-gift-" %}{% continue %}{% endif %}
+
 
             {% if forloop.index == 9 %}
             {{ collectionFeature }}

@@ -9,6 +9,8 @@
     <div class="grid--uniform">
 
       {% for product in collection.products limit: 4 %}
+{% if product.handle contains "docapp-free-gift-" %}{% continue %}{% endif %}
+
         {% include 'product-grid-item' %}
       {% endfor %}
 

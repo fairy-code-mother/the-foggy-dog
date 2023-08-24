@@ -165,6 +165,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   window.letterpress('trackPageView');
   </script>
 <!-- POSTIE PIXEL -->
+
+<script id="docapp-cart">window.docappCart = {{ cart | json }}; window.docappCart.currency = "{{ 0 | money_with_currency | slice: -3, 3 }}"; window.docappCart.shop_currency = "{{ shop.currency }}";</script>
+<script id="docapp-free-item-speedup">
+(() => { if (!document.documentElement.innerHTML.includes('\\/shop' + '\\/js' + '\\/free-gift-cart-upsell-pro.min.js') || window.freeGiftCartUpsellProAppLoaded) return; let script = document.createElement('script'); script.src = "https://d2fk970j0emtue.cloudfront.net/shop/js/free-gift-cart-upsell-pro.min.js?shop=the-foggy-dog.myshopify.com"; document.getElementById('docapp-free-item-speedup').after(script); })();
+</script>
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}"><div class="pagefly-container">{{ content_for_layout }}</div></body>
