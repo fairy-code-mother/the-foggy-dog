@@ -327,6 +327,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Back in Stock helper snippet -->
 
 {% include 'boost-pfs' %}
+
+{%- if product -%}
+  {%- render 'klaviyo-add-to-cart' -%}
+{%- endif -%}
 </body>
 </html>
 <!-- Begin Shopify-Afterpay JavaScript Snippet (v1.0.1) -->
