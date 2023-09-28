@@ -271,7 +271,11 @@
                       {% if product.price_max != product.price_min %}from {% endif %} {{ WCProductPriceMin | money }}
                       {% endif %}
                     </div>
-
+                    {%- if section.settings.promo_message != blank -%}
+                      <div class="promo-message">
+                      {{ section.settings.promo_message }}
+                      </div>
+                    {%- endif -%}
                     <div class="product-prices" data-price-wrapper>
                       {% if WCProductComparePriceMax > WCProductPrice %}
                         <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
@@ -649,6 +653,13 @@
       </div>
     </div>
   </div>
+  {%- style -%}
+    .promo-message {
+      display: inline-block;
+      margin-left: 13px;
+      color: {{ section.settings.promo_color }};
+    }
+  {%- endstyle -%}
 </div>
 {% schema %}
   {
@@ -664,6 +675,18 @@
         "type": "textarea",
         "id": "bundle_text",
         "label": "Bundle Text"
+      },
+      {
+        "type": "text",
+        "id": "promo_message",
+        "label": "Promo message",
+        "default": "Save 20% with code BARKFRIDAY"
+      },
+      {
+        "type": "color",
+        "id": "promo_color",
+        "label": "Promo message color",
+        "default": "#086a59"
       }
     ],
     "blocks": [
