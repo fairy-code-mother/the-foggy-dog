@@ -1,6 +1,13 @@
 {% if section.settings.image != blank %}
 <div class="contact-image">
-	<img src="{{ section.settings.image | img_url: '629x' }}" srcset="{{ section.settings.image | img_url: '629x' }} 1x, {{ section.settings.image | img_url: '629x', scale: 2 }} 2x" alt="{{ section.settings.image.alt | default: 'Bark at us image' }}"/>
+	<img src="{{ section.settings.image | img_url: '1200x' }}" srcset="{{ section.settings.image | img_url: '1200x' }} 1x, {{ section.settings.image | img_url: '1200x', scale: 2 }} 2x" alt="{{ section.settings.image.alt | default: 'Bark at us image' }}"/>
+  {%- style -%}
+    .contact-image {
+      margin: 0 auto;
+      text-align: center;
+      width: 60vw;
+    }
+  {%- endstyle -%}
 </div>
 {% endif %}
 

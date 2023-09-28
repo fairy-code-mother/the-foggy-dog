@@ -15,33 +15,10 @@
       <p class="chat">We're here to help! Reach out to our team at <a href="mailto:wholesale@thefoggydog.com">wholesale@thefoggydog.com</a> with any questions.</p>
     </div>
     <div class="hp-contact">
-      <div class="wholesale-form">
-        {% render "customer-fields", form_id: "2qt7aq" %}
-      </div>
+     <img src="https://cdn.shopify.com/s/files/1/1392/6117/files/Binny_in_Painted_Peonies_bandana_square_221x221@2x.jpg?v=1613750048" alt="Wholesale form">
     </div>
   </div>
+  <div class="wholesale-form">
+    <script type="text/javascript" src="https://form.jotform.com/jsform/232496707274060"></script>
+  </div>
 </div>
-
-<style>
-.hp-input {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0;
-  width: 0;
-  z-index: -1;
-}
-</style>
-
-<script>
-const Form = document.querySelector('.hp-contact form');
-  const Honeypot = Form.querySelector('.hp-input input');
-  Form.addEventListener('submit', event => {
-    if(Honeypot.value && Honeypot.value !== '') {
-      event.preventDefault();
-      window.history.back();
-      console.log('nope');
-    }
-  });
-</script>
