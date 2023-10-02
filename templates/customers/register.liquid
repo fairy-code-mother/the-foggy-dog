@@ -57,6 +57,7 @@ grecaptcha.ready(function() {
     <div id="accepts_marketing">
       <label class="control control--checkbox">
         {{ 'customer.register.marketing' | t }}
+        <input type="hidden" name="customer[accepts_marketing]" value="false" />
         <input type="checkbox" name="customer[accepts_marketing]" checked="checked" value="true" id="marketing" />
         <div class="control__indicator"></div>
       </label>
