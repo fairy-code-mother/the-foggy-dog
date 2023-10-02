@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0"
+    >
     <meta name="referrer" content="origin">
 
     <title>{{ page_title }}</title>
@@ -13,45 +16,75 @@
     {{ checkout_stylesheets }}
     {{ checkout_scripts }}
 
-<!-- Path 2 Response GTM -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NPKNW5BC');</script>
-  <!-- End Google Tag Manager -->
+    <!-- Path 2 Response GTM -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NPKNW5BC');
+    </script>
+    <!-- End Google Tag Manager -->
 
     <!-- Global site tag (gtag.js) - Google Ads: 852770528 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-852770528"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
-    
+
       gtag('config', 'AW-852770528');
       gtag('config', 'G-X9FSLWK53F');
     </script>
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T95KQLJ');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-T95KQLJ');
+    </script>
     <!-- End Google Tag Manager -->
-    
-  <script>let ppShop='the-foggy-dog.myshopify.com'</script>
-  <script src='https://promopirates.com/cdn/promo-pirates-plus.js'></script>
+
+    <script>
+      let ppShop = 'the-foggy-dog.myshopify.com';
+    </script>
+    <script src="https://promopirates.com/cdn/promo-pirates-plus.js"></script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T95KQLJ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T95KQLJ"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPKNW5BC"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NPKNW5BC"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     {{ skip_to_content_link }}
 
     <header class="banner" data-header role="banner">
@@ -136,21 +169,19 @@
     <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/w6RYdbKD3lpNY9D2y8cJ9A" async></script>
     <!-- Initial CSS to hide the module -->
     <style type="text/css">
-        .yotpo-checkout-hide {
-            display: none;
-        }
+      .yotpo-checkout-hide {
+        display: none;
+      }
     </style>
     <!-- module inside container -->
     <div class="yotpo-refer-popup-container yotpo-checkout-hide">
-    <div class="yotpo-widget-instance" data-yotpo-instance-id="140327"></div>
+      <div class="yotpo-widget-instance" data-yotpo-instance-id="140327"></div>
     </div>
     <!-- JS to handle module initiation -->
     <script type="text/javascript">
-        window.location.href.indexOf("orders") !== -1
-            ? document
-                  .querySelector(".yotpo-checkout-hide")
-                  .classList.remove("yotpo-checkout-hide")
-            : "";
+      window.location.href.indexOf('orders') !== -1
+        ? document.querySelector('.yotpo-checkout-hide').classList.remove('yotpo-checkout-hide')
+        : '';
     </script>
     <!-- LOYALTY CODE END -->
   </body>
