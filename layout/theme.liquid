@@ -44,9 +44,7 @@ window.TriplePixelData={TripleName:"the-foggy-dog.myshopify.com",ver:"1.9"},func
     {% endunless %}
   {% endcapture %}
   <title>{{ seo_title }}</title>
-  <!-- begin Convert Experiences code-->
-  <script type="text/javascript" src="//cdn-4.convertexperiments.com/js/10042725-10043700.js"></script>
-  <!-- end Convert Experiences code -->
+ 
   {% if page_description %}
     <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
@@ -172,6 +170,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   window.letterpress('trackPageView');
   </script>
 <!-- POSTIE PIXEL -->
+
+<!-- AB Testing Code for Convert -->
+{%- if collection and settings.ab_testing_code != blank -%}
+  {%- for col in settings.test_collections -%}
+    {%- if col.handle == collection.handle -%}
+      {{ settings.ab_testing_code }}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+<!-- END AB Testing Code for Convert -->
 
 </head>
 

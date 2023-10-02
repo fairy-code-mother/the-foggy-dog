@@ -1192,5 +1192,22 @@
         "info": "Error message that will be displayed when there's a swear word."
       }
     ]
+  },
+  {
+    "name": "A/B Testing",
+    "settings": [
+      {
+        "type": "liquid",
+        "id": "ab_testing_code",
+        "label": "A/B testing code",
+        "info": "This will place code in <head> of your site."
+      },
+      {
+        "type": "collection_list",
+        "id": "test_collections",
+        "label": "Collections",
+        "limit": 10
+      }
+    ]
   }
 ]
