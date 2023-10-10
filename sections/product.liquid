@@ -79,7 +79,7 @@
 {% assign title_split = product.title | split: "-" %}
 
 {% for collection in product.collections %}
-  {% if collection.handle == 'dog-bandanas' or collection.handle == 'dog-collars' or collection.handle == 'dog-bow-tie-collars' or collection.handle == 'dog-beds' or collection.handle == 'face-mask-and-bandana-sets' or collection.handle == 'dog-harness' or collection.handle == 'walk-sets' or collection.handle == 'wear-sets' or collection.handle == 'scrunchie-and-bandana-set' or collection.handle == 'lady-bow-collar' %}
+  {% if collection.handle == 'dog-bandanas' or collection.handle == 'dog-collars' or collection.handle == 'dog-bow-tie-collars' or collection.handle == 'dog-beds' or collection.handle == 'face-mask-and-bandana-sets' or collection.handle == 'dog-harness' or collection.handle == 'walk-sets' or collection.handle == 'wear-sets' or collection.handle == 'scrunchie-and-bandana-set' or collection.handle == 'lady-bow-collar' or collection.handle == 'dog-jackets' or collection.handle == 'dog-sweaters' %}
     {% assign show_size_guide = true %}
   {% endif %}
 {% endfor %}
