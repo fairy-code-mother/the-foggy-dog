@@ -13,6 +13,12 @@
                 <li><a href="#dog-bandanas">Dog Bandanas</a></li>
             {% endif %}
             {% if section.settings.harn_enable %}
+                <li><a href="#dog-sweaters">Dog Sweaters</a></li>
+            {% endif %}
+            {% if section.settings.harn_enable %}
+                <li><a href="#dog-jackets">Dog Jackets</a></li>
+            {% endif %}
+            {% if section.settings.harn_enable %}
                 <li><a href="#dog-harnesses">Dog Harnesses</a></li>
             {% endif %}
         </ul>
@@ -63,6 +69,20 @@
             "type": "checkbox",
             "id": "band_enable",
             "label": "Show Dog Bandana",
+            "default": true,
+            "info": "enable is diable chart"
+        },
+              {
+            "type": "checkbox",
+            "id": "jac_enable",
+            "label": "Show Dog Jacket",
+            "default": true,
+            "info": "enable is diable chart"
+        },
+              {
+            "type": "checkbox",
+            "id": "swe_enable",
+            "label": "Show Dog Sweater",
             "default": true,
             "info": "enable is diable chart"
         },

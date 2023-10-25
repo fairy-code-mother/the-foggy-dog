@@ -386,6 +386,10 @@ function buildTagLabels(data, showall) {
             var preTagLabel = boostPFSTemplate.tagLabelHtml.replace(/{{labelTag}}/g, "As Seen In Oprah");
             tagLabel += preTagLabel;
             break;
+          } else if (tag.indexOf("goop") !== -1 || tag.indexOf("Goop") !== -1) {
+            var preTagLabel = boostPFSTemplate.tagLabelHtml.replace(/{{labelTag}}/g, "AS SEEN IN GOOP");
+            tagLabel += preTagLabel;
+            break;
           }
         }
       }

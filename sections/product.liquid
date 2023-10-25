@@ -62,6 +62,11 @@
 {% assign oprah = 'As Seen In Oprah' %}
 {% endif %}
 
+{% assign goop = false %}
+{% if product.tags contains 'goop' or product.tags contains 'Goop' %}
+{% assign goop = 'As Seen In Goop' %}
+{% endif %}
+
 {% assign bandana = false %}
 {% if product.type == 'Bandana' %}
 {% assign bandana = 'Buy 3 or more bandanas and save 15%' %}
@@ -240,6 +245,9 @@
                       {% endif %}
                   {% if oprah %}
                     <span class="product-badge">{{ oprah }}</span>
+                  {% endif %}
+                  {% if goop %}
+                    <span class="product-badge">{{ goop }}</span>
                   {% endif %}
                   {% if limited_edition %}
                     <span class="product-badge">{{ limited_edition }}</span>
