@@ -34,86 +34,76 @@
 
 {% assign waitlist = false %}
 {% if product.tags contains 'Waitlist' or product.tags contains 'waitlist' %}
-  {% assign new_product = 'Waitlist' %}
+{% assign new_product = 'Waitlist' %}
 {% endif %}
 
 {% assign new_product = false %}
 {% if product.tags contains 'New' or product.tags contains 'new' %}
-  {% assign new_product = 'New Arrival' %}
+{% assign new_product = 'New Arrival' %}
 {% endif %}
 
 {% assign best_seller = false %}
 {% if product.tags contains 'best-seller' or product.tags contains 'Best Seller' %}
-  {% assign best_seller = 'Best Seller' %}
+{% assign best_seller = 'Best Seller' %}
 {% endif %}
 
 {% assign last_chance = false %}
 {% if product.tags contains 'last-chance' or product.tags contains 'Last Chance' %}
-  {% assign last_chance = 'Last Chance' %}
+{% assign last_chance = 'Last Chance' %}
 {% endif %}
 
 {% assign limited_edition = false %}
 {% if product.tags contains 'limited-edition' or product.tags contains 'Limited Edition' %}
-  {% assign limited_edition = 'Limited Edition' %}
+{% assign limited_edition = 'Limited Edition' %}
 {% endif %}
 
 {% assign oprah = false %}
 {% if product.tags contains 'oprah' or product.tags contains 'Oprah' %}
-  {% assign oprah = 'As Seen In Oprah' %}
+{% assign oprah = 'As Seen In Oprah' %}
 {% endif %}
 
 {% assign goop = false %}
 {% if product.tags contains 'goop' or product.tags contains 'Goop' %}
-  {% assign goop = 'As Seen In Goop' %}
+{% assign goop = 'As Seen In Goop' %}
 {% endif %}
 
 {% assign bandana = false %}
 {% if product.type == 'Bandana' %}
-  {% assign bandana = 'Buy 3 or more bandanas and save 15%' %}
+{% assign bandana = 'Buy 3 or more bandanas and save 15%' %}
 {% endif %}
 
 {% assign pre_order = false %}
 {% for tag in product.tags %}
-  {% if tag contains 'pre-ship' %}
-    {% assign pre_order = 'Pre-Order' %}
+  {% if tag contains "pre-ship" %}
+  {% assign pre_order = 'Pre-Order' %}
   {% endif %}
 {% endfor %}
 
 {% assign sold_out = 'Waitlist' %}
 
-{% assign title_split = product.title | split: '-' %}
+{% assign title_split = product.title | split: "-" %}
 
 {% for collection in product.collections %}
-  {% if collection.handle == 'dog-bandanas'
-    or collection.handle == 'dog-collars'
-    or collection.handle == 'dog-bow-tie-collars'
-    or collection.handle == 'dog-beds'
-    or collection.handle == 'face-mask-and-bandana-sets'
-    or collection.handle == 'dog-harness'
-    or collection.handle == 'walk-sets'
-    or collection.handle == 'wear-sets'
-    or collection.handle == 'scrunchie-and-bandana-set'
-    or collection.handle == 'lady-bow-collar'
-    or collection.handle == 'dog-jackets'
-    or collection.handle == 'dog-sweaters'
-  %}
+  {% if collection.handle == 'dog-bandanas' or collection.handle == 'dog-collars' or collection.handle == 'dog-bow-tie-collars' or collection.handle == 'dog-beds' or collection.handle == 'face-mask-and-bandana-sets' or collection.handle == 'dog-harness' or collection.handle == 'walk-sets' or collection.handle == 'wear-sets' or collection.handle == 'scrunchie-and-bandana-set' or collection.handle == 'lady-bow-collar' or collection.handle == 'dog-jackets' or collection.handle == 'dog-sweaters' %}
     {% assign show_size_guide = true %}
   {% endif %}
 {% endfor %}
 {% assign my_description = product.description | split: '<!-- split -->' %}
+
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign message = ''
   assign date = ''
 
-  if current_variant.metafields.preorder.message != blank
+  if current_variant.metafields.preorder.message != blank 
     assign message = current_variant.metafields.preorder.message
-    assign date = current_variant.metafields.preorder.date | date: '%B %d, %Y'
+    assign date = current_variant.metafields.preorder.date | date: "%B %d, %Y" 
   elsif product.metafields.preorder.preorder_message != blank
     assign message = product.metafields.preorder.preorder_message
-    assign date = product.metafields.preorder.preorder_date | date: '%B %d, %Y'
-  endif
+    assign date = product.metafields.preorder.preorder_date | date: "%B %d, %Y" 
+  endif 
+
 -%}
 
 <script>
@@ -134,15 +124,18 @@
   </div>
 
   <div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
+
     <div class="page-width">
+
       {% if product.variants.size == 1 %}
-        {%- assign current_variant = product.selected_or_first_available_variant -%}
+      {%- assign current_variant = product.selected_or_first_available_variant -%}
       {% else %}
-        {%- assign current_variant = product.selected_variant -%}
+      {%- assign current_variant = product.selected_variant -%}
       {% endif %}
       {%- assign featured_image = current_variant.image | default: product.featured_image -%}
 
       <div class="product-content">
+
         <div class="grid grid-100">
           <div class="grid__item medium-up--five-eighths">
             <div class="product-left">
@@ -150,10 +143,10 @@
                 <div class="grid__item medium-up--five-sixths">
                   <div class="product-main-image">
                     {% comment %}
-                      <div class="zoom">{% include 'icon-search' %}</div>
+                    <div class="zoom">{% include 'icon-search' %}</div>
                     {% endcomment %}
                     {% for media in product.media %}
-                      {% if media.alt == 'Hidden' %}
+                      {% if media.alt == "Hidden" %}
                         {% continue %}
                       {% endif %}
 
@@ -163,49 +156,28 @@
                             {% continue %}
                           {% endif %}
                           <div class="item slick-slide" data-image-variant="{{ media.id }}">
-                            <a
-                              href="{{ media.src | img_url: '875x875' }}"
-                              data-fancybox="gallery"
-                              data-product-featured-pop
-                            >
-                              <img
-                                height="550"
-                                width="550"
-                                data-product-featured-image
-                                src="{{ media.src | img_url: '550x550' }}"
-                                srcset="{{ media.src | img_url: '550x550' }} 1x, {{ media.src | img_url: '550x550', scale: 2 }}, 2x"
-                                alt="{{ media.alt | escape }}"
-                                data-image-id="{{ media.id }}"
-                                style="height: auto"
-                              >
+                            <a href="{{ media.src | img_url: '875x875' }}" data-fancybox="gallery" data-product-featured-pop>
+
+                              <img height="550" width="550" data-product-featured-image
+                                  src="{{ media.src | img_url: '550x550' }}"
+                                  srcset="{{ media.src | img_url: '550x550' }} 1x, {{ media.src | img_url: '550x550', scale: 2 }}, 2x" alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}" style="height: auto">
+
                             </a>
                           </div>
                         {% when 'external_video' %}
                           {% liquid
-                            if media.host == 'youtube'
-                              assign url = 'https://www.youtube.com/embed/' | append: media.external_id | append: '?controls=1&amp;enablejsapi=1&amp;modestbranding=1&amp;playsinline=1&amp;rel=0'
-                            elsif media.host == 'vimeo'
-                              assign url = 'https://player.vimeo.com/video/' | append: media.external_id | append: '?byline=0&amp;controls=1&amp;playsinline=1&amp;title=0'
+                            if media.host == "youtube"
+                              assign url = "https://www.youtube.com/embed/" | append: media.external_id | append: "?controls=1&amp;enablejsapi=1&amp;modestbranding=1&amp;playsinline=1&amp;rel=0"
+                            elsif media.host == "vimeo"
+                              assign url = "https://player.vimeo.com/video/" | append: media.external_id | append: "?byline=0&amp;controls=1&amp;playsinline=1&amp;title=0"
                             endif
                           %}
                           <div class="item slick-slide" data-image-variant="{{ media.id }}">
-                            <a
-                              href="{{ url }}"
-                              data-fancybox="gallery"
-                              data-fancybox-type="iframe"
-                              data-product-featured-pop
-                              class="external-video"
-                            >
-                              <img
-                                height="550"
-                                width="550"
-                                data-product-featured-image
-                                src="{{ media.preview_image | image_url: width: 450, height: 450, crop: 'top', format: 'pjpg', pad_color: 'ffffff'  }}"
+                            <a href="{{ url }}"  data-fancybox="gallery" data-fancybox-type="iframe" data-product-featured-pop class="external-video">
+                              <img height="550" width="550" data-product-featured-image
+                                  src="{{ media.preview_image | image_url: width: 450, height: 450, crop: 'top', format: 'pjpg', pad_color: 'ffffff'  }}"
 
-                                alt="{{ media.alt | escape }}"
-                                data-image-id="{{ media.id }}"
-                                style="height: auto"
-                              >
+                                  alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}" style="height: auto">
                               {% include 'icon-play' %}
                             </a>
                           </div>
@@ -215,45 +187,35 @@
                     {% endfor %}
                   </div>
                 </div>
-                <div class="grid__item medium-up--one-sixth small--hide">
+               <div class="grid__item medium-up--one-sixth small--hide">
                   <div class="thumbs">
-                    <div class="product-thumbs thumbs-slider grid--uniform">
-                      {% for media in product.media %}
-                        {% if media.alt == 'Hidden' %}
-                          {% continue %}
-                        {% endif %}
-
-                        {% case media.media_type %}
-                          {% when 'image' %}
-                            {% if media.alt contains 'swatch' %}
-                              {% continue %}
-                            {% endif %}
-                            <div class="item slick-slide">
-                              <a href="{{ media.src | img_url: '875x875' }}" data-product-single-thumbnail>
-                                <img
-                                  class="lazyload"
-                                  data-src="{{ media.src | img_url: '100x100', crop: 'center' }}"
-                                  alt="{{ media.alt | escape }}"
-                                  data-image-id="{{ media.id }}"
-                                >
-                              </a>
-                            </div>
-                          {% when 'external_video' %}
-                            <div class="item slick-slide">
-                              <a href="{{ media.preview_image | img_url: '875x875' }}" data-product-single-thumbnail>
-                                <img
-                                  class="lazyload"
-                                  data-src="{{ media.preview_image | img_url: '100x100', crop: 'center' }}"
-                                  alt="{{ media.alt | escape }}"
-                                  data-image-id="{{ media.id }}"
-                                >
-                              </a>
-                            </div>
-                          {% else %}
+                      <div class="product-thumbs thumbs-slider grid--uniform">
+                        {% for media in product.media %}
+                          {% if media.alt == "Hidden" %}
                             {% continue %}
-                        {% endcase %}
-                      {% endfor %}
-                    </div>
+                          {% endif %}
+
+                          {% case media.media_type %}
+                            {% when 'image' %}
+                              {% if media.alt contains 'swatch' %}
+                                {% continue %}
+                              {% endif %}
+                              <div class="item slick-slide">
+                                <a href="{{ media.src | img_url: '875x875' }}" data-product-single-thumbnail>
+                                  <img class="lazyload" data-src="{{ media.src | img_url: '100x100', crop: 'center' }}" alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}">
+                                </a>
+                              </div>
+                            {% when 'external_video' %}
+                              <div class="item slick-slide">
+                                <a href="{{ media.preview_image | img_url: '875x875' }}" data-product-single-thumbnail>
+                                  <img class="lazyload" data-src="{{ media.preview_image | img_url: '100x100', crop: 'center' }}" alt="{{ media.alt | escape }}" data-image-id="{{ media.id }}">
+                                </a>
+                              </div>
+                            {% else %}
+                              {% continue %}
+                          {% endcase %}
+                        {% endfor %}
+                      </div>
                   </div>
                 </div>
               </div>
@@ -263,33 +225,34 @@
           <div class="grid__item medium-up--three-eighths">
             <div class="product-right">
               <div class="product-heading">
+
                 <div class="product-badges">
-                  {% unless product.available %}
-                    {% if waitlist %}
-                      <span class="product-badge sold-out-badge">{{ waitlist }}</span>
-                    {% else %}
-                      <span class="product-badge sold-out-badge">{{ sold_out }}</span>
-                    {% endif %}
+                {% unless product.available %}
+                  {% if waitlist %}
+                    <span class="product-badge sold-out-badge">{{ waitlist }}</span>
                   {% else %}
-                    {% if new_product %}
-                      <span class="product-badge">{{ new_product }}</span>
-                    {% endif %}
-                    {% if best_seller %}
-                      <span class="product-badge">{{ best_seller }}</span>
-                    {% endif %}
-                    {% if last_chance %}
-                      <div class="product-badge">{{ last_chance }}</div>
-                    {% endif %}
-                    {% if oprah %}
-                      <span class="product-badge">{{ oprah }}</span>
-                    {% endif %}
-                    {% if goop %}
-                      <span class="product-badge">{{ goop }}</span>
-                    {% endif %}
-                    {% if limited_edition %}
-                      <span class="product-badge">{{ limited_edition }}</span>
-                    {% endif %}
-                  {% endunless %}
+                    <span class="product-badge sold-out-badge">{{ sold_out }}</span>
+                  {% endif %}
+                {% else %}
+                  {% if new_product %}
+                    <span class="product-badge">{{ new_product }}</span>
+                  {% endif %}
+                  {% if best_seller %}
+                    <span class="product-badge">{{ best_seller }}</span>
+                  {% endif %}
+                  {% if last_chance %}
+                    <div class="product-badge">{{ last_chance }}</div>
+                      {% endif %}
+                  {% if oprah %}
+                    <span class="product-badge">{{ oprah }}</span>
+                  {% endif %}
+                  {% if goop %}
+                    <span class="product-badge">{{ goop }}</span>
+                  {% endif %}
+                  {% if limited_edition %}
+                    <span class="product-badge">{{ limited_edition }}</span>
+                  {% endif %}
+                {% endunless %}
                 </div>
                 <h1 class="product-title">
                   {{ product.title }}
@@ -302,59 +265,33 @@
                 {%- endcapture %}
 
                 {% form 'product', product, class: form_classes, data-product-form: '', data-cart-submit: '' %}
-                  <div class="price-container">
+                <div class="price-container">
                     {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
                       {% render 'okendo-reviews-product-rating-summary', product: product %}
-                      <br>
+                      <br />
                     {% endif %}
 
                     <div class="initial-price">
                       {% if WCProductComparePrice > 0 %}
-                        <s data-compare-price>{{ WCProductComparePrice | money }}</s>
-                        <span class="sale-price">
-                          {%- if product.price_max != product.price_min %}from {% endif %}
-                          {{ WCProductPriceMin | money -}}
-                        </span>
+                      <s data-compare-price>{{ WCProductComparePrice | money }}</s>
+                      <span class="sale-price">{% if product.price_max != product.price_min %}from {% endif %} {{ WCProductPriceMin | money }}</span>
                       {% else %}
-                        {% if product.price_max != product.price_min %}from {% endif %}
-                        {{ WCProductPriceMin | money }}
+                      {% if product.price_max != product.price_min %}from {% endif %} {{ WCProductPriceMin | money }}
                       {% endif %}
                     </div>
-                    {%- liquid
-                      assign section_active = false
-                      assign today = false
-                      assign date = 'now' | date: '%s'
-
-                      assign publish_date = section.settings.date_picker | date: '%s'
-                      assign unpublish_date = section.settings.end_date_picker | date: '%s'
-
-                      if date >= publish_date and date <= unpublish_date
-                        assign today = true
-                      endif
-
-                      if section.settings.publish_now
-                        assign section_active = true
-                      elsif today
-                        assign section_active = true
-                      else
-                        assign section_active = false
-                      endif
-                    -%}
-                    {%- if section.settings.promo_message != blank and section_active -%}
+                    {%- if section.settings.promo_message != blank -%}
                       <div class="promo-message">
-                        {{ section.settings.promo_message }}
+                      {{ section.settings.promo_message }}
                       </div>
                     {%- endif -%}
                     <div class="product-prices" data-price-wrapper>
                       {% if WCProductComparePriceMax > WCProductPrice %}
-                        <span class="visually-hidden" data-compare-text>
-                          {{- 'products.product.regular_price' | t -}}
-                        </span>
+                        <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
                         <s data-compare-price>
                           {% if WCVariantCurrentVariantComparePrice > WCVariantCurrentVariantPrice %}
                             {{ WCVariantCurrentVariantComparePrice | money }}
-                          {% endif %} </s
-                        >&nbsp;
+                          {% endif %}
+                        </s>&nbsp;
                         <span class="sale-price" data-product-price>
                           {{ WCVariantCurrentVariantPrice | money }}
                         </span>
@@ -365,24 +302,19 @@
                       {% endif %}
                     </div>
 
-                    <div
-                      class="product-stock"
-                      data-product-stock
-                      {% if product.metafields.sale.final_sale %}
-                        -final-sale
-                      {% endif %}
-                    >
+                    <div class="product-stock" data-product-stock{% if product.metafields.sale.final_sale %}-final-sale{% endif %}>
                       {% if product.metafields.sale.final_sale or current_variant.metafields.sale.final_sale %}
                         Final Sale
                       {% elsif current_variant.inventory_quantity < 4 and current_variant.inventory_quantity > 0 %}
                         Only {{ current_variant.inventory_quantity }} Left!
                       {% endif %}
                     </div>
+
                   </div>
                   <span class="excerpt">
                     {{ product.vendor }}
                   </span>
-                  <hr>
+                  <hr />
 
                   {% unless product.metafields.hide.add_to_cart %}
                     {% assign colored_products = '' %}
@@ -397,9 +329,9 @@
 
                     {% if colored_products.size > 1 %}
                       <div class="color-recommend">
-                        <p style="flex: 0 0 100%">Color: {{ product.title }}</p>
-                        {% assign colored_products = colored_products | sort %}
-                        {% for product_handle in colored_products %}
+                          <p style="flex: 0 0 100%">Color: {{ product.title }}</p>
+                          {% assign colored_products = colored_products | sort %}
+                          {% for product_handle in colored_products %}
                           {% assign product_rel = all_products[product_handle] %}
                           {% assign product_swatch = '' %}
                           {% for image in product_rel.images %}
@@ -408,44 +340,27 @@
                             {% endif %}
                           {% endfor %}
 
-                          <div
-                            {% if product_rel.handle == product.handle %}
-                              class="current-color"
-                            {% endif %}
-                          >
-                            <a
-                              href="{{product_rel.url}}"
+                          <div{% if product_rel.handle == product.handle %} class="current-color"{% endif %}>
+                            <a href="{{product_rel.url}}"{% if product_swatch != blank %} class="custom-swatch"{% endif %}>
                               {% if product_swatch != blank %}
-                                class="custom-swatch"
-                              {% endif %}
-                            >
-                              {% if product_swatch != blank %}
-                                <img
-                                  src="{{ product_swatch | img_url: '120x120', scale: 2 }}"
-                                  alt="{{ product_swatch.alt | escape }}"
-                                >
+                              <img src="{{ product_swatch | img_url: '120x120', scale: 2 }}" alt="{{ product_swatch.alt | escape }}">
                               {% else %}
-                                <img
-                                  src="{{ product_rel.featured_image | img_url: '120x120', scale: 2 }}"
-                                  alt="{{ product_rel.featured_image.alt | escape }}"
-                                >
+                              <img src="{{ product_rel.featured_image | img_url: '120x120', scale: 2 }}" alt="{{ product_rel.featured_image.alt | escape }}">
                               {% endif %}
                             </a>
                           </div>
-                        {% endfor %}
+                          {% endfor %}
                       </div>
                     {% endif %}
 
                     {% unless product.variants.size == 1 %}
                       {% for option in product.options_with_values %}
-                        {% assign option_name = option.name | replace: 'Title', 'Options' %}
+                        {% assign option_name = option.name | replace: "Title", "Options" %}
                         <div class="selector-wrapper js">
                           <div class="size-grid">
-                            <label
-                              class="product-label"
-                              for="SingleOptionSelector-{{ forloop.index0 }}"
-                            >
-                              {{ option_name }}:
+                            <label class="product-label"
+                              for="SingleOptionSelector-{{ forloop.index0 }}">
+                                {{ option_name }}:
                             </label>
                             {% if forloop.index == 1 %}
                               {% if show_size_guide %}
@@ -456,14 +371,8 @@
                               {% endif %}
                             {% endif %}
                             {% if option_name contains 'Fill' %}
-                              <button
-                                data-fancybox
-                                data-touch="false"
-                                data-src="#insert-pop"
-                                style="justify-content: flex-end;"
-                                id="size-chart-btn"
-                              >
-                                <span>Learn More</span>
+                              <button data-fancybox data-touch="false" data-src="#insert-pop" style="justify-content: flex-end;" id="size-chart-btn">
+                                  <span>Learn More</span>
                               </button>
                             {% endif %}
                           </div>
@@ -474,11 +383,10 @@
                             id="SingleOptionSelector-{{ forloop.index0 }}"
                             data-option-name="{{ option.name | handleize }}"
                             data-single-option-selector
-                            data-index="option{{ option.position }}"
-                          >
+                            data-index="option{{ option.position }}">
                             {% for value in option.values %}
-                              {% assign option_available = null %}
-                              {% assign value_handle = value | handleize %}
+                              {% assign option_available = nil %}
+                              {% assign value_handle =  value | handleize %}
                               {% if product.variants[forloop.index0].available %}
                                 {% assign option_available = false %}
                               {% endif %}
@@ -487,26 +395,12 @@
                                   {% assign option_available = true %}
                                 {% endif %}
                               {% endfor %}
-                              <option
-                                data-i="{{option_available}}"
-                                value="{{ value | escape }}"
-                                {% unless option_available %}
-                                  class="disabled"
-                                {% endunless %}
-                              >
-                                {% if product.title contains 'Bow Tie' or product.title contains 'bow tie' %}
+                              <option data-i="{{option_available}}" value="{{ value | escape }}"{% unless option_available %} class="disabled"{% endunless %}>
+                                  {% if product.title contains 'Bow Tie' or product.title contains 'bow tie' %}
                                   {{ value | strip }}
-                                {% else %}
-                                  {{
-                                    value
-                                    | strip
-                                    | replace: 'Extra Small', 'XS'
-                                    | replace: 'Small', 'S'
-                                    | replace: 'Medium', 'M'
-                                    | replace: 'Extra Large', 'XL'
-                                    | replace: 'Large', 'L'
-                                  }}
-                                {% endif %}
+                                  {% else %}
+                                  {{ value | strip | replace: "Extra Small", "XS" | replace: "Small", "S" | replace: "Medium", "M" | replace: "Extra Large", "XL" | replace: "Large", "L" }}
+                                  {% endif %}
                               </option>
                             {% endfor %}
                           </select>
@@ -530,21 +424,18 @@
                     <select name="id" class="no-js" data-product-select>
                       {% for variant in product.variants %}
                         <option
-                          {% unless variant.available %}
-                            disabled="disabled"
-                          {% endunless %}
-                          value="{{ variant.id }}"
-                        >
-                          {{ variant.title | escape }}
-                          {% comment %} ({{ variant.inventory_quantity }}){% endcomment %}
+                          {% unless variant.available %}disabled="disabled"{% endunless %}
+                          value="{{ variant.id }}">
+                            {{ variant.title | escape }}
+                            {% comment %} ({{ variant.inventory_quantity }}){% endcomment %}
                         </option>
                       {% endfor %}
                     </select>
 
                     {% comment %}
-                      {% if bandana %}
-                        <p class="bundle-discount">{{ bandana }}</p>
-                      {% endif %}
+                    {% if bandana %}
+                      <p class="bundle-discount">{{ bandana }}</p>
+                    {% endif %}
                     {% endcomment %}
 
                     <div class="quantity-wrapper">
@@ -557,14 +448,12 @@
 
                       <div class="product-prices product-prices-mobile" data-price-wrapper>
                         {% if WCProductComparePriceMax > WCProductPrice %}
-                          <span class="visually-hidden" data-compare-text>
-                            {{- 'products.product.regular_price' | t -}}
-                          </span>
+                          <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
                           <s data-compare-price>
                             {% if WCVariantCurrentVariantComparePrice > WCVariantCurrentVariantPrice %}
                               {{ WCVariantCurrentVariantComparePrice | money }}
-                            {% endif %} </s
-                          >&nbsp;
+                            {% endif %}
+                          </s>&nbsp;
                           <span class="sale-price" data-product-price>
                             {{ WCVariantCurrentVariantPrice | money }}
                           </span>
@@ -574,110 +463,92 @@
                           </span>
                         {% endif %}
                       </div>
-                      {% unless customer.tags contains 'wholesale' %}
-                        {{ product_customizer }}
-                      {% endunless %}
+                        {% unless customer.tags contains "wholesale" %}
+                          {{ product_customizer }}
+                        {% endunless %}
 
-                      {% if product.variants.size > 1 %}
-                        <button
-                          class="Rise-add-to-cart-button btn add-to-cart"
-                          type="submit"
-                          name="add"
-                          id="adds"
-                          data-add-to-cart
-                        >
-                          <span data-add-to-cart-text> Select An Option </span>
-                        </button>
+                        {% if product.variants.size > 1 %}
+                          <button class="Rise-add-to-cart-button btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
+                            <span data-add-to-cart-text>
+                              Select An Option
+                            </span>
+                          </button>
 
-                        <p class="estimated-date" style="display:none">
-                          {{ message }}
-                          {{ date }}
-                        </p>
-
-                        <div class="preorder__prop">
-                          {% unless message == '' %}
-                            <input
-                              type="hidden"
-                              class="estimated-date-attr"
-                              id="pre-order"
-                              name="properties[Pre Order]"
-                              value="{{ message }} {{ date }}"
-                            >
-                          {% endunless %}
-                        </div>
-                      {% else %}
-                        {% if product.available %}
-                          {% if product.selected_or_first_available_variant.inventory_management == 'shopify' %}
-                            {% if product.selected_or_first_available_variant.inventory_policy == 'continue'
-                              or product.selected_or_first_available_variant.inventory_policy == 'deny'
-                            %}
-                              {% if message == blank or date == blank %}
-                                <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
-                                  <span data-add-to-cart-text> Add to cart </span>
-                                </button>
+                          <p class="estimated-date" style="display:none">{{ message }} {{ date }}</p>
+     
+                          <div class="preorder__prop">
+                            {% unless message == '' %}
+                              <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ message }} {{ date }}' />
+                            {% endunless %}
+                          </div>
+                        {% else %}
+                          {% if product.available %}
+                            {% if product.selected_or_first_available_variant.inventory_management == 'shopify' %}
+                              {% if product.selected_or_first_available_variant.inventory_policy == 'continue' or product.selected_or_first_available_variant.inventory_policy == 'deny' %}
+                                  {% if message == blank or date == blank %}
+                                    <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
+                                      <span data-add-to-cart-text>
+                                        Add to cart
+                                      </span>
+                                    </button>
+                                  {% else %}
+                                      <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
+                                        <span data-add-to-cart-text>
+                                          Pre Order
+                                        </span>
+                                      </button>
+                                      <p class="estimated-date">{{ message }} {{ date }}</p>
+                                      {% if message != blank %}
+                                        <input type="hidden" class="estimated-date-attr" id="pre-order" name="properties[Pre Order]" value='{{ message }} {{ date }}' />
+                                      {% endif %}
+                                  {% endif %}
                               {% else %}
-                                <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
-                                  <span data-add-to-cart-text> Pre Order </span>
-                                </button>
-                                <p class="estimated-date">
-                                  {{ message }}
-                                  {{ date }}
-                                </p>
-                                {% if message != blank %}
-                                  <input
-                                    type="hidden"
-                                    class="estimated-date-attr"
-                                    id="pre-order"
-                                    name="properties[Pre Order]"
-                                    value="{{ message }} {{ date }}"
-                                  >
+                                {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
+                                  <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
+                                    <span data-add-to-cart-text>
+                                      Add to cart
+                                    </span>
+                                  </button>
+                                {% else %}
+                                  <button class="btn add-to-cart" type="submit" name="add" id="add" disabled>
+                                    <span >
+                                      Out of Stock
+                                    </span>
+                                  </button>
                                 {% endif %}
                               {% endif %}
                             {% else %}
-                              {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
-                                <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
-                                  <span data-add-to-cart-text> Add to cart </span>
-                                </button>
-                              {% else %}
-                                <button class="btn add-to-cart" type="submit" name="add" id="add" disabled>
-                                  <span> Out of Stock </span>
-                                </button>
-                              {% endif %}
+                              <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
+                                <span data-add-to-cart-text>
+                                  Add to cart
+                                </span>
+                              </button>
                             {% endif %}
                           {% else %}
-                            <button class="btn add-to-cart" type="submit" name="add" id="adds" data-add-to-cart>
-                              <span data-add-to-cart-text> Add to cart </span>
+                            <button class="btn add-to-cart" type="submit" name="add" id="add" data-add-to-cart disabled>
+                              <span data-add-to-cart-text>
+                                Out of stock
+                              </span>
                             </button>
                           {% endif %}
-                        {% else %}
-                          <button class="btn add-to-cart" type="submit" name="add" id="add" data-add-to-cart disabled>
-                            <span data-add-to-cart-text> Out of stock </span>
-                          </button>
                         {% endif %}
-                      {% endif %}
+
                     </div>
                   {% endunless %}
                   <div style="display:none" class="btn gwbutton">Send as a Gift</div>
-                  <style>
-                    .gwbutton {margin-right: 15px;
-                    margin-bottom: 15px;border: 0; flex-grow: 1; font-size: 12px;
-                    letter-spacing: 2.1px;
-                    font-weight: 700;line-height: 48px;
-                    align-items: center;
-                    text-align: center;
-                    justify-content: center;
-                    background: #1a1919;
-                    color: #fff;
-                                  height: 100%;
-                  </style>
+                <style> .gwbutton {margin-right: 15px;
+    margin-bottom: 15px;border: 0; flex-grow: 1; font-size: 12px;
+    letter-spacing: 2.1px;
+    font-weight: 700;line-height: 48px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background: #1a1919;
+    color: #fff;
+                  height: 100%;</style>
 
-                  <div
-                    class="bis-button"
-                    {% if product.available %}
-                      style="display: none;"
-                    {% endif %}
-                  >
-                    <a class="btn" id="BIS_trigger">notify me when back in stock</a>
+                  <div class="bis-button"{% if product.available %} style="display: none;"{% endif %}>
+                      <a class="btn" id="BIS_trigger">notify me when back in stock</a>
                   </div>
 
                   {% assign bundle_product = '' %}
@@ -685,54 +556,51 @@
                     {% assign bundle_product = product.metafields.upsell.product %}
                     {% assign bundle_text = product.metafields.upsell.text %}
                   {% else %}
-                    {% for tag in product.tags %}
-                      {% if tag contains 'bundled-' %}
-                        {% assign bundle_product = tag | remove: 'bundled-' %}
-                        {% assign bundle_text = section.settings.bundle_text %}
-                      {% endif %}
-                    {% endfor %}
+                      {% for tag in product.tags %}
+                        {% if tag contains 'bundled-' %}
+                          {% assign bundle_product = tag | remove: 'bundled-' %}
+                      {% assign bundle_text = section.settings.bundle_text %}
+                        {% endif %}
+                      {% endfor %}
                   {% endif %}
                   {% if bundle_product != blank %}
-                    <div class="bundled">
+                  <div class="bundled">
                       <a href="{{ all_products[bundle_product].url }}">
-                        <img
-                          class="lazyload"
-                          height="126"
-                          width="126"
-                          data-src="{{ all_products[bundle_product].featured_image | img_url: '126x' }}"
-                          style="height: auto"
-                        >
+                        <img class="lazyload" height="126" width="126" data-src="{{ all_products[bundle_product].featured_image | img_url: '126x' }}" style="height: auto" />
                       </a>
-                      <div>
-                        <p>{{ bundle_text }}</p>
-                        <a href="{{ all_products[bundle_product].url }}">Shop Now</a>
-                      </div>
+                    <div>
+                      <p>{{ bundle_text }}</p>
+                      <a href="{{ all_products[bundle_product].url }}">Shop Now</a>
                     </div>
+                  </div>
                   {% endif %}
                   <p class="shelter-dog">
-                    Every order feeds a shelter dog.
-                    <a data-fancybox data-src="#shelter-pop" id="open-shelter" href="javascript:;">Learn More</a>
+                    Every order feeds a shelter dog. <a data-fancybox data-src="#shelter-pop" id="open-shelter" href="javascript:;">Learn More</a>
                   </p>
 
                   <div class="product-description">
                     <div class="rte">
-                      {{ product.description | remove: '<h6></h6>' }}
+                      {{ product.description | remove: "<h6></h6>" }}
                     </div>
                   </div>
 
                   <div class="product-properties">
+
                     {% if section.settings.show_share_buttons %}
                       <h3>share this product!</h3>
                       {% capture share_title %}{{ product.title }} by {{ shop.name }}{% endcapture %}
                       {% include 'social-sharing', share_permalink: product.url, share_image: product %}
                     {% endif %}
+                    
                   </div>
 
                   {% comment %}
-                    <!-- uncomment for dynamic checkout buttons -->
-                    {{ form | payment_button }}
+                  <!-- uncomment for dynamic checkout buttons -->
+                  {{ form | payment_button }}
                   {% endcomment %}
+
                 {% endform %}
+                
               </div>
             </div>
           </div>
@@ -763,11 +631,11 @@
             {% assign estimatedDate = estimatedDate | append: estimatedDateFlag %}
           {%- elsif product.metafields.preorder.preorder_date != blank -%}
             {% capture now %}{{ 'now' | date: '%s' }}{% endcapture %}
-            {% capture preorderdate %}{{ product.metafields.preorder.preorder_date | date: '%s' }}{% endcapture %}
-            {%- if preorderdate > now -%}
-              {% assign preorderActive = true %}
-            {%- endif -%}
-            {% capture estimatedDateFlag %},"{{ variant.id }}":"{{ product.metafields.preorder.preorder_message }} {{ product.metafields.preorder.preorder_date | date: "%B %d, %Y" }}"{% endcapture %}
+              {% capture preorderdate %}{{ product.metafields.preorder.preorder_date | date: '%s' }}{% endcapture %}
+              {%- if preorderdate > now -%}
+                {% assign preorderActive = true %}
+              {%- endif -%}
+              {% capture estimatedDateFlag %},"{{ variant.id }}":"{{ product.metafields.preorder.preorder_message }} {{ product.metafields.preorder.preorder_date | date: "%B %d, %Y" }}"{% endcapture %}
             {% assign estimatedDate = estimatedDate | append: estimatedDateFlag %}
           {%- endif -%}
 
@@ -798,68 +666,45 @@
       display: inline-block;
       margin-left: 13px;
       font-size: 14px;
-      font-weight: 450;
+      font-weight: 700;
       color: {{ section.settings.promo_color }};
     }
   {%- endstyle -%}
 </div>
 {% schema %}
-{
-  "name": "Product pages",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_share_buttons",
-      "label": "Show social sharing buttons",
-      "default": true
-    },
-    {
-      "type": "textarea",
-      "id": "bundle_text",
-      "label": "Bundle Text"
-    },
-    {
-      "type": "header",
-      "content": "Promo Message"
-    },
-    {
-      "type": "text",
-      "id": "promo_message",
-      "label": "Promo message",
-      "default": "Save 20% with code BARKFRIDAY"
-    },
-    {
-      "type": "color",
-      "id": "promo_color",
-      "label": "Promo message color",
-      "default": "#086a59"
-    },
-    {
-      "type": "checkbox",
-      "id": "publish_now",
-      "label": "Publish now",
-      "default": false,
-      "info": "Publishes the promo message immediately, but must be unpublished manually."
-    },
-    {
-      "type": "text",
-      "id": "date_picker",
-      "label": "Start date/time",
-      "default": "2023-07-03 01:14",
-      "info": "e.g. 2023-07-03 01:14"
-    },
-    {
-      "type": "text",
-      "id": "end_date_picker",
-      "label": "End date/time",
-      "default": "2023-07-05 01:00",
-      "info": "e.g. 2023-07-05 01:00"
-    }
-  ],
-  "blocks": []
-}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "bundle_text",
+        "label": "Bundle Text"
+      },
+      {
+        "type": "text",
+        "id": "promo_message",
+        "label": "Promo message",
+        "default": "Save 20% with code BARKFRIDAY"
+      },
+      {
+        "type": "color",
+        "id": "promo_color",
+        "label": "Promo message color",
+        "default": "#086a59"
+      }
+    ],
+    "blocks": [
+    ]
+  }
 {% endschema %}
 {% javascript %}
+
   $('.thumbs-slider').slick({
     dots: false,
     vertical: true,
@@ -868,28 +713,28 @@
     swipe: false,
     infinite: false,
     responsive: [
-      {
-        breakpoint: 749,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
+        {
+          breakpoint: 749,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          }
         },
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        }
+      ]
   });
 
   $('.product-main-image').slick({
     dots: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: true,
+    infinite: true
   });
 
   if ($('.complete-the-look-container').length > 0) {
@@ -903,20 +748,20 @@
           breakpoint: 1023,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 1,
-          },
+            slidesToScroll: 1
+          }
         },
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 1,
-          },
-        },
-      ],
+            slidesToScroll: 1
+          }
+        }
+      ]
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
       if ($(window).width() < 750) {
         var crossSell = $('.complete-the-look-container').detach();
         crossSell.appendTo('div.product-right');
@@ -924,45 +769,46 @@
     });
   }
 
-  const checkElement = async (selector) => {
-    while (document.querySelector(selector) === null) {
-      await new Promise((resolve) => requestAnimationFrame(resolve));
+  const checkElement = async selector => {
+    while ( document.querySelector(selector) === null) {
+        await new Promise( resolve =>  requestAnimationFrame(resolve) )
     }
     return document.querySelector(selector);
   };
 
-  checkElement('.cross-sell').then((element) => {
+  checkElement('.cross-sell')
+  .then((element) => { 
     $('ul.cross-sell').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
       dots: false,
       responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-          },
-        },
-        {
-          breakpoint: 500,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
     });
-  });
+  }); 
 {% endjavascript %}
 <script type="application/json" data-prod-json>
-  {{ product | json }}
-</script>
+    {{ product | json }}
+  </script>
