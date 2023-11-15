@@ -667,42 +667,66 @@
       display: inline-block;
       margin-left: 13px;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 450;
       color: {{ section.settings.promo_color }};
     }
   {%- endstyle -%}
 </div>
 {% schema %}
-  {
-    "name": "Product pages",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_share_buttons",
-        "label": "Show social sharing buttons",
-        "default": true
-      },
-      {
-        "type": "textarea",
-        "id": "bundle_text",
-        "label": "Bundle Text"
-      },
-      {
-        "type": "text",
-        "id": "promo_message",
-        "label": "Promo message",
-        "default": "Save 20% with code BARKFRIDAY"
-      },
-      {
-        "type": "color",
-        "id": "promo_color",
-        "label": "Promo message color",
-        "default": "#086a59"
-      }
-    ],
-    "blocks": [
-    ]
-  }
+{
+  "name": "Product pages",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show social sharing buttons",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_text",
+      "label": "Bundle Text"
+    },
+    {
+      "type": "header",
+      "content": "Promo Message"
+    },
+    {
+      "type": "text",
+      "id": "promo_message",
+      "label": "Promo message",
+      "default": "Save 20% with code BARKFRIDAY"
+    },
+    {
+      "type": "color",
+      "id": "promo_color",
+      "label": "Promo message color",
+      "default": "#086a59"
+    },
+    {
+      "type": "checkbox",
+      "id": "publish_now",
+      "label": "Publish now",
+      "default": false,
+      "info": "Publishes the promo message immediately, but must be unpublished manually."
+    },
+    {
+      "type": "text",
+      "id": "date_picker",
+      "label": "Start date/time",
+      "default": "2023-07-03 01:14",
+      "info": "e.g. 2023-07-03 01:14 (Format is UTC military time year-month-day hour:minsec)"
+    },
+    {
+      "type": "text",
+      "id": "end_date_picker",
+      "label": "End date/time",
+      "default": "2023-07-05 01:00",
+      "info": "e.g. 2023-07-05 01:00"
+    }
+  ],
+  "blocks": []
+}
 {% endschema %}
 {% javascript %}
 
