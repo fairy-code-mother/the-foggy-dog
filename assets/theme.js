@@ -1286,6 +1286,16 @@ theme.Product = (function() {
         } else {
           $('.bis-button').show();
         }
+        const variantID = variant.id;
+        window.shopifyProduct.variants.forEach(function(variant) {
+          if (variant.id == variantID) {
+            if (variant.disable_back_in_stock === true || variant.bis_hidden === true) {
+              $('.bis-button').hide();
+            } else {
+              $('.bis-button').show();
+            }
+          }
+        });
       }
     },
 
@@ -1684,7 +1694,7 @@ $(document).ready(function() {
       const variantData = productData.variants;
       var mediaId;
       variantData.forEach((variant) => {
-        if (variant.id == $variantId) {
+        if (variant.id == $variantId && variant.featured_media) {
           mediaId = variant.featured_media.id;
         }
       })
