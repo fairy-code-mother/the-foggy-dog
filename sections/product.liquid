@@ -309,26 +309,20 @@
                       {% render 'okendo-reviews-product-rating-summary', product: product %}
                       <br>
                     {% endif %}
-
                     <div class="initial-price">
-                      {% if WCProductComparePrice > 0 %}
+                      {%- if WCProductComparePrice > 0 -%}
                         <s data-compare-price>{{ WCProductComparePrice | money }}</s>
                         <span class="sale-price">
                           {%- if product.price_max != product.price_min %}from {% endif %}
                           {{ WCProductPriceMin | money -}}
                         </span>
-                      {% else %}
+                      {%- else -%}
                         {% if product.price_max != product.price_min %}from {% endif %}
                         {{ WCProductPriceMin | money }}
-                      {% endif %}
+                      {%- endif -%}
                     </div>
-                    {%- if section.settings.promo_message != blank -%}
-                      <div class="promo-message">
-                        {{ section.settings.promo_message }}
-                      </div>
-                    {%- endif -%}
                     <div class="product-prices" data-price-wrapper>
-                      {% if WCProductComparePriceMax > WCProductPrice %}
+                      {%- if WCProductComparePriceMax > WCProductPrice -%}
                         <span class="visually-hidden" data-compare-text>
                           {{- 'products.product.regular_price' | t -}}
                         </span>
@@ -340,13 +334,17 @@
                         <span class="sale-price" data-product-price>
                           {{ WCVariantCurrentVariantPrice | money }}
                         </span>
-                      {% else %}
+                      {%- else -%}
                         <span data-product-price>
                           {{ WCVariantCurrentVariantPrice | money }}
                         </span>
-                      {% endif %}
+                      {%- endif -%}
                     </div>
-
+                    {%- if section.settings.promo_message != blank -%}
+                      <div class="promo-message">
+                        {{ section.settings.promo_message }}
+                      </div>
+                    {%- endif -%}
                     <div
                       class="product-stock"
                       data-product-stock
@@ -776,7 +774,6 @@
   {%- style -%}
     .promo-message {
       display: inline-block;
-      margin-left: 13px;
       font-size: 14px;
       font-weight: 450;
       color: {{ section.settings.promo_color }};
