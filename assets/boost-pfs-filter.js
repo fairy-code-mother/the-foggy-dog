@@ -1172,8 +1172,16 @@ FilterApi.afterCallAsync = function (result, callbackFilterApi) {
   /* start-boost-custom */
 /* #boost-: customize search results */
 FilterApi.beforeCall = function(eventType, eventInfo) {
-if (Utils.isSearchPage()) {
-    Globals.queryParams.q = (Globals.queryParams.q || '').replace(/&#x27;/g, '').replace(/&#x26;/g, '').replace(/&#x2A;/gi, '');
+  
+  // START-Boost-218813 
+  if(Globals.queryParams.pf_st_availability && Globals.queryParams.pf_st_availability[0] == 'true') {
+    Globals.queryParams.variant_available = 'true';
+    Globals.queryParams.product_available = 'true';
+  }
+  // END-Boost-218813 
+    
+  if (Utils.isSearchPage()) {
+      Globals.queryParams.q = (Globals.queryParams.q || '').replace(/&#x27;/g, '').replace(/&#x26;/g, '').replace(/&#x2A;/gi, '');
   }
 }
 
