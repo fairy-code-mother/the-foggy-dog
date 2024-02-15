@@ -340,7 +340,20 @@
                         </span>
                       {%- endif -%}
                     </div>
-                    {%- if section.settings.promo_message != blank -%}
+                    {%- liquid
+                      assign show_promo = false
+                      assign titles = ''
+                      for collection in section.settings.collections
+                        assign titles = titles | append: collection.title | append: ','
+                      endfor
+                      for collection in product.collections
+                        assign just_title = collection.title | append: ','
+                        if titles contains just_title
+                          assign show_promo = true
+                        endif
+                      endfor
+                    -%}
+                    {%- if section.settings.promo_message != blank and show_promo -%}
                       <div class="promo-message">
                         {{ section.settings.promo_message }}
                       </div>
@@ -798,6 +811,11 @@
     {
       "type": "header",
       "content": "Promo Message"
+    },
+    {
+      "type": "collection_list",
+      "id": "collections",
+      "label": "Show on specific collections"
     },
     {
       "type": "text",
