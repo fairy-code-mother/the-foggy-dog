@@ -347,7 +347,8 @@
                         assign titles = titles | append: collection.title | append: ','
                       endfor
                       for collection in product.collections
-                        if titles contains collection.title
+                        assign just_title = collection.title | append: ','
+                        if titles contains just_title
                           assign show_promo = true
                         endif
                       endfor
