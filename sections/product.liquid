@@ -352,8 +352,20 @@
                           assign show_promo = true
                         endif
                       endfor
+
+                      assign today = false
+                      assign date = 'now' | date: '%s'
+
+                      assign publish_date = section.settings.date_picker | date: '%s'
+                      assign unpublish_date = section.settings.end_date_picker | date: '%s'
+                      if date >= publish_date
+                        assign today = true
+                      endif
+                      if date >= unpublish_date
+                        assign today = false
+                      endif
                     -%}
-                    {%- if section.settings.promo_message != blank and show_promo -%}
+                    {%- if section.settings.promo_message != blank and show_promo and today or section.settings.promo_message != blank and show_promo and publish_now -%}
                       <div class="promo-message">
                         {{ section.settings.promo_message }}
                       </div>
@@ -840,15 +852,15 @@
       "type": "text",
       "id": "date_picker",
       "label": "Start date/time",
-      "default": "2023-07-03 01:14",
-      "info": "e.g. 2023-07-03 01:14 (Format is UTC military time year-month-day hour:minsec)"
+      "default": "2024-02-17T21:20:07Z",
+      "info": "e.g. 2024-02-17T21:20:07Z (Format is UTC military time year-month-dayThour:minsecZ)"
     },
     {
       "type": "text",
       "id": "end_date_picker",
       "label": "End date/time",
-      "default": "2023-07-05 01:00",
-      "info": "e.g. 2023-07-05 01:00"
+      "default": "2024-02-17T23:20:07Z",
+      "info": "e.g. 2024-02-17T21:20:07Z (Format is UTC military time year-month-dayThour:minsecZ)"
     }
   ],
   "blocks": []
