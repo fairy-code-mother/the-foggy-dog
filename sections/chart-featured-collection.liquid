@@ -9,6 +9,9 @@
     <div class="grid--uniform">
 
       {% for product in collection.products limit: 4 %}
+{%- comment %}<locksmith:38d9>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:38d9>{% endcomment -%}
 {% if product.handle contains "docapp-free-gift-" %}{% continue %}{% endif %}
 
         {% include 'product-grid-item' %}

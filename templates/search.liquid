@@ -35,6 +35,10 @@
       <div class="grid--uniform search-grid boost-pfs-filter-products">
         {% for item in search.results %}
           
+          {%- comment %}<locksmith:43aa>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:43aa>{% endcomment -%}
+          
           <div class="grid__item grid-product medium-up--one-third small--one-half">
             <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">    
             {% assign featured_image = item.image | default: item.featured_image %}

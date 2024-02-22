@@ -3,21 +3,33 @@
 {% paginate search.results by 48 %}
 {% assign totalresults = 0 | plus: 0 %}
 {% capture results %}
+{%- comment %}<locksmith:45ae>{% endcomment -%}
+  {%- assign locksmith_74d5_forloop__size = 0 %}{% for item in search.results %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_74d5_forloop__size = locksmith_74d5_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_74d5_forloop__index = nil -%}
+{%- comment %}</locksmith:45ae>{% endcomment -%}
 {% for item in search.results %}		
+{%- comment %}<locksmith:28f3>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_74d5_forloop__index == nil %}{% assign locksmith_74d5_forloop__index = 1 %}{% assign locksmith_74d5_forloop__index0 = 0 %}{% else %}{% assign locksmith_74d5_forloop__index = locksmith_74d5_forloop__index | plus: 1 %}{% assign locksmith_74d5_forloop__index0 = locksmith_74d5_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_74d5_forloop__index == 1 %}{% assign locksmith_74d5_forloop__first = true %}{% else %}{% assign locksmith_74d5_forloop__first = false %}{% endif %}{% if locksmith_74d5_forloop__index == locksmith_74d5_forloop__size %}{% assign locksmith_74d5_forloop__last = true %}{% else %}{% assign locksmith_74d5_forloop__last = false %}{% endif %}{% assign locksmith_74d5_forloop__rindex = locksmith_74d5_forloop__size | minus: locksmith_74d5_forloop__index | minus: 1 %}{% assign locksmith_74d5_forloop__rindex0 = locksmith_74d5_forloop__size | minus: locksmith_74d5_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:28f3>{% endcomment -%}		
 {% capture incollections %}
 
+{%- comment %}<locksmith:5ab9>{% endcomment -%}
+  {%- assign locksmith_7c76_forloop__size = 0 %}{% for coll in item.collections %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: coll, subject_parent: item, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_7c76_forloop__size = locksmith_7c76_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_7c76_forloop__index = nil -%}
+{%- comment %}</locksmith:5ab9>{% endcomment -%}
 {% for coll in item.collections %}
+{%- comment %}<locksmith:f0c6>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: coll, subject_parent: item, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_7c76_forloop__index == nil %}{% assign locksmith_7c76_forloop__index = 1 %}{% assign locksmith_7c76_forloop__index0 = 0 %}{% else %}{% assign locksmith_7c76_forloop__index = locksmith_7c76_forloop__index | plus: 1 %}{% assign locksmith_7c76_forloop__index0 = locksmith_7c76_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_7c76_forloop__index == 1 %}{% assign locksmith_7c76_forloop__first = true %}{% else %}{% assign locksmith_7c76_forloop__first = false %}{% endif %}{% if locksmith_7c76_forloop__index == locksmith_7c76_forloop__size %}{% assign locksmith_7c76_forloop__last = true %}{% else %}{% assign locksmith_7c76_forloop__last = false %}{% endif %}{% assign locksmith_7c76_forloop__rindex = locksmith_7c76_forloop__size | minus: locksmith_7c76_forloop__index | minus: 1 %}{% assign locksmith_7c76_forloop__rindex0 = locksmith_7c76_forloop__size | minus: locksmith_7c76_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:f0c6>{% endcomment -%}
 { 
   "id" : {{ coll.id | json }},
   "handle" : {{ coll.handle | json }},
   "title" : {{ coll.title | json }}
 }
-{% unless forloop.last %},{% endunless%}
+{% unless locksmith_7c76_forloop__last %},{% endunless%}
 {% endfor %}
 {% endcapture %}
 
 
-{{ item | json }}{% unless forloop.last %},{% endunless%}
+{{ item | json }}{% unless locksmith_74d5_forloop__last %},{% endunless%}
 
 
 {% capture totalresults %}{{ totalresults | plus:1 }}{% endcapture %}

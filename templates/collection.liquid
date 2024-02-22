@@ -31,11 +31,17 @@
     <div class="grid--rev collection-grid">
       <div class="grid__item large-up--four-fifths medium--three-quarters">
         <div class="grid--uniform boost-pfs-filter-products">
+          {%- comment %}<locksmith:4991>{% endcomment -%}
+            {%- assign locksmith_52cb_forloop__size = 0 %}{% for product in collection.products %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_52cb_forloop__size = locksmith_52cb_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_52cb_forloop__index = nil -%}
+          {%- comment %}</locksmith:4991>{% endcomment -%}
           {% for product in collection.products %}
+{%- comment %}<locksmith:7278>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_52cb_forloop__index == nil %}{% assign locksmith_52cb_forloop__index = 1 %}{% assign locksmith_52cb_forloop__index0 = 0 %}{% else %}{% assign locksmith_52cb_forloop__index = locksmith_52cb_forloop__index | plus: 1 %}{% assign locksmith_52cb_forloop__index0 = locksmith_52cb_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_52cb_forloop__index == 1 %}{% assign locksmith_52cb_forloop__first = true %}{% else %}{% assign locksmith_52cb_forloop__first = false %}{% endif %}{% if locksmith_52cb_forloop__index == locksmith_52cb_forloop__size %}{% assign locksmith_52cb_forloop__last = true %}{% else %}{% assign locksmith_52cb_forloop__last = false %}{% endif %}{% assign locksmith_52cb_forloop__rindex = locksmith_52cb_forloop__size | minus: locksmith_52cb_forloop__index | minus: 1 %}{% assign locksmith_52cb_forloop__rindex0 = locksmith_52cb_forloop__size | minus: locksmith_52cb_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:7278>{% endcomment -%}
 {% if product.handle contains "docapp-free-gift-" %}{% continue %}{% endif %}
 
 
-            {% if forloop.index == 9 %}
+            {% if locksmith_52cb_forloop__index == 9 %}
             {{ collectionFeature }}
             {% endif %}
             {% assign grid_item_width = 'medium-up--one-third small--one-half' %}

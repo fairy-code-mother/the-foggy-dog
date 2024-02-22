@@ -348,5 +348,11 @@
         "items_unavailable_notice": "Doggone it! Some items are no longer available. Your cart has been updated."
       }
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

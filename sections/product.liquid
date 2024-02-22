@@ -86,6 +86,9 @@
 {% assign title_split = product.title | split: '-' %}
 
 {% for collection in product.collections %}
+  {%- comment %}<locksmith:a847>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+  {%- comment %}</locksmith:a847>{% endcomment -%}
   {% if collection.handle == 'dog-bandanas'
     or collection.handle == 'dog-collars'
     or collection.handle == 'dog-bow-tie-collars'
@@ -347,6 +350,19 @@
                         assign titles = titles | append: collection.title | append: ','
                       endfor
                       for collection in product.collections
+                        comment
+                          <locksmith:1b41> Code added automatically by the Locksmith app. Do not modify or remove.
+                        endcomment
+                        capture var
+                          render 'locksmith-variables', scope: 'subject', subject: collection, subject_parent: product, variable: 'transparent'
+                        endcapture
+                        if var == "true"
+                        else
+                          continue
+                        endif
+                        comment
+                          </locksmith:1b41> End Locksmith code block.
+                        endcomment
                         assign just_title = collection.title | append: ','
                         if titles contains just_title
                           assign show_promo = true
@@ -393,6 +409,9 @@
                         <p style="flex: 0 0 100%">Color: {{ product.title }}</p>
                         {% assign colored_products = colored_products | sort %}
                         {% for product_handle in colored_products %}
+                          {%- comment %}<locksmith:68f7>{% endcomment -%}
+                            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product_handle, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                          {%- comment %}</locksmith:68f7>{% endcomment -%}
                           {% assign product_rel = all_products[product_handle] %}
                           {% assign product_swatch = '' %}
                           {% for image in product_rel.images %}
