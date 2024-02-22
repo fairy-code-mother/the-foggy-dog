@@ -648,11 +648,22 @@
                                   height: 100%;
                   </style>
      
+                  {%- liquid
+                    assign show_button = false
+                    if product.has_only_default_variant
+                      if product.available == false
+                        unless product.tags contains 'bis-hidden'
+                          assign show_button = true
+                        endunless
+                      endif
+                    endif
+                  -%}
                   <div
                     class="bis-button"
-                    style="display: none;"
-                  >
-                    <a class="btn" id="BIS_trigger">notify me when back in stock</a>
+                    {% if show_button == false %}
+                      style="display: none;"
+                    {%  endif %}>
+                    <a class="btn" id="BIS_trigger" href="">notify me when back in stock</a>
                   </div>
 
                   {% assign bundle_product = '' %}
