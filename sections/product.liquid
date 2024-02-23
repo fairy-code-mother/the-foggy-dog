@@ -34,9 +34,12 @@
   {% assign on_sale = true %}
 {% endif %}
 
-{% assign waitlist = false %}
+{% assign sold_out = 'Sold Out' %}
+
 {% if product.tags contains 'Waitlist' or product.tags contains 'waitlist' %}
-  {% assign new_product = 'Waitlist' %}
+  {%- unless product.tags contains 'bis-hidden' -%}
+    {% assign sold_out = 'Waitlist' %}
+  {%- endunless -%}
 {% endif %}
 
 {% assign new_product = false %}
@@ -80,8 +83,6 @@
     {% assign pre_order = 'Pre-Order' %}
   {% endif %}
 {% endfor %}
-
-{% assign sold_out = 'Waitlist' %}
 
 {% assign title_split = product.title | split: '-' %}
 
@@ -270,11 +271,7 @@
               <div class="product-heading">
                 <div class="product-badges">
                   {% unless product.available %}
-                    {% if waitlist %}
-                      <span class="product-badge sold-out-badge">{{ waitlist }}</span>
-                    {% else %}
-                      <span class="product-badge sold-out-badge">{{ sold_out }}</span>
-                    {% endif %}
+                    <span class="product-badge sold-out-badge">{{ sold_out }}</span>
                   {% else %}
                     {% if new_product %}
                       <span class="product-badge">{{ new_product }}</span>
@@ -371,7 +368,7 @@
                     -%}
                     {%- if section.settings.promo_message != blank and show_promo -%}
                       <div class="promo-message">
-                        {{ section.settings.promo_message }}
+                        {{ section.settings.promo_message }} 
                       </div>
                     {%- endif -%}
                     <div
@@ -683,11 +680,22 @@
                                   height: 100%;
                   </style>
      
+                  {%- liquid
+                    assign show_button = false
+                    if product.has_only_default_variant
+                      if product.available == false
+                        unless product.tags contains 'bis-hidden'
+                          assign show_button = true
+                        endunless
+                      endif
+                    endif
+                  -%}
                   <div
                     class="bis-button"
-                    style="display: none;"
-                  >
-                    <a class="btn" id="BIS_trigger">notify me when back in stock</a>
+                    {% if show_button == false %}
+                      style="display: none;"
+                    {%  endif %}>
+                    <a class="btn" id="BIS_trigger" href="">notify me when back in stock</a>
                   </div>
 
                   {% assign bundle_product = '' %}
@@ -808,6 +816,7 @@
       display: inline-block;
       font-size: 14px;
       font-weight: 450;
+      margin-right: 6px;
       color: {{ section.settings.promo_color }};
     }
   {%- endstyle -%}
