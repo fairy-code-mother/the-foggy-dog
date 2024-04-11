@@ -2,7 +2,7 @@
   "general": {
     "404": {
       "title": "Doggone It!",
-      "subtext_html": "We can't seem to find that page. But click <a href=\"\/collections\/best-sellers\">here<\/a> to shop best sellers."
+      "subtext_html": "We can't seem to find that page. But click <a href=\"/collections/best-sellers\">here</a> to shop best sellers."
     },
     "accessibility": {
       "skip_to_content": "Skip to content"
@@ -23,7 +23,7 @@
       "signup_form_email_placeholder": "Your email",
       "signup_form_submit": "Submit",
       "signup_form_success": "We will send you an email right before we open!",
-      "admin_link_html": "Are you the store owner? <a href=\"\/admin\">Log in here<\/a>",
+      "admin_link_html": "Are you the store owner? <a href=\"/admin\">Log in here</a>",
       "password_link": "Enter using password",
       "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
     },
@@ -80,7 +80,7 @@
       "checkout": "Check Out",
       "empty": "Your cart is so lonely ... fill it up with beautiful pet products!",
       "cookies_required": "Enable cookies to use the shopping cart",
-      "continue_browsing_html": "Shop best-sellers <a href=\"\/collections\/best-sellers\">here<\/a>.",
+      "continue_browsing_html": "Shop best-sellers <a href=\"/collections/best-sellers\">here</a>.",
       "item_quantity": "Item quantity",
       "savings": "You're saving",
       "free_gift_message": "With orders $50+"
@@ -138,7 +138,7 @@
       "city": "City",
       "country": "Country",
       "province": "Province",
-      "zip": "Postal\/Zip Code",
+      "zip": "Postal/Zip Code",
       "phone": "Phone",
       "set_default": "Set as default address",
       "add": "Add Address",
@@ -347,12 +347,6 @@
       "stock": {
         "items_unavailable_notice": "Doggone it! Some items are no longer available. Your cart has been updated."
       }
-    }
-  },
-  "locksmith": {
-    "forms": {
-      "submit_button_text": "Continue",
-      "loading_text": "One moment..."
     }
   }
 }

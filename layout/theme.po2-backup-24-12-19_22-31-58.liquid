@@ -1,12 +1,7 @@
-{%- comment %}<locksmith:23e9>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:23e9>{% endcomment -%}
-
 <!doctype html>
 <!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
 <head>
-{{ locksmith_initializations }}
 <!-- Start of Shoplift scripts -->
 {% render 'shoplift' %}
 <!-- End of Shoplift scripts -->
@@ -44,10 +39,7 @@ window.TriplePixelData={TripleName:"the-foggy-dog.myshopify.com",ver:"2.12",plat
   <title>{{ seo_title }}</title>
 
   {% if page_description %}
-    {%- comment %}<locksmith:04d5>{% endcomment -%}
-      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-    {%- comment %}</locksmith:04d5>{% endcomment -%}
+    <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
 
   {% include 'social-meta-tags' %}

@@ -153,9 +153,6 @@
                   {%- assign common_filter_tags_text = nil -%}
                   {%- assign additional_filter_tags = collections[cleared_tag].all_tags -%}
                   {%- for common_tag in common_filter_tags -%}
-                  {%- comment %}<locksmith:deb9>{% endcomment -%}
-                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: common_tag, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                  {%- comment %}</locksmith:deb9>{% endcomment -%}
                   {%- if additional_filter_tags contains common_tag -%}
                   {%- assign common_filter_tags_text = common_filter_tags_text | append: '|' | append: common_tag -%}
                   {%- endif -%}

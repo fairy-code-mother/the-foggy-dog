@@ -8,9 +8,6 @@
 
 <div class="grid--uniform">
 {% for collection in collections %}
-  {%- comment %}<locksmith:c401>{% endcomment -%}
-    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-  {%- comment %}</locksmith:c401>{% endcomment -%}
   {% unless collection.handle == 'frontpage' %}
   <div class="grid-product grid__item medium-up--one-quarter small--one-half">
     <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: title }}">
